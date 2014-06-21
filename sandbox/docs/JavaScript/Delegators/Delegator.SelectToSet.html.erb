@@ -1,0 +1,49 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>SelectToSet <small>Behavior.SelectToSet.js</small></h1>
+  </div>
+
+  <%= render partial: 'flat_ui_required' %>
+
+  <p>Sets the value of a target input to the selected value in a select list.</p>
+
+  <h3>Examples</h3>
+  <%= render layout: "codeblock" do %>
+<p>
+  <select data-trigger="selectToSet" data-selecttoset-options="
+    'target': '!div input'
+  ">
+    <option>first</option>
+    <option>second</option>
+    <option>third</option>
+  </select>
+</p>
+<div class="form-group">
+  <input type="text" name="html" value="" placeholder="..." class="form-control input-hg">
+</div>
+  <% end %>
+
+
+  <h2>Behavior Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>target</td>
+          <td>string</td>
+          <td>~</td>
+          <td>Selector to find the input to update.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

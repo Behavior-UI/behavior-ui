@@ -1,0 +1,63 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>BS.Carousel <small>Behavior.BS.Carousel.js</small></h1>
+  </div>
+  <p>This is the Bootstrap specific carousel with animations. It's basically the same as
+    <%= link_to "Behavior.Slides", sandbox_dir_file_path(section: 'JavaScript', dir: "Accordions, Carousels, and Tabs", file: "Behavior.Slides") %>
+    with a slightly different configuration and some extra logic to add the <code>left</code>, <code>right</code>,
+    <code>prev</code>, and <code>next</code> at the appropriate times such that it animates with those classes.
+  </p>
+
+  <div class="bs-callout bs-callout-info">
+    <h4>Less Component Required</h4>
+    <p>
+       Be sure to include Bootstrap's <code>carousel.less</code> in your build. Optionally, include the FlatUI version.
+    </p>
+  </div>
+
+
+  <h3>Example</h3>
+
+  <%= render layout: "codeblock" do %>
+<div id="myCarousel" class="carousel slide" data-behavior="BS.Carousel">
+	<!-- Indicators -->
+  <ol class="carousel-indicators">
+    <!-- can use #id references or not; uses index of the element otherwise -->
+    <li href="#item1"></li>
+    <li href="#item2"></li>
+    <li href="#item3"></li>
+  </ol>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active" id="item1">
+      <%= image_tag "flat-ui-assets/carousel/image-01.jpg"%>
+      <div class="carousel-caption">
+        <h3>Thumbnail label</h3>
+        <p>Slide number 1.</p>
+      </div>
+    </div>
+    <div class="item" id="item2">
+      <%= image_tag "flat-ui-assets/carousel/image-02.jpg"%>
+      <div class="carousel-caption">
+        <h3>Thumbnail label</h3>
+        <p>Slide number 2.</p>
+      </div>
+    </div>
+    <div class="item" id="item3">
+      <%= image_tag "flat-ui-assets/carousel/image-03.jpg"%>
+      <div class="carousel-caption">
+        <h3>Thumbnail label</h3>
+        <p>Slide number 3.</p>
+      </div>
+    </div>
+  </div>
+  <!-- Controls -->
+  <a class="left carousel-control fui-arrow-left"></a>
+  <a class="right carousel-control fui-arrow-right"></a>
+</div>
+  <% end %>
+
+  <h3>Usage</h3>
+  <p>The usage here is identical to <%= link_to "Behavior.Slides", sandbox_dir_file_path(section: 'JavaScript', dir: "Accordions, Carousels, and Tabs", file: "Behavior.Slides") %>.
+    See that page for documentation.</p>
+</div>

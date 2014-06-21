@@ -1,0 +1,531 @@
+/*
+
+http://msdn.microsoft.com/en-us/library/ie/hh771902(v=vs.85).aspx
+
+-ms-autohiding-scrollbar
+Indicates the element displays auto-hiding scrollbars during mouse interactions and panning indicators during touch and keyboard interactions.
+Auto-hiding scrollbars overlay content, and therefore do not require extra layout space.
+
+BOOYA.
+
+*/
+
+* {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+/*
+  we've added more columns, so we have to redefine what their widths are, and
+  the new columns need to get the float: left to match the existing columns
+*/
+.col-xs-1-5,
+.col-xs-50,
+.col-xs-12,
+.col-xs-13,
+.col-xs-14 {
+  float: left;
+}
+.col-xs-1 {
+  width: 6.66666666666667%;
+}
+
+.col-xs-1-5 {
+  width: (6.66666666666667% * 1.5);
+}
+
+.col-xs-2 {
+  width: 13.3333333333333%;
+}
+
+.col-xs-3 {
+  width: 20%;
+}
+
+.col-xs-4 {
+  width: 26.6666666666667%;
+}
+
+.col-xs-5 {
+  width: 33.3333333333333%;
+}
+
+.col-xs-6 {
+  width: 40%;
+}
+
+.col-xs-7 {
+  width: 46.6666666666667%;
+}
+
+.col-xs-50 {
+  width: 50%;
+}
+
+.col-xs-8 {
+  width: 53.3333333333334%;
+}
+
+.col-xs-9 {
+  width: 60%;
+}
+
+.col-xs-10 {
+  width: 66.6666666666667%;
+}
+
+.col-xs-11 {
+  width: 73.3333333333334%;
+}
+
+.col-xs-12 {
+  width: 80%;
+}
+
+.col-xs-13 {
+  width: 86.6666666666667%;
+}
+
+.col-xs-14 {
+  width: 93.3333333333334%;
+}
+
+.col-xs-15 {
+  width: 100%;
+}
+[class*="col-xs-"] {
+  &.no-float {
+    float: none;
+  }
+}
+
+
+// Common styles for small and large grid columns
+.col-xs-50,
+.col-sm-50
+.col-xs-13,
+.col-xs-14,
+.col-xs-15,
+.col-sm-13,
+.col-sm-14,
+.col-sm-15,
+.col-md-13,
+.col-md-14,
+.col-md-15,
+.col-lg-13,
+.col-lg-14,
+.col-lg-15 {
+  position: relative;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Inner gutter via padding
+  padding-left:  (@grid-gutter-width / 2);
+  padding-right: (@grid-gutter-width / 2);
+}
+
+// Small grid
+//
+// Columns, offsets, pushes, and pulls for the small device range, from phones
+// to tablets.
+//
+// Note that `.col-sm-15` doesn't get floated on purpose—there's no need since
+// it's full-width.
+
+@media (min-width: @screen-tablet) {
+  .col-sm-50,
+  .col-sm-12,
+  .col-sm-13,
+  .col-sm-14, {
+    float: left;
+  }
+  .col-sm-50 { width: 50%;}
+  .col-sm-12 { width: percentage((12/ @grid-columns)); }
+  .col-sm-13 { width: percentage((13/ @grid-columns)); }
+  .col-sm-14 { width: percentage((14/ @grid-columns)); }
+  .col-sm-15 { width: 100%; }
+
+  // Push and pull columns for source order changes
+  .col-sm-push-12 { left: percentage((12/ @grid-columns)); }
+  .col-sm-push-13 { left: percentage((13/ @grid-columns)); }
+  .col-sm-push-14 { left: percentage((14/ @grid-columns)); }
+
+  .col-sm-push-12 { right: percentage((12/ @grid-columns)); }
+  .col-sm-push-13 { right: percentage((13/ @grid-columns)); }
+  .col-sm-push-14 { right: percentage((14/ @grid-columns)); }
+
+
+  // Offsets
+  .col-sm-offset-12 { margin-left: percentage((12/ @grid-columns)); }
+  .col-sm-offset-13 { margin-left: percentage((13/ @grid-columns)); }
+  .col-sm-offset-14 { margin-left: percentage((14/ @grid-columns)); }
+}
+
+[class*="col-sm-"] {
+  &.no-float {
+    float: none;
+  }
+}
+
+
+// Medium grid
+//
+// Columns, offsets, pushes, and pulls for the desktop device range.
+//
+// Note that `.col-md-15` doesn't get floated on purpose—there's no need since
+// it's full-width.
+
+@media (min-width: @screen-desktop) {
+  .container {
+    max-width: @container-desktop;
+  }
+  .col-md-50,
+  .col-md-12,
+  .col-md-13,
+  .col-md-14 {
+    float: left;
+  }
+  .col-md-50 { width: 50%; }
+  .col-md-12 { width: percentage((12/ @grid-columns)); }
+  .col-md-13 { width: percentage((13/ @grid-columns)); }
+  .col-md-14 { width: percentage((14/ @grid-columns)); }
+  .col-md-15 { width: 100%; }
+
+  // Push and pull columns for source order changes
+  .col-md-push-12 { left: percentage((12/ @grid-columns)); }
+  .col-md-push-13 { left: percentage((13/ @grid-columns)); }
+  .col-md-push-14 { left: percentage((14/ @grid-columns)); }
+
+  .col-md-pull-12 { right: percentage((12/ @grid-columns)); }
+  .col-md-pull-13 { right: percentage((13/ @grid-columns)); }
+  .col-md-pull-14 { right: percentage((14/ @grid-columns)); }
+
+  // Offsets
+  .col-md-offset-12 { margin-left: percentage((12/ @grid-columns)); }
+  .col-md-offset-13 { margin-left: percentage((13/ @grid-columns)); }
+  .col-md-offset-14 { margin-left: percentage((14/ @grid-columns)); }
+}
+
+
+// Large grid
+//
+// Columns, offsets, pushes, and pulls for the large desktop device range.
+//
+// Note that `.col-lg-12` doesn't get floated on purpose—there's no need since
+// it's full-width.
+
+@media (min-width: @screen-lg-desktop) {
+  .container {
+    max-width: @container-large-desktop;
+    width: 100%;
+  }
+  .col-lg-50,
+  .col-lg-12,
+  .col-lg-13,
+  .col-lg-14 {
+    float: left;
+  }
+  .col-lg-50 { width: 50%; }
+  .col-lg-12 { width: percentage((12/ @grid-columns)); }
+  .col-lg-13 { width: percentage((13/ @grid-columns)); }
+  .col-lg-14 { width: percentage((14/ @grid-columns)); }
+  .col-lg-15 { width: 100%; }
+
+  // Push and pull columns for source order changes
+  .col-lg-push-12 { left: percentage((12/ @grid-columns)); }
+  .col-lg-push-13 { left: percentage((13/ @grid-columns)); }
+  .col-lg-push-14 { left: percentage((14/ @grid-columns)); }
+
+  .col-lg-pull-12 { right: percentage((12/ @grid-columns)); }
+  .col-lg-pull-13 { right: percentage((13/ @grid-columns)); }
+  .col-lg-pull-14 { right: percentage((14/ @grid-columns)); }
+
+  // Offsets
+  .col-lg-offset-12 { margin-left: percentage((12/ @grid-columns)); }
+  .col-lg-offset-13 { margin-left: percentage((13/ @grid-columns)); }
+  .col-lg-offset-14 { margin-left: percentage((14/ @grid-columns)); }
+}
+
+
+.container-100 {
+  max-width: 100%;
+}
+
+
+/*
+  let's define some fixed width divs...
+*/
+.span-half,
+.span1,
+.span2,
+.span3,
+.span7,
+.span9,
+.span12 {
+  float: left;
+}
+[class*=span] {
+  &.no-float {
+    float: none;
+  }
+}
+.span-half {
+  width: @size1/2;
+}
+.span-two-thirds {
+  width: (@size1/3) * 2;
+}
+.span1 {
+  width: @size1;
+}
+.span-1-and-half {
+  width: 1.5*@size1;
+}
+.span2 {
+  width: 2*@size1;
+}
+.span3 {
+  width: @size3;
+}
+.span3-minus-large-padding {
+  width: @size3 - @large-padding;
+}
+.span4 {
+  width: 4*@size1;
+}
+.span5 {
+  width: 5*@size1;
+}
+.span6 {
+  width: 6*@size1;
+}
+.span7 {
+  width: 7*@size1;
+}
+.span9 {
+  width: 3*@size3;
+}
+.span12 {
+  width: 4*@size3;
+}
+.tile3 {
+  .size(33.33333%, @size3);
+}
+.width-1-col {
+  width: @size1;
+}
+.width-2-col {
+  width: 2*@size1;
+}
+.width-3-col {
+  width: @size3;
+}
+.width-4-col {
+  width: 4*@size1;
+}
+.width-5-col {
+  width: 5*@size1;
+}
+.width-6-col {
+  width: 2*@size3;
+}
+.width-7-col {
+  width: 7*@size1;
+}
+.width-8-col {
+  width: 8*@size1;
+}
+.width-9-col {
+  width: 3*@size3;
+}
+.height-1-col {
+  height: @size1;
+}
+.height-2-col {
+  height: 2*@size1;
+}
+.height-3-col {
+  height: @size3;
+}
+.height-6-col {
+  height: 2*@size3;
+}
+.min-height-2-col {
+  min-height: 2*@size1;
+}
+.min-height-3-col {
+  min-height: @size3;
+}
+.min-height-6-col {
+  min-height: 2*@size3;
+}
+
+.force-span1 {
+  width: @size1 !important;
+}
+.force-span-1-and-half {
+  width: 1.5*@size1 !important;
+}
+.force-span2 {
+  width: 2*@size1 !important;
+}
+.max-width-1,
+.max-width-1-5,
+.max-width-2,
+.max-width-3,
+.max-width-4,
+.max-width-5,
+.max-width-6,
+.max-width-7,
+.max-width-8,
+.max-width-9,
+.max-width-10,
+.max-width-11,
+.max-width-12,
+.max-width-13,
+.max-width-14 {
+  max-width: 90%;
+  &.small-size {
+    max-width: 60%;
+  }
+}
+.max-width-1 {
+  @media (min-width: @screen-desktop) {
+    &, &.small-size {
+      max-width: 6.66666666666667%;
+    }
+  }
+}
+
+.max-width-1-5 {
+  @media (min-width: @screen-desktop) {
+    &, &.small-size {
+      max-width: (6.66666666666667% * 1.5);
+    }
+  }
+}
+
+.max-width-2 {
+  @media (min-width: @screen-desktop) {
+    &, &.small-size {
+      max-width: 13.3333333333333%;
+    }
+  }
+}
+
+.max-width-3 {
+  @media (min-width: @screen-desktop) {
+    &, &.small-size {
+      max-width: 20%;
+    }
+  }
+}
+
+.max-width-4 {
+  @media (min-width: @screen-desktop) {
+    &, &.small-size {
+      max-width: 26.6666666666667%;
+    }
+  }
+}
+
+.max-width-5 {
+  @media (min-width: @screen-desktop) {
+    &, &.small-size {
+      max-width: 33.3333333333333%;
+    }
+  }
+}
+
+.max-width-6 {
+  @media (min-width: @screen-desktop) {
+    &, &.small-size {
+      max-width: 40%;
+    }
+  }
+}
+
+.max-width-7 {
+  @media (min-width: @screen-desktop) {
+    &, &.small-size {
+      max-width: 46.6666666666667%;
+    }
+  }
+}
+
+.max-width-8 {
+  @media (min-width: @screen-desktop) {
+    &, &.small-size {
+      max-width: 53.3333333333334%;
+    }
+  }
+}
+
+.max-width-9 {
+  @media (min-width: @screen-desktop) {
+    &, &.small-size {
+      max-width: 60%;
+    }
+  }
+}
+
+.max-width-10 {
+  @media (min-width: @screen-desktop) {
+    &, &.small-size {
+      max-width: 66.6666666666667%;
+    }
+  }
+}
+
+.max-width-11 {
+  @media (min-width: @screen-desktop) {
+    &, &.small-size {
+      max-width: 73.3333333333334%;
+    }
+  }
+}
+
+.max-width-12 {
+  @media (min-width: @screen-desktop) {
+    &, &.small-size {
+      max-width: 80%;
+    }
+  }
+}
+
+.max-width-13 {
+  @media (min-width: @screen-desktop) {
+    &, &.small-size {
+      max-width: 86.6666666666667%;
+    }
+  }
+}
+
+.max-width-14 {
+  @media (min-width: @screen-desktop) {
+    &, &.small-size {
+      max-width: 93.3333333333334%;
+    }
+  }
+}
+
+.max-width-15 {
+  max-width: 100%;
+}
+
+
+
+.min-width-xs {
+  min-width: @screen-xs;
+}
+.min-width-sm {
+  min-width: @screen-sm;
+}
+.min-width-md {
+  min-width: @screen-md;
+}
+.min-width-lg {
+  min-width: @screen-lg;
+}
+
+.full-min-width {
+  min-width: 100%;
+}

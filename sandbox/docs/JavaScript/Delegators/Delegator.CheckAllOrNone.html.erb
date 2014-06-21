@@ -1,0 +1,67 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>CheckAllOrNone <small>Delegator.CheckAllOrNone.js</small></h1>
+  </div>
+  <p>Allows you to check or uncheck a group of checkboxes en-masse.</p>
+
+  <%= render layout: "codeblock" do %>
+<p>
+	<a class="btn" data-trigger="checkAll" data-checkall-targets ="!body .chex input">checkAll</a>
+	<a class="btn" data-trigger="checkNone" data-checknone-targets="!body .chex input">checkNone</a>
+</p>
+<p class="chex">
+	<input type="checkbox"/> one<br/>
+	<input type="checkbox"/> two<br/>
+	<input type="checkbox"/> three<br/>
+	<input type="checkbox"/> four<br/>
+	<input type="checkbox"/> five<br/>
+</p>
+	<% end %>
+</div>
+
+  <h2>checkToggleAll</h2>
+  <p>checkToggleAll allows you to use another checkbox to toggle all, and has additional options:</p>
+  <dl>
+    <dt>classTarget</dt>
+    <dd>a selector relative to the targets to apply <b>class</b> to.</dd>
+
+    <dt>class</dt>
+    <dd>a class name to apply to <b>classTarget</b></dd>
+  </dl>
+  <%= render layout: "codeblock" do %>
+<div class="chexAll">
+  <label>
+    <input type="checkbox" data-trigger="checkToggleAll" data-checktoggleall-options= "
+      'targets': '!div.chexAll input',
+      'classTarget': '!label',
+      'class': 'red'
+    " />
+    all or none
+  </label><br/>
+  <label>
+    <input type="checkbox"/>
+    Here's a label
+  </label><br/>
+  <label>
+    <input type="checkbox"/>
+    Here's a label
+  </label><br/>
+  <label>
+    <input type="checkbox"/>
+    Here's a label
+  </label><br/>
+  <label>
+    <input type="checkbox"/>
+    Here's a label
+  </label><br/>
+  <label>
+    <input type="checkbox"/>
+    Here's a label
+  </label><br/>
+</div>
+  <% end %>
+
+
+	<%= render partial: "md_docs", locals: {
+	  docs: ["js/Docs/Delegators/Delegator.CheckAllOrNone.md"]
+	} %>

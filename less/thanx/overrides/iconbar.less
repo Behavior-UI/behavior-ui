@@ -1,0 +1,24 @@
+.iconbar {
+	background-color: @blue-chrome;
+	border-radius: 0px;
+	li.active {
+		background-color: @midnight-blue;
+		color: white;
+	}
+	li.iconbar-header {
+		img {
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+	}
+	li.iconbar-header.dark {
+		background-color: @blue-steel;
+	}
+}
+.iconbar > ul > li > a {
+	padding: @primary-padding 30px;
+	color: @peter-river;
+	&:hover {
+		background-color: @midnight-blue;
+	}
+}

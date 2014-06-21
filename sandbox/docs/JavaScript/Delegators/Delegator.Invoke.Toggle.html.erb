@@ -1,0 +1,88 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>Invoke.Toggle <small>Behavior.Invoke.Toggle.js</small></h1>
+  </div>
+  <p>A generic handler for allowing for the selection of items in a list.</p>
+
+  <p><label class="label label-primary">See also</label> <%= link_to "Delegator.Invoke", sandbox_dir_file_path(section: 'JavaScript', dir: "Delegators", file: "Delegator.Invoke.Toggle") %></p>
+
+
+
+  <h3>Examples</h3>
+  <p>The example below shows how to change the text of an element invoking set('html', 'TEXT')
+    after interacted with, toggling the element text. In general terms, after interacting with the element,
+    it would toggle between the 'on' and 'off' methods specified.</p>
+  <p>Used for example with the delegator <code>toggleClass</code> when you want to hide/show element.</p>
+
+
+  <%= render layout: "codeblock" do %>
+    <div class="example">
+      <a data-trigger="invoke.toggle"
+        data-invoke-toggle-options="
+          'target': 'self',
+          'condition':{
+            'method': 'get',
+            'args': ['html'],
+            'value': 'On State'
+          },
+          'on': {
+            'method': 'set',
+            'args': ['html', 'On State']
+          },
+          'off': {
+            'method': 'set',
+            'args': ['html', 'Off State']
+          }
+        "
+      >Off State</a>
+    </div>
+  <% end %>
+
+
+  <h2>Behavior Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>target</td>
+          <td>string</td>
+          <td><code>'self'</code></td>
+          <td>
+            Selector to find the element to invoke the toggle on.
+          </td>
+        </tr>
+        <tr>
+          <td>condition</td>
+          <td>Object</td>
+          <td>~</td>
+          <td>
+            An object with <code>'method'</code>, <code>'args'</code> and <code>'value'</code> to check if the element to toggle is in the specified state.
+            It would call the method <code>'off'</code> if the condition is true, and the method <code>'on'</code> otherwise.
+            otherwise
+          </td>
+        </tr>
+        <tr>
+          <td>on</td>
+          <td>Object</td>
+          <td>~</td>
+          <td>An object with <code>'method'</code> and <code>'args'</code> that will get called when toggling to the <code>'on'</code> state.</td>
+        </tr>
+        <tr>
+          <td>off</td>
+          <td>Object</td>
+          <td>~</td>
+          <td>An object with <code>'method'</code> and <code>'args'</code> that will get called when toggling to the <code>'off'</code> state.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

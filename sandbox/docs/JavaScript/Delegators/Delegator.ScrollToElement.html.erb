@@ -1,0 +1,107 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>ScrollToElement <small>Behavior.ScrollToElement.js</small></h1>
+  </div>
+  <p>Scrolls an element (or the window) to an element. Can scroll the element to the top, center, or bottom.</p>
+
+  <h3>Examples</h3>
+  <%= render layout: "codeblock" do %>
+
+  <p>
+    <a href="#first" class="btn" data-trigger="scrollToElement" data-scrolltoelement-options="
+      'target': '!div ul'
+    ">Scroll to the top element</a>
+
+    <a href="#middle" class="btn" data-trigger="scrollToElement" data-scrolltoelement-options="
+      'target': '!div ul',
+      'scrollMethod': 'toElementCenter'
+    ">Scroll to the middle element</a>
+
+    <a href="#last" class="btn" data-trigger="scrollToElement" data-scrolltoelement-options="
+      'target': '!div ul'
+    ">Scroll to the bottom element</a>
+  </p>
+
+  <ul class="nav nav-list nav-list-vivid" style="height: 120px; overflow: auto">
+    <li class="nav-header">Europe</li>
+    <li class="active" id="first"><a>The top element</a></li>
+    <li><a>blarg</a></li>
+    <li><a>blarg</a></li>
+    <li><a>blarg</a></li>
+    <li><a>blarg</a></li>
+    <li><a>blarg</a></li>
+    <li><a>blarg</a></li>
+    <li><a>blarg</a></li>
+    <li><a>blarg</a></li>
+    <li><a>blarg</a></li>
+    <li><a>blarg</a></li>
+    <li class="active" id="middle"><a>The middle element (to the center)</a></li>
+    <li><a>blarg</a></li>
+    <li><a>blarg</a></li>
+    <li><a>blarg</a></li>
+    <li><a>blarg</a></li>
+    <li><a>blarg</a></li>
+    <li><a>blarg</a></li>
+    <li><a>blarg</a></li>
+    <li><a>blarg</a></li>
+    <li><a>blarg</a></li>
+    <li><a>blarg</a></li>
+    <li class="active" id="last"><a>The last element</a></li>
+  </ul>
+
+  <% end %>
+
+
+  <h2>Behavior Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>target</td>
+          <td>string</td>
+          <td>'window'</td>
+          <td>Selector to find the element to scroll. <code>'window'</code> (the default) is a special property that instructs
+            the component to scroll the document body. Can also be <code>'self'</code>.</td>
+        </tr>
+        <tr>
+          <td>toElement</td>
+          <td>string</td>
+          <td>~</td>
+          <td>Selector to find the element to scroll to. If not defined, uses the <code>href</code> of the trigger element to find the element by id
+            (e.g. <code><a href="#foo"></a></code> would scroll to the element with the id "foo").</td>
+        </tr>
+        <tr>
+          <td>scrollMethod</td>
+          <td>string</td>
+          <td>'toElement'</td>
+          <td>One of <code>'toElement'</code>, <code>'toElementEdge'</code> or <code>'toElementCenter'</code> (see MooTools Fx.Scroll docs below)</td>
+        </tr>
+        <tr>
+          <td>axes</td>
+          <td class="nowrap">Array or String</td>
+          <td>['x', 'y']</td>
+          <td>An array or string specifying which axes to scroll on, can be <code>'x'</code>, <code>'y'</code>, or <code>['x', 'y']</code>. It defaults to both axes.</td>
+        </tr>
+        <tr>
+          <td>offset</td>
+          <td>object</td>
+          <td class="nowrap">{'x': 0, 'y': 0}</td>
+          <td>An object with x and y properties of the distance to scroll to within the Element.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <%= render partial: "md_docs", locals: {
+    docs: ["node_modules/mootools-more/Docs/Fx/Fx.Scroll.md"]
+  } %>
+</div>

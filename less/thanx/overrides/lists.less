@@ -1,0 +1,34 @@
+dl {
+  &.dl-merchant {
+    margin: 0px;
+    dt, dd {
+      line-height: 28px;
+    }
+  }
+  &.left-justified {
+    dt {
+      text-align: left;
+      width: @size1 * 2;
+    }
+    dd {
+      margin-left: (@size1 * 3);
+    }
+  }
+  &.dd-emphasized {
+    dt {
+      font-weight: normal;
+      color: @grey-60;
+    }
+    dd {
+      color: @grey-80;
+    }
+  }
+}
+ul.disc {
+  list-style-type: disc;
+}
+ul.unstyled {
+  list-style-type: none;
+  padding:0;
+  margin:0;
+}

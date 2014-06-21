@@ -1,0 +1,50 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>ClickOutToHide <small>Behavior.ClickOutToHide.js</small></h1>
+  </div>
+  <p>Hides or removes an element when the user clicks outside of it.</p>
+
+  <h3>Example</h3>
+  <p>Click anywhere on this page outside of the box below and the box will be removed. Click anything inside the box (the box itself, the button) and it will remain.</p>
+  <%= render layout: "codeblock" do %>
+<div class="box" data-behavior="ClickOutToHide">
+  <a class="btn">I'm a button!</a>
+</div>
+  <% end %>
+
+  <h2>Usage</h2>
+  <h3>Via data attributes</h3>
+  <pre class="prettyprint">&lt;div data-behavior="ClickOutToHide">some stuff&lt;/div></pre>
+
+  <h3>Behavior Options</h3>
+  <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>,
+    as in <code>data-clickouttohide-destroyelement="false"</code>.</p>
+
+
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>useEscapeKey</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>If <code>true</code> will also hide the element if the user hits the <code>esc</code> key.</td>
+        </tr>
+        <tr>
+          <td>destroyElement</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>If <code>true</code> the element is removed from the DOM entirely.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

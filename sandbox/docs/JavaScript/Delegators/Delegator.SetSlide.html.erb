@@ -1,0 +1,91 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>SetSlide <small>Delegator.SetSlide.js</small></h1>
+  </div>
+
+  <p>
+    Sets a Slides-based behavior to a specific slide (primarily for restarting
+    a carousel).
+  </p>
+
+  <h3>Basic Usage</h3>
+
+
+  <%= render layout: "codeblock" do %>
+<a class="btn btn-default" data-trigger="setSlide"
+  data-setslide-target="!body #myCarousel"
+>
+  Restart carousel
+</a>
+
+<div id="myCarousel" class="carousel slide" data-behavior="BS.Carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <!-- can use #id references or not; uses index of the element otherwise -->
+    <li href="#item1"></li>
+    <li href="#item2"></li>
+    <li href="#item3"></li>
+  </ol>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active" id="item1">
+      <%= image_tag "flat-ui/carousel/image-01.jpg"%>
+      <div class="carousel-caption">
+        <h3>Thumbnail label</h3>
+        <p>Slide number 1.</p>
+      </div>
+    </div>
+    <div class="item" id="item2">
+      <%= image_tag "flat-ui/carousel/image-02.jpg"%>
+      <div class="carousel-caption">
+        <h3>Thumbnail label</h3>
+        <p>Slide number 2.</p>
+      </div>
+    </div>
+    <div class="item" id="item3">
+      <%= image_tag "flat-ui/carousel/image-03.jpg"%>
+      <div class="carousel-caption">
+        <h3>Thumbnail label</h3>
+        <p>Slide number 3.</p>
+      </div>
+    </div>
+  </div>
+  <!-- Controls -->
+  <a class="left carousel-control fui-arrow-left"></a>
+  <a class="right carousel-control fui-arrow-right"></a>
+</div>
+
+  <% end %>
+
+
+  <h2>Delegator Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>target</td>
+          <td>string</td>
+          <td></td>
+          <td>The element that has the Slides-based behavior</td>
+        </tr>
+        <tr>
+          <td>slide</td>
+          <td>string</td>
+          <td>0</td>
+          <td>
+            The index of the slide to switch to.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,191 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1 id="popovers">Popovers <small>Bootstrap.Popover.js</small></h1>
+  </div>
+
+  <h2 id="popovers-examples">Examples</h2>
+  <p>Add small overlays of content, like those on the iPad, to any element for housing secondary information.</p>
+
+  <h3>Static popover</h3>
+  <p>Four options are available: top, right, bottom, and left aligned.</p>
+  <div class="bs-example bs-example-popover">
+    <div class="popover top">
+      <div class="arrow"></div>
+      <h3 class="popover-title">Popover top</h3>
+      <div class="popover-content">
+        <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+      </div>
+    </div>
+
+    <div class="popover right">
+      <div class="arrow"></div>
+      <h3 class="popover-title">Popover right</h3>
+      <div class="popover-content">
+        <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+      </div>
+    </div>
+
+    <div class="popover bottom">
+      <div class="arrow"></div>
+      <h3 class="popover-title">Popover bottom</h3>
+      <div class="popover-content">
+        <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+      </div>
+    </div>
+
+    <div class="popover left">
+      <div class="arrow"></div>
+      <h3 class="popover-title">Popover left</h3>
+      <div class="popover-content">
+        <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+
+  <h3>Live demo</h3>
+    <%= render layout: "codeblock" do %>
+<div class="bs-example" style="padding-bottom: 24px;">
+  <a class="btn btn-lg btn-danger" data-behavior="BS.Popover" title="A Title" data-bs-popover-options="
+    'content': 'And here\'s some amazing content. It\'s very engaging. right?',
+    'location': 'below'
+  ">Mouseover to toggle popover</a>
+
+  <a class="btn btn-lg btn-danger" data-behavior="BS.Popover" title="A Title" data-bs-popover-options="
+    'content': 'And here\'s some amazing content. It\'s very engaging. right?',
+    'trigger': 'click'
+  ">Click to toggle popover</a>
+</div>
+  <% end %>
+
+  <h4>Four directions</h4>
+  <%= render layout: "codeblock" do %>
+<div class="bs-example-tooltips">
+  <button type="button" class="btn btn-default" data-container="body" data-behavior="BS.Popover"
+    data-bs-popover-options="
+      'location': 'left',
+      'content': 'Vivamus sagittis lacus vel augue laoreet rutrum faucibus.',
+      'trigger': 'click'
+    ">
+    Popover on left
+  </button>
+  <button type="button" class="btn btn-default" data-container="body" data-behavior="BS.Popover"
+    data-bs-popover-options="
+      'location': 'top',
+      'content': 'Vivamus sagittis lacus vel augue laoreet rutrum faucibus.',
+      'trigger': 'click'
+    ">
+    Popover on top
+  </button>
+  <button type="button" class="btn btn-default" data-container="body" data-behavior="BS.Popover"
+    data-bs-popover-options="
+      'location': 'bottom',
+      'content': 'Vivamus sagittis lacus vel augue laoreet rutrum faucibus.',
+      'trigger': 'click'
+    ">
+    Popover on bottom
+  </button>
+  <button type="button" class="btn btn-default" data-container="body" data-behavior="BS.Popover"
+    data-bs-popover-options="
+      'location': 'right',
+      'content': 'Vivamus sagittis lacus vel augue laoreet rutrum faucibus.',
+      'trigger': 'click'
+    ">
+    Popover on right
+  </button>
+</div>
+  <% end %>
+
+  <h3>Behavior Options</h3>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 100px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>title</td>
+          <td>string</td>
+          <td>--</td>
+          <td>the title of the popover, if not defined, will use the <code>title</code> property of the element</td>
+        </tr>
+        <tr>
+          <td>content</td>
+          <td>string</td>
+          <td>--</td>
+          <td>the content of the popover</td>
+        </tr>
+        <tr>
+          <td>titleElement</td>
+          <td>string</td>
+          <td>--</td>
+          <td>A css selector relative to the behavior element that should be used for the title of the popup.</td>
+        </tr>
+        <tr>
+          <td>contentElement</td>
+          <td>string</td>
+          <td>--</td>
+          <td>A css selector relative to the behavior element that should be used for the content of the popup.</td>
+        </tr>
+        <tr>
+          <td>animate</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>apply a css fade transition to the tooltip</td>
+        </tr>
+        <tr>
+          <td>delayIn</td>
+          <td>number</td>
+          <td>200</td>
+          <td>delay before showing tooltip (ms)</td>
+        </tr>
+        <tr>
+          <td>delayOut</td>
+          <td>number</td>
+          <td>0</td>
+          <td>delay before hiding tooltip (ms)</td>
+        </tr>
+        <tr>
+          <td>location</td>
+          <td>string</td>
+          <td>'above'</td>
+          <td>how to position the tooltip - above | below | left | right</td>
+        </tr>
+        <tr>
+          <td>offset</td>
+          <td>number</td>
+          <td>10</td>
+          <td>pixel offset of tooltip from target element</td>
+        </tr>
+        <tr>
+          <td>trigger</td>
+          <td>string</td>
+          <td>'hover'</td>
+          <td>how tooltip is triggered - hover | focus | click | manual</td>
+        </tr>
+        <tr>
+          <td>onOverflow</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>Only show the tip if the element's content is overflown (i.e. it's scroll-height or scroll-width is greater than the height or width of the element)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div><!-- /.table-responsive -->
+
+  <h2 id="popovers-usage">JavaScript</h2>
+  <p>Enable popovers via JavaScript:</p>
+  <pre class="prettyprint">new Bootstrap.Popover(element, options).show();</pre>
+</div>
+
+
+    <%= render partial: "md_docs", locals: {
+      docs: ["js/Docs/Bootstrap.Popover/Behavior.BS.Popover.md",
+             "js/Docs/Bootstrap.Popover/Bootstrap.Popover.md"]
+    } %>

@@ -1,0 +1,94 @@
+<style type="text/css">
+  .scroll-container {
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+    overflow: auto;
+  }
+  .scroll-container.finished-scrolling {
+    border-color: red;
+  }
+  .top-half {
+    background-color: #CCCCFF;
+    width: 100%;
+    height: 200px;
+  }
+  .bottom-half {
+    background-color: #CCFFCC;
+    width: 100%;
+    height: 200px;
+  }
+</style>
+
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>ContinueScroll <small>Behavior.ContinueScroll.js</small></h1>
+  </div>
+  <p>
+    Continues scrolling an element if the user has scrolled past
+    a threshold. Otherwise, scroll back to the starting position.
+  </p>
+
+
+  <h3>Example</h3>
+  <%= render layout: "codeblock" do %>
+
+<div class="scroll-container" data-behavior="ContinueScroll">
+  <div class="top-half">
+    scroll down
+  </div>
+  <div class="bottom-half">
+    scroll up
+  </div>
+</div>
+
+  <% end %>
+
+  <h2>Behavior Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>scrollAxis</td>
+          <td>String</td>
+          <td>'y'</code></td>
+          <td>The axis we wish to scroll along.</td>
+        </tr>
+        <tr>
+          <td>threshold</td>
+          <td>Number</td>
+          <td>0.1</code></td>
+          <td>
+            If we scroll more than this amount, scroll the rest of the way.
+            Otherwise, we return to the original scroll position.
+          </td>
+        </tr>
+        <tr>
+          <td>transition</td>
+          <td>String</td>
+          <td>'ease:in:out'</code></td>
+          <td>
+            The transition type the scroller uses.
+          </td>
+        </tr>
+        <tr>
+          <td>completeClass</td>
+          <td>String</td>
+          <td>'scroll-complete'</code></td>
+          <td>
+            The class to add to the element when the scroll is completed.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

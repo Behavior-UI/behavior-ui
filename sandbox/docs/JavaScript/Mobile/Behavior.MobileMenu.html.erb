@@ -1,0 +1,118 @@
+<style>
+  .example-container {
+    height: 200px;
+    width: 100%;
+  }
+  .contains-fixed {
+    width: 100%;
+  }
+  .mobile-header {
+    background-color: grey;
+    width: 100%;
+    height: 60px;
+    width: 500px;
+  }
+  .nav-btn {
+    display: inline-block;
+    float: right;
+    background-color: lightgrey;
+    padding: 5px;
+    margin: 14px;
+    border-radius: 5px;
+    border: 1px solid black;
+  }
+  .mobile-nav {
+    display: none;
+    max-height: 133px;
+    overflow: auto;
+    width: 500px;
+    position: absolute;
+  }
+  .mobile-nav2 {
+    display: none;
+    max-height: 133px;
+    overflow: auto;
+    width: 500px;
+    position: absolute;
+  }
+  .reveal {
+    display: block;
+  }
+
+</style>
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>MobileMenu <small>Behavior.MobileMenu.js</small></h1>
+  </div>
+  <p>
+    Provides dropdown menu capability, like you'd see for mobile devices. Adds
+    'click outside to close' functionality.
+  </p>
+
+  <h3>Example</h3>
+
+  <%= render layout: "codeblock" do %>
+<div class="example-container">
+  <div class="contains-fixed">
+    <div class="mobile-header">
+      <a class="nav-btn" data-behavior="MobileMenu">Click me</a>
+    </div>
+    <div class="mobile-nav">
+      <ul class="grey-90-bkg full-width list-unstyled">
+        <li class="white">scroll</li>
+        <li class="white">me</li>
+        <li class="white">down,</li>
+        <li class="white">blah</li>
+        <li class="white">blah</li>
+        <li class="white">blah</li>
+        <li class="white">blah</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<p>
+  click off of the menu and it will close
+</p>
+  <% end %>
+  <h2>Behavior Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>target</td>
+          <td>string</td>
+          <td>'.mobile-nav'</td>
+          <td>
+            The menu element to reveal.
+          </td>
+        </tr>
+        <tr>
+          <td>zIndex</td>
+          <td>number</td>
+          <td>500</td>
+          <td>
+            This behavior sets <code>target</code> to this z-index, and the mask to this - 1.
+          </td>
+        </tr>
+        <tr>
+          <td>revealClass</td>
+          <td>string</td>
+          <td>'.reveal'</td>
+          <td>The class to add to <code>target</code> to reveal it.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>

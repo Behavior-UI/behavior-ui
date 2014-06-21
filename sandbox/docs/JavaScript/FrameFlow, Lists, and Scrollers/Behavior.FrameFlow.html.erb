@@ -1,0 +1,152 @@
+<style type="text/css">
+  #frame1 {
+    height: 50px;
+    width: 50px;
+    border: 2px solid black;
+    position: relative;
+    transition: all .5s linear;
+    top: 0px;
+  }
+  #frame1.active {
+    background-color: red;
+  }
+  #frame1.active.scroll-up {
+    top: -50px;
+  }
+
+  #frame2 {
+    height: 50px;
+    width: 50px;
+    border: 2px solid black;
+    position: relative;
+    top: 50px;
+    transition: all .5s linear;
+  }
+  #frame2.active {
+    background-color: blue;
+  }
+  #frame2.active.scroll-up {
+    top: 0px;
+  }
+
+  .frame-container {
+    transition: all .5s linear;
+    opacity: 1;
+  }
+
+  .frame-container.disappear {
+    opacity: 0;
+  }
+
+  .frame3 {
+    height: 50px;
+    width: 50px;
+    border: 2px solid black;
+    position: relative;
+    top: 50px;
+    background-color: green;
+    transition: all .5s linear;
+  }
+  .frame3.active {
+    background-color: blue;
+  }
+  .frame3.active.scroll-up {
+    top: 0px;
+  }
+</style>
+
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>FrameFlow<small>Behavior.FrameFlow.js</small></h1>
+  </div>
+  <p>Simplifies construction of CSS-transition based flows.</p>
+
+  <p>
+    A parent element (that has the FrameFlow Behavior) should include elements with
+    frame definitions and optional controls. An example frame definition:
+    <pre><%="
+      <div class=\"frame3\" data-frameflow-frame=\"{
+        'activeState': {
+          '#frame1 ! .frame-container': {
+            'classes': [
+              'disappear'
+            ],
+          }
+        },
+        'exitState': {
+          '.frame3': {
+            'classes': [
+              'move-3-to-the-bottom'
+            ]
+          }
+        }
+      }\">
+
+      </div>
+
+    "%></pre>
+  </p>
+
+  <p>
+    Controls can be defined within the html like so:
+    <pre><%="
+      <button data-frameflow-previous>Prev</button>
+      <button data-frameflow-next>Next</button>
+      "%>
+    </pre>
+    Next moves to the next Frame (as defined by DOM order) and previous returns to the
+    last <b>active</b> frame. So if you skip from frame 1 to frame 3, clicking a 'previous'
+    control will take you back to frame 1.
+  </p>
+
+  <p>
+    Additionally, a control can specify a target, such that it always goes to a specific
+    frame.
+    <pre><%= "
+      <button data-frameflow-target=\".frame3\">Frame 3</button>
+      " %>
+    </pre>
+  </p>
+  <h3>Example</h3>
+  <%= render layout: "codeblock" do %>
+
+<div data-behavior="FrameFlow">
+  <div class="frame-container">
+    <%= render partial: "admin/sandbox/docs/JavaScript/Thanx_Behaviors/frame1" %>
+    <%= render partial: "admin/sandbox/docs/JavaScript/Thanx_Behaviors/frame2" %>
+  </div>
+  <%= render partial: "admin/sandbox/docs/JavaScript/Thanx_Behaviors/frame3" %>
+
+  <div class="header-bar"></div>
+  <div style="margin-top: 100px;">
+    <button data-frameflow-previous>Prev</button>
+    <button data-frameflow-next>Next</button>
+    <button data-frameflow-target=".frame3">Frame 3</button>
+  </div>
+</div>
+
+  <% end %>
+
+  <h2>Behavior Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>startIndex</td>
+          <td>Number</td>
+          <td>0</code></td>
+          <td>The starting position of the flow.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

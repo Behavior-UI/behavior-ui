@@ -1,0 +1,89 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1 id="buttons">Buttons</h1>
+  </div>
+
+  <p>Bootstrap provides helpers for setting button states that are not entirely provided by this libary. However, it is possible to reproduce
+    most of the functionality using existing Behaviors from this library and the <a href-"https://github.com/anutron/more-behaviors">(MooTools) More Behaviors</a>
+    library. Demonstrated here is how to reproduce most of the effects supported in Bootstrap, but not all.</p>
+
+  <h2 id="buttons-examples">Example uses</h2>
+  <p>Do more with buttons. Control button states or create groups of buttons for more components like toolbars.</p>
+
+  <h4>Stateful</h4>
+  <p>In Bootstrap, you can change a button's state to "loading..." by adding <code>data-loading-text</code> to it. While this would be trivial to reproduce
+    using Behavior and MooTools, the author hasn't found need for it and so hasn't done so (pull requests accepted!).</p>
+
+  <h4>Single toggle</h4>
+  <p>Add <code>data-trigger="toggleClass" data-toggleclass-class="active"</code> to activate toggling on a single button.</p>
+
+  <div class="bs-callout bs-callout-info">
+    <h4>Less Component Required</h4>
+    <p>
+       Be sure to require <code>More-Behaviors/Delegator.ToggleClass</code> when you build your library.
+    </p>
+  </div>
+
+  <%= render layout: "codeblock" do %>
+    <button type="button" class="btn btn-primary" data-trigger="toggleClass" data-toggleclass-class="active">Single toggle</button>
+  <% end %>
+
+  <h4>Checkbox</h4>
+  <p>This one's a little wierd. When used with a label and checkbox, you have to put the trigger on the input. This is because browsers see the click on the label and fire
+    that event there, but then they <em>also</em> fire the click event on the input (even if your mouse didn't actually click it). This triggers the delegator twice
+    toggling your class twice, so nothing happens. Instead, you must specify both <code>data-toggleclass-class</code> and <code>data-toggleclass-target</code> (or, better
+    yet, use the <code>data-toggleclass-options</code> method to declare your configuration; see example).</p>
+  <%= render layout: "codeblock" do %>
+<div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-primary">
+    <input id="foo" type="checkbox" data-trigger="toggleClass" data-toggleclass-options="
+      'class': 'active',
+      'target': '!label'
+    "> Option 1
+  </label>
+  <label class="btn btn-primary">
+    <input type="checkbox" data-trigger="toggleClass" data-toggleclass-options="
+      'class': 'active',
+      'target': '!label'
+    "> Option 2
+  </label>
+  <label class="btn btn-primary">
+    <input type="checkbox" data-trigger="toggleClass" data-toggleclass-options="
+      'class': 'active',
+      'target': '!label'
+    "> Option 3
+  </label>
+</div>
+    <% end %>
+
+    <h4>Radio</h4>
+    <p>Same thing as checkboxen, but with a hitch. Because we need to remove the class for the radio that is
+      unchecked whenever we click another one, we must remove the class from all the labels before we select
+      the one we clicked. Simple enough, just also add the <code>removeClass</code> trigger to the container.
+      See example.</p>
+    <%= render layout: "codeblock" do %>
+<div class="btn-group" data-toggle="buttons"  data-trigger="removeClass" data-removeclass-options="
+  'class': 'active',
+  'targets': 'label'
+">
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option1" data-trigger="toggleClass" data-toggleclass-options="
+      'class': 'active',
+      'target': '!label'
+    "> Option 1
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option2" data-trigger="toggleClass" data-toggleclass-options="
+      'class': 'active',
+      'target': '!label'
+    "> Option 2
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option3" data-trigger="toggleClass" data-toggleclass-options="
+      'class': 'active',
+      'target': '!label'
+    "> Option 3
+  </label>
+</div>
+    <% end %>
+</div>

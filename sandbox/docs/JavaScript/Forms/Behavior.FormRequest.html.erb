@@ -1,0 +1,31 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>FormRequest <small>Behavior.FormRequest.js</small></h1>
+  </div>
+
+  <p>Turns any form into an Ajax form updating the specified target in the DOM with the response.</p>
+
+  <h3>Basic Usage</h3>
+
+<%= render layout: "codeblock" do %>
+<form id="test" data-behavior="FormRequest" data-formrequest-update="!body #update" action="<%= sandbox_echo_html_path %>" method="get">
+	<p>This is a form input. These buttons each submit different content to the server which just echos it back into the box below.</p>
+	<input type="submit" name="html" class="btn" value="fetch html #1"/>
+	<input type="submit" name="html" class="btn" value="fetch html #2"/>
+</form>
+
+<div id="update" class="box">
+	this box should get new text when you click the input above.
+</div>
+<% end %>
+
+	<h3>Best Practices</h3>
+	<p>When fetching data from a form submission, it's often easiest to write the page as normal with no AJAX in place and get everything working
+	then add this Behavior after the fact and use the <code>filter</code> option to limit the response that's used.</p>
+	<p>This behavior also works well with <code>Behavior.FormValidator</code>.</p>
+</div>
+
+<%= render partial: "md_docs", locals: {
+	docs: ["js/Docs/Forms/Behavior.FormRequest.md",
+				 "node_modules/mootools-more/Docs/Forms/Form.Request.md"]
+} %>

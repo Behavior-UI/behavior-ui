@@ -1,0 +1,70 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>SubmitOnChange <small>Delegator.SubmitOnChange.js</small></h1>
+  </div>
+
+  <p>Submits a form when the user changes an input value. Note that the example below is also using the
+    <%= link_to "FormRequest", sandbox_dir_file_path(section: 'JavaScript', dir: "Forms", file: "Behavior.FormRequest") %>
+    Behavior to submit it via Ajax.</p>
+
+    <%= render layout: "codeblock" do %>
+<form id="test"
+  data-behavior="FormRequest"
+  data-trigger="submitOnChange"
+  data-formrequest-update="!body #update"
+  data-submitonchange-options="
+    'onlyOnce': false
+  "
+  action="<%= sandbox_echo_html_path %>"
+  method="get">
+  <p>Enter some text and tab out of the input.</p>
+  <div class="form-group">
+    <input type="text" name="html" value="" placeholder="Change me." class="form-control input-hg">
+  </div>
+</form>
+
+<div id="update" class="box">
+  this box should get new text when you change the input above.
+</div>
+    <% end %>
+
+
+  <h2>Behavior Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>target</td>
+          <td>string</td>
+          <td>~</td>
+          <td>The selector to the form to submit. By default, it expects the element with the behavior to be the form (in which case you can
+            leave this option undefined. If you want a specific input to have this behavior, you can add the behavior to the input and specify
+            <code>!form</code> to submit it.
+          </td>
+        </tr>
+        <tr>
+          <td>onlyIfSet</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>Prevents the form from being submitted if the input is empty.</td>
+        </tr>
+        <tr>
+          <td>onlyOnce</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>Prevents the form from being submitted more than once. You probably want to set this to <code>false</code> if your form
+            is ajaxy and meant to be submitted repeatedly.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+.bottom-menu {
+  padding-left: 60px;
+  padding-right: 60px;
+  background-color: @blue-chrome;
+  a {
+    font-size: 16px;
+    line-height: 24px;
+    &:hover {
+      color: @grey-60;
+    }
+  }
+  .navbar-brand {
+    padding-left: 0px;
+  }
+  /* only for tablet size */
+  @media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+    .navbar-brand {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  @media (max-width: @screen-xs) {
+    .navbar-brand {
+      padding: 0px;
+    }
+  }
+}

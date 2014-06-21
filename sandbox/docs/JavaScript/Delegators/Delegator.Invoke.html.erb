@@ -1,0 +1,87 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>Invoke <small>Behavior.Invoke.js</small></h1>
+  </div>
+  <p>A generic handler for allowing for the selection of items in a list.</p>
+
+
+  <div class="bs-callout bs-callout-danger">
+    <p>The <code>Invoke</code> Delegator has a sister implementation in <code>Behavior.Invoke</code>
+      (see <%= link_to "docs / examples", sandbox_dir_file_path(section: 'JavaScript', dir: "General Use Behaviors", file: "Behavior.Invoke") %>).
+      This delegator is the prefered use. See the docs for <code>Behavior.Invoke</code> for appropriate usage.
+    </p>
+  </div>
+
+
+  <h3>Examples</h3>
+  <p>The example below shows two uses of this filter. First, on the top level element, you can see
+    how the pattern works when you use a parent element to watch for events on child elements. This
+    allows a form to watch for changes on all its inputs, for example.</p>
+  <p>But the other use is a specific element that, when interacted with, invokes the desired method.
+    I.e. click this button and change that element over there. Here there's no delegation and the
+    event target is the element with the filter.</p>
+
+  <%= render layout: "codeblock" do %>
+    <div class="example">
+      <div class="form-group">
+        <label for="one">This turns red when you change it</label>
+        <input id="one" type="text" class="form-control"/>
+      </div>
+      <button type="submit" class="btn btn-default" data-trigger="invoke"
+        data-invoke-options="
+          'action': 'addClass',
+          'args': ['red'],
+          'targets': '!div.example input'
+        ">Clicking me turns the input red</button>
+      <button type="submit" class="btn btn-default" data-trigger="invoke"
+        data-invoke-options="
+          'action': 'removeClass',
+          'args': ['red'],
+          'targets': '!div.example input'
+        "
+      >Clicking me turns the input white again</button>
+    </div>
+  <% end %>
+
+
+  <h2>Behavior Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>action</td>
+          <td>string</td>
+          <td>~</td>
+          <td>What method to invoke. This can be <em>any</em> element method. This includes all the
+            <a href="http://mootools.net/docs/core/Element/Element">MooTools Element methods</a> and,
+            for that matter, any element shortcuts (such as
+            <a href="http://mootools.net/docs/core/Fx/Fx.Tween">Fx.Tween</a>'s <code>.tween</code> method)
+            including methods you add to the Element prototype yourself.
+          </td>
+        </tr>
+        <tr>
+          <td>args</td>
+          <td>array</td>
+          <td>~</td>
+          <td>The arguments passed to the method. If you don't want to pass any arguments, you still need
+            to specify an (empty) array.</td>
+        </tr>
+        <tr>
+          <td>targets</td>
+          <td>string</td>
+          <td>~</td>
+          <td>The selector to find elements to invoke the method on.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

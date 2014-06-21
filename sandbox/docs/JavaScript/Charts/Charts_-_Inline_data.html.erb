@@ -1,0 +1,40 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>Chart With inline Data</h1>
+  </div>
+
+  <h3>Basic Usage</h3>
+
+  <%= render layout: "codeblock", locals: { include_response: true} do %>
+<div data-behavior="Chart ToSource" class="full-width chart" data-chart-options="
+  'seriesType':'column',
+  'xAxis': {
+    'type': 'linear',
+    'minRange': 1,
+    'title': {
+      'text': 'Percentage Complete'
+    }
+  },
+  'yAxis':{
+    'title':{
+      'text':'Rewards'
+    }
+  },
+  'data': {
+    'title':{
+      'text':'Rewards In Progress'
+    },
+    'series':[
+      {
+        'name':'Rewards',
+        'data':[1176,931,685,404,241]
+      }
+    ],
+    'xAxis':{
+      'categories':['0-20%','20-40%','40-60%','60-80%','80+%']
+    }
+  }
+  " data-tosource-target="!.example-block .response"></div>
+  <% end %>
+
+</div>

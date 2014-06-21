@@ -1,0 +1,172 @@
+[data-behavior~="Thanx.Chart.Stock"]{
+  margin-bottom: 16px;
+}
+.highcharts-title span {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-size: 27px;
+  font-weight: 300;
+  color: @grey-90;
+  fill: @grey-90;
+}
+.highcharts-subtitle span {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  color: @grey-60;
+  fill: @grey-60;
+}
+
+.chart, [data-behavior~="Thanx.Chart"], [data-behavior~="Thanx.Chart.Stock"] {
+  overflow: hidden;
+  width: 100%;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  .axis-date {
+    span {
+      display: block;
+      clear: both;
+      text-transform: uppercase;
+      color: @grey-60;
+      &.day {
+        font-size: 18px;
+        padding-bottom: 3px;
+      }
+      &.week {
+        padding-bottom: 3px;
+      }
+      &.month {
+        font-size: 16px;
+      }
+    }
+  }
+  .legend-name {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    color: @grey-50;
+    font-size: 15px;
+    padding-right: 12px;
+    margin-bottom: 0;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: normal;
+    .icons span {
+      background-color: transparent;
+    }
+  }
+
+  /*
+
+  <div class='chart-tip'>
+    <h5>Tue - Aug 27, 2013</h5>
+
+    <ul class='chart-metrics'>
+      <li style='background-color: #00CCCE'><span class=
+      'chart-metric'>6129</span><span class='chart-metric-name'>Total Users</span></li>
+
+      <li style='background-color: #2ECC71'><span class=
+      'chart-metric'>4063</span><span class='chart-metric-name'>Linked Users</span></li>
+
+      <li style='background-color: #27AE60'><span class=
+      'chart-metric'>2972</span><span class='chart-metric-name'>Transacted
+      Users</span></li>
+    </ul>
+  </div>
+
+  */
+  .highcharts-tooltip {
+    width: 100%;
+    z-index: 10;
+  }
+  .chart-tip {
+    background-color: #252f3a;
+    border-radius: 4px;
+    padding: 7px;
+    color: #fff;
+    h5 {
+      font-weight:  normal;
+      text-align: center;
+      font-size: 12px;
+      margin: 0 0 5px 0;
+      line-height: 14px;
+      color: #c0c2c4;
+      text-transform: uppercase;
+    }
+    .chart-metrics {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      .clearfix();
+      li {
+        .size(90px, 80px);
+        float: left;
+        .chart-metric {
+          font-size: 21px;
+          padding-top: 4px;
+          line-height: 36px;
+          text-align: center;
+          display: block;
+        }
+        .chart-metric-name {
+          font-size: 12px;
+          white-space: normal;
+          text-align: center;
+          display: block;
+          height: 30px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding: 0 10px 14px;
+        }
+      }
+    }
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 9px solid transparent;
+      border-right: 9px solid transparent;
+      border-top: 9px solid #252f3a;
+      bottom: -9px;
+      position: absolute;
+      left: 50%;
+      margin-left: -9px;
+    }
+    &.single > ul li:first-child {
+      width: 100%;
+      min-width: 105px;
+      float: none;
+    }
+  }
+
+  .highchart-bullets {
+  	margin: 6px 0 0;
+  	list-style: none;
+  	li {
+  		width: 200px;
+  		white-space: normal;
+  		text-indent: -20px;
+  		margin-left: 20px;
+  	}
+  }
+
+  .navigator-label {
+  	color: #a0a0a1;
+  	border-left: 1px solid #a0a0a1;
+  	padding-left: 7px;
+  	font-size: 11px;
+    text-transform: uppercase;
+  }
+  .plotline-label {
+    background-color: #252f3a;
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    margin-left: -10px;
+    margin-top: 0.5px;
+    .triangle {
+      .tooltip-arrow;
+      top: 50%;
+      right: -@tooltip-arrow-width;
+      margin-top: -@tooltip-arrow-width + 1px;
+      border-width: @tooltip-arrow-width 0 @tooltip-arrow-width @tooltip-arrow-width;
+      border-left-color: @tooltip-arrow-color;
+    }
+  }
+}

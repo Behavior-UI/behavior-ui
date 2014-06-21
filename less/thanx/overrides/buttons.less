@@ -1,0 +1,157 @@
+.btn-transparent {
+  background-color: transparent;
+  border: 2px solid rgba(0, 0, 0, .2);
+  color: @wet-asphalt;
+  &.inverted {
+    @color: rgba(255, 255, 255, .6);
+    border: 2px solid @color;
+    color: @color;
+    &:hover {
+      background-color: rgba(255, 255, 255, .2);
+    }
+  }
+  &:hover {
+    background-color: rgba(0, 0, 0, .2);
+  }
+}
+.btn.btn-primary {
+  background-color: @belize-hole;
+  &:hover {
+    background-color: mix(@belize-hole, white, 80%);
+  }
+  &.btn-inverted {
+    background-color: transparent;
+    border: 2px solid @belize-hole;
+    color: @belize-hole;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    &:hover {
+      background-color: fadeout(@blue-aragonite, 90%);
+      color: darken(@belize-hole, 10%);
+    }
+  }
+}
+.btn.btn-nephritis {
+  background-color: @nephritis;
+  color: @white;
+  &:hover {
+    background-color: mix(@nephritis, white, 80%);
+  }
+}
+.btn.btn-success {
+  background-color: @emerland;
+  &:hover {
+    background-color: mix(@emerland, white, 80%);
+  }
+  &.btn-inverted {
+    background-color: transparent;
+    border: 2px solid @emerland;
+    color: @white;
+    &.btn-extra-hg {
+      padding: 26px 20px;
+    }
+    &.btn-hg {
+      padding: 16px 20px;
+    }
+    &.no-hover:hover {
+      background-color: transparent;
+      color: @white;
+    }
+    &:hover {
+      background-color: fadeout(@emerland, 90%);
+      color: darken(@emerland, 10%);
+    }
+  }
+}
+.btn.btn-danger {
+  background-color: @alizarin;
+  &:hover {
+    background-color: darken(@alizarin, 10%);
+  }
+}
+.btn.btn-warning {
+  background-color: @goldstein;
+  &:hover {
+    background-color: darken(@goldstein, 10%);
+  }
+}
+
+.btn.btn-info {
+  background-color: @orange;
+  &:hover {
+    background-color: darken(@orange, 10%);
+  }
+}
+
+.btn.btn-dark {
+  background-color: @blue-chrome;
+  &:hover {
+    background-color: lighten(@blue-chrome, 10%);
+  }
+}
+.btn.btn-white {
+  background-color: @white;
+  &:hover {
+    background-color: mix(@white, black, 80%);
+  }
+  &.btn-inverted {
+    background-color: transparent;
+    border: 2px solid @white;
+    color: @white;
+    &.btn-extra-hg {
+      padding: 26px 20px;
+    }
+    &.no-hover:hover {
+      background-color: transparent;
+      color: @white;
+    }
+    &:hover {
+      background-color: fadeout(@white, 90%);
+      color: darken(@white, 10%);
+    }
+  }
+}
+
+.btn.btn-grey-80 {
+  background-color: @grey-80;
+  &:hover {
+    background-color: @grey-70;
+  }
+}
+.btn {
+  font-size: 15px;
+  .transition(@transition_speed);
+  span[class*="thanx-glyph"] {
+    line-height: 5px;
+    vertical-align: middle;
+    margin-right: 5px;
+    position: relative;
+    top: -2px;
+  }
+  span.thanx-glyph-email1.medium {
+    top: 0px;
+  }
+  &.btn-sm {
+    padding: 7px 13px;
+  }
+  &.btn-lg {
+    font-size: 17px;
+    line-height: 20px;
+    padding: 12px 18px 13px;
+  }
+  &.btn-hg {
+    font-size: 19px;
+    line-height: 0.95;
+    padding: 18px 20px;
+  }
+  &.btn-extra-hg {
+    font-size: 22px;
+    line-height: 0.95;
+    padding: 28px 20px;
+    border-radius: @border-radius-large;
+  }
+
+}
+.btn.btn-large-radius {
+  border-radius: @border-radius-large;
+}

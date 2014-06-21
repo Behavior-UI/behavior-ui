@@ -1,0 +1,258 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>Affix for Underscrolls <small>Bootstrap.Affix.js</small></h1>
+  </div>
+
+  <p>
+    The MooTools Bootstrap implementation comes with <code>Behavior.Affix</code> that allows you to pin an object in place
+    when the page is scrolled to a certain point. The typical example here is like the menu on the left here in sandbox where
+    a nav item is pegged in place, but when you reach the top of the page it's allowed to move with the scroll offset. You can
+    see an example on the <%= link_to "Clientcide MooTools Bootstrap example", "http://dev.clientcide.com/MooTools%20Bootstrap/demo/?project=Bootstrap&path=/Bootstrap.mako#affix" %>.
+  </p>
+
+  <p>
+    All that <code>Behavior.Affix</code> really does though is add a class to the element when the window is scrolled to a certain
+    offset. Because of this, we can also use this to change the overflow values on an element. Because the example here requires
+    you to scroll the page, this example does not use the typical example found in other Sandbox demos, so we'll show you what the code
+    looks like down below.
+  </p>
+
+  <h3>Generic Demo</h3>
+  <p>
+    Scroll this page down and you'll see how the content below changes to <code>overflow:auto</code> when you scroll
+    the page down 100px.
+  </p>
+  <p>
+    <span class="label label-important">Note</span> Scroll down past the hipster ipsum to see more docs.
+  </p>
+
+  <style>
+    .underscroll {
+      height: 400px;
+      overflow: hidden;
+      padding: 0px 8px;
+    }
+    .underscroll-center {
+      overflow: auto;
+      box-shadow: inset 1px 4px 9px -6px;
+    }
+  </style>
+
+  <div class="underscroll" data-behavior="BS.Affix" data-bs-affix-options="
+    'top': 300,
+    'classNames': {
+      'top': 'underscroll-top',
+      'bottom': 'underscroll-bottom',
+      'affixed': 'underscroll-center'
+    }
+  ">
+    <p>
+      <strong>Here, have some <%= link_to "Hipster Ipsum", "http://hipsteripsum.me/" %>.</strong> Tofu gastropub photo booth art party Godard beard, flexitarian asymmetrical brunch Wes Anderson. Asymmetrical craft beer XOXO cornhole farm-to-table, ethnic cardigan mustache paleo. Fashion axe street art cray Odd Future, Shoreditch 8-bit keffiyeh locavore cornhole 90's. Four loko hashtag master cleanse kitsch beard shabby chic. Portland Schlitz chambray, freegan hella street art Vice disrupt asymmetrical Marfa. Bicycle rights typewriter sartorial whatever Blue Bottle four loko. Kogi flexitarian 3 wolf moon, jean shorts banjo forage kale chips.
+    </p>
+
+    <p>
+      8-bit squid meggings Etsy flannel, cliche shabby chic polaroid Bushwick fixie pickled selfies pug Williamsburg. Plaid flexitarian brunch Odd Future scenester whatever, Banksy selfies Intelligentsia tote bag Pinterest. Salvia VHS locavore ethical wolf selfies. Fap disrupt mustache Williamsburg typewriter. McSweeney's Helvetica chia, slow-carb gastropub umami mixtape literally. YOLO sartorial banh mi ethnic artisan. Food truck cray leggings retro, High Life single-origin coffee jean shorts cornhole literally mlkshk paleo brunch tofu pork belly before they sold out.
+    </p>
+
+    <p>
+      Retro keytar post-ironic, Pitchfork shabby chic +1 ethical bicycle rights kale chips typewriter sartorial. Godard church-key pop-up, Truffaut Brooklyn shabby chic readymade gluten-free umami tattooed flexitarian Intelligentsia hella synth. McSweeney's ugh paleo Truffaut semiotics bitters, pork belly gentrify PBR art party. Direct trade keytar brunch Thundercats. Bespoke polaroid Helvetica, asymmetrical Portland shabby chic iPhone ugh semiotics chambray ennui gastropub. Hashtag gluten-free bicycle rights, +1 wayfarers wolf hoodie selvage slow-carb salvia PBR. Pour-over Odd Future retro Pitchfork Tonx.
+    </p>
+
+    <p>
+      Blog aesthetic art party Odd Future. Letterpress cred High Life banh mi photo booth actually. Pug bicycle rights craft beer wayfarers, you probably haven't heard of them kitsch sriracha paleo. Locavore chillwave ugh, master cleanse banh mi American Apparel XOXO vegan Pitchfork jean shorts meggings. 8-bit VHS next level, fashion axe squid tattooed Neutra. Mustache Brooklyn fixie Banksy master cleanse. Scenester Shoreditch ugh, American Apparel wolf cornhole meh Marfa lo-fi Neutra farm-to-table single-origin coffee.
+    </p>
+
+    <p>
+      8-bit squid meggings Etsy flannel, cliche shabby chic polaroid Bushwick fixie pickled selfies pug Williamsburg. Plaid flexitarian brunch Odd Future scenester whatever, Banksy selfies Intelligentsia tote bag Pinterest. Salvia VHS locavore ethical wolf selfies. Fap disrupt mustache Williamsburg typewriter. McSweeney's Helvetica chia, slow-carb gastropub umami mixtape literally. YOLO sartorial banh mi ethnic artisan. Food truck cray leggings retro, High Life single-origin coffee jean shorts cornhole literally mlkshk paleo brunch tofu pork belly before they sold out.
+    </p>
+
+    <p>
+      Retro keytar post-ironic, Pitchfork shabby chic +1 ethical bicycle rights kale chips typewriter sartorial. Godard church-key pop-up, Truffaut Brooklyn shabby chic readymade gluten-free umami tattooed flexitarian Intelligentsia hella synth. McSweeney's ugh paleo Truffaut semiotics bitters, pork belly gentrify PBR art party. Direct trade keytar brunch Thundercats. Bespoke polaroid Helvetica, asymmetrical Portland shabby chic iPhone ugh semiotics chambray ennui gastropub. Hashtag gluten-free bicycle rights, +1 wayfarers wolf hoodie selvage slow-carb salvia PBR. Pour-over Odd Future retro Pitchfork Tonx.
+    </p>
+  </div>
+
+  <h2>Code</h2>
+  <p>
+    The example above looks like this:
+  </p>
+<div class="tab-pane prettyprint-tab"><pre class="prettyprint">
+  &lt;style>
+    .underscroll {
+      height: 400px;
+      overflow: hidden;
+      padding: 0px 8px;
+    }
+    .underscroll-center {
+      overflow: auto;
+      box-shadow: inset 1px 4px 9px -6px;
+    }
+  </style>
+
+  &lt;div class="underscroll" data-behavior="BS.Affix" data-bs-affix-options="
+    'top': 300,
+    'classNames': {
+      'top': 'underscroll-top',
+      'bottom': 'underscroll-bottom',
+      'affixed': 'underscroll-center'
+    }
+  ">
+    ... some content ...
+  &lt;/div>
+</pre></div>
+
+  <h3>Header w/ Shadow Demo</h3>
+
+  <div class="bs-callout bs-callout-info">
+    <h4>Optional Less Component</h4>
+    <p>
+       Include <code>thanx-components/underscrolls.less</code> in your build to get the `underscroll-shadow-center` class that automatically adds a shadow for you.
+    </p>
+  </div>
+
+  <p>
+    This example specifies that when you scroll the list below a few pixels (5px) the header gets a shadow.
+  </p>
+
+  <%= render layout: "codeblock" do %>
+<h3 style="padding: 8px; margin: 0;" class="grey-20-bkg" data-behavior="BS.Affix" data-bs-affix-options="
+    'top': 5,
+    'classNames': {
+      'affixed': 'underscroll-shadow-center'
+    },
+    'monitor': '!div ul'
+  ">This header gets a shadow when list scrolls</h3>
+<ul class="overflow-y" style="height: 100px; border: 1px solid #ccc;">
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+</ul>
+  <% end %>
+
+  <h2>What's Going On</h2>
+  <p>
+    The <code>BS.Affix</code> behavior simply adds a class to your element based on the window's scroll offset. You can define
+    the offsets with the <code>top</code> and <code>bottom</code> options and you can define the classes given to your element
+    when the window is in those regions. The defaults use Bootstrap standard <code>affix</code> classes to fix their positions.
+  </p>
+
+  <p>
+    The default classes still require specific configuration to get the appropriate behavior (as the classes don't know what
+    position your element should be fixed at when they are applied), but using it for underscroll requires more work. The tricky
+    part is when you want your element to eat up all available space. If your element doesn't contain enough space to scroll down
+    far enough then the center styles will never get applied. So to get a 100% height UI to work you have to have a style
+    that says that your content is <code>overflow: visible</code> and then switches to <code>overflow: auto</code>.
+  </p>
+
+  <p>
+    This example - with the text in the middle of the page - isn't a great example. It's more typical to have a full screen experience
+    where the header scrolls up and then freezes while the content below becomes scrollable. There are a couple of ways to accomplish
+    this including changing the header's styles to become a fixed-position element. Your use case will dictate how best to accomplish it.
+  </p>
+
+  <h3>Specifying an Element Instead Of A Numerical Offset</h3>
+
+  <p>
+    You can, optionally, specify an element instead of a numerical offset for the top and bottom of the area. This allows you
+    to have the user scroll to an element and then see a change.
+  </p>
+
+  <%= render layout: "codeblock" do %>
+<h3 style="padding: 8px; margin: 0;" data-behavior="BS.Affix" data-bs-affix-options="
+    'classNames': {
+      'top': 'grey-20-bkg',
+      'bottom': 'grey-20-bkg',
+      'affixed': 'emerland-light-bkg'
+    },
+    'affixAtElement': {
+      'top': {
+        'element': '!div ul li.target'
+      }
+    },
+    'monitor': '!div ul'
+  ">This header turns green</h3>
+<ul class="overflow-y" style="height: 100px; border: 1px solid #ccc;">
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li class="target">When I'm visible, the header turns green!</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+</ul>
+  <% end %>
+
+
+  <h3>Persistence</h3>
+
+  <p>
+    The <code>persist</code> option forces the class to become inactive whenever the <code>affixed</code> state is reached.
+    This basically means that whenever the user scrolls to the specified offset the <code>affixed</code> class is added
+    and the class stops monitoring scrolls.
+  </p>
+
+  <%= render layout: "codeblock" do %>
+<h3 style="padding: 8px; margin: 0;" data-behavior="BS.Affix" data-bs-affix-options="
+    'classNames': {
+      'top': 'grey-20-bkg',
+      'bottom': 'grey-20-bkg',
+      'affixed': 'emerland-light-bkg'
+    },
+    'affixAtElement': {
+      'top': {
+        'element': '!div ul li.target'
+      }
+    },
+    'monitor': '!div ul',
+    'persist': true
+  ">This header turns green... and stays green</h3>
+<ul class="overflow-y" style="height: 100px; border: 1px solid #ccc;">
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li class="target">
+    When I'm visible, the header turns green! It <strong>stays</strong> green, even when you scroll
+    me back out of view.
+  </li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+  <li>stuff</li>
+</ul>
+  <% end %>
+
+</div>
+
+<%= render partial: "md_docs", locals: {
+  docs: ["js/Docs/Bootstrap.Affix/Behavior.BS.Affix.md",
+         "js/Docs/Bootstrap.Affix/Bootstrap.Affix.md"]
+} %>

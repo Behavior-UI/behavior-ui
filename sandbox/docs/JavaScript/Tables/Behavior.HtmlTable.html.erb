@@ -1,0 +1,168 @@
+
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>HtmlTable <small>Behavior.HtmlTable.js</small></h1>
+  </div>
+
+  <p>Implements support for interactive tables. Mostly used for sorting (but can be used for selection if you want).</p>
+
+  <div class="bs-callout bs-callout-info">
+    <h4>Less Component Required</h4>
+    <p>
+       Be sure to include <code>components/htmltable.less</code> in your build.
+    </p>
+  </div>
+
+  <h3>Basic Usage</h3>
+
+<%= render layout: "codeblock" do %>
+<table class="table table-bordered table-striped table-condensed" data-behavior="HtmlTable" data-htmltable-sortable="true">
+  <thead>
+    <tr>
+      <th>
+            ID
+      </th>
+      <th>
+            TimeZone
+      </th>
+      <th>
+            Name
+      </th>
+      <th>
+            GEO Latitude
+      </th>
+      <th>
+            GEO Longitude
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        22
+      </td>
+      <td>
+        New York City
+      </td>
+      <td>
+        America/New_York
+      </td>
+      <td>
+        40.7255
+      </td>
+      <td>
+        -73.9983
+      </td>
+    </tr>
+    <tr>
+      <td>
+        23
+      </td>
+      <td>
+        San Francisco
+      </td>
+      <td>
+        America/Los_Angeles
+      </td>
+      <td>
+        37.7587
+      </td>
+      <td>
+        -122.433
+      </td>
+    </tr>
+    <tr>
+      <td>
+        24
+      </td>
+      <td>
+        Boston
+      </td>
+      <td>
+        America/New_York
+      </td>
+      <td>
+        42.3583
+      </td>
+      <td>
+        -71.0603
+      </td>
+    </tr>
+    <tr>
+      <td>
+        25
+      </td>
+      <td>
+        Denver
+      </td>
+      <td>
+        America/Denver
+      </td>
+      <td>
+        39.734
+      </td>
+      <td>
+        -105.026
+      </td>
+    </tr>
+    <tr>
+      <td>
+        31
+      </td>
+      <td>
+        Washington, DC
+      </td>
+      <td>
+        America/New_York
+      </td>
+      <td>
+        38.8964
+      </td>
+      <td>
+        -77.0447
+      </td>
+    </tr>
+    <tr>
+      <td>
+        32
+      </td>
+      <td>
+        Chicago
+      </td>
+      <td>
+        America/Chicago
+      </td>
+      <td>
+        41.8858
+      </td>
+      <td>
+        -87.6181
+      </td>
+    </tr>
+    <tr>
+      <td>
+        33
+      </td>
+      <td>
+        Philadelphia
+      </td>
+      <td>
+        America/New_York
+      </td>
+      <td>
+        39.8694
+      </td>
+      <td>
+        -75.2731
+      </td>
+    </tr>
+  </tbody>
+</table>
+<% end %>
+</div>
+
+<%= render partial: "md_docs", locals: {
+	docs: ["js/Docs/HtmlTable/Behavior.HtmlTable.md",
+				 "node_modules/mootools-more/Docs/Interface/HtmlTable.md",
+				 "node_modules/mootools-more/Docs/Interface/HtmlTable.Sort.md",]
+} %>

@@ -1,0 +1,41 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>SpinOnClick, UnSpinOnClick <small>Delegator.SpinOnClick.js</small></h1>
+  </div>
+
+  <p>Much like <code>Delegator.SpinOnSubmit</code>, this delegator allows you to put a spinner on anything you like
+    when something is clicked (instead of only on the submit event). Note that you don't need to use it with things like
+    <code>Delegator.Ajax</code> and <code>Behavior.FormRequest</code> as they bake in support for <code>Spinner</code> themselves.</p>
+
+  <p><span class="label label-primary">See also</span>  <%= link_to "Delegator.SpinOnSubmit", sandbox_dir_file_path(section: 'JavaScript', dir: "Delegators", file: "Delegator.SpinOnSubmit") %></p>
+
+    <%= render layout: "codeblock" do %>
+<a data-trigger="spinOnClick" data-spinonclick-target="!div .box" class="btn">Put a spinner on the box below.</a>
+<a data-trigger="unSpinOnClick" data-unspinonclick-target="!div .box" class="btn">Remove the spinner from the box below.</a>
+<div class="box">I'm a box!</div>
+    <% end %>
+
+  <h2>Behavior Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>target</td>
+          <td>string</td>
+          <td>~</td>
+          <td>The selector to item you wish to spin. If not set, spins the element with the trigger on it.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

@@ -1,0 +1,9 @@
+/*
+  this is a patch to work around a webkit bug where transitions and overflow: hidden
+  don't play nicely together. the the overflow: hidden on the parent (.progress) should
+  work, but you have to add it to the child to work when there's a transition on the
+  child.
+*/
+.progress-bar {
+  .transition(~'width .6s ease; overflow: hidden')
+}

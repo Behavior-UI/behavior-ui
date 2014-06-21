@@ -1,0 +1,133 @@
+<!-- Tooltips
+================================================== -->
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1 id="tooltips">Tooltips <small>Bootstrap.Tooltip.js</small></h1>
+  </div>
+
+  <h2 id="tooltips-examples">Examples</h2>
+  <p>Inspired by the excellent jQuery.tipsy plugin written by Jason Frame; Tooltips are an updated version, which don't rely on images, use CSS3 for animations, and data-attributes for local title storage.</p>
+  <p>Hover over the links below to see tooltips:</p>
+  <div class="bs-example tooltip-demo">
+    <p class="muted" style="margin-bottom: 0;">Tight pants next level keffiyeh <a href="#" data-behavior="BS.Tooltip" title="Default tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a href="#" data-behavior="BS.Tooltip" title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A really ironic artisan <a href="#" data-behavior="BS.Tooltip" title="Another one here too">whatever keytar</a>, scenester farm-to-table banksy Austin <a href="#" data-behavior="BS.Tooltip" title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
+    </p>
+  </div><!-- /example -->
+
+  <h3>Four directions</h3>
+  <%= render layout: "codeblock" do %>
+<div class="tooltip-demo">
+  <div class="bs-example-tooltips">
+    <button type="button" class="btn btn-default" data-behavior="BS.Tooltip" data-bs-tooltip-location="left" title="Tooltip on left">Tooltip on left</button>
+    <button type="button" class="btn btn-default" data-behavior="BS.Tooltip" data-bs-tooltip-location="top" title="Tooltip on top">Tooltip on top</button>
+    <button type="button" class="btn btn-default" data-behavior="BS.Tooltip" data-bs-tooltip-location="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
+    <button type="button" class="btn btn-default" data-behavior="BS.Tooltip" data-bs-tooltip-location="right" title="Tooltip on right">Tooltip on right</button>
+  </div>
+</div>
+  <% end %>
+
+    <h3>Offsets</h3>
+  <%= render layout: "codeblock" do %>
+<div class="tooltip-demo">
+  <div class="bs-example-tooltips">
+    <button type="button" class="btn btn-default" data-behavior="BS.Tooltip"
+      data-bs-tooltip-options="
+        'location': 'above',
+        'offset': 100
+      " title="Tooltip shifted 100 pixels">location: above, offset: 100</button>
+    <button type="button" class="btn btn-default" data-behavior="BS.Tooltip"
+      data-bs-tooltip-options="
+        'location': 'above',
+        'offset': -30
+      " title="Tooltip shifted -30 pixels">location: above, offset: -30</button>
+    <button type="button" class="btn btn-default" data-behavior="BS.Tooltip"
+      data-bs-tooltip-options="
+        'location': 'above',
+        'offset': {'x': -30}
+      " title="Tooltip shifted x: -30 pixels">location: above, offset: {x: -30}</button>
+    <button type="button" class="btn btn-default" data-behavior="BS.Tooltip"
+      data-bs-tooltip-options="
+        'location': 'above',
+        'offset': {'x': 90, 'y': 10}
+      " title="Tooltip shifted x: 90, y: 10 pixels">location: above, offset: {x: 90, y: 10}</button>
+  </div>
+</div>
+  <% end %>
+
+
+  <h2>Usage</h2>
+  <h3>Via data attributes</h3>
+  <pre class="prettyprint">&lt;a href="#" data-behavior="BS.Tooltip" title="first tooltip">Hover over me&lt;/a></pre>
+
+  <h3>Behavior Options</h3>
+  <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-bs-tooltip-content=""</code>.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 100px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>content</td>
+          <td>string</td>
+          <td>'title'</td>
+          <td>the content of the tip, if not defined, will use the <code>title</code> property of the element</td>
+        </tr>
+        <tr>
+          <td>animate</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>apply a css fade transition to the tooltip</td>
+        </tr>
+        <tr>
+          <td>delayIn</td>
+          <td>number</td>
+          <td>200</td>
+          <td>delay before showing tooltip (ms)</td>
+        </tr>
+        <tr>
+          <td>delayOut</td>
+          <td>number</td>
+          <td>0</td>
+          <td>delay before hiding tooltip (ms)</td>
+        </tr>
+        <tr>
+          <td>location</td>
+          <td>string</td>
+          <td>'above'</td>
+          <td>how to position the tooltip - above | below | left | right</td>
+        </tr>
+        <tr>
+          <td>offset</td>
+          <td>number</td>
+          <td>0</td>
+          <td>pixel offset of tooltip from target element</td>
+        </tr>
+        <tr>
+          <td>trigger</td>
+          <td>string</td>
+          <td>'hover'</td>
+          <td>how tooltip is triggered - hover | focus | manual</td>
+        </tr>
+        <tr>
+          <td>onOverflow</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>Only show the tip if the element's content is overflown (i.e. it's scroll-height or scroll-width is greater than the height or width of the element)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div><!-- /.table-responsive -->
+
+  <h3>via JavaScript</h3>
+  <pre class="prettyprint">new Bootstrap.Tooltip(element, options).show();</pre>
+</div>
+  <%= render partial: "md_docs", locals: {
+    docs: ["js/Docs/Bootstrap.Tooltip/Behavior.BS.Tooltip.md",
+           "js/Docs/Bootstrap.Tooltip/Bootstrap.Tooltip.md"
+         ]
+  } %>

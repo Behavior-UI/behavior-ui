@@ -1,0 +1,92 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>FormValidator <small>Behavior.FormValidator.js</small></h1>
+  </div>
+
+  <p>Automatically validates inputs as the user types.</p>
+
+  <div class="bs-callout bs-callout-danger">
+    <h4>Plugin dependency</h4>
+    <p>Note: Be sure to include <code>thanx-components/form-validator.less</code> so that error states are styled correctly.</p>
+  </div>
+
+  <h3>Basic Usage</h3>
+	<p>Validates that a form's inputs are correct. Fill out the form as described and submit it. Errors should be displayed as you enter invalid values.</p>
+
+<%= render layout: "codeblock" do %>
+<form id="foo" data-behavior="FormValidator" class="form-horizontal">
+  <div class="form-group">
+    <label class="col-lg-5 control-label">this cannot be empty</label>
+    <div class="col-lg-5"><input name="a" data-validators="required" class="form-control"></div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-5 control-label">this must be an integer (-1,0,1,2,3, etc)</label>
+    <div class="col-lg-5"><input name="b" data-validators="required validate-integer" class="form-control"></div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-5 control-label">this must be numeric (0, 1.3, -5.2, 10, etc) </label>
+    <div class="col-lg-5"><input name="c" data-validators="required validate-numeric" class="form-control"></div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-5 control-label">this must be between 3 and 6 characters long</label>
+    <div class="col-lg-5"><input name="d" data-validators="required minLength:3 maxLength:6" class="form-control"></div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-5 control-label">this must be numbers only, but punctuation and spaces are ok</label>
+    <div class="col-lg-5"><input name="e" data-validators="required validate-digits" class="form-control"></div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-5 control-label">this must be only letters</label>
+    <div class="col-lg-5"><input name="f" data-validators="required validate-alpha" class="form-control"></div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-5 control-label">this must be letters and/or numbers</label>
+    <div class="col-lg-5"><input name="g" data-validators="required validate-alphanum" class="form-control"></div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-5 control-label">this must be a date; try lots of combos</label>
+    <div class="col-lg-5"><input name="h" data-validators="required validate-date" class="form-control"></div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-5 control-label">this must be an email address</label>
+    <div class="col-lg-5"><input name="i" data-validators="required validate-email" class="form-control"></div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-5 control-label">this must be a url</label>
+    <div class="col-lg-5"><input name="j" data-validators="required validate-url" class="form-control"></div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-5 control-label">this must be a dollar currency ($1.00, $1,000.00, $100)</label>
+    <div class="col-lg-5"><input name="k" data-validators="required validate-currency-dollar" class="form-control"></div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-5 control-label">this one of these must be checked</label>
+    <div class="col-lg-5">
+      <label class="checkbox-inline">
+        <input type="checkbox" value="1"> 1
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" value="2"> 2
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" value="3" data-validators="validate-one-required"> 3
+      </label>
+      <div class="help-block advice"><!-- This div, empty, is where the validation message will be
+        placed so as not to break the flow of the inputs above --></div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-offset-5 col-lg-5">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+</form>
+<% end %>
+
+</div>
+
+<%= render partial: "md_docs", locals: {
+	docs: ["js/Docs/Forms/Behavior.FormValidator.md",
+				 "node_modules/mootools-more/Docs/Forms/Form.Validator.md",
+				 "node_modules/mootools-more/Docs/Forms/Form.Validator.Extras.md"]
+} %>

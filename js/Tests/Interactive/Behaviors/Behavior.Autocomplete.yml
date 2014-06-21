@@ -1,0 +1,4 @@
+js-references:
+  - "Clientcide/Behavior.Autocomplete"
+  - "Clientcide/Autocompleter.Local"
+  - "Clientcide/Autocompleter.Remote"

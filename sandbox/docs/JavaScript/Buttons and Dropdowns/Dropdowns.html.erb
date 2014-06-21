@@ -1,0 +1,178 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1 id="dropdowns">Dropdowns <small>Bootstrap.Dropdown.js</small></h1>
+  </div>
+
+  <h2 id="dropdowns-examples">Examples</h2>
+  <p>Add dropdown menus to nearly anything with this simple plugin, including the navbar, tabs, and pills.</p>
+
+  <h3>Dropdown Buttons</h3>
+
+  <%= render layout: "codeblock" do %>
+<div class="mbl">
+  <div class="btn-group" data-behavior="BS.Dropdown">
+    <button class="btn btn-primary btn-hg">Dropdown</button>
+    <button class="btn btn-primary btn-hg dropdown-toggle" data-toggle="dropdown">
+      <span class="caret"></span>
+    </button>
+    <span class="dropdown-arrow dropdown-arrow-inverse"></span>
+    <ul class="dropdown-menu dropdown-inverse">
+      <li><a href="#fakelink">Sub Menu Element</a></li>
+      <li><a href="#fakelink">Sub Menu Element</a></li>
+      <li><a href="#fakelink">Sub Menu Element</a></li>
+    </ul>
+  </div>
+</div>
+  <% end %>
+
+  <h3>Within a navbar</h3>
+  <%= render layout: "codeblock" do %>
+<nav id="navbar-example" class="navbar navbar-default navbar-static" role="navigation" data-behavior="BS.Dropdown">
+  <div class="navbar-inner">
+    <div class="container full-width">
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-js-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Project Name</a>
+      </div>
+      <div class="collapse navbar-collapse bs-js-navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+            <span class="dropdown-arrow"></span>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+              <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="http://twitter.com/anutron">Action</a>
+              </li>
+              <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="http://twitter.com/anutron">Another action</a>
+              </li>
+              <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="http://twitter.com/anutron">Something else here</a>
+              </li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="http://twitter.com/anutron">Separated link</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Dropdown 2 <b class="caret"></b></a>
+            <span class="dropdown-arrow"></span>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+              <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="http://twitter.com/anutron">Action</a>
+              </li>
+              <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="http://twitter.com/anutron">Another action</a>
+              </li>
+              <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="http://twitter.com/anutron">Something else here</a>
+              </li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="http://twitter.com/anutron">Separated link</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li id="fat-menu" class="dropdown">
+            <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">Dropdown 3 <b class="caret"></b></a>
+            <span class="dropdown-arrow"></span>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+              <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="http://twitter.com/anutron">Action</a>
+              </li>
+              <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="http://twitter.com/anutron">Another action</a>
+              </li>
+              <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="http://twitter.com/anutron">Something else here</a>
+              </li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="http://twitter.com/anutron">Separated link</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.nav-collapse -->
+    </div>
+  </div>
+</nav> <!-- /navbar-example -->
+  <% end %>
+
+  <h3>Within tabs</h3>
+
+  <%= render layout: "codeblock" do %>
+<ul class="nav nav-tabs nav-append-content" data-behavior="BS.Dropdown BS.Tabs">
+  <li class="active"><a class="tab">Popular</a></li>
+  <li><a class="tab">Newest</a></li>
+  <li><a class="tab">Bestselling</a></li>
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown">
+      Dropdown
+      <b class="caret"></b>
+    </a>
+    <span class="dropdown-arrow"></span>
+    <ul class="dropdown-menu">
+      <li><a class="tab">Another</a></li>
+      <li><a class="tab">Something else</a></li>
+    </ul>
+  </li>
+</ul> <!-- /tabs -->
+
+<div class="tab-content">
+  <div class="tab-pane active">
+    <p>I'm in Section 1.</p>
+  </div>
+
+  <!-- /tabs -->
+  <div class="tab-pane">
+    <p>Howdy, I'm in Section 2.</p>
+  </div>
+
+  <!-- /tabs -->
+  <div class="tab-pane">
+    <p>Howdy, I'm in Section 3.</p>
+  </div>
+
+  <div class="tab-pane">
+    <p>Howdy, I'm in Section 4.</p>
+  </div>
+
+  <div class="tab-pane">
+    <p>Howdy, I'm in Section 5.</p>
+  </div>
+</div> <!-- /tab-content -->
+  <% end %>
+
+  <h2 id="dropdowns-usage">Usage</h2>
+
+  <h3>Via data attributes</h3>
+  <p>
+    Add <code>data-behavior="BS.Dropdown"</code> to the top level <code>.dropdown</code> element,
+    then add <code>data-toggle="dropdown"</code> to a link or button to toggle a dropdown.
+  </p>
+<pre class="prettyprint">&lt;div class="dropdown">
+  &lt;a data-toggle="dropdown" href="#">Dropdown trigger&lt;/a>
+  &lt;ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    ...
+  &lt;/ul>
+&lt;/div></pre>
+
+  <h3>Via JavaScript</h3>
+  <p>Call the dropdowns via JavaScript:</p>
+  <pre class="prettyprint">new Bootstrap.Dropdown(containerElement, options);</pre>
+
+  <h3>Options</h3>
+  <p><em>None</em></p>
+</div>
+    <%= render partial: "md_docs", locals: {
+      docs: ["js/Docs/Bootstrap.Dropdown/Bootstrap.Dropdown.md"]
+    } %>

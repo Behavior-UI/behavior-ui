@@ -1,0 +1,190 @@
+
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1 id="dropdowns">FlatUI Selects</h1>
+  </div>
+
+  <%= render partial: 'flat_ui_required' %>
+
+  <div class="bs-callout bs-callout-danger">
+    <h4>Plugin dependency</h4>
+    <p>Note: Be sure to include <code>thanx-components/select.less</code> so that your original select elements that use
+      this behavior are hidden.</p>
+  </div>
+
+  <div class="bs-callout bs-callout-danger">
+    <h4>Warning: Form Validation</h4>
+    <p>This class doesn't work so well with Form.Validation yet. Try setting <code>ignoreHidden</code> to <code>false</code> in your
+      form validator options.</p>
+  </div>
+
+
+
+  <h3>Vanilla Select</h3>
+  <p class="lead">example inputs shown to demo tabbing around</p>
+  <%= render layout: "codeblock" do %>
+
+<div class="row">
+  <div class="form-group clearfix">
+    <div class="col-lg-5"><input name="a" class="form-control"></div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-lg-5 clearfix">
+    <select data-behavior="FlatUI.Select" class="select-block mbl">
+        <option value="0" selected="selected">My Profile</option>
+        <option value="1">My Friends</option>
+        <option value="2">Messages</option>
+        <option value="3">My Settings</option>
+        <option value="4">Logout</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group clearfix">
+    <div class="col-lg-5"><input name="a" class="form-control"></div>
+  </div>
+</div>
+
+  <% end %>
+
+  <h3>With Sections</h3>
+  <%= render layout: "codeblock" do %>
+<select data-behavior="FlatUI.Select" class="select-block mbl">
+  <optgroup label="Profile">
+    <option value="0" selected="selected">My Profile</option>
+    <option value="1">My Friends</option>
+  </optgroup>
+  <optgroup label="System">
+    <option value="2">Messages</option>
+    <option value="3">My Settings</option>
+    <option value="4" class="highlighted">Logout</option>
+  </optgroup>
+</select>
+  <% end %>
+
+  <h3>With Custom Styles</h3>
+  <%= render layout: "codeblock" do %>
+<select data-behavior="FlatUI.Select" class="mbl" data-flatui-select-options="
+  'buttonClass': 'btn btn-warning',
+  'menuClass': 'dropdown-inverse',
+  'arrowClass': 'dropdown-arrow dropdown-arrow-inverse'
+">
+  <optgroup label="Profile">
+    <option value="0" selected="selected">My Profile</option>
+    <option value="1">My Friends</option>
+  </optgroup>
+  <optgroup label="System">
+    <option value="2">Messages</option>
+    <option value="3">My Settings</option>
+    <option value="4" class="highlighted">Logout</option>
+  </optgroup>
+</select>
+  <% end %>
+
+  <h3>With a Highlighted Element and a Disabled Element</h3>
+  <%= render layout: "codeblock" do %>
+<select data-behavior="FlatUI.Select" class="select-block mbl" multiple="true">
+    <option value="0" selected="selected">My Profile</option>
+    <option value="1">My Friends</option>
+    <option value="2" disabled="true">Messages (this is disabled with the attribute disabled='true')</option>
+    <option value="3" class="disabled">My Settings (this is disabled with the 'disabled' css class)</option>
+    <option value="4" class="highlighted">Logout (this option has a custom class - 'highlighted')</option>
+</select>
+  <% end %>
+
+  <h3>Multiple Selection</h3>
+  <%= render layout: "codeblock" do %>
+<select data-behavior="FlatUI.Select" class="select-block mbl" multiple="true">
+    <option value="0" selected="selected">My Profile</option>
+    <option value="1">My Friends</option>
+    <option value="2">Messages</option>
+    <option value="3">My Settings</option>
+    <option value="4">Logout</option>
+</select>
+  <% end %>
+
+  <h3>Disabled</h3>
+  <%= render layout: "codeblock" do %>
+<select data-behavior="FlatUI.Select" class="select-block mbl" multiple="true" disabled="true">
+    <option value="0" selected="selected">My Profile</option>
+    <option value="1">My Friends</option>
+    <option value="2" class="divider">Messages</option>
+    <option value="3">My Settings</option>
+    <option value="4">Logout</option>
+</select>
+  <% end %>
+
+    <h2>Behavior Options</h2>
+    <p>These options apply only to the <code>data-</code> tag invocation.</p>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead>
+         <tr>
+           <th style="width: 100px;">Name</th>
+           <th style="width: 50px;">type</th>
+           <th style="width: 50px;">default</th>
+           <th>description</th>
+         </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>menuClass</td>
+            <td>String</td>
+            <td>~</td>
+            <td>Class applied to the dropdown menu. E.g. <code>'dropdown-inverse'</code>.</td>
+          </tr>
+          <tr>
+            <td>buttonClass</td>
+            <td>String</td>
+            <td class="nowrap">'btn-hg btn-primary'</td>
+            <td>Classes applied to the button that the user clicks to show the dropdown.</td>
+          </tr>
+          <tr>
+            <td>noneSelectedText</td>
+            <td>String</td>
+            <td>'Nothing selected'</td>
+            <td>String displayed in the button when the user has nothing selected. Only applies when the select
+              element has <code>multiple="true"</code>.</td>
+          </tr>
+          <tr>
+            <td>closeOnEsc</td>
+            <td>Boolean</td>
+            <td>true</td>
+            <td>Closes the dropdown when the user hits escape.</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Additional Notes</h2>
+    <ul>
+      <li>The classes on the select list are transfered to the container for the HTML implementation. For example, if you
+        were to give this a class that specified width, it would apply.</li>
+      <li>If your select is disabled the HTML UI will also be. If you need to toggle this, you need to run
+        <code>yourSelectElement.get('select').disable() / .enable()</code>.
+      </li>
+      <li>The select element is hidden by JavaScript, but this can cause a flicker on load. You should include
+        <code>thanx-components/select.less</code> which hides them via CSS.</li>
+      <li>You can disable individual options by giving the option the class <code>'disabled'</code> </li>
+    </ul>
+
+    <h2>Automatic Behavior</h2>
+    <p>If your JS build includes <code>FlatUI.js</code>, all select boxes get turned into these components. You can prevent this
+      by adding the css class <code>no-flat-select</code> to the element.</p>
+
+    <p>Here's an example of a plain ol' select list element.</p>
+
+  <%= render layout: "codeblock" do %>
+<select>
+    <option value="0" selected="selected">My Profile</option>
+    <option value="1">My Friends</option>
+    <option value="2">Messages</option>
+    <option value="3">My Settings</option>
+    <option value="4">Logout</option>
+</select>
+  <% end %>
+    </div>
+  </div>

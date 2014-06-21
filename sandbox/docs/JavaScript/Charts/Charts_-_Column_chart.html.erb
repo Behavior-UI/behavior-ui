@@ -1,0 +1,52 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>Column Chart</h1>
+  </div>
+
+  <h3>Basic Usage</h3>
+  <p>Simple column chart.</p>
+
+  <%= render layout: "codeblock", locals: { include_response: true} do %>
+<div data-behavior="Chart ToSource" class="full-width chart" data-chart-options="
+  'seriesType':'column',
+  'xAxis': {
+    'type': 'linear',
+    'minRange': 1,
+    'title': {
+      'text': 'Some sort of measurement'
+    }
+  },
+  'url': '/sandbox/chart/columns'
+  " data-tosource-target="!.example-block .response"></div>
+  <% end %>
+
+  <h3>Stock Chart w/ Multiple Columns</h3>
+  <%= render layout: "codeblock", locals: { include_response: true} do %>
+<div data-behavior="Chart.Stock ToSource" class="full-width chart" data-chart-stock-options="
+  'seriesType':'column',
+  'url': '/sandbox/chart/column_comparison'
+  " data-tosource-target="!.example-block .response"></div>
+  <% end %>
+
+  <h3>Stock Chart w/ Stacking &amp; Total</h3>
+  <%= render layout: "codeblock", locals: { include_response: true} do %>
+<div data-behavior="Chart.Stock ToSource" class="full-width chart" data-chart-stock-options="
+  'seriesType':'column',
+  'stack': 'normal',
+  'url': '/sandbox/chart/column_comparison'
+  " data-tosource-target="!.example-block .response"></div>
+  <% end %>
+
+
+  <h3>Stock Chart w/ Stacking &amp; Total</h3>
+  <%= render layout: "codeblock", locals: { include_response: true} do %>
+<div data-behavior="Chart.Stock ToSource" class="full-width chart" data-chart-stock-options="
+  'showTitle': false,
+  'showYAxis': false,
+  'showLegend': true,
+  'seriesType':'column',
+  'columnStacking': 'normal',
+  'url': '/sandbox/chart/column_comparison_with_negatives'
+" data-tosource-target="!.example-block .response"></div>
+  <% end %>
+</div>

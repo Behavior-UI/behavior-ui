@@ -1,0 +1,31 @@
+.nav-tabs.grey-header {
+  padding-left: 20px;
+  &.nav-append-content > li.active:first-child:before {
+    border-left-width: 0px;
+    width: 0px;
+  }
+  li > a {
+    background-color: @grey-20;
+  }
+  li.active > a {
+    background-color: white;
+    color: @wet-asphalt;
+    border-color: #ddd;
+    border-bottom-color: white;
+  }
+}
+.tab-content.white-bkg {
+  border-radius: 0px;
+  border-right-width: 0px;
+  border-left-width: 0px;
+}
+.tab-content.no-footer {
+  margin-bottom: 0px;
+  border-bottom: 0px;
+}
+.tab-content.with-scrollable-table {
+  .clearfix();
+  position: absolute;
+  bottom: 0px;
+  top: 304px;
+}

@@ -1,0 +1,34 @@
+//
+// Popover
+// --------------------------------------------------
+
+#popover {
+  .color(@color: #555) {
+    background-color: @color;
+    color: white;
+    &.right .arrow {
+      border-right-color: @color;
+    }
+    &.left .arrow {
+      border-left-color: @color;
+    }
+    &.bottom .arrow {
+      border-bottom-color: @color;
+    }
+    &.top .arrow {
+      border-top-color: @color;
+    }
+  }
+}
+
+.popover {
+  &.inverse {
+    #popover > .color(mix(@brand-primary, black, 9%));
+  }
+  &.darker {
+    #popover > .color(mix(@brand-primary, black, 50%));
+  }
+  &.dark {
+    #popover > .color(mix(@brand-primary, black, 75%));
+  }
+}

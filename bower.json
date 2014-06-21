@@ -1,0 +1,25 @@
+{
+  "name": "behavior-ui",
+  "dependencies": {
+    "bootstrap": "3.1.0",
+    "flat-ui-official": "2.1.3"
+  },
+  "main": [
+    "./dist/js/behavior-ui.js",
+    "./sandbox/doc_assets/color-picker/blank.gif",
+    "./sandbox/doc_assets/color-picker/moor_arrows.gif",
+    "./sandbox/doc_assets/color-picker/moor_boverlay.png",
+    "./sandbox/doc_assets/color-picker/moor_cursor.gif",
+    "./sandbox/doc_assets/color-picker/moor_sider.png",
+    "./sandbox/doc_assets/color-picker/moor_woverlay.png",
+    "./sandbox/doc_assets/flat-ui-assets/carousel/image-01.jpg",
+    "./sandbox/doc_assets/flat-ui-assets/carousel/image-02.jpg",
+    "./sandbox/doc_assets/flat-ui-assets/carousel/image-03.jpg",
+    "./sandbox/doc_assets/flat-ui-assets/switch/mask-square.jpg",
+    "./sandbox/doc_assets/flat-ui-assets/switch/mask.jpg",
+    "./sandbox/doc_assets/flat-ui-assets/example-image.jpg"
+  ],
+  "ignore": [
+    "js/Tests/*"
+  ]
+}

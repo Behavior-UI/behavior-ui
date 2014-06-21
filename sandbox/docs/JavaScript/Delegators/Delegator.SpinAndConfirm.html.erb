@@ -1,0 +1,24 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>Confirm <small>Delegator.Confirm.js</small></h1>
+  </div>
+
+  <p>Prompts the user to confirm an action. Can be applied to a form control or a link.</p>
+
+  <h3>Basic Usage</h3>
+  <%= render layout: "codeblock" do %>
+<%= link_to "Reload this page", url_for, class: 'btn', data: {
+  trigger: 'spinAndConfirm',
+  confirm_options: {
+    content: 'You sure you wanna do that?'
+  }
+} %>
+  <% end %>
+
+  <h2>Behavior Options</h2>
+  <p>You can set options for <code>data-confirm-options</code>
+    (per <%= link_to "Delegator.Confirm", sandbox_dir_file_path(section: 'JavaScript', dir: "Delegators", file: "Delegator.Confirm") %>)
+    and <code>data-spinonclick-options</code>
+    (per <%= link_to "Delegator.SpinOnClick", sandbox_dir_file_path(section: 'JavaScript', dir: "Delegators", file: "Delegator.SpinOnClick") %>)
+    and they'll be used (as in the example above).</p>
+</div>

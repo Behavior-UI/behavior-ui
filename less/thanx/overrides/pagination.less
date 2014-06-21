@@ -1,0 +1,22 @@
+.pagination {
+  float: right;
+  ul li {
+    > a {
+      background-color: @grey-40;
+      &:hover {
+        color: @white;
+      }
+    }
+    &.active > span {
+      border-color: @grey-20;
+      border-left-width: 1px;
+    }
+  }
+  li.disabled span,
+  li.disabled a,
+  li.disabled span:hover,
+  li.disabled a:hover {
+    background-color: @grey-30;
+    border-color: @grey-20;
+  }
+}

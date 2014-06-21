@@ -1,0 +1,9 @@
+// Anchors offset by the height of the navbar. If we didn't do this, the anchor can
+// end up underneath the navbar if it is fixed.
+.thanx-anchor {
+  position: relative;
+  top: -1*@navbar-height;
+  @media (max-width: @screen-sm-max) {
+    top: -1*@navbar-mobile-height;
+  }
+}

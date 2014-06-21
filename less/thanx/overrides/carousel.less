@@ -1,0 +1,200 @@
+/*
+
+  Carousel crosfades items
+
+*/
+.fade-carousel {
+  background-color: #686868;
+  .slide,
+  .item {
+    top: 0;
+    opacity: 0;
+    display: block;
+    .transition( opacity @transition_speed*3 ease-in-out);
+    &.active {
+      .transition( opacity @transition_speed ease-in-out);
+      opacity: 1;
+    }
+  }
+}
+
+/*
+
+  mobile friendly carousel layout with slides occupying a portion of the layout and next/prev slides
+  visible off to the side. typically used with data-behavior=InteractiveList rather than BS.Carousel
+
+*/
+
+.simple-carousel {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  li {
+    position: relative;
+    width: 79%;
+    &:before {
+      content: "";
+      display: inline-block;
+      width: 5%;
+    }
+    > div {
+      display: inline-block;
+      width: 97%;
+      position: relative;
+      left: 12.5%;
+    }
+  }
+  &.large-slides {
+    li > div {
+      width: 95%;
+      left: 10%;
+    }
+  }
+}
+
+/*
+
+  mixin styles for carousels
+
+*/
+
+#thanx-carousel {
+  /*
+    puts indicators at the bottom
+  */
+  .indicators {
+    bottom: -20px;
+    &.bottom-percent {
+      bottom: -34%;
+    }
+    &.bottom-large {
+      bottom: -60px;
+    }
+    &.bottom-medium {
+      bottom: -30px;
+    }
+    &.bottom-zero {
+      bottom: 0px;
+    }
+    display: none;
+    @media (min-width: @screen-tablet) {
+      display: block;
+    }
+    & > * {
+      .square(15px);
+      &.tiny {
+        .square(8px);
+        margin: 0 0 0 5px;
+      }
+      border-radius: 15px;
+      background-color: @grey-50;
+      opacity: .32;
+      .transition(opacity @transition_speed linear);
+      border-width: 0px;
+      margin: 0 0 0 12px;
+      &:first-child {
+        margin-left: 0px;
+      }
+      &:hover, &.active {
+        opacity: 1;
+      }
+    }
+    &.bright-indicators {
+      & > * {
+        background-color: white;
+      }
+    }
+  }
+  /*
+    variable heights per screen
+  */
+  .item-sizes {
+    &.medium-height {
+      min-height: 400px;
+      @media (min-width: @screen-tablet) {
+        min-height: 460px;
+      }
+      @media (min-width: @screen-lg-desktop) {
+        min-height: 410px;
+      }
+    }
+    &.full-height {
+      min-height: 100%;
+    }
+  }
+  /*
+    positions controls on left and right of slides
+  */
+  .controls {
+    &.left,
+    &.right {
+      background-image: none;
+      width: 5%;
+      display: none;
+      opacity: 1;
+      padding-top: 5%;
+      &:hover {
+        opacity: .8;
+      }
+      @media (min-width: @screen-desktop) {
+        display: inline-block;
+      }
+      &.push-down {
+        padding-top: 20%;
+      }
+      &.vcenter {
+        top: 50%;
+        padding: 0;
+        > * {
+          margin-top: -50%;
+        }
+      }
+    }
+    &.right {
+      right: 0%;
+    }
+    &.left {
+      left: 0%;
+    }
+  }
+}
+
+/*
+
+  default styles for thanx carousels
+  * carousel indicators at the bottom
+  * carousel controls near the top on either side, hidden on mobile
+  * uses hard img tags for the controls
+  * used with data-behavior=BS.Carousel
+
+*/
+
+.thanx-carousel {
+  margin-top: 7%;
+  margin-bottom: 5%;
+  .carousel-indicators {
+    #thanx-carousel > .indicators;
+  }
+  .item {
+    #thanx-carousel > .item-sizes;
+  }
+  .carousel-control {
+    #thanx-carousel > .controls;
+    .controls {
+      top: 50%;
+    }
+  }
+}
+
+.carousel-full-width {
+  .carousel-indicators {
+    #thanx-carousel > .indicators;
+  }
+  .carousel-control {
+    #thanx-carousel > .controls;
+
+  }
+  .item {
+    #thanx-carousel > .item-sizes;
+  }
+}

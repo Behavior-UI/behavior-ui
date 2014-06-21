@@ -1,0 +1,265 @@
+a, label, .pointer {
+  cursor: pointer;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline {
+  display: inline;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.no-margin {
+  margin: 0px;
+}
+.transition-none {
+  .transition(none) !important;
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.fixed {
+  position: fixed;
+}
+.yeswrap {
+  white-space: normal;
+}
+.ellipsis {
+  .nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.invisible {
+  visibility: hidden;
+}
+.invisible-important {
+  visibility: hidden !important;
+}
+.visible {
+  visibility: visible;
+}
+.full-width {
+  width: 100%;
+}
+.full-width-on-xs {
+  @media (max-width: @screen-xs-max) {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+  }
+}
+.width-0 {
+  width: 0%;
+}
+.width-0-important {
+  width: 0% !important;
+}
+
+.width-25 {
+  width: 25%;
+  min-width: 25%;
+  max-width: 25%;
+}
+.width-33 {
+  width: 33.33333%;
+  min-width: 33.33333%;
+  max-width: 33.33333%;
+}
+.width-50 {
+  width: 50%;
+  min-width: 50%;
+  max-width: 50%;
+}
+.width-66 {
+  width: 66.66667%;
+  min-width: 66.66667%;
+  max-width: 66.66667%;
+}
+.width-75 {
+  width: 75%;
+  min-width: 75%;
+  max-width: 75%;
+}
+.width-90 {
+  width: 90%;
+  min-width: 90%;
+  max-width: 90%;
+}
+.width-100 {
+  width: 100%;
+}
+.width-100-important {
+  width: 100% !important;
+}
+.min-width-0 {
+  min-width: 0%;
+}
+.full-height {
+  height: 100%;
+}
+.header-height {
+  height: @navbar-height;
+}
+.center {
+  display: block;
+  margin: 0 auto;
+}
+.overflow-y {
+  overflow-y: auto;
+  overflow-x: hidden;
+  &.overflow-x {
+    overflow-x: visible;
+  }
+}
+.overflow-x {
+  overflow-x: auto;
+  overflow-y: hidden;
+  &.overflow-y {
+    overflow-y: visible;
+  }
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.main-content {
+  position:absolute;
+  bottom:0px;
+  top: @navbar-height;
+  width:100%;
+  overflow: none;
+}
+.help {
+  display: inline-block;
+  span {
+    font-size: 26px;
+    position: relative;
+    line-height: 10px;
+    &:hover {
+      color: @grey-70;
+    }
+  }
+}
+.hidden-phone {
+  @media (max-width: @screen-xs-max) {
+    display: none !important;
+  }
+}
+.visible-inline-block-phone {
+  @media (max-width: @screen-xs-max) {
+    display: inline-block !important;
+  }
+}
+.visible-inline-block-tablet {
+  @media (max-width: @screen-sm-max) {
+    display: inline-block !important;
+  }
+}
+.invisible-phone {
+  visibility: hidden;
+  @media (min-width: @screen-tablet) {
+    visibility: visible;
+  }
+}
+.invisible-tablet {
+  visibility: hidden;
+  @media (min-width: @screen-desktop) {
+    visibility: visible;
+  }
+}
+.hover-opacity-0 {
+  &:hover {
+    opacity: 0;
+  }
+}
+
+/*
+  used to fix rendering issues. for example, transitions measuring with improper rounding
+  see: http://stackoverflow.com/questions/15051557/very-difficult-to-solve-and-strange-css3-opacity-transition-issue-must-be-a
+*/
+.webkit-hardware-accel {
+  -webkit-transform: translateZ(0);
+}
+.unimportant-hide {
+  display: none;
+}
+.vertical-top {
+  vertical-align: top !important;
+}
+.vertical-middle {
+  vertical-align: middle !important;
+}
+.vertical-bottom {
+  vertical-align: bottom !important;
+}
+.z1up {
+  z-index: 1;
+}
+.z500up {
+  z-index: 500;
+}
+.z2500up {
+  z-index: 2500;
+}
+.nudge-up {
+  top: -2px !important;
+}
+.nudge-up-large {
+  top: -5px !important;
+}
+.nudge-down {
+  top: 2px !important;
+}
+.nudge-down-large {
+  top: 5px !important;
+}
+.border-radius-large {
+  .border-radius(@border-radius-large);
+}
+
+.border-radius-top-large {
+  .border-radius(@border-radius-large @border-radius-large 0 0);
+}
+
+
+.placeholder-color(@color) {
+  &:-moz-placeholder            { color: @color; } // Firefox 4-18
+  &::-moz-placeholder           { color: @color; } // Firefox 19+
+  &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
+  &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
+  &.placeholder                 { color: @color; } // Fallback
+}
+
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+
+/*
+  when adding two splits next to each other, DO NOT separate them with whitespace
+  use a comment instead, like this:
+     <div class="split2">
+     </div><!--
+     use comment to make code readable (whitespace will add additional pixels)
+  --><div class="split2">
+
+*/
+.split2 {
+  display: inline-block;
+  width: 50%;
+}
+.split3 {
+  display: inline-block;
+  width: 33.3%;
+}
+.split4 {
+  display: inline-block;
+  width: 25%;
+}

@@ -1,0 +1,185 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>Chart.Monitor <small>Behavior.Chart.Monitor.js</small></h1>
+  </div>
+
+  <p>This behavior allows you to update various DOM elements when a <em>Chart.Stock</em> instance has its range changed.
+    In addition to updating various DOM elements, it can invoke delegators as specified. This combination allows you to
+    change the DOM values and/or their state, hiding or showing an element, or fetching new content from the server.
+  </p>
+
+  <h4>Updating one input</h4>
+  <%= render layout: "codeblock", locals: { include_response: true}  do %>
+<div class="chart-example">
+  <div class="row" data-behavior="Chart.RangeMonitor"
+    data-chart-rangemonitor-options="
+      'element': '!div.chart-example .singleInput',
+      'inputsUpdateChart': true,
+      'links': '!div.chart-example a',
+      'target': '!div.chart-example .chart',
+      'delegators': {
+        'toggleClass': {}
+      }
+    " data-toggleclass-options="
+      'class': 'btn-primary',
+      'target': '!.chart-example .btn'
+    ">
+    <div class="col-md-6">
+      <p><input type="text" class="form-control singleInput" value=""></p>
+    </div>
+    <div class="col-md-6">
+      <p>This gets its values set when you change a date.</p>
+    </div>
+  </div>
+  <hr/>
+  <div class="row">
+    <div class="col-md-6">
+      <%= link_to "href w/ date args", url_for({}), class: "btn" %>
+      <p>This button gets its url updated with the start/end dates but also toggles class
+        whenever the range selector is updated. Any delegator could be triggered, including,
+        for instance, the <%= link_to "Ajax", sandbox_dir_file_path(section: 'JavaScript', dir: "Delegators", file: "Delegator.Ajax") %> trigger.</p>
+    </div>
+    <div class="col-md-6">
+      <p>
+        <span class="singleInput" data-format="%m/%d"></span>
+      </p>
+      <p>This paragraph contains a single span that gets the date set in its innerHTML. Note that it has
+        <code>data-format</code> settings to specify its date format (in this case, <code>%m/%d</code>).</p>
+    </div>
+  </div>
+  <hr/>
+
+  <div data-behavior="Chart.Stock" class="chart" data-chart-stock-options="
+    'url': '/sandbox/chart/three_lines'
+  "></div>
+</div>
+  <% end %>
+
+  <h4>Updating two inputs</h4>
+
+  <%= render layout: "codeblock", locals: { include_response: true}  do %>
+<div class="chart-example">
+  <div class="row" data-behavior="Chart.RangeMonitor"
+    data-chart-rangemonitor-options="
+      'elements':{
+        'start': '!div.chart-example .from',
+        'end': '!div.chart-example .to'
+      },
+      'inputsUpdateChart': true,
+      'target': '!div.chart-example .chart'
+    ">
+    <div class="col-md-3">
+      <p><input type="text" class="form-control from" value=""></p>
+    </div>
+    <div class="col-md-3">
+      <p><input type="text" class="form-control to" value=""></p>
+    </div>
+    <div class="col-md-6">
+      <p>These inputs get their values set when you change a date.</p>
+    </div>
+  </div>
+  <hr/>
+
+  <div data-behavior="Chart.Stock" class="chart" data-chart-stock-options="
+    'url': '/sandbox/chart/three_lines'
+  "></div>
+</div>
+  <% end %>
+
+
+  <h2>Behavior Options</h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th>Name</th>
+         <th>type</th>
+         <th>default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>target</td>
+          <td>string</td>
+          <td>~</td>
+          <td>The selector to find the chart element; <strong>required</strong>.</td>
+        </tr>
+
+        <tr>
+          <td>links</td>
+          <td>string</td>
+          <td>~</td>
+          <td>Selector to find anchor tags to update with the date range selected by the chart. Adds these as <code>start</code>
+            and <code>end</code> to the links as url parameters.</td>
+        </tr>
+
+        <tr>
+          <td>dateFormatForLinks</td>
+          <td>string</td>
+          <td>~</td>
+          <td>The date format to use when updating the hrefs of links. By default, it uses <code>Date.getTime()</code>
+            to set the value to ms since epoch.</td>
+        </tr>
+
+
+        <tr>
+          <td>elements</td>
+          <td>object</td>
+          <td>~</td>
+          <td>Selector to find elements to update. Specify selectors for both <code>start</code> and <code>end</code> and, when the
+            chart date is selected, the elements will be updated with the corresponding dates. If the target is an input, its
+            <code>value</code> is updated, otherwise the <code>innerHTML</code>.
+          </td>
+        </tr>
+
+        <tr>
+          <td>element</td>
+          <td>string</td>
+          <td>~</td>
+          <td>Selector to find elements to update. This works just like <code>elements</code>, but updates only a single target.
+          </td>
+        </tr>
+
+        <tr>
+          <td>singleInputDelimiter</td>
+          <td>string</td>
+          <td>' - '</td>
+          <td>This string gets injected between the start and end date if a single element is used.
+          </td>
+        </tr>
+
+        <tr>
+          <td>inputsUpdateChart</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>If <code>true</code>, changes to the inputs matched by the <code>elements</code> selector will update the chart.
+            Note that your elements selector for <code>start</code> and <code>end</code> can match numerous elements, but if
+            they match more than one input each only the first input matched is monitored for changes.</td>
+        </tr>
+
+        <tr>
+          <td>dateFormatForElements</td>
+          <td>string</td>
+          <td>"%m/%d/%Y"</td>
+          <td>The date format to use when updating elements. By default, it uses <code>Locale.get('Date.shortDate')</code>.</td>
+        </tr>
+
+        <tr>
+          <td>delegators</td>
+          <td>Object</td>
+          <td>~</td>
+          <td>A list of delegators to trigger on the element when the date is changed. See Behavior.Startup for the format of these.
+            The example above also includes it.</td>
+        </tr>
+
+
+      </tbody>
+    </table>
+  </div>
+
+  <%= render partial: "md_docs", locals: {
+    docs: ["node_modules/behavior/Docs/Behavior.Startup.md"]
+  } %>
+</div>

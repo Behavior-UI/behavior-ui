@@ -1,0 +1,406 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>Chart Configuration and Options</h1>
+  </div>
+
+  <div class="bs-callout bs-callout-info">
+    <h4>Less Component Required</h4>
+    <p>
+       Be sure to include <code>components/charts.less</code> in your build.
+    </p>
+  </div>
+
+  <p>Writing a chart itself requires a fair amount of ruby code on the back to deliver data. Documented here are the
+    Javascript options for the client side of things as well as the conventional arguments passed along to our graphs
+    here at Thanx.</p>
+
+  <p><label class="label label-primary">Note</label> Check out the other pages in the "Thanx Charts" section to see
+    working examples.</p>
+
+
+  <h3>On The Server Side</h3>
+  <p>In addition to the client side configuration outlined below, there's much configuration done in the response
+    from the server. You can create multiple series in the same chart area, different chart types (a line graph
+    on top of a chart graph for example), add flags and more. Spend some time digging through the documentation
+    of our existing charts to see how the response is created.</p>
+
+  <h2>Behavior Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>tooltips</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>show tooltips on hover</td>
+        </tr>
+        <tr>
+          <td>showTitle</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>display the title in the chart</td>
+        </tr>
+        <tr>
+          <td>showSubTitle</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>display the subtitle in the chart</td>
+        </tr>
+        <tr>
+          <td>showLegend</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>display the legend for the chart</td>
+        </tr>
+        <tr>
+          <td>showMarkers</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>shows the point markers</td>
+        </tr>
+        <tr>
+          <td>exportable</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>show export controls</td>
+        </tr>
+        <tr>
+          <td>navigation</td>
+          <td>boolean</td>
+          <td>~</td>
+          <td>navigation config (see <a href="http://highcharts.com">HighChart</a> docs)</td>
+        </tr>
+        <tr>
+          <td>showLabels</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>show labels for points</td>
+        </tr>
+        <tr>
+          <td>stack</td>
+          <td>string</td>
+          <td>~</td>
+          <td>stack the series if 'normal' (by value) or 'percent'</td>
+        </tr>
+        <tr>
+          <td>showTotal</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>when stacking, show the total value</td>
+        </tr>
+        <tr>
+          <td>data</td>
+          <td>object</td>
+          <td>~</td>
+          <td>the data for the chart; see <a href="http://highcharts.com">HighCharts</a> constructor.
+            If not provided, you must specify a value for the <code>url option</code></td>
+        </tr>
+        <tr>
+          <td>dataElement</td>
+          <td>string</td>
+          <td>~</td>
+          <td>If provided, finds the element that this option (a selector relative to the target element) references
+            and sets it as <code>data.table</code> so HighCharts can render the graph using the data in the table.</td>
+        </tr>
+        <tr>
+          <td>url</td>
+          <td>string</td>
+          <td>~</td>
+          <td>if data is at an ajax endpoint, the url for it this is not used if <code>options.data</code>
+            is provied should return the options object for the <a href="http://highcharts.com">HighCharts</a> constructor</td>
+        </tr>
+        <tr>
+          <td>pointUrl</td>
+          <td>string</td>
+          <td>~</td>
+          <td>if set, this url is opened when a point is clicked, passed the data for that point</td>
+        </tr>
+        <tr>
+          <td>flagUrl</td>
+          <td>boolean</td>
+          <td>~</td>
+          <td>if set, this url is opened when a flag is clicked, passed the data for that point</td>
+        </tr>
+        <tr>
+          <td>useSpinner</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>show an ajax spinner for charts being updated</td>
+        </tr>
+        <tr>
+          <td>seriesType</td>
+          <td>string</td>
+          <td>'spline'</td>
+          <td>what kind of series type to display (other options include <code>line</code>,
+            <code>spline</code>, <code>area</code>, <code>areaspline</code>, <code>scatter</code>,
+            <code>column</code>, <code>bar</code>, <code>pie</code>, etc.)
+          </td>
+        </tr>
+
+        <tr>
+          <td>size</td>
+          <td>object</td>
+          <td><code>{ x: 100, y: 100 }</code></td>
+          <td>the size of the chart</td>
+        </tr>
+        <tr>
+          <td>xAxis</td>
+          <td>object</td>
+          <td><pre class="prettyprint" style="width: 180px">{
+  type: 'datetime',
+  startOnTick: false,
+  endOnTick: false,
+  minRange: 2 * 24 * 3600000 //2 days
+}</pre>
+          </td>
+          <td>TBD</td>
+        </tr>
+        <tr>
+          <td>yAxis</td>
+          <td>object</td>
+          <td><pre class="prettyprint" style="width: 180px">{
+  startOnTick: false,
+  endOnTick: false,
+  maxPadding: 0.25,
+}</pre>
+          </td>
+          <td>TBD</td>
+        </tr>
+        <tr>
+          <td>sizeToElement</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>measure the target element and fill it; if true,
+            <code>options.size</code> is ignored</td>
+        </tr>
+        <tr>
+          <td>zoomable</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>allow the user to zoom in on the chart data; boolean or <code>'x'</code>, <code>'y'</code>, or <code>'xy'</code></td>
+        </tr>
+        <tr>
+          <td>dateFormat</td>
+          <td>string</td>
+          <td>'%a - %b %d, %Y'</td>
+          <td>See MooTools' Date docs.</td>
+        </tr>
+        <tr>
+          <td>plotBorderWidth</td>
+          <td>number</td>
+          <td>1</td>
+          <td>the border around the plot area</td>
+        </tr>
+        <tr>
+          <td>plotBorderColor</td>
+          <td>string</td>
+          <td>'#eee'</td>
+          <td>A valid color (hex, rgb, rgba) for the border around the plot area.</td>
+        </tr>
+        <tr>
+          <td>plotBackgroundColor</td>
+          <td>string</td>
+          <td>~</td>
+          <td>A valid color (hex, rgb, rgba) for the background of the chart. Defaults to transparent.</td>
+        </tr>
+        <tr>
+          <td>fetchEvery</td>
+          <td>number</td>
+          <td>0</td>
+          <td>If set, the chart will refresh itself at an interval of this value (in milliseconds).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2>Behavior.Thanx.Stock Options</h2>
+  <p>These options only affect the stock charts.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>rangeSelector</td>
+          <td>object</td>
+          <td><pre class="prettyprint" style="width: 200px">{
+  rangeSelector: {
+    inputEnabled: false,
+    buttons: [{
+      type: 'month',
+      count: 1,
+      text: '1m'
+    }, {
+      type: 'month',
+      count: 2,
+      text: '2m'
+    }, {
+      type: 'month',
+      count: 3,
+      text: '3m'
+    }],
+    selected: 0
+  }
+}</pre>
+          </td>
+          <td>
+            The settings for the range selector below the chart. See Highcharts API for alternate configuration.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>V2 Style options</h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>v2Styles</td>
+          <td>Boolean</td>
+          <td>true</td>
+          <td>Enables the Merchant v2 specific styles.</td>
+        </tr>
+
+        <tr>
+          <td>columnGrouping</td>
+          <td>String</td>
+          <td>'auto'</td>
+          <td>For column charts that are time series, you can group by <code>day</code>, <code>week</code>, or <code>month</code>. If you
+            set it to <code>auto</code> the chart changes based on how much is made visible by the user.</td>
+        </tr>
+
+        <!--
+        These arent in the behavior yet, but I already typed these out based on the options of the class, so leaving them here in case
+        we add them to the behavior.
+        <tr>
+          <td>titleSpace</td>
+          <td>Number</td>
+          <td>40</td>
+          <td>Space (in pixels) given at the top of the graph when the title is visible.</td>
+        </tr>
+        <tr>
+          <td>subTitleSpace</td>
+          <td>Number</td>
+          <td>29</td>
+          <td>Space (in pixels) given at the top of the graph when the subtitle is visible.</td>
+        </tr>
+        <tr>
+          <td>plotMarginTopBase</td>
+          <td>Number</td>
+          <td>10</td>
+          <td>Base margin at the top used even if there's no title or legend.</td>
+        </tr>
+
+        <tr>
+          <td>plotMinMarginTop</td>
+          <td>Number</td>
+          <td>72</td>
+          <td>Minimum viable margin at the top of the graph; basically only used if you disable title,
+            subtitle, and legend.</td>
+        </tr>
+        <tr>
+          <td>gutterWidth</td>
+          <td>Number</td>
+          <td>60</td>
+          <td>Width of the chart area that has lines and labels to left and right of series.</td>
+        </tr>
+         -->
+
+        <tr>
+          <td>legendRowSize</td>
+          <td>Number</td>
+          <td>23</td>
+          <td>Pixels to dedicate for each row of the legend.</td>
+        </tr>
+
+        <tr>
+          <td>legendRowMargin</td>
+          <td>Number</td>
+          <td>10</td>
+          <td>Margin above and below the legend rows.</td>
+        </tr>
+
+        <tr>
+          <td>legendItemWidth</td>
+          <td>Number</td>
+          <td>189</td>
+          <td>How wide to make the legend items; overflow is ellipsed.</td>
+        </tr>
+
+        <tr>
+          <td>baseHeight</td>
+          <td>Number</td>
+          <td>467</td>
+          <td>Height of the chart minus the legend and space for the title and the plotMarginTopBase.</td>
+        </tr>
+
+        <tr>
+          <td>showFlagsInLegend</td>
+          <td>Boolean</td>
+          <td>false</td>
+          <td>Include flags in the legend (allows them to be turned off).</td>
+        </tr>
+
+        <tr>
+          <td>navigatorSeriesColor</td>
+          <td>String</td>
+          <td>~</td>
+          <td>The color of the series in the navigator; hex, rgb, or rgba if not specified uses the
+            first color in the colors array in options.</td>
+        </tr>
+
+        <tr>
+          <td>colors</td>
+          <td>Array</td>
+          <td>[#00CCCE','#2ECC71','#27AE60','#AC69C7','#0073BF']</td>
+          <td>The default set of colors.</td>
+        </tr>
+        <tr>
+          <td>showLegend</td>
+          <td>Boolean</td>
+          <td>true</td>
+          <td>In v2 styles, the legend defaults to being displayed IF there's more than one series. You can explicitly
+            set it to <code>true</code> and it'll show regardless of how many series there are.</td>
+        </tr>
+        <tr>
+          <td>dateFormat</td>
+          <td>Number</td>
+          <td>%a, %b %e, %Y"</td>
+          <td>The date format for the tooltip header (when it's a date). This is just a different default than the options above.</td>
+        </tr>
+        <tr>
+          <td>margin</td>
+          <td>Number</td>
+          <td>[30, 90, 30, 90]</td>
+          <td>This defines the margin of the layout. Note that the first number here is basically ignored as the chart dervives its
+            height based on the various sizing options outlined below.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

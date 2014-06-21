@@ -1,0 +1,137 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>InteractiveList <small>Behavior.InteractiveList.js</small></h1>
+  </div>
+  <p>A generic handler for allowing for the selection of items in a list.</p>
+
+  <h3>Examples</h3>
+  <%= render layout: "codeblock" do %>
+<div class="iconbar iconbar-horizontal" data-behavior="InteractiveList" data-interactivelist-options="
+  'selectedClass': 'active',
+  'autoScroll': false
+">
+  <ul>
+    <li class="active"><a href="#fakelink" class="fui-user"></a></li>
+    <li><a href="#fakelink" class="fui-calendar"></a></li>
+    <li><a href="#fakelink" class="fui-chat"></a></li>
+    <li><a href="#fakelink" class="fui-mail"></a></li>
+    <li>
+      <a href="#fakelink" class="fui-gear">
+        <span class="iconbar-unread">1</span>
+      </a>
+    </li>
+  </ul>
+</div>
+  <% end %>
+
+  <h3>Example with auto-scrolling</h3>
+  <p>Interactive list defaults to scrolling oveflown elements to their selected item. In this example clicking any element
+    automatically scrolls it to the top of the component.</p>
+
+  <%= render layout: "codeblock" do %>
+<ul class="nav nav-list nav-list-vivid col-md-3"  data-behavior="InteractiveList" data-interactivelist-options="
+  'selectedClass': 'active'
+" style="height: 120px; overflow: auto">
+  <li class="nav-header">Europe</li>
+  <li>
+    <a href="#fakelink">
+      London, United Kingdom
+      <span class="badge pull-right">19</span>
+    </a>
+  </li>
+  <li class="active">
+    <a href="#fakelink">
+      Berlin, Germany
+      <span class="badge pull-right">130</span>
+    </a>
+  </li>
+  <li>
+    <a href="#fakelink">
+      Madrid, Spain
+      <span class="badge pull-right">9</span>
+    </a>
+  </li>
+  <li class="divider"></li>
+  <li class="nav-header">Asia</li>
+  <li>
+    <a href="#fakelink">
+      Shanghai, China
+      <span class="badge pull-right">69</span>
+    </a>
+  </li>
+  <li>
+    <a href="#fakelink">
+      Bombay, India
+      <span class="badge pull-right">21</span>
+    </a>
+  </li>
+  <li>
+    <a href="#fakelink">
+      Karachi, Pakistan
+      <span class="badge pull-right">40</span>
+    </a>
+  </li>
+</ul>
+  <% end %>
+  <h2>Behavior Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>selectedClass</td>
+          <td>string</td>
+          <td>'selected'</td>
+          <td>The name of the class given to the selected item.
+            <p><span class="label label-primary">Note</span> The default is almost always wrong
+            if you're in Bootstrap-land. Use 'active', which you'll have to set yourself.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>listItems</td>
+          <td>string</td>
+          <td>'li'</td>
+          <td>The selector to find the items in the list.</td>
+        </tr>
+        <tr>
+          <td>autoScroll</td>
+          <td>string</td>
+          <td>true</td>
+          <td>If <code>true</code> automatically scrolls any overflown elements to the selected element.</td>
+        </tr>
+        <tr>
+          <td>scrollAxes</td>
+          <td>string</td>
+          <td>null</td>
+          <td>An array or string specifying which axes to scroll on, can be <code>x</code>, <code>y</code>, or <code>['x', 'y']</code>. It defaults to both axes.</td>
+        </tr>
+        <tr>
+          <td>firstItemSelected</td>
+          <td>string</td>
+          <td>false</td>
+          <td>
+            If true, will select the first list item.
+
+            <p><span class="label label-primary">Note</span> If any list item already has the <code>selectedClass</code>
+              it will be marked as selected for you on startup.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>doubleScroll</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>If `true`, scrolls the list to the clicked item even if that item is already the active item.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

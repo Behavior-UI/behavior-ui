@@ -1,0 +1,52 @@
+.tooltip {
+  z-index: 1029;
+  .tooltip-inner {
+    background-color: @tooltip-bg;
+    padding: 12px @primary-padding;
+    width: auto;
+  }
+  &.top .tooltip-arrow,
+  &.top-left .tooltip-arrow,
+  &.top-right .tooltip-arrow {
+    border-top-color: @tooltip-bg;
+  }
+  &.right .tooltip-arrow {
+    border-right-color: @tooltip-bg;
+  }
+  &.left .tooltip-arrow {
+    border-left-color: @tooltip-bg;
+  }
+  &.bottom .tooltip-arrow,
+  &.bottom-left .tooltip-arrow,
+  &.bottom-right .tooltip-arrow {
+    border-bottom-color: @tooltip-bg;
+  }
+}
+
+.tooltip.tooltip-responsive {
+  opacity: 0;
+  max-width: 0px;
+  overflow: hidden;
+  .tooltip-arrow {
+    left: -2px;
+  }
+  .tooltip-inner {
+    border: 2px solid white;
+  }
+  @media (min-width: @screen-tablet) {
+    opacity: 1;
+    &.out {
+      display: none;
+      opacity: 0;
+    }
+    max-width: 130px;
+    overflow: visible;
+    .tooltip-inner ul li {
+      white-space: normal;
+      text-align: left;
+    }
+  }
+  @media (min-width: @screen-desktop) {
+    max-width: 150px;
+  }
+}

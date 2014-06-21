@@ -1,0 +1,101 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1 id="collapse">Collapse <small>Fx.Accordion.js</small></h1>
+  </div>
+
+  <h3>About</h3>
+  <p>Get base styles and flexible support for collapsible components like accordions and navigation.</p>
+
+  <div class="bs-callout bs-callout-danger">
+    <h4>Plugin dependency</h4>
+    <p>Note: Be sure to require <code>More-Behaviors/Behavior.Accordion</code> when you build your library.</p>
+  </div>
+
+  <div class="bs-callout bs-callout-danger">
+    <h4>Bootstrap Class Name Divergence</h4>
+    <p>
+      Note: Don't give your panels the <code>.collapse</code> class. This implementation doesn't use CSS classes
+      as it's based on the JS based <code>Fx.Accordion</code> from MooTools.
+    </p>
+  </div>
+
+  <h2 id="collapse-examples">Example accordion</h2>
+    <%= render layout: "codeblock" do %>
+<div class="panel-group" id="accordion" data-behavior="Accordion" data-accordion-options="
+  'headers': 'a.accordion-toggle',
+  'sections': '.panel-collapse'
+">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle">
+          Collapsible Group Item #1
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle">
+          Collapsible Group Item #2
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle">
+          Collapsible Group Item #3
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+    <% end %>
+
+
+    <p>If you just want to do a single element, make a button toggle the expanding and collapsing of another element with the <code>Delegator.toggleReveal</code> trigger.</p>
+    <%= render layout: "codeblock" do %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-trigger="toggleReveal" data-togglereveal-target="!.panel .panel-collapse">
+        Collapsible Group Item #1
+      </a>
+    </h4>
+  </div>
+  <div id="collapseOne" class="panel-collapse">
+    <div class="panel-body">
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+    </div>
+  </div>
+</div>
+    <% end %>
+
+
+  <h2 id="collapse-usage">Usage</h2>
+
+  <p>See the docs for <code>Fx.Accordion</code> in <a href="http://mootools.net/docs/more/Fx/Fx.Accordion">MooTools More</a> and the docs for <code>Behavior.Accordion</code> on
+    <a href="http://dev.clientcide.com">dev.clientcide.com</a></p>
+</div>
+
+      <%= render partial: "md_docs", locals: {
+        docs: ["js/Docs/Accordion/Behavior.FxAccordion.md"]
+      } %>

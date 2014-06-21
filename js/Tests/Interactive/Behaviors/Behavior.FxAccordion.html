@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Behavior.FxAccordion</title>
+		<script src="/depender/build?require=More-Behaviors/Behavior.FxAccordion"></script>
+	</head>
+	<body>
+		<p> Below is an accordion, only one of the target areas should be visible at a time, dependent on which toggle was clicked last. </p>
+		<div data-behavior="Accordion" style="width: 300px; margin: 10px;" data-accordion-options="'headers': '.toggle', 'sections': '.target'">
+		  <div class="toggle" style="cursor:pointer; background: #777; padding: 2px;">Toggle 1</div>
+		  <div class="target" style="padding: 4px;">This area is controlled by Toggle 1.</div>
+		  <div class="toggle" style="cursor:pointer; background: #777; padding: 2px;">Toggle 2</div>
+		  <div class="target" style="padding: 4px;">This area is controlled by Toggle 2.</div>
+		  <div class="toggle" style="cursor:pointer; background: #777; padding: 2px;">Toggle 3</div>
+		  <div class="target" style="padding: 4px;">This area is controlled by Toggle 3.</div>
+		</div>
+
+		<script>
+		new Behavior().apply(document.body);
+		</script>
+
+	</body>
+</html>

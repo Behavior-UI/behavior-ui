@@ -1,0 +1,177 @@
+.gold-pills,
+.belize-pills,
+.aragonite-pills,
+.green-sea-pills {
+	.btn {
+		.btn-default;
+		.grey-40-bkg;
+		.white;
+		text-shadow: none;
+		&:hover {
+			.grey-50-bkg;
+		}
+	}
+	.active {
+		.btn {
+			.goldstein-bkg;
+			.transition(~"background-color @transition_speed linear, border-color @transition_speed linear");
+			&:hover {
+				background-color: darken(@goldstein, 4%);
+			}
+		}
+	}
+}
+.gold-pills,
+.belize-pills,
+.green-sea-pills {
+	li {
+		&.active {
+			a.btn {
+				border-left-color: @grey-30;
+			}
+			a.btn:hover {
+				border-left-color: @grey-30;
+			}
+		}
+		a.btn {
+			border-left-color: @grey-30;
+			&:hover {
+				border-left-color: @grey-30;
+			}
+		}
+	}
+}
+
+.transparent-pills {
+  .btn {
+    .btn-default;
+    opacity: .3;
+    .white;
+    text-shadow: none;
+    &:hover {
+      .grey-50-bkg;
+      opacity: .6;
+    }
+  }
+}
+
+.transparent-pills.green-sea-pills {
+  .btn {
+    background-color: @green-sea;
+    border-left-color: @jungle !important;
+  }
+}
+
+
+.belize-pills {
+	.active {
+		.btn {
+			.belize-hole-bkg;
+			.transition(background-color @transition_speed linear);
+			&:hover {
+				background-color: darken(@belize-hole, 4%);
+			}
+		}
+	}
+}
+.green-sea-pills {
+  .active {
+    .btn {
+      opacity: 1;
+      .green-sea-bkg;
+      .transition(all @transition_speed linear);
+      &:hover {
+        background-color: darken(@green-sea, 4%);
+      }
+    }
+  }
+}
+.aragonite-pills {
+	li {
+		&.active {
+			a.btn {
+				background-color: @waterworld;
+				border-left-color: @waterworld;
+			}
+			a.btn:hover {
+				background-color: lighten(@waterworld, 10%) !important;
+				border-left-color: lighten(@waterworld, 10%);
+			}
+		}
+		a.btn {
+			.blue-aragonite-bkg;
+			border-left-color: lighten(@blue-aragonite, 5%);
+			&:hover {
+				background-color: darken(@blue-aragonite, 10%);
+				border-left-color: darken(@blue-aragonite, 10%);
+			}
+		}
+	}
+}
+
+.nav-pills > li > a.default-text {
+	.default-text;
+}
+
+
+.gold-pills.pill-arrows,
+.belize-pills.pill-arrows,
+.green-sea-pills.pill-arrows {
+  .btn {
+    width: 100%;
+    letter-spacing: 0.05em;
+    .large-text;
+  }
+  .active {
+    .btn {
+      &:after {
+        #arrow > .after;
+        #arrow > .below(10px, @goldstein);
+        .transition(border-top-color .4s linear);
+      }
+      &:hover {
+        &:after {
+          border-top-color: darken(@goldstein, 4%);
+        }
+      }
+    }
+  }
+}
+.belize-pills.pill-arrows {
+  .btn {
+    .large-text;
+  }
+  .active {
+    .btn {
+      &:after {
+        #arrow > .after;
+        #arrow > .below(10px, @belize-hole);
+        .transition(border-top-color .4s linear);
+      }
+      &:hover {
+        &:after {
+          border-top-color: darken(@belize-hole, 4%);
+        }
+      }
+    }
+  }
+}
+.green-sea-pills.pill-arrows {
+  .btn {
+    .large-text;
+  }
+  .active {
+    .btn {
+      &:after {
+        #arrow > .after;
+        #arrow > .below(10px, @green-sea);
+        .transition(border-top-color @transition_speed linear);
+      }
+      &:hover {
+        &:after {
+          border-top-color: darken(@green-sea, 4%);
+        }
+      }
+    }
+  }
+}

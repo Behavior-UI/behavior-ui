@@ -1,0 +1,33 @@
+.form-control {
+  &.validation-failed {
+    border-color: @alizarin !important;
+    color: @alizarin !important;
+    &.border-none {
+      border-width: inherit !important;
+      border-style: solid !important;
+    }
+  }
+}
+
+.form-group {
+  &.validation-failed, &.validation-failed.focus {
+    .input-group-btn {
+      button {
+        border-color: @alizarin !important;
+        color: @alizarin !important;
+        background-color: @white;
+      }
+    }
+  }
+}
+
+.validation-tooltip {
+  .tooltip-inner {
+    max-width: 300px;
+    ul {
+      li {
+        white-space: nowrap;
+      }
+    }
+  }
+}

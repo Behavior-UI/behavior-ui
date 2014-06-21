@@ -1,0 +1,108 @@
+#spinner {
+  .rotate(@deg, @sec){
+    -webkit-transform:rotate(@deg) translate(0, -112%);
+       -moz-transform:rotate(@deg) translate(0, -112%);
+            transform:rotate(@deg) translate(0, -112%);
+    -webkit-animation-delay: @sec;
+       -moz-animation-delay: @sec;
+            animation-delay: @sec;
+  }
+}
+
+.css-spinner {
+  .square(45px);
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -22.5px;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: -22.5px;
+  div {
+    width: 12%;
+    height: 40%;
+    background: #000;
+    position: absolute;
+    left: 44.5%;
+    top: 37%;
+    opacity: 0;
+    -webkit-animation: spinner-fade 1s linear infinite;
+       -moz-animation: spinner-fade 1s linear infinite;
+            animation: spinner-fade 1s linear infinite;
+    .border-radius(50px);
+    .box-shadow(0 0 3px rgba(0,0,0,0.2));
+    &.bar1  { #spinner > .rotate(0deg,   0s); }
+    &.bar2  { #spinner > .rotate(30deg,  -0.9167s); }
+    &.bar3  { #spinner > .rotate(60deg,  -0.833s); }
+    &.bar4  { #spinner > .rotate(90deg,  -0.75s); }
+    &.bar5  { #spinner > .rotate(120deg, -0.667s); }
+    &.bar6  { #spinner > .rotate(150deg, -0.5833s); }
+    &.bar7  { #spinner > .rotate(180deg, -0.5s); }
+    &.bar8  { #spinner > .rotate(210deg, -0.41667s); }
+    &.bar9  { #spinner > .rotate(240deg, -0.333s); }
+    &.bar10 { #spinner > .rotate(270deg, -0.25s); }
+    &.bar11 { #spinner > .rotate(300deg, -0.1667s); }
+    &.bar12 { #spinner > .rotate(330deg, -0.0833s); }
+  }
+  &.spinner-invert {
+    div {
+      background: #fff;
+    }
+  }
+  &.spinner-small {
+    .square(15px);
+    margin-top: -7.5px;
+    margin-left: -7.5px;
+  }
+  &.spinner-large {
+    .square(90px);
+    margin-top: -45px;
+    margin-left: -45px;
+  }
+  &.spinner-top {
+    top: 45px;
+    &.spinner-small {
+      top: 15px;
+    }
+  }
+}
+
+// Webkit
+@-webkit-keyframes spinner-fade {
+  from {opacity: 1;}
+  to {opacity: 0.25;}
+}
+
+// Firefox
+@-moz-keyframes spinner-fade {
+  from {opacity: 1;}
+  to {opacity: 0.25;}
+}
+
+// IE9
+@-ms-keyframes spinner-fade {
+  from {opacity: 1;}
+  to {opacity: 0.25;}
+}
+
+// Spec
+@keyframes spinner-fade {
+  from {opacity: 1;}
+  to {opacity: 0.25;}
+}
+
+
+
+.spinner {
+  position: absolute;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+  z-index: 9999;
+  background: #fff;
+  .spinner-msg {
+    text-align: center;
+    font-weight: bold;
+  }
+}

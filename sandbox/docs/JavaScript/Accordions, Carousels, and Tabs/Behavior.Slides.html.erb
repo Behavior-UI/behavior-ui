@@ -1,0 +1,158 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>Slides <small>Behavior.Slides.js</small></h1>
+  </div>
+  <p>A simple carousel without animation. This example uses Bootstrap's HTML conventions, but
+    the behavior doesn't really care about it. You specify selectors for all the slides, controls,
+    etc. and the Behavior just manages pagination and adding the <code>active</code> class.</p>
+  <p>See also: <%= link_to "Behavior.BS.Carousel", sandbox_dir_file_path(section: 'JavaScript', dir: "Accordions, Carousels, and Tabs", file: "Behavior.BS.Carousel") %></p>
+
+  <h3>Example</h3>
+
+  <%= render layout: "codeblock" do %>
+<div id="myCarousel" class="carousel slide" data-behavior="Slides" data-slides-options="
+  'next': '.fui-arrow-right',
+  'back': '.fui-arrow-left',
+  'slides': '.carousel-inner .item',
+  'controls': '.carousel-indicators li',
+  'loop': true,
+  'backWrap': true
+">
+	<!-- Indicators -->
+  <ol class="carousel-indicators">
+    <!-- can use #id references or not; uses index of the element otherwise -->
+    <li href="#item1"></li>
+    <li href="#item2"></li>
+    <li href="#item3"></li>
+  </ol>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active" id="item1">
+      <%= image_tag "flat-ui-assets/carousel/image-01.jpg"%>
+      <div class="carousel-caption">
+        <h3>Thumbnail label</h3>
+        <p>Slide number 1.</p>
+      </div>
+    </div>
+    <div class="item" id="item2">
+      <%= image_tag "flat-ui-assets/carousel/image-02.jpg"%>
+      <div class="carousel-caption">
+        <h3>Thumbnail label</h3>
+        <p>Slide number 2.</p>
+      </div>
+    </div>
+    <div class="item" id="item3">
+      <%= image_tag "flat-ui-assets/carousel/image-03.jpg"%>
+      <div class="carousel-caption">
+        <h3>Thumbnail label</h3>
+        <p>Slide number 3.</p>
+      </div>
+    </div>
+  </div>
+  <!-- Controls -->
+  <a class="left carousel-control fui-arrow-left"></a>
+  <a class="right carousel-control fui-arrow-right"></a>
+</div>
+  <% end %>
+</div>
+
+
+  <h2>Behavior Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>backWrap</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>If <code>true</code> when the user clicks back from the first slide (to the left) the
+            slideshow will loop around and show the last slide.</td>
+        </tr>
+        <tr>
+          <td>loop</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>If <code>true</code> when the user clicks on the next button (to the right) from the
+            last slide the slideshow will look around and show the first slide.</td>
+        </tr>
+        <tr>
+          <td>next</td>
+          <td>string</td>
+          <td>'!.carousel .slide-nav li a.next'</td>
+          <td>The selector to find the next button.</td>
+        </tr>
+        <tr>
+          <td>back</td>
+          <td>string</td>
+          <td>'!.carousel .slide-nav li a.back'</td>
+          <td>The selector to find the back button.</td>
+        </tr>
+        <tr>
+          <td>slides</td>
+          <td>string</td>
+          <td>'dl'</td>
+          <td>The selector to find the slides themselves</td>
+        </tr>
+        <tr>
+          <td>activeClass</td>
+          <td>string</td>
+          <td>'active'</td>
+          <td>The class to add to the active slide.</td>
+        </tr>
+        <tr>
+          <td>controls</td>
+          <td>string</td>
+          <td>'!.carousel .slide-nav li a.jump'</td>
+          <td>The selector to find the corresponding tabs that show their corresponding slide.
+            <p><span class="label label-primary">Note</span> These must have <code>href="#id"</code> values that correspond
+              to the ids of the slides. So if slide 1 has the id <code>slide1</code> then these controls would link to
+              <code>#slide1</code>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>autoPlay</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>If true the slideshow will automatically progress until the user interacts with it.</td>
+        </tr>
+        <tr>
+          <td>autoPlayPause</td>
+          <td>number</td>
+          <td>5000</td>
+          <td>The duration to wait before advancing the slide.</td>
+        </tr>
+        <tr>
+          <td>startShowDelay</td>
+          <td>number</td>
+          <td>0</td>
+          <td>The period to wait after the user clicks the next button before setting the next slide to be active. Not
+            really intended to be used unless you are animating the slides. See
+            <%= link_to "Behavior.BS.Carousel", sandbox_dir_file_path(section: 'JavaScript', dir: "Thanx_Behaviors", file: "Behavior.BS.Carousel") %>.</td>
+        </tr>
+        <tr>
+          <td>transitionPause</td>
+          <td>number</td>
+          <td>0</td>
+          <td>The period to wait after the next slide has been set to active before firing the event for it. Again, only really
+            used for animations.</td>
+        </tr>
+        <tr>
+          <td>startIndex</td>
+          <td>number</td>
+          <td>0</td>
+          <td>The first slide to show.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

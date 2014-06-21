@@ -1,0 +1,16 @@
+.well {
+  background-color: @grey-20;
+  border-width: 0px;
+  .box-shadow(none);
+  border-radius: @border-radius-large;
+  &.flat-bottom {
+  	border-radius: @border-radius-large @border-radius-large 0 0;
+  }
+  &.flat-top {
+  	border-radius: 0 0 @border-radius-large @border-radius-large;
+  }
+}
+.well-inverse {
+  background-color: @white;
+  border: 3px solid @grey-30;
+}

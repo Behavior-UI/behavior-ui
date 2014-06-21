@@ -1,0 +1,15 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>Stacked Area Chart</h1>
+  </div>
+
+  <h3>Basic Usage</h3>
+  <p>Simple area spline chart.</p>
+
+  <%= render layout: "codeblock", locals: { include_response: true} do %>
+<div data-behavior="Chart.Stock ToSource" class="chart" data-chart-stock-options="
+  'seriesType':'areaspline',
+  'url': '/sandbox/chart/three_lines'
+" data-tosource-target="!.example-block .response"></div>
+<% end %>
+</div>

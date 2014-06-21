@@ -1,0 +1,112 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>Poll For Update<small>Behavior.PollForUpdate.js</small></h1>
+  </div>
+  <p>
+    Polls a URL and updates a target's HTML based upon the response and can
+    optionally run other delegators as well.
+  </p>
+
+  <h3>Example</h3>
+  <%= render layout: "codeblock" do %>
+<a data-behavior="PollForUpdate"
+   data-pollforupdate-options="
+     'url': '<%= sandbox_poll_for_update_path %>',
+     'date': <%= Time.current.to_i %>,
+     'pollInterval': 2000,
+     'target': 'span.btn',
+     'dataKey': 'count_text'
+">
+  <span class="btn btn-primary">Watch me change!</span>
+</a>
+  <% end %>
+
+  <h2>Behavior Options</h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th style="width: 50px;">example</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>url</td>
+          <td>string</td>
+          <td>~</td>
+          <td><code>'http://admin.thanx-web.dev/sandbox/poll_for_update'</code></td>
+          <td><b>REQUIRED</b> The url that is passed to <code>Thanx.PollForUpdate</code>.</td>
+        </tr>
+        <tr>
+          <td>date</td>
+          <td>number</td>
+          <td>~</td>
+          <td>1380580557</td>
+          <td><b>REQUIRED</b> The time as presented in whatever format the server expects. In this case, it's in seconds.</td>
+        </tr>
+        <tr>
+          <td>target</td>
+          <td>string</td>
+          <td>~</td>
+          <td>'span.btn'</td>
+          <td>The object to affect based on the server response.</td>
+        </tr>
+        <tr>
+          <td>dataKey</td>
+          <td>string</td>
+          <td>~</td>
+          <td>'count_text'</td>
+          <td>
+            The server returns a <code>data</code> hash. This is the key in that
+            hash that contains the value we want to update <code>target</code> with.
+            For example, the returned <code>data</code> hash needs to contain a
+            <code>count_text</code> key, and it contains '4 new'. '4 new' is then
+            inserted into <code>target</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>pollInterval</td>
+          <td>number</td>
+          <td>~</td>
+          <td>1000</td>
+          <td>
+            How often (in milliseconds) the server will be polled.
+          </td>
+        </tr>
+        <tr>
+          <td>delegators</td>
+          <td>hash</td>
+          <td>~</td>
+          <td>
+            <code>
+              {
+                'removeClass': {
+                  'target': 'span.btn'
+                }
+              }
+            </code>
+          </td>
+          <td>
+            Any delegators (and their options) to run upon a successful update response from the server.
+            In this case, <code>span.btn</code> would be have a class removed.
+          </td>
+        </tr>
+        <tr>
+          <td>updateDateOnClick</td>
+          <td>boolean</td>
+          <td>~</td>
+          <td>true</td>
+          <td>
+            If enabled, this option will override the <code>date</code> passed
+            to the server with <code>updatedAt</code> instead. This is useful
+            if you want to trigger a reset of the counter due to user interaction.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

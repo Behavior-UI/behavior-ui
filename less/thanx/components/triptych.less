@@ -1,0 +1,72 @@
+.triptych {
+  width: 100%;
+  &:last-child {
+    margin-right: 25%
+  }
+  & .well {
+    min-height: 365px;
+    padding: 15% 5% 7%;
+  }
+  min-height: 365px;
+  img {
+    padding-bottom: 5px;
+  }
+  h3 {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 22px;
+  }
+  p {
+    font-size: 13px;
+  }
+  @media (min-width: @screen-tablet) {
+    & .well {
+      padding: 15% 5%;
+    }
+    &.well {
+      min-height: 451px;
+    }
+    padding-top: 60px;
+    padding-left: 2%;
+    padding-right: 2%;
+    max-width: 360px;
+    width: 28%;
+    min-height: 415px;
+    &:first-child {
+      margin-left: 1%;
+    }
+    &:last-child {
+      margin-right: 1%;
+    }
+    img {
+      padding-bottom: 20px;
+    }
+  }
+  @media (min-width: @screen-desktop) {
+    padding-top: 90px;
+    max-width: 360px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 28%;
+    min-height: 522px;
+    &.well {
+      min-height: 524px;
+    }
+    &:first-child {
+      margin-left: 0px;
+    }
+    &:last-child {
+      margin-right: 0px;
+    }
+    img {
+      padding-bottom: 30px;
+    }
+  }
+  @media (min-width: @screen-lg-desktop) {
+    min-height: 505px;
+    &.well {
+      min-height: 578px;
+    }
+
+  }
+}

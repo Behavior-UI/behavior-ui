@@ -1,0 +1,198 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1 id="modals">Modals <small>Bootstrap.Popup.js &amp; Behavior.BS.Popup.js</small></h1>
+  </div>
+
+  <h2 id="modals-examples">Examples</h2>
+  <p>See the Bootstrap docs for a static example of this (i.e. one that doesn't actually pop up). You can use <code>Bootstrap.Popup</code> to manually controll these or use the Behavior implementation displayed here.</p>
+
+  <div class="bs-callout bs-callout-info">
+    <h4>Less Component Required</h4>
+    <p>
+       Be sure to include <code>components/popup.less</code> in your build.
+    </p>
+  </div>
+
+
+  <h3>Live demo</h3>
+  <p>Toggle a modal via JavaScript by clicking the button below. It will slide down and fade in from the top of the page.</p>
+  <%= render layout: "codeblock" do %>
+<!-- sample modal content -->
+<div data-behavior="BS.Popup" id="myModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal Heading</h4>
+      </div>
+      <div class="modal-body">
+        <h4>Text in a modal</h4>
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+
+        <h4>Popover in a modal</h4>
+        <p>This <a role="button" class="btn btn-default popover-test" title="A Title" data-behavior="BS.Popover" data-bs-popover-options="
+            'content': 'And here\'s some amazing content. It\'s very engaging. right?',
+            'trigger': 'click'
+          ">button</a> should trigger a popover on click.</p>
+
+        <h4>Tooltips in a modal</h4>
+        <p><a href="#" class="tooltip-test" title="Tooltip" data-behavior="BS.Tooltip">This link</a> and <a href="#" class="tooltip-test" title="Tooltip" data-behavior="BS.Tooltip">that link</a> should have tooltips on hover.</p>
+
+        <hr>
+
+        <h4>Overflowing text to show scroll behavior</h4>
+        <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+        <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+        <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+        <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+        <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+        <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<a data-trigger="BS.showPopup" href="#myModal" class="btn btn-primary btn-lg">Launch demo modal</a>
+  <% end %>
+
+
+  <%= render layout: "codeblock" do %>
+<div data-behavior="BS.Popup" id="login" class="modal fade">
+  <form class="form-inline">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Log In</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="sr-only" for="exampleInputEmail2">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="exampleInputPassword2">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </form>
+</div><!-- /.modal -->
+<a data-trigger="BS.showPopup" href="#login" class="btn btn-primary btn-lg">Launch login form example modal</a>
+  <% end %>
+
+
+  <h2 id="modals-usage">Usage</h2>
+
+  <h3>Via data attributes</h3>
+  <p>Activate a modal without writing JavaScript. Set <code>data-behavior="BS.Popup"</code> on the modal and then on a controller element, like a button, set <code>data-trigger="BS.showPopup"</code> with <code>href="#foo"</code> to target a specific modal to toggle.</p>
+  <pre class="prettyprint">&lt;button type="button" data-trigger="BS.showPopup" href="#myModal">Launch modal&lt;/button></pre>
+
+
+  <h2>Behavior Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation. See the documentation at the bottom for
+  JavaScript options, methods, and events.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>persist</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>If <code>false</code> the popup and its modal layer will be destroyed when it is closed. Useful when you are fetching the popup with Ajax.</td>
+        </tr>
+        <tr>
+          <td>hide</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>Do not show the Popup immediately.</td>
+        </tr>
+        <tr>
+          <td>mask</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>Includes a modal-backdrop element.</td>
+        </tr>
+        <tr>
+          <td>animate</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>Slides the window into and out of view with a smooth transition.</td>
+        </tr>
+        <tr>
+          <td>closeOnClickOut</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>Close the popup when the user clicks out of it (on the mask or, if it's not used, the document body outside the popup).</td>
+        </tr>
+        <tr>
+          <td>closeOnEsc</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>Closes the modal when escape key is pressed</td>
+        </tr>
+        <tr>
+          <td>focusOnShow</td>
+          <td>string</td>
+          <td>input[type=text], select, textarea</td>
+          <td>A selector (string) to find an element relative to the root of the popup whose `select` method will be called on show.</td>
+        </tr>
+        <tr>
+          <td>moveElementTo</td>
+          <td>string</td>
+          <td>~</td>
+          <td>If defined, moves the element to the bottom of the target DOM element. Useful when your template requires you to nest
+            the popup deep inside the DOM and you wish to move it up to the <code>document.body</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="bs-callout bs-callout-info">
+    <h4>Show your popup on load... or not</h4>
+    <p>
+       This implementation mirrors that found in Twitter's JS library. It uses CSS transitions when available (generally speaking, every browser but IE). Add the <code>.fade</code> class to your element to have it transition in. You can alternately specify the <code>animate</code> option in the behavior filter settings listed above. If you do not specify either of these, you should add the <code>.hide</code> class unless you want your element visible immediately.
+    </p>
+  </div>
+  <div class="bs-callout bs-callout-info">
+    <h4>Elements that close your popup</h4>
+    <p>
+      Any element in your content with the class <code>.close</code> or <code>.dismiss</code> will close the popup. The reason for both is that Bootstrap provides styles for .close elements (the *x* in the upper right corner) that you may not want applied to your element. By default, the default behavior for the click event on these elements is NOT stopped (so if they are submit buttons or actual links with <code>href</code> properties, those actions will occur). Add the class <code>stopEvent</code> to have the class call <code>Event.preventDefault</code> for you.
+    </p>
+  </div>
+
+
+
+  <h3>Via JavaScript</h3>
+  <p>Call a modal with id <code>myModal</code> with a single line of JavaScript:</p>
+  <pre class="prettyprint">new Bootstrap.Popup(myElement, options).show();</pre>
+</div>
+
+    <%= render partial: "md_docs", locals: {
+      docs: ["js/Docs/Bootstrap.Popup/Behavior.BS.Popup.md",
+             "js/Docs/Bootstrap.Popup/Bootstrap.Popup.md"]
+    } %>

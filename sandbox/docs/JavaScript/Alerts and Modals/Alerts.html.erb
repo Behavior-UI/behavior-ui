@@ -1,0 +1,61 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1 id="alerts">Alert messages <small>Fx.Reveal.js</small></h1>
+  </div>
+
+
+  <h2 id="alerts-examples">Example alerts</h2>
+  <p>Add dismiss functionality to all alert messages with this plugin.</p>
+
+  <div class="alert alert-info">
+    <button type="button" class="close fui-cross" data-trigger="nix" data-nix-target="!.alert"></button>
+    Your computer restarted <a href="#fakelink">because of a problem</a>. Sorry for any inconvenience and appreciate your patience.
+  </div>
+
+  <%= render layout: "codeblock" do %>
+
+<div class="alert alert-warning fade in">
+  <button type="button" class="close fui-cross" data-trigger="nix" data-nix-target="!.alert"></button>
+  <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+</div>
+    <% end %>
+
+    <%= render layout: "codeblock" do %>
+<div class="alert alert-block alert-danger fade in">
+  <button type="button" class="close fui-cross" data-trigger="nix" data-nix-target="!.alert"></button>
+  <h4>Oh snap! You got an error!</h4>
+  <p>Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+  <p>
+    <a class="btn btn-danger" href="#">Take this action</a> <a class="btn btn-default" href="#">Or do this</a>
+  </p>
+</div>
+    <% end %>
+
+
+  <h2 id="alerts-usage">Usage</h2>
+  <p>This makes use of the <code>Fx.Reveal</code> method <code>.nix()</code> found in MooTools More. Just add <code>data-trigger="nix" data-nix-target="!.alert"</code> to the closing element.</p>
+  <div class="bs-callout bs-callout-info">
+    <h4>Less Component Required</h4>
+    <p>
+       Be sure to require <code>More-Behaviors/Delegator.Nix</code> when you build your library.
+    </p>
+  </div>
+
+  <div class="bs-callout bs-callout-info">
+    <h4>Auto-closing Alerts</h4>
+    <p>
+       You can use <code>Behavior.Startup</code> to hide your alert after a delay:
+    </p>
+    <pre class="prettyprint">data-behavior="Startup" data-startup-options="
+    'delegators': {
+      'nix': {
+        'delay': 3000
+      }
+    }
+  "</pre>
+  </div>
+</div>
+
+<%= render partial: "md_docs", locals: {
+  docs: ['js/Docs/Delegators/Delegator.Fx.Reveal.md']
+} %>

@@ -1,0 +1,365 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>Togglable tabs <small>Tabswapper.js (from Clientcide)</small></h1>
+  </div>
+
+  <h2>Example tabs</h2>
+  <p>Add quick, dynamic tab functionality to transition through panes of local content, even via dropdown menus.</p>
+
+  <h3>Basic Usage</h3>
+  <%= render layout: "codeblock" do %>
+<!-- This is the default usage and requires no additional configuration. -->
+<ul class="nav nav-tabs nav-append-content" data-behavior="BS.Tabs">
+  <li><a>one</a></li>
+  <li><a>two</a></li>
+  <li><a>three</a></li>
+  <li><a>four</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane">
+    <p>one</p>
+  </div>
+  <div class="tab-pane">
+    <p>two</p>
+  </div>
+  <div class="tab-pane">
+    <p>three</p>
+  </div>
+  <div class="tab-pane">
+    <p>four</p>
+  </div>
+</div>
+  <% end %>
+
+
+  <h3>With Window Hash Option</h3>
+  <p>This is the same as the example above but the <code>hash</code> option is set. This means that if you select a tab
+    it updates the window hash with a query string that references this state. Reload the page and the selected
+    tab is preserved. If you have more than one tab UI on the page that you wish to do this with, just ensure they
+    both have unique values for the <code>hash</code> option.</p>
+  <p>There's also a cookie version of this, but use these sparingly, as overloading the browser with a whole bunch of cookies
+    increases response time for requests.</p>
+
+  <p><span class="label label-primary">Note</span> If you give your tabs <code>id</code> values, that's what the hash value is
+    stored as (in the url). Otherwise it's the index of the tab. In the example below, I've given the "three" tab an id.</p>
+
+  <%= render layout: "codeblock" do %>
+<ul class="nav nav-tabs nav-append-content" data-behavior="BS.Tabs" data-bs-tabs-hash="example">
+  <li><a>one</a></li>
+  <li><a>two</a></li>
+  <li><a id="three">three</a></li>
+  <li><a>four</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane">
+    <p>one</p>
+  </div>
+  <div class="tab-pane">
+    <p>two</p>
+  </div>
+  <div class="tab-pane">
+    <p>three</p>
+  </div>
+  <div class="tab-pane">
+    <p>four</p>
+  </div>
+</div>
+  <% end %>
+
+  <h3>With Dropdown</h3>
+  <%= render layout: "codeblock" do %>
+<!-- Tabs selector must be specified so that the dropdown tab isn't included; otherwise the BS.Tabs filter
+     will throw an error in console an exit quietly.. -->
+<ul class="nav nav-tabs nav-append-content" data-behavior="BS.Tabs" data-bs-tabs-options="{
+      'tabs-selector': 'a.tab'
+    }">
+  <li class="active"><a class="tab">one</a></li>
+  <li><a class="tab">two</a></li>
+  <li class="dropdown" data-behavior="BS.Dropdown">
+    <a id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+      <li><a class="tab">three</a></li>
+      <li><a class="tab">four</a></li>
+    </ul>
+  </li>
+</ul>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane">
+    <p>one</p>
+  </div>
+  <div class="tab-pane">
+    <p>two</p>
+  </div>
+  <div class="tab-pane">
+    <p>three</p>
+  </div>
+  <div class="tab-pane">
+    <p>four</p>
+  </div>
+</div>
+  <% end %>
+
+
+  <h3>More abstract usage</h3>
+  <p>You can really use the tabs for anything to toggle visibility for any set of sections. They don't have to use the default Tabs UI. A simple example would be a menu next to some content like this:</p>
+  <%= render layout: "codeblock" do %>
+<div class="row abstract-tabs">
+  <div class="col-md-2">
+
+    <ul class="nav nav-list nav-list-vivid" data-behavior="BS.Tabs" data-bs-tabs-options="
+      'sections-selector': '!div.abstract-tabs .section'
+    ">
+      <li><a>one</a></li>
+      <li><a>two</a></li>
+      <li><a>three</a></li>
+      <li><a>four</a></li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <div class="section"><p>one one one one one one one one one one one one one one one one one one one one one one one one </p></div>
+    <div class="section"><p>two two two two two two two two two two two two two two two two two two two two two two two two </p></div>
+    <div class="section"><p>three three three three three three three three three three three three three three three three </p></div>
+    <div class="section"><p>four four four four four four four four four four four four four four four four four four four  </p></div>
+  </div>
+</div>
+  <% end %>
+
+  <div class="bs-callout bs-callout-info">
+    <h4>Behaviors: BS.Tabs vs Tabs</h4>
+    <p>
+       <code>BS.Tabs</code> is specifically intended to be used with the Boostrap HTML layout conventions of their tabs ui. In particular, the
+       tabs themselves are expected to be anchors inside of <code>li</code> tags. If you want to use tabs to hide/show correlated content
+       without using a list, just use the <code>Tabs</code> Behavior instead; it has no layout conventions. Note that it doesn't support
+       some of the features that <code>BS.Tabs</code> does, so compare closely. See docs on <%= link_to "dev.clientcide.com", "dev.clientcide.com" %>.
+    </p>
+  </div>
+
+  <h3>Using anchors to switch tabs</h3>
+  <p>You can also have links anywhere you like that reference different tabs allowing them to change the displayed tab when clicked.
+    Just specity an <code>id</code> for any section. Then make a standard link that names that id with
+    its <code>#anchor</code> and clicking it will show the appropriate tab.</p>
+  <p>Assuming that the anchors you want to behave this way are NOT inside of the element with the <code>BS.Tabs</code> behavior, you
+    should specify in your options a selector <code>delegationTarget</code> which is a common parent of all links that should be able
+    to switch tabs.</p>
+  <%= render layout: "codeblock" do %>
+<div class="delegation-container">
+  <ul class="nav nav-tabs nav-append-content" data-behavior="BS.Tabs" data-bs-tabs-options="
+    'delegationTarget': '!.delegation-container'
+  ">
+    <li><a>one</a></li>
+    <li><a>two</a></li>
+    <li><a>three</a></li>
+    <li><a>four</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane">
+      <p><a href="#two">Show two.</a></p>
+    </div>
+    <div class="tab-pane" id="two">
+      <p>two</p>
+    </div>
+    <div class="tab-pane">
+      <p>three</p>
+    </div>
+    <div class="tab-pane">
+      <p>four</p>
+    </div>
+  </div>
+</div>
+  <% end %>
+
+  <h3>Ajaxing in Tab Content</h3>
+  <p>You may wish to delay the loading of tab content into the page until the tab is clicked. Why fetch data no one is going to see?
+    This requires coupling your Tabs UI with the <code>Ajax</code> delegator and optionally the <code>Startup</code> Behavior (to
+    load the first tab). If you load the first tab on the server side you don't need it, but if you enable either of the <code>hash</code>
+    or <code>cookieName</code> options then you need the <code>Startup</code> Behavior to load the tab selected from the hash or cookie value.</p>
+
+  <%= render layout: "codeblock" do %>
+<ul class="nav nav-tabs nav-append-content" data-behavior="BS.Tabs">
+  <li>
+    <a href="<%= sandbox_echo_html_path(html: "<p>I'm some HTML content for <b>tab one</b>.</p>") %>"
+    data-ajax-options="
+      'target':'!ul ~.tab-content .one p',
+      'action':'replace',
+      'loadOnce':true,
+      'useSpinner':true
+    " data-behavior="Startup" data-startup-options="
+      'delegators':{
+        'Ajax':{
+          'delay':100,
+          'target':'!li',
+          'method':'hasClass',
+          'arguments':['active'],
+          'value':true
+        }
+      }
+    " data-trigger="Ajax">one</a>
+  </li>
+  <li>
+    <a href="<%= sandbox_echo_html_path(html: "<p>I'm some HTML content for <b>tab two</b>.</p>") %>"
+    data-ajax-options="
+      'target':'!ul ~.tab-content .two p',
+      'action':'replace',
+      'loadOnce':true,
+      'useSpinner':true
+    " data-behavior="Startup" data-startup-options="
+      'delegators':{
+        'Ajax':{
+          'delay':100,
+          'target':'!li',
+          'method':'hasClass',
+          'arguments':['active'],
+          'value':true
+        }
+      }
+    " data-trigger="Ajax">two</a>
+  </li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane one">
+    <p>one</p>
+  </div>
+  <div class="tab-pane two">
+    <p>two</p>
+  </div>
+</div>
+  <% end %>
+
+
+  <p>Here's what those tab links look like in Ruby:</p>
+
+  <pre class="prettyprint">
+&lt;%= link_to "one", sandbox_echo_html_path(html: "&lt;p>I'm some HTML content for &lt;b>tab one&lt;/b>.&lt;/p>"), data: {
+trigger: 'Ajax',
+ajax_options: {
+  target: '!ul ~.tab-content .one p',
+  action: 'replace',
+  loadOnce: true,
+  useSpinner: true
+},
+behavior: 'Startup',
+startup_options: {
+  delegators: {
+    Ajax: {
+      delay: 100, # this delay to give the Tabs behavior time to select the startup tab
+      target: '!li',
+      method: 'hasClass',
+      arguments: ['active'],
+      value: true
+    }
+  }
+}
+} %></pre>
+
+  <h3>Show All</h3>
+  <p>Finally there's a plugin for Thanx (<code>Behavior.Tabs.ShowAll.js</code>) that allows you to create a special link to expose all the tabs at once.
+    Simply include a link and specify it in your options via the <code>showAllSelector</code> option. Be sure your option for the tabs doesn't include
+    this element.</p>
+  <%= render layout: "codeblock" do %>
+<!-- This is the default usage and requires no additional configuration. -->
+<ul class="nav nav-tabs nav-append-content" data-behavior="BS.Tabs" data-bs-tabs-options="
+  'tabs-selector': 'a.tab',
+  'showAllSelector': 'a.showAll'
+">
+  <li><a class="tab">one</a></li>
+  <li><a class="tab">two</a></li>
+  <li><a class="tab">three</a></li>
+  <li><a class="tab">four</a></li>
+  <li><a class="showAll">show all</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane">
+    <p>one</p>
+  </div>
+  <div class="tab-pane">
+    <p>two</p>
+  </div>
+  <div class="tab-pane">
+    <p>three</p>
+  </div>
+  <div class="tab-pane">
+    <p>four</p>
+  </div>
+</div>
+  <% end %>
+
+  <h2 id="tabs-usage">Usage</h2>
+  <p>You can activate a tab or pill navigation without writing any JavaScript by simply specifying <code>data-behavior="BS.Tabs"</code> on the <code>.nav.nav-tabs</code> or <code>.nav.nav-pills</code>element.</p>
+
+  <h3>Behavior Options</h3>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>tabs-selector</td>
+        <td>string</td>
+        <td>">li"</td>
+        <td>A selector to find the tab elements that the user clicks.</td>
+      </tr>
+       <tr>
+         <td>sections-selector</td>
+         <td>string</td>
+         <td>"+.tab-content > div"</td>
+         <td>A selector to find the sections that correlate to each tab.</td>
+       </tr>
+       <tr>
+         <td>smooth</td>
+         <td>boolean</td>
+         <td>false</td>
+         <td>Fade in the content when the tabs are switched.</td>
+       </tr>
+       <tr>
+         <td>smoothSize</td>
+         <td>boolean</td>
+         <td>false</td>
+         <td>Transition the height of each tab section as its displayed.</td>
+       </tr>
+       <tr>
+         <td>selectedClass</td>
+         <td>string</td>
+         <td>"active"</td>
+         <td>The class added to the active tab.</td>
+       </tr>
+       <tr>
+         <td>hash</td>
+         <td>string</td>
+         <td>--</td>
+         <td>If defined, will add a hash value to the window location so that if the user reloads the selected tab will be selected by default.</td>
+       </tr>
+       <tr>
+         <td>delegationTarget</td>
+         <td>string</td>
+         <td>--</td>
+         <td>If defined, searches from the target element to find another element which will monitor its children for clicks. Any click on
+          an element with an <code>href</code> anchor that begins with <code>#</code> will trigger a search by id for a corresponding section
+          to show. If not defined, the target element with the <code>BS.Tabs</code> behavior will be the link delegation target.</td>
+       </tr>
+       <tr>
+         <td>showAllSelector</td>
+         <td>string</td>
+         <td>--</td>
+         <td>If defined, searches from the target element to find an element that, when clicked, will display all the tabs at once.</td>
+       </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>via Javascript</h3>
+  <p>This behavior implements the <code>TabSwapper</code> class from the Clientcide repo.</p>
+  <pre class="prettyprint">new TabSwapper(container, options);</pre>
+</div>
+
+    <%= render partial: "md_docs", locals: {
+      docs: ["js/Docs/Tabs/Tabs.md",
+             "js/Docs/Tabs/Tabs.Hash.md",
+             "js/Docs/Tabs/Behavior.Tabs.md"
+           ]
+    } %>

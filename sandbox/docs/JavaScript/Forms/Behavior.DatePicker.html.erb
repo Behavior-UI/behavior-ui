@@ -1,0 +1,196 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>DatePicker / RangePicker<small>Behavior.DatePicker.js</small></h1>
+  </div>
+  <p>These behaviors provide basic date selection UIs using the <a href="http://moorainbow.woolly-sheep.net/">mooRainbow</a> MooTools plugin.
+    This component has a large number of options (see included docs at the bottom) but the Behavior provides access to only a handful.</p>
+
+  <div class="bs-callout bs-callout-info">
+    <h4>Less Component Required</h4>
+    <p>
+       Be sure to include <code>components/date-picker.less</code> in your build.
+    </p>
+  </div>
+
+  <h3>Single Date Example</h3>
+  <p>Provides any input with a date picker for date selection. Can select individual dates or ranges.</p>
+
+  <%= render layout: "codeblock" do %>
+<div class="col">
+  <div class="form-group col-md-3">
+    <div class="input-group">
+      <label class="input-group-btn" for="datepicker">
+        <button class="btn btn-default" type="button"><span class="fui-calendar"></span></button>
+      </label>
+      <input type="text" class="form-control" id="datepicker"
+        data-behavior="DatePicker"
+        data-datepicker-options="
+          'format':'%m/%d/%Y'
+        " value="<%= "#{Time.current.strftime('%m/%d/%Y')}"%>"
+      >
+    </div>
+  </div>
+</div>
+  <% end %>
+
+  <h3>Range Example</h3>
+    <h3>Single Date Example</h3>
+    <%= render layout: "codeblock" do %>
+  <div class="col">
+    <div class="form-group col-md-5">
+      <div class="input-group">
+        <label class="input-group-btn" for="rangepicker">
+          <button class="btn btn-default" type="button"><span class="fui-calendar"></span></button>
+        </label>
+        <input type="text" class="form-control" id="rangepicker"
+          data-behavior="RangePicker"
+          data-rangepicker-options="
+            'format':'%m/%d/%Y'
+          " value="<%= "#{(Time.current - 1.day).strftime('%m/%d/%Y')} - #{Time.current.strftime('%m/%d/%Y')}"%>"
+        >
+      </div>
+    </div>
+  </div>
+    <% end %>
+
+
+  <h2>Behavior Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>toggles</td>
+          <td>string</td>
+          <td>false</td>
+          <td>Selector for elements that, if clicked, show the popup. Note that a label for the input will have the same effect.</td>
+        </tr>
+        <tr>
+          <td>useFadeInOut</td>
+          <td>string</td>
+          <td>false</td>
+          <td>Whether to fade-in/out the datepicker popup. You might want to set this to `false` in IE.</td>
+        </tr>
+        <tr>
+          <td>pickerClass</td>
+          <td>string</td>
+          <td>'datepicker_minimal'</td>
+          <td>CSS class for the main datepicker container element. You can use multiple classes by separating them by a space, e.g. <code>class1 class2 class3</code></td>
+        </tr>
+        <tr>
+          <td>timePicker</td>
+          <td>string</td>
+          <td>false</td>
+          <td>Enable/disable timepicker functionality. Hours/Minutes values can be changed using the scrollwheel.</td>
+        </tr>
+        <tr>
+          <td>blockKeydown</td>
+          <td>string</td>
+          <td>false</td>
+          <td>Whether it should block keydown events, so the user can type into the input field or not.</td>
+        </tr>
+        <tr>
+          <td>submitTarget</td>
+          <td>string</td>
+          <td>~</td>
+          <td>Selector of form to submit when the user selects a date.</td>
+        </tr>
+        <tr>
+          <td>columns</td>
+          <td>number</td>
+          <td>1</td>
+          <td>Number of columns</td>
+        </tr>
+        <tr>
+          <td>minDate</td>
+          <td>string</td>
+          <td>~</td>
+          <td>Minimum date allowed to pick. Blocks anything before.</td>
+        </tr>
+        <tr>
+          <td>maxDate</td>
+          <td>string</td>
+          <td>~</td>
+          <td>Maximum date allowed to pick. Blocks anything after.</td>
+        </tr>
+        <tr>
+          <td>format</td>
+          <td>string</td>
+          <td>%m/%d/%Y</td>
+          <td>
+            The format to output into the input field. Uses <a href="http://mootools.net/docs/more/Types/Date#Date:format">Date.format</a>
+          </td>
+        </tr>
+        <tr>
+          <td>yearPicker</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>Enable/disable yearpicker functionality. Makes it much easier to change years.</td>
+        </tr>
+        <tr>
+          <td>startView</td>
+          <td>string</td>
+          <td>days</td>
+          <td>
+            The view that will be showed when the picker opens. The options are
+            <code>time</code>, <code>days</code>, <code>months</code> and <code>years</code>
+          </td>
+        </tr>
+        <tr>
+          <td>startDay</td>
+          <td>number</td>
+          <td>1</td>
+          <td>
+            The day the week starts on; 0 = Sunday, 6 = Saturday.
+          </td>
+        </tr>
+        <tr>
+          <td>pickOnly</td>
+          <td>string</td>
+          <td>~</td>
+          <td>
+            If you just want to pick a year, month, day or time. The options are
+            <code>time</code>, <code>days</code>, <code>months</code> and <code>years</code>
+          </td>
+        </tr>
+        <tr>
+          <td>positionOffset</td>
+          <td>object</td>
+          <td><code>{x: 0, y: 0}</code></td>
+          <td>
+            Allows you to tweak the position at which the datepicker appears, relative
+            to the input element. Formatted as an object with x and y properties. Values can be negative.
+          </td>
+        </tr>
+        <tr>
+          <td>updateAll</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>whether or not to update all inputs when selecting a date</td>
+        </tr>
+        <tr>
+          <td>draggable</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>Enable/disable the ability for the user to drag the date picker around.</td>
+        </tr>
+       </tbody>
+    </table>
+  </div>
+</div>
+
+<%= render partial: "md_docs", locals: {
+  docs: ["js/Docs/DatePicker/Behavior.DatePicker.md",
+         "js/Docs/DatePicker/Picker.md",
+         "js/Docs/DatePicker/Picker.Date.md",
+         "js/Docs/DatePicker/Picker.Date.Range.md"
+       ]
+} %>

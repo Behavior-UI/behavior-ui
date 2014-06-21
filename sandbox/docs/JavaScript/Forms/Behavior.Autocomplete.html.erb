@@ -1,0 +1,207 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>Autocomplete <small>Behavior.Autocomplete.js</small></h1>
+  </div>
+
+  <p>Takes elements (inputs) with the data filter <code>"Autocomplete"</code> and creates a autocompletion ui for them
+      that either completes against a list of terms supplied as a property of the element (<code>data-autocomplete-tokens</code>)
+      or fetches them from a server. In both cases, the tokens must be an array of values. Example:</p>
+
+  <pre class="prettyprint">&lt;input data-behavior="Autocomplete" data-autocomplete-tokens="['foo', 'bar', 'baz']"/></pre>
+
+  <p>Alternately, you can specify a url to submit the current typed token to get back a list of valid values in the
+      same format (i.e. a JSON response; an array of strings). Example:</p>
+
+  <pre class="prettyprint">&lt;input data-behavior="Autocomplete" data-autocomplete-url="/some/API/for/autocomplete"/></pre>
+
+  <p>When the values are fetched from the server, the server is sent the current term (what the user is typing) as
+      a post variable "term" as well as the entire contents of the input as "value".</p>
+
+  <p>An additional data property for autocomplete-options can be specified; this must be a JSON encoded string
+      of key/value pairs that configure the Autocompleter instance (see documentation below).</p>
+
+  <div class="bs-callout bs-callout-info">
+    <h4>Less Component Required</h4>
+    <p>
+       Be sure to include <code>components/autocomplete.less</code> in your build.
+    </p>
+  </div>
+
+  <h3>Basic Usage</h3>
+
+  <p>type some country names below...</p>
+<%= render layout: "codeblock" do %>
+<form class="form-horizontal">
+  <div class="form-group">
+    <div class="col-lg-5"><input name="a" class="form-control"
+      data-behavior="Autocomplete" data-autocomplete-tokens="['Afghanistan',
+     'Aland Islands', 'Albania', 'Algeria', 'American Samoa', 'Andorra', 'Angola',
+     'Anguilla', 'Antarctica', 'Antigua And Barbuda', 'Argentina', 'Armenia', 'Aruba',
+     'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh',
+     'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 'Bhutan', 'Bolivia',
+     'Bosnia And Herzegovina', 'Botswana', 'Bouvet Island', 'Brazil',
+     'British Indian Ocean Territory', 'Brunei Darussalam', 'Bulgaria', 'Burkina Faso', 'Burundi',
+     'Cambodia', 'Cameroon', 'Canada', 'Cape Verde', 'Cayman Islands',
+     'Central African Republic', 'Chad', 'Chile', 'China', 'Christmas Island',
+     'Cocos (Keeling) Islands', 'Colombia', 'Comoros', 'Congo', 'Cook Islands', 'Costa Rica', 'Cote D\'ivoire',
+     'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica',
+     'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia',
+     'Ethiopia', 'Falkland Islands (Malvinas)', 'Faroe Islands', 'Fiji', 'Finland',
+     'France', 'French Guiana', 'French Polynesia', 'French Southern Territories',
+     'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Gibraltar', 'Greece',
+     'Greenland', 'Grenada', 'Guadeloupe', 'Guam', 'Guatemala', 'Guernsey', 'Guinea',
+     'Guinea-Bissau', 'Guyana', 'Haiti', 'Heard Island And Mcdonald Islands',
+     'Holy See (Vatican City State)', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India',
+     'Indonesia', 'Iran, Islamic Republic Of', 'Iraq', 'Ireland', 'Isle Of Man',
+     'Israel', 'Italy', 'Jamaica', 'Japan', 'Jersey', 'Jordan', 'Kazakhstan', 'Kenya',
+     'Kiribati', 'Korea, Democratic People\'s Republic Of', 'Korea, Republic Of',
+     'Kuwait', 'Kyrgyzstan', 'Lao People\'s Democratic Republic', 'Latvia', 'Lebanon',
+     'Lesotho', 'Liberia', 'Libyan Arab Jamahiriya', 'Liechtenstein', 'Lithuania',
+     'Luxembourg', 'Macao', 'Macedonia, The Former Yugoslav Republic Of', 'Madagascar',
+     'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands',
+     'Martinique', 'Mauritania', 'Mauritius', 'Mayotte', 'Mexico',
+     'Micronesia, Federated States Of', 'Moldova, Republic Of', 'Monaco', 'Mongolia',
+     'Montenegro', 'Montserrat', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal',
+     'Netherlands', 'Netherlands Antilles', 'New Caledonia', 'New Zealand',
+     'Nicaragua', 'Niger', 'Nigeria', 'Niue', 'Norfolk Island', 'Northern Mariana Islands',
+     'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestinian Territory, Occupied',
+     'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Pitcairn', 'Poland',
+     'Portugal', 'Puerto Rico', 'Qatar', 'Reunion', 'Romania', 'Russian Federation',
+     'Rwanda', 'Saint Helena', 'Saint Kitts And Nevis', 'Saint Lucia',
+     'Saint Pierre And Miquelon', 'Saint Vincent And The Grenadines', 'Samoa',
+     'San Marino', 'Sao Tome And Principe', 'Saudi Arabia', 'Senegal', 'Serbia',
+     'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia',
+     'Solomon Islands', 'Somalia', 'South Africa', 'South Georgia And The South Sandwich Islands',
+     'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Svalbard And Jan Mayen',
+     'Swaziland', 'Sweden', 'Switzerland', 'Syrian Arab Republic', 'Taiwan, Province Of China',
+     'Tajikistan', 'Tanzania, United Republic Of', 'Thailand', 'Timor-Leste',
+     'Togo', 'Tokelau', 'Tonga', 'Trinidad And Tobago', 'Tunisia', 'Turkey', 'Turkmenistan',
+     'Turks And Caicos Islands', 'Tuvalu', 'Uganda', 'Ukraine',
+     'United Arab Emirates', 'United Kingdom', 'United States', 'United States Minor Outlying Islands',
+     'Uruguay', 'Uzbekistan', 'Vanuatu', 'Venezuela', 'Viet Nam', 'Virgin Islands, British',
+     'Virgin Islands, U.S.', 'Wallis And Futuna', 'Western Sahara', 'Yemen', 'Zambia', 'Zimbabwe']"></div>
+  </div>
+</form>
+<% end %>
+
+  <h3>Getting data with Ajax</h3>
+  <p>Note that the example below send a request that always returns the same result set (a few contry names that start with A).</p>
+
+<%= render layout: "codeblock" do %>
+<form class="form-horizontal">
+  <div class="form-group">
+    <div class="col-lg-5"><input name="a" class="form-control"
+      data-behavior="Autocomplete" data-autocomplete-url="<%= sandbox_echo_json_path(
+        data: ['Afghanistan', 'Aland Islands', 'Albania', 'Algeria', 'American Samoa', 'Andorra', 'Angola']
+      ) %>">
+    </div>
+  </div>
+</form>
+<% end %>
+
+
+  <h3>Configuration</h3>
+  <p>Autocomplete is highly configurable. The behavior options (see docs below) are robust but also a bit complex. Study them carefully!</p>
+
+  <h2>Behavior Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation. See the documentation below for
+  JavaScript options, methods, and events.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>minLength</td>
+          <td>number</td>
+          <td>1</td>
+          <td>the minimum length of the string the user must enter before the suggestions are displayed; defaults to <code>1</code></td>
+        </tr>
+        <tr>
+          <td>selectMode</td>
+          <td>string</td>
+          <td class="nowrap">'type-ahead'</td>
+          <td>
+          	<ul>
+          		<li><code>true</code> or <code>selection</code> - the user can type without the input value being highlighted or altered in any way.
+          		 If they want to use a suggestion item, they must select it. Using the cursor keys the user can highlight a potential suggestion item
+          		 and the input will be filled with the highlighted suggestion, while the portion of the suggestion that the user did not type will be
+          		 selected so that they can continue typing if they wish.</li>
+          		<li><code>type-ahead</code> - as the user types the first suggestion item is selected and the 'missing' copy (the portion of the text
+          			the user has not yet typed) is selected. The user can use their cursor to move right and accept the suggestion or continue typing
+          			to refine the suggestion items.</li>
+          		<li><code>pick</code> - the user can type without the input value being highlighted or altered in any way. If they want to use a
+          			suggestion item, they must select it using the cursor keys to move up and down the suggestion items which will change the input
+          			value appropriately. However, in this case the portion of the input value they did not type is <strong>not</strong> selected.</li>
+          	</ul>
+          </td>
+        </tr>
+        <tr>
+          <td>overflow</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>If set to <code>true</code>, the <code>maxChoices</code> option (not configurable in the behavior; so stuck at the default of 10)
+           is ignored and all the available suggestion items are displayed</td>
+        </tr>
+        <tr>
+          <td>selectFirst</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>whether to automatically select the first suggestion item even if it doesn't completely match the user entry.
+          	For instance: if the user types "aj" and the first suggestion is "ajax", a <code>true</code> setting for this option would select
+          	that first entry even though it doesn't completely match the user's entry.</td>
+        </tr>
+        <tr>
+          <td>multiple</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>whether to split the user entered text into multiple values</td>
+        </tr>
+        <tr>
+          <td>separator</td>
+          <td>string</td>
+          <td class="nowrap">(a space)</td>
+          <td>if <code>multiple</code> is <code>true</code>, this is the delemiter that will be used to seperate values; defaults to ' ' (comma)</td>
+        </tr>
+        <tr>
+          <td>allowDupes</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>whether to allow duplicate suggestion items - only used if <code>multiple</code> is enabled</td>
+        </tr>
+        <tr>
+          <td>url</td>
+          <td>string</td>
+          <td>~</td>
+          <td>If specified, the values are fetched via the url specified here. See the <code>postVar</code> option about how the parameters are passed.</td>
+        </tr>
+
+        <tr>
+          <td>postVar</td>
+          <td>string</td>
+          <td>'term'</td>
+          <td>the post variable name for the query string. This is the key for the user's input value (i.e. if the user is typing in "cookies"
+          	but has only typed in "coo" so far, the url in the arguments will be requested with <code>term=coo</code> if postVar is set to 'term').</td>
+        </tr>
+        <tr>
+          <td>tokens</td>
+          <td>array</td>
+          <td>~</td>
+          <td>if <code>url</code> is not specified, then you must pass in an array of acceptable values for the <code>tokens</code> option.
+          	See example above.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  <%= render partial: "md_docs", locals: {
+    docs: ["js/Docs/Autocompleter/Autocompleter.md",
+    			 "js/Docs/Autocompleter/Autocompleter.Remote.md"]
+  } %>

@@ -1,0 +1,61 @@
+/*
+
+Allows you to drop arrows around things.
+Example:
+
+
+.btn {
+  &.arrow-below {
+    &:after {
+      #arrow > .after;
+      #arrow > .below();
+    }
+  }
+}
+
+<a class="btn arrow-below">foo</a>
+
+*/
+
+#arrow {
+  .after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    .transition(border-bottom-color .4s linear);
+    .transition(border-top-color .4s linear);
+    .transition(border-left-color .4s linear);
+    .transition(border-right-color .4s linear);
+  }
+  .below(@size: 10px; @color: @black) {
+    bottom: -@size;
+    left: 50%;
+    margin-left: -@size;
+    border-width: @size @size 0;
+    border-top-color: @color;
+  }
+  .above(@size: 10px; @color: @black) {
+    top: -@size;
+    left: 50%;
+    margin-left: -@size;
+    border-width: 0 @size @size;
+    border-bottom-color: @color;
+  }
+  .left(@size: 10px; @color: @black) {
+    left: -@size;
+    top: 50%;
+    margin-top: -@size;
+    border-width: @size @size @size 0;
+    border-right-color: @color;
+  }
+  .right(@size: 10px; @color: @black) {
+    left: @size;
+    top: 50%;
+    margin-top: -@size;
+    border-width: @size 0 @size @size;
+    border-left-color: @color;
+  }
+}

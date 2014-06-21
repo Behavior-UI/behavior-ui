@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Delegator: Ajax Target</title>
+		<script src="/depender/build?require=More-Behaviors/Delegator.FxReveal"></script>
+		<style>
+		</style>
+	</head>
+	<body>
+		<h3>Reveal Target</h3>
+
+		<a data-trigger="reveal" data-reveal-target="!body #boxReveal">click to show box</a>
+		<div id="boxReveal" style="display: none; border: 1px solid #fff; height: 100px; width: 100px; background: #999;"></div>
+		<hr/>
+
+		<h3>Dissolve Target</h3>
+
+		<a data-trigger="dissolve" data-dissolve-target="!body #boxDissolve">click to hide box</a>
+		<div id="boxDissolve" style="border: 1px solid #fff; height: 100px; width: 100px; background: #999;"></div>
+		<hr/>
+
+		<h3>Toggle Target</h3>
+
+		<a data-trigger="toggleReveal" data-togglereveal-target="!body #boxToggle">click to toggle box</a>
+		<div id="boxToggle" style="border: 1px solid #fff; height: 100px; width: 100px; background: #999;"></div>
+		<hr/>
+
+		<h3>Nix Target (hide and then destroy)</h3>
+
+		<a data-trigger="nix" data-nix-target="!body #boxNix">click to nix box</a>
+		<div id="boxNix" style="border: 1px solid #fff; height: 100px; width: 100px; background: #999;"></div>
+		<hr/>
+
+
+		<script>
+			var b = new Behavior().apply(document.body);
+			var d = new Delegator({
+				getBehavior: function(){ return b }
+			}).attach(document.body);
+		</script>
+	</body>
+</html>

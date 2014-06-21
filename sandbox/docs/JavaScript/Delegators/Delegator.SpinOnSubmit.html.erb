@@ -1,0 +1,32 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>SpinOnSubmit <small>Delegator.SpinOnSubmit.js</small></h1>
+  </div>
+
+  <p>Puts the spinner on a form when you submit it. Useful when you aren't updating a form with ajax and you want to prevent
+    interaction with it after the user submits it (and is waiting on a server response).</p>
+  <p>This form prevents the default submit event (i.e. clicking the button below doesn't actually send the form data to the server)
+    but the <code>spinOnSubmit</code> trigger will still be invoked. You should see an Ajax spinner when you submit it (and then it'll
+    just hang there).</p>
+  <p><span class="label label-primary">See also</span>  <%= link_to "Delegator.SpinOnClick", sandbox_dir_file_path(section: 'JavaScript', dir: "Delegators", file: "Delegator.SpinOnClick") %></p>
+
+
+    <%= render layout: "codeblock" do %>
+<form id="test" data-trigger="spinOnSubmit">
+  <div class="form-group">
+    <input type="text" name="html" value="" placeholder="...an input of some sort" class="form-control input-hg">
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-default">Submit</button>
+  </div>
+</form>
+    <% end %>
+
+
+  <h2>Behavior Options</h2>
+  <p><em>none</em></p>
+</div>
+
+<script>
+  document.id('test').addEvent('submit', function(e){ e.preventDefault(); });
+</script>

@@ -1,0 +1,33 @@
+.dropdown-inverse {
+  background-color: @midnight-blue;
+  color: mix(@inverse, black, 80%);
+  li {
+    &.active,
+    &.selected {
+      > a {
+        background: @belize-hole;
+        color: @inverse;
+      }
+    }
+    > a {
+      color: @inverse;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background: mix(@midnight-blue, black, 85%);
+      }
+      &.highlighted {
+        background: mix(@midnight-blue, @inverse, 85%);
+        &:hover,
+        &:focus {
+          background: mix(@midnight-blue, @inverse, 75%);
+        }
+      }
+    }
+    .divider {
+      background-color: mix(@midnight-blue, white, 85%);
+      border-bottom-color: mix(@midnight-blue, white, 85%);
+    }
+  }
+}

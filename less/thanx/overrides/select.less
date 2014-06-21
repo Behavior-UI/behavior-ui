@@ -1,0 +1,32 @@
+[data-behavior*="FlatUI.Select"], select:not(.no-flat-select){
+  display: none;
+}
+
+.select.btn-group.select button {
+	&:focus {
+		border-color: @brand-secondary;
+	}
+	&.full-width {
+		.full-width;
+	}
+}
+
+.select.select-transparent.select.open, .select.open {
+  i.dropdown-arrow.dropdown-arrow-inverse {
+    border-bottom-color: @midnight-blue;
+  }
+  &.dropup {
+    > .dropdown-arrow {
+      &.dropdown-arrow-inverse {
+        border-top-color: @midnight-blue;
+      }
+    }
+  }
+}
+.validation-failed {
+  .select {
+    .btn {
+      background-color: @alizarin !important;
+    }
+  }
+}

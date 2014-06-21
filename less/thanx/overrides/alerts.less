@@ -1,0 +1,32 @@
+.alert.header {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  top: 0px;
+  min-height: @navbar-height;
+  border-radius: 0px;
+  border: none;
+  color: white;
+  margin-bottom: 0px;
+  .text {
+    display: block;
+  }
+  .close {
+    margin-left: -20px;
+  }
+  .alert-spacer {
+    display: inline-block;
+    width: 10px;
+  }
+  .btn {
+    min-width: 200px;
+    margin: 0px 3px;
+  }
+  &.alert-error {
+  background-color: @alizarin;
+  }
+  &.alert-info {
+  background-color: @link-color;
+  }
+}
+

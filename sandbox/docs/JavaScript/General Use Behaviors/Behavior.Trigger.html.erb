@@ -1,0 +1,111 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>Trigger <small>Behavior.Trigger.js</small></h1>
+  </div>
+  <p>Because Delegator is inefficient for mouse over/out events, this behavior
+     allows you to invoke delegator triggers on elements when they occur using
+     normal event monitoring.</p>
+
+  <h3>Example</h3>
+  <p>Here's a simple example that changes a class on a target when you <b>mouse over</b> or <b>focus</b> each different form input.</p>
+  <%= render layout: "codeblock" do %>
+<input data-behavior="Trigger"
+  value="I turn the box red"
+  data-trigger-options="
+    'triggers': [
+      {
+        'events': ['mouseover', 'focus'],
+        'targets': {
+          'self': {
+            '!div .box::addClass': {
+              'class':'red'
+            }
+          }
+        }
+      }
+    ]
+  ">
+  <input data-behavior="Trigger"
+    value="I turn the box white"
+    data-trigger-options="
+      'triggers': [
+        {
+          'events': ['mouseover', 'focus'],
+          'targets': {
+            'self': {
+              '!div .box::removeClass': {
+                'class':'red'
+              }
+            }
+          }
+        }
+      ]
+    ">
+  <div class="box"></div>
+  <% end %>
+
+  <div class="bs-callout bs-callout-info">
+    <h4>Considerations</h4>
+    <p>
+       This behavior finds all the elements specified as targets and calls <code>addEvent</code> upon them at startup.
+       Be wary of this startup cost. Further, be aware that, because the elements are monitored directly, this control
+       is not "live" to changes in the DOM.
+    </p>
+  </div>
+
+  <h2>Behavior Options</h2>
+
+  <p>There is only one option for this filter - <code>triggers</code>. This is an array of the triggers you wish to invoke
+    for different events. Here's the structure:</p>
+
+<pre class="prettyprint">
+  &lt;div data-behavior="Trigger"
+      data-trigger-options="
+        'triggers': [
+          {
+            'events': ['mouseover', 'focus'], //which events to monitor
+            'targets': {
+              'div.monitorMouseOver': { //elements whose events we monitor
+                'div.foo::addClass': { //selector for elements to invoke trigger :: trigger name
+                  'class': 'foo', //api options for trigger
+                  'if': {
+                    'div.bar::hasClass': ['boo']
+                  }
+                }
+              }
+            }
+          }
+        ]
+      "
+  >...&lt;/div>
+</pre>
+
+  <p>Each item in the array is an <code>Object</code> with two properties:</p>
+
+  <ul>
+    <li>
+      <p><code>events</code> - an array of DOM events to monitor. If you only have one
+        event you wish to monitor you can just specify the string.</p>
+    </li>
+    <li>
+      <p><code>targets</code> - an object containing as keys the selectors to find
+        elements to monitor. This uses the conventions of <code>Behavior</code> which
+        allows you to use the two special selectors <code>self</code> and <code>window</code>.</p>
+      <p>The values for these keys are standard Delegator target/trigger objects. Briefly, they
+        are expressed as <code>'selector::triggerName':{..configuration...}</code> where
+        the selector is the element to invoke the specified trigger when the event fires
+        for the target, while the configuration are just the key/values for the trigger itself.</p>
+    </li>
+  </ul>
+
+  <p>In the example above, the configuration states that the div with the <code>Trigger</code> behavior
+    on startup is searched for elements within it matching the selector <code>div.monitorMouseOver</code>.
+    These elements are monitored for both <code>mouseover</code> and <code>focus</code>. When those events
+    occur on any <code>div.monitorMouseOver</code> element, any <code>div.foo</code> element within it
+    has the <code>Delegator</code> trigger <code>addClass</code> invoked upon it with the configuration
+    <code>class: 'foo'</code> but only if an element within it matches <code>div.bar.boo</code>.
+  </p>
+
+  <p>I realize this example is a little over the top; it's designed to show the range of the plugin. The
+    working example above is perhaps more typical.</p>
+</div>

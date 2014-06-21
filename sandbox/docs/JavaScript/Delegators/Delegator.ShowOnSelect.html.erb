@@ -1,0 +1,124 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>ShowOnSelect <small>Behavior.ShowOnSelect.js</small></h1>
+  </div>
+  <p>Hides/shows a target element when it's corresponding option is selected.</p>
+
+  <p>If the option does not reference a target, all are hidden. Option elements should specify a
+    <code>data-target</code> selector relative to the select list OR specify an array of selectors in the
+    behavior declaration</p>
+
+  <h3>Examples</h3>
+
+  <p>Using <code>data-target</code> on each <code>option</code> element.</p>
+  <%= render layout: "codeblock" do %>
+    <p>
+      <select data-trigger="showOnSelect" data-showonselect-options="
+        'hideClass': 'hide'
+      ">
+        <option data-target="!> p !> div .first">first</option>
+        <option data-target="!> p !> div .second">second</option>
+        <option data-target="!> p !> div .third">third</option>
+      </select>
+    </p>
+    <p class="first">I'm the first!</p>
+    <p class="second hide">I'm the second!</p>
+    <p class="third hide">I'm the third!</p>
+  <% end %>
+
+  <p>Using the <code>targets</code> option to specify a set of selectors referenced by index.</p>
+  <%= render layout: "codeblock" do %>
+    <select data-trigger="showOnSelect" data-showonselect-options="
+      'hideClass': 'hide',
+      'targets': ['!> p !> div .first', '!> p !> div .second', '!> p !> div .third']
+    ">
+      <option>first</option>
+      <option>second</option>
+      <option>third</option>
+    </select>
+    <p class="first">I'm the first!</p>
+    <p class="second hide">I'm the second!</p>
+    <p class="third hide">I'm the third!</p>
+  <% end %>
+
+  <p>Using the <code>disableInputs</code> option to specify to disable / enable nested inputs</p>
+  <%= render layout: "codeblock" do %>
+    <select data-trigger="showOnSelect" data-showonselect-options="
+      'hideClass': 'hide',
+      'disableInputs': 'true',
+      'targets': ['!> p !> div .first', '!> p !> div .second', '!> p !> div .third']
+    ">
+      <option>first</option>
+      <option>second</option>
+      <option>third</option>
+    </select>
+    <div class="first">
+      I'm the first!
+      <input class="form-control"></input>
+    </div>
+    <div class="second hide">
+      I'm the second!
+      <input class="form-control" disabled></input>
+    </div>
+    <div class="third hide">
+      I'm the third! Disabled as always...
+      <input class="form-control" data-remain-locked disabled></input>
+    </div>
+  <% end %>
+
+  <h2>Behavior Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>hideClass</td>
+          <td>string</td>
+          <td>~</td>
+          <td>The class to add to hide the item (optional).</td>
+        </tr>
+        <tr>
+          <td>showClass</td>
+          <td>string</td>
+          <td>~</td>
+          <td>The class to add to show the item (optional; ignored if <code>hideClass</code> is provided).</td>
+        </tr>
+        <tr>
+          <td>display</td>
+          <td>string</td>
+          <td class="nowrap">'inline-block'</td>
+          <td>If neither <code>hideClass</code> nor <code>showClass</code> are provided, falls back to setting the style
+            on the element to <code>inline-block</code> but can be overridden with this option.</td>
+        </tr>
+        <tr>
+          <td>targets</td>
+          <td>string</td>
+          <td>~</td>
+          <td>If <code>data-target</code> is not provided (on each option; see next option below) then you may provide an array
+            of values that map to each option by index. See example above. This selector is run relative to the <code>select</code> element.</td>
+        </tr>
+        <tr>
+          <td class="nowrap">data-target</td>
+          <td>string</td>
+          <td>~</td>
+          <td>Value set on each option specifying which item to show. If an option doesn't have a value set, all are hidden when
+            it is selected. This selector is run relative to the <code>select</code> element.</td>
+        </tr>
+        <tr>
+          <td>disableInputs</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>When disableInputs is true, disables/enables all inputs without the <code>data-remain-locked</code> attribute on hide/show.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

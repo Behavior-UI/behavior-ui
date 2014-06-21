@@ -1,0 +1,51 @@
+ul.autocompleter-choices {
+  position: absolute;
+  list-style: none;
+  text-align: left;
+  z-index: 50;
+  background-color: #fff;
+  border: 2px solid @brand-secondary;
+  padding: 5px 0;
+  margin: 6px 0 0;
+  background-color: @inverse;
+  border-radius: @border-radius-large;
+
+  li {
+    position: relative;
+    padding: 6px 14px;
+
+    margin: -2px 0 0 0;
+    display: block;
+    float: none !important;
+    cursor: pointer;
+    font-weight: normal;
+    white-space: nowrap;
+    &:hover,
+    &:focus {
+      background: mix(@brand-secondary, black, 85%);
+      color: @inverse;
+    }
+
+    &.autocompleter-selected {
+      background: @brand-secondary;
+      color: mix(@brand-secondary, white, 35%);
+      span.autocompleter-queried {
+        color: @inverse;
+      }
+    }
+    &:first-child,
+    &:last-child {
+      a {
+        padding: 6px 14px;
+        border-radius: 0;
+      }
+    }
+  }
+  span.autocompleter-queried {
+    display: inline;
+    float: none;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+}

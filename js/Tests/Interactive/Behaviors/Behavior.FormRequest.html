@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Behavior.FormRequest</title>
+		<script src="/depender/build?require=More-Behaviors/Behavior.FormRequest,More/Spinner"></script>
+		<link rel="stylesheet" href="/asset/more/spinner.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	</head>
+	<body>
+
+		<p>Click either submit button to update the box below. The box should have an ajax spinner and then update with the content in the button.</p>
+
+
+		<form id="test" data-behavior="FormRequest" data-formrequest-update="!body #update" action="/ajax_html_echo/" method="post">
+			<input type="submit" name="html" value="fetch html (button 1)"/>
+			<input type="submit" name="html" value="fetch html (button 2)"/>
+		</form>
+
+		<div style="position: relative; margin-top: 10px">
+			<div id="update" style="padding: 10px; width: 200px; border: 1px solid black; height: 100px; overflow:hidden;">
+				this box should get new text when you click the input above.
+			</div>
+		</div>
+
+		<script>
+		new Behavior().apply(document.body);
+		</script>
+
+
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>SubmitLink <small>Delegator.SubmitLink.Ajax.js</small></h1>
+  </div>
+  <p>Allows you to inject relevant form data depending on which link is clicked to submit it.</p>
+
+  <p>Click either submit button to update the box below. The box below them should be updated with the corresponding txt.
+  	You don't have to use this trigger in conjunction with the <code>FormRequest</code> behavior as seen here. If you
+  	used it with a vanilla form, it would submit it as usual, including the data specified in your trigger options.</p>
+
+<%= render layout: "codeblock" do %>
+<form id="test" data-behavior="FormRequest" data-formrequest-update="!body #update" action="<%= sandbox_echo_html_path %>" method="get">
+  <p>
+    <input type="submit" name="html" class="btn" value="fetch html #1"/>
+    <input type="submit" name="html" class="btn" value="fetch html #2"/>
+  </p>
+  <p>
+    <a class="btn btn-xs btn-primary" data-trigger="submitLink"
+    	 data-submitlink-extra-data="{'html':'fetch html (link 1)'}">fetch html (link 1)</a>
+    <a class="btn btn-xs btn-primary" data-trigger="submitLink"
+    	 data-submitlink-extra-data="{'html':'fetch html (link 2)'}">fetch html (link 2)</a>
+  </p>
+</form>
+
+<div id="update" class="box">
+  <%= params[:text] || "this box should get new text when you click the input above." %>
+</div>
+<% end %>
+</div>
+
+<%= render partial: "md_docs", locals: {
+  docs: ["js/Docs/Delegators/Delegator.SubmitLink.md"]
+} %>

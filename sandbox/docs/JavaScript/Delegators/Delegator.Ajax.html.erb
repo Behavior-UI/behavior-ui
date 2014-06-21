@@ -1,0 +1,109 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>Ajax <small>Delegator.Ajax.js</small></h1>
+  </div>
+  <p>Loads content via <code>Request.HTML</code> into the specified target. Automatically instantiates any <code>data-behavior</code> filters in the response.</p>
+
+  <h3>Basic Ajax functionality</h3>
+  <%= render layout: "codeblock" do %>
+<%= link_to sandbox_echo_html_path(html: "<li>I'm a list item added to the bottom of the list!</li>"),
+  class: 'btn',
+  data: {
+    trigger: "ajax",
+    ajax_options: {
+    	useSpinner: true,
+      action: 'injectBottom',
+      target: '!body ul#demoList'
+    }
+  } do %>Add to bottom of list.<% end %>
+<%= link_to sandbox_echo_html_path(html: "<li>I'm a list item added to the top of the list!</li>"),
+  class: 'btn',
+  data: {
+    trigger: "ajax",
+    ajax_options: {
+    	useSpinner: true,
+      action: 'injectTop',
+      target: '!body ul#demoList'
+    }
+  } do %>Add to top of list.<% end %>
+<%= link_to sandbox_echo_html_path(html: "<li>I'm a list item added before #foo!</li>"),
+  class: 'btn',
+  data: {
+    trigger: "ajax",
+    ajax_options: {
+    	useSpinner: true,
+      action: 'injectBefore',
+      target: '!body ul#demoList li#foo'
+    }
+  } do %>Before #foo<% end %>
+<%= link_to sandbox_echo_html_path(html: "<li>I'm a list item added after #foo!</li>"),
+  class: 'btn',
+  data: {
+    trigger: "ajax",
+    ajax_options: {
+    	useSpinner: true,
+      action: 'injectAfter',
+      target: '!body ul#demoList li#foo'
+    }
+  } do %>After #foo<% end %>
+<ul id="demoList" class="box">
+  <li id="foo">I have the id "foo"</li>
+</ul>
+  <% end %>
+
+  <hr/>
+  <%= render layout: "codeblock" do %>
+<%= link_to sandbox_echo_html_path(html: "<p id='par' class='par'>I'm a <b>new</b> paragraph with the id 'par'.</p><p class='par'>And I'm another paragraph (without an id).</p>"),
+  class: 'btn',
+  data: {
+    trigger: "ajax",
+    ajax_options: {
+    	useSpinner: true,
+      action: 'replace',
+      target: '!body #par'
+    }
+  } do %>Replace the paragraph below<% end %>
+  <p id="par" class='par'>I'm a simple paragraph with the id 'par'.</p>
+  <% end %>
+
+  <hr/>
+  <%= render layout: "codeblock" do %>
+<%= link_to sandbox_echo_html_path(html: "<p>I'm <b>different</b> stuff!</p><p>So am I!</p>"),
+  class: 'btn',
+  data: {
+    trigger: "ajax",
+    ajax_options: {
+    	useSpinner: true,
+      action: 'update',
+      target: '!body #update'
+    }
+  } do %>Update the content of the div below.<% end %>
+<div id="update">
+  <p>I'm a paragraph of some stuff</p>
+</div>
+	<% end %>
+  <p class="text-muted">The difference between the <code>replace</code> and <code>update</code> examples is that the <code>replace</code> example replaces a specific DOM element with a response, while <code>update</code> empties the target and replaces all its children with the response.<p>
+
+  <hr/>
+
+  <h3>Behavior Integration</h3>
+
+  <%= render layout: "codeblock" do %>
+<%= link_to sandbox_echo_html_path(html: "<a data-behavior='BS.Tooltip' title='The NEW tooltip!'>this NEW link has a tip</a>"),
+  class: 'btn',
+  data: {
+    trigger: "ajax Stop",
+    ajax_options: {
+    	useSpinner: true,
+      action:'replace',
+      target:'!body #tip'
+    }
+  } do %>Replace the tip element below.<% end %><br/>
+<p><a id="tip" data-behavior="BS.Tooltip" title="The tootlip!">this link has a tip</a></p>
+	<% end %>
+
+</div>
+
+<%= render partial: "md_docs", locals: {
+  docs: ["js/Docs/Delegators/Delegator.Ajax.md"]
+} %>

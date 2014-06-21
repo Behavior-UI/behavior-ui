@@ -1,0 +1,227 @@
+/* date picker */
+
+/*
+  Minimal Theme
+  Author: Leon Radley (github.com/leon)
+
+  Selected: #95adb8
+  Hover: #c6d2d8
+  Current: #f60
+*/
+.rangepicker_minimal, .datepicker_minimal {
+  position: absolute;
+  border: 1px solid #ddd;
+  font-size: 11px;
+  width: 220px;
+  height: 200px;
+  background: #fff;
+  line-height: normal;
+  z-index: 3003;
+  border-radius:  2p;
+  -webkit-border-radius:  2p;
+  -moz-border-radius:  2p;
+  th, td {
+    margin: 0;
+    padding: 0;
+  }
+  .selected {
+    background: #95adb8 !important;
+    color: #fff !important;
+  }
+  .unavailable, .day.unavailable:hover {
+    background: #edd !important;
+    color: #b88 !important;
+    cursor: default !important;
+  }
+  td.day:hover,
+  .month:hover,
+  .year:hover {
+    background: #c6d2d8 !important;
+    color: #222 !important;
+  }
+  /*
+    Header
+  */
+
+  .header {
+    position: relative;
+    background: #333;
+    height: 25px;
+    .title {
+      margin: 0 50px;
+      text-align: center;
+      line-height: 25px;
+    }
+    .titleText {
+      color: #fff;
+      font-weight: bold;
+    }
+    .next,
+    .previous,
+    .closeButton {
+      position: absolute;
+      top: 0;
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+      color: #fff;
+      cursor: pointer;
+    }
+    .previous {
+      left: 0;
+    }
+    .next {
+      right: 25px;
+    }
+    .closeButton {
+      right: 0;
+    }
+  }
+  .box-shadow(0 1px 2px rgba(0,0,0,.5));
+  border-radius: 5px;
+  overflow: hidden;
+  .body {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 175px;
+    overflow: hidden;
+  }
+  .column {
+    height: 100%;
+  }
+  /*
+    Days
+  */
+  .days {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    .title {
+      font-weight: bold;
+      color: #444;
+      cursor: default;
+      width: 14.2857142857143%; /* 100/7 */
+    }
+    &.weeknumbers .title {
+      width: 12.5%;
+    }
+    .otherMonth {
+      background: #eee;
+      color: #aaa;
+    }
+    .week5 .day {
+      margin-bottom: 0;
+    }
+  }
+  .day {
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden;
+    line-height: 25px;
+  }
+  .today {
+    color: #f60;
+    font-weight: bold;
+  }
+  .day0 {
+    margin-right: 0;
+  }
+
+  /*
+    Months
+  */
+  .months {
+    height: 100%;
+  }
+  .month {
+    float: left;
+    display: inline;
+    width: 33.33333333%;
+    line-height: 44px;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    overflow: hidden;
+  }
+  /*
+    Years
+  */
+  .years {
+    height: 100%;
+  }
+  .year {
+    float: left;
+    display: inline;
+    width: 25%;
+    line-height: 35px;
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden;
+  }
+  /*
+    Time
+  */
+  .time {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    .hour, .separator, .minutes {
+      height: 35px;
+      position: absolute;
+      top: 50px;
+      width: 50px;
+      border: 1px dashed #ddd;
+      font-size: 32px;
+      text-align: center;
+    }
+    .hour {
+      left: 40px;
+    }
+    .separator {
+      background: transparent;
+      border: 0px;
+      width: 18px;
+      left: 100px;
+      vertical-align: middle;
+      padding: 6px 0;
+    }
+    .minutes {
+      left: 120px;
+    }
+    .ok {
+      position: absolute;
+      top: 105px;
+      width: 136px;
+      left: 40px;
+      font-size: 20px;
+    }
+  }
+}
+
+.rangepicker_minimal {
+  height: 280px;
+  .footer {
+    padding: 4px;
+    text-align: center;
+    input {
+      display: inline;
+      width: 80px;
+    }
+    button {
+      float: right;
+      .btn;
+      &.apply {
+        border-radius: 0 5px 5px 0;
+        margin-right: 10px;
+        .btn-primary;
+      }
+      &.cancel {
+        border-right: 0;
+        border-radius: 5px 0 0 5px;
+      }
+    }
+  }
+}

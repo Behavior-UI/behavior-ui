@@ -1,0 +1,63 @@
+.pulse-to-transparent-50 {
+  opacity: 1;
+  .animation(pulse-white-to-transparent-50-keyframe 1s ease-in infinite alternate);
+}
+@-webkit-keyframes pulse-white-to-transparent-50-keyframe {
+  0% {opacity: 1;}
+  100% {opacity: .5;}
+}
+@-moz-keyframes pulse-white-to-transparent-50-keyframe {
+  0% {opacity: 1;}
+  100% {opacity: .5;}
+}
+@-ms-keyframes pulse-white-to-transparent-50-keyframe {
+  0% {opacity: 1;}
+  100% {opacity: .5;}
+}
+@keyframes pulse-white-to-transparent-50-keyframe {
+  0% {opacity: 1;}
+  100% {opacity: .5;}
+}
+
+.transition-standard {
+  -webkit-transform: translateZ(0);
+  .transition(all @transition_speed ease-in-out);
+}
+
+.transition-slow {
+  -webkit-transform: translateZ(0);
+  .transition(all (@transition_speed * 2) ease-in-out);
+}
+
+.transition-x-slow {
+  -webkit-transform: translateZ(0);
+  .transition(all (@transition_speed * 4) ease-in-out);
+}
+
+.transition-xx-slow {
+  -webkit-transform: translateZ(0);
+  .transition(all (@transition_speed * 8) ease-in-out);
+}
+
+.transition-xxx-slow {
+  -webkit-transform: translateZ(0);
+  .transition(all (@transition_speed * 12) ease-in-out);
+}
+
+.transition-delay-0-5 {
+  .transition-delay(0.5s);
+}
+
+.transition-delay-1 {
+  .transition-delay(1s);
+}
+.transition-delay-1-5 {
+  .transition-delay(1.5s);
+}
+.transition-delay-0 {
+  .transition-delay(0s);
+}
+
+.transition-delay-0-125 {
+  .transition-delay(0.125s);
+}

@@ -1,0 +1,230 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: @grey-90;
+  &.inverted {
+    color: white;
+  }
+  &.large-padding {
+    padding: @primary-padding 30px;
+  }
+  .sub-link {
+    position: relative;
+    top: -10px;
+    a {
+      font-size: 12px;
+      line-height: 14px;
+    }
+    span {
+      font-size: 24px;
+      margin-right: 5px;
+      position: relative;
+      top: 3px;
+    }
+  }
+}
+.hover-link:hover a {
+  color: @link-color;
+}
+h1,
+h2,
+h3 {
+  margin-top: 2px;
+  margin-bottom: 4px;
+}
+h4,
+h5,
+h6 {
+  margin-top: 4px;
+}
+h1 {
+  font-size: 40px;
+}
+h2 {
+  font-size: 32px;
+}
+h3 {
+  font-size: 24px;
+  font-weight: normal;
+}
+h4 {
+  font-size: 22px;
+  font-weight: normal;
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+h5 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+h6 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.letter-spacing-1 {
+  letter-spacing: 1px;
+}
+.letter-spacing-2 {
+  letter-spacing: 2px;
+}
+
+/* override flat-ui's overly generic 'small' class */
+.small {
+  line-height: inherit !important;
+}
+.headline {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 300;
+}
+.subhead {
+  .medium-text;
+  line-height: 18px;
+  &.large {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+.bold {
+  font-weight: bold;
+}
+.extra-bold {
+  font-weight: 900 !important;
+}
+.light {
+  font-weight: 300;
+}
+.normal {
+  font-weight: normal;
+}
+.default-text {
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+}
+.small-text {
+  font-size: 12px;
+}
+.medium-text {
+  font-size: 14px;
+}
+.large-text {
+  font-size: 16px;
+  line-height: 18px;
+}
+.x-large-text {
+  font-size: 24px;
+  line-height: 26px;
+}
+.font-size-20 {
+  font-size: 20px;
+  line-height: 24px;
+}
+.font-size-half {
+  font-size: 50%;
+}
+.font-size-two-thirds {
+  font-size: 66%;
+}
+.font-size-three-quarters {
+  font-size: 75%;
+}
+.font-size-one-and-a-half {
+  font-size: 150%;
+}
+.font-size-one-and-a-quarter {
+  font-size: 125%;
+}
+.line-height-30 {
+  line-height: 30px;
+  span[class*="thanx-glyph"] {
+    line-height: 30px;
+  }
+}
+.line-height-32 {
+  line-height: 32px;
+  span[class*="thanx-glyph"] {
+    line-height: 32px;
+  }
+}
+.line-height-32-important {
+  line-height: 32px !important;
+  span[class*="thanx-glyph"] {
+    line-height: 32px !important;
+  }
+}
+.line-height-40 {
+  line-height: 40px;
+  span[class*="thanx-glyph"] {
+    line-height: 40px;
+  }
+}
+.line-height-20 {
+  line-height: 20px;
+  span[class*="thanx-glyph"] {
+    line-height: 20px;
+  }
+}
+.line-height-20-important {
+  line-height: 20px !important;
+  span[class*="thanx-glyph"] {
+    line-height: 20px !important;
+  }
+}
+.line-height-24 {
+  line-height: 24px;
+  span[class*="thanx-glyph"] {
+    line-height: 24px;
+  }
+}
+.line-height-15 {
+  line-height: 15px;
+  span[class*="thanx-glyph"] {
+    line-height: 15px;
+  }
+}
+.line-height-24-important {
+  line-height: 24px !important;
+  span[class*="thanx-glyph"] {
+    line-height: 24px !important;
+  }
+}
+.line-height-15-important {
+  line-height: 15px !important;
+  span[class*="thanx-glyph"] {
+    line-height: 15px !important;
+  }
+}
+.line-height-10-important {
+  line-height: 10px !important;
+  span[class*="thanx-glyph"] {
+    line-height: 10px !important;
+  }
+}
+.line-height-18 {
+  line-height: 18px;
+  span[class*="thanx-glyph"] {
+    line-height: 18px;
+  }
+}
+.text-left-on-xs {
+  @media (max-width: @screen-xs-max) {
+    text-align: left;
+  }
+}
+.text-left-on-sm {
+  @media (max-width: @screen-sm-max) {
+    text-align: left;
+  }
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.lowercase {
+  text-transform: lowercase;
+}
+.text-transform-none {
+  text-transform: none;
+}

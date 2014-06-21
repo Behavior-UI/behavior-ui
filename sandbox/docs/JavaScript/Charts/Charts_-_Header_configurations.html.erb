@@ -1,0 +1,90 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>Header Configurations</h1>
+  </div>
+
+  <h3>Default Usage</h3>
+  <p>Title, Subtitle, Legend.</p>
+
+  <%= render layout: "codeblock", locals: { include_response: true} do %>
+<div data-behavior="Chart.Stock ToSource" class="chart" data-chart-stock-options="
+  'seriesType':'column',
+  'stack': 'column',
+  'url': '/sandbox/chart/three_lines'
+" data-tosource-target="!.example-block .response"></div>
+<% end %>
+
+  <h3>No Title, Subtitle, or Legend</h3>
+
+  <%= render layout: "codeblock", locals: { include_response: true} do %>
+<div data-behavior="Chart.Stock ToSource" class="chart" data-chart-stock-options="
+  'seriesType':'column',
+  'stack': 'column',
+  'showTitle': false,
+  'showSubTitle': false,
+  'showLegend': false,
+  'url': '/sandbox/chart/three_lines'
+" data-tosource-target="!.example-block .response"></div>
+<% end %>
+
+  <h3>Title Only</h3>
+  <%= render layout: "codeblock", locals: { include_response: true} do %>
+<div data-behavior="Chart.Stock ToSource" class="chart" data-chart-stock-options="
+  'showTitle': true,
+  'showSubTitle': false,
+  'showLegend': false,
+  'seriesType':'column',
+  'stack': 'column',
+  'url': '/sandbox/chart/three_lines'
+" data-tosource-target="!.example-block .response"></div>
+<% end %>
+
+  <h3>Title and Subtitle Only</h3>
+  <%= render layout: "codeblock", locals: { include_response: true} do %>
+<div data-behavior="Chart.Stock ToSource" class="chart" data-chart-stock-options="
+  'showTitle': true,
+  'showSubTitle': true,
+  'showLegend': false,
+  'seriesType':'column',
+  'stack': 'column',
+  'url': '/sandbox/chart/three_lines'
+" data-tosource-target="!.example-block .response"></div>
+<% end %>
+
+  <h3>Subtitle and Legend Only</h3>
+  <%= render layout: "codeblock", locals: { include_response: true} do %>
+<div data-behavior="Chart.Stock ToSource" class="chart" data-chart-stock-options="
+  'showTitle': false,
+  'showSubTitle': true,
+  'showLegend': true,
+  'seriesType':'column',
+  'stack': 'column',
+  'url': '/sandbox/chart/three_lines'
+" data-tosource-target="!.example-block .response"></div>
+<% end %>
+
+  <h3>Title and Legend Only</h3>
+  <%= render layout: "codeblock", locals: { include_response: true} do %>
+<div data-behavior="Chart.Stock ToSource" class="chart" data-chart-stock-options="
+  'showTitle': true,
+  'showSubTitle': false,
+  'showLegend': true,
+  'seriesType':'column',
+  'stack': 'column',
+  'url': '/sandbox/chart/three_lines'
+" data-tosource-target="!.example-block .response"></div>
+<% end %>
+
+  <h3>Legend Only</h3>
+  <%= render layout: "codeblock", locals: { include_response: true} do %>
+<div data-behavior="Chart.Stock ToSource" class="chart" data-chart-stock-options="
+  'showTitle': false,
+  'showSubTitle': false,
+  'showLegend': true,
+  'seriesType':'column',
+  'stack': 'column',
+  'url': '/sandbox/chart/three_lines'
+" data-tosource-target="!.example-block .response"></div>
+<% end %>
+
+</div>
