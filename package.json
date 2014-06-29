@@ -2,7 +2,7 @@
   "name": "behavior-ui",
   "version": "0.0.1",
   "description": "Behavior filters and UI Patterns for the Behavior framework.",
-  "main": "behavior-ui.js",
+  "main": "dist/behavior-ui.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/behavior-ui/behavior-ui.git"
