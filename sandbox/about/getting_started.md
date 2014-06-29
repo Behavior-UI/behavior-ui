@@ -33,7 +33,7 @@ Which would give you something like this:
 
 ## Go Dig In The Sandbox
 
-In the examples you'll find many, many UI components to choose from. Most of the components found in Boostrap are present including [modals](<%= sandbox_dir_file_path('JavaScript', 'Bootstrap_JS', 'modals') %>), [tooltips](<%= sandbox_dir_file_path('JavaScript', 'Bootstrap_JS', 'tooltips') %>) and more, but also numerous components from MooTools More ([FormValidator](<%= sandbox_dir_file_path('JavaScript', 'More-Behaviors', 'Behavior.FormRequest') %>), [FormRequest](<%= sandbox_dir_file_path('JavaScript', 'More-Behaviors', 'Behavior.FormValidator') %>), etc.). Further, there are Delegators ([read up on delegator in its docs](https://github.com/anutron/behavior/blob/master/Docs/Delegator.md)) for [ajax](<%= sandbox_dir_file_path('JavaScript', 'More-Delegators', 'Delegator.Ajax') %>) and the like.
+In the examples you'll find many, many UI components to choose from. Most of the components found in Boostrap are present including [modals](<%= sandbox_dir_file_path('JavaScript', 'Alerts and Modals', 'Modals') %>), [tooltips](<%= sandbox_dir_file_path('JavaScript', 'Tips and Popovers', 'Tooltips') %>) and more, but also numerous components from MooTools More ([FormValidator](<%= sandbox_dir_file_path('JavaScript', 'Forms', 'Behavior.FormRequest') %>), [FormRequest](<%= sandbox_dir_file_path('JavaScript', 'Forms', 'Behavior.FormValidator') %>), etc.). Further, there are Delegators ([read up on delegator in its docs](https://github.com/anutron/behavior/blob/master/Docs/Delegator.md)) for [ajax](<%= sandbox_dir_file_path('JavaScript', 'Delegators', 'Delegator.Ajax') %>) and the like.
 
 ## Getting The Hang of Behavior and Delegator
 
@@ -41,7 +41,7 @@ You should first go read the [README for Behavior](https://github.com/anutron/be
 
 ### Behavior
 
-`Behavior` parses your HTML content and invokes JavaScript with the options you specify, turning a form into an ajax form, or an input into a date picker. This means that you *never* write any custom `DomReady` JavaScript. You declare everything inline. This provides a lot of benefits outlined in the Behavior documentation. If you wish to write your own Behaviors then you should dig into the documentation and demos. You can find these in the github repo but it's easier to dig into it on [dev.clientcide.com](http://dev.clientcide.com). The chunks of JavaScript you write to describe one of these available configurations is called a *Behavior filter*.
+`Behavior` parses your HTML content and invokes JavaScript with the options you specify, turning a form into an ajax form, or an input into a date picker. This means that you *never* write any custom `DomReady` JavaScript. You declare everything inline. This provides a lot of benefits outlined in the Behavior documentation. If you wish to write your own Behaviors then you should dig into the documentation and demos. You can find these in the github repo. The chunks of JavaScript you write to describe one of these available configurations is called a *Behavior filter*.
 
 ### Delegator
 
@@ -51,9 +51,9 @@ You should first go read the [README for Behavior](https://github.com/anutron/be
 
 One of the many benefits you get to adopting this style of development is that over time you write less and less JavaScript as the startup code that is bound to your DOM is likely to re-use something you've already written. If you need a Delegator trigger that hides an element when you click it, you can just as easily make it so that clicking an element hides any other element. The next time you need to hide something, you already have a trigger for it. As you run into new problems that you don't have triggers and filters for, you'll write new tools for yourself and be that much less likely to need to write JavaScript for the next page you build.
 
-## Thanx UI Provides A Lot Out Of The Box
+## Behavior UI Provides A Lot Out Of The Box
 
-Because this library is built based on a real product - Thanx and its various internal and external tools - you'll find that much of what you need to build a UI is already here for you to use.
+Much of what you need to build a UI is already here for you to use. Part of stringing it all together though is about figuring out how to use `Behavior` and `Delegator` together, how to add your own components to the library, and when.
 
 Included in the Behavior library itself you'll find a few special components that provide a great deal of power for building UIs. The first is `Behavior.Startup` and the other are the `Invoke` components - `Behavior.Invoke` and `Delegator.Invoke`.
 
@@ -63,9 +63,11 @@ In a nutshell, `Behavior.Startup` allows you to invoke a Delegator trigger when 
 
 ### Invoke
 
-The other super-handy component is the `Invoke` component (available as both a [Behavior filter](<%= sandbox_dir_file_path('JavaScript', 'Thanx_Behaviors', 'Behavior.Invoke') %>) and a [Delegator](<%= sandbox_dir_file_path('JavaScript', 'Thanx_Delegator', 'Delegator.Invoke') %>) trigger). These allow you to invoke an element method upon any target element or elements. This includes [all the methods supplied by MooTools](http://mootools.net/docs/core/Element/Element) and beyond. This single component will probably save you having to write many a custom handler if you think about what you're building carefully.
+The other super-handy component is the `Invoke` component (available as both a [Behavior filter](<%= sandbox_dir_file_path('JavaScript', 'General Use Behaviors', 'Behavior.Invoke') %>) and a [Delegator](<%= sandbox_dir_file_path('JavaScript', 'Delegators', 'Delegator.Invoke') %>) trigger). These allow you to invoke an element method upon any target element or elements. This includes [all the methods supplied by MooTools](http://mootools.net/docs/core/Element/Element) and beyond. This single component will probably save you having to write many a custom handler if you think about what you're building carefully.
 
 ## Writing Your Own Behaviors And Delegators
+
+When is the right time to author your own Behavior filters and Delegator triggers? The short answer is when there isn't something there already that will accomplish the task, or, when you wish to simplify the pattern you're using. Because of generic things like `Behavior.Invoke` as well as complex stuff like the switches and conditionals possible with `Delegator`, it's possible to do quite a lot using just them. But while it may be possible, it may make your HTML cumbersome to manage with large JSON configurations inline. When you reach a complex problem like this, or you encounter a pattern that you really can't express with the filters and triggers included here, it's best to just go write a new one.
 
 The basic concept of authoring a Behavior is to replace what you'd put in a `DomReady` statement. Instead of this:
 
@@ -96,4 +98,4 @@ Behavior.addGlobalFilter('Form.Validator', {
 });
 </pre>
 
-A Delegator is much the same only instead of it finding an element and turning it into an interactive component, it is handed an element and event and performs an action (i.e. user clicks a link and the link changes color). As such it doesn't tend to return an instance of anything. The documentation found at [dev.clientcide.com](http://dev.clientcide.com) includes lots of examples. The code included in this repository includes many, many more, so if you want to write some custom filters or triggers, look to them for examples.
+A Delegator is much the same only instead of it finding an element and turning it into an interactive component, it is handed an element and event and performs an action (i.e. user clicks a link and the link changes color). As such it doesn't tend to return an instance of anything. The documentation found at [github.com/anutron/behavior/](https://github.com/anutron/behavior/) includes lots of examples. The code included in this repository includes many, many more, so if you want to write some custom filters or triggers, look to them for examples.
