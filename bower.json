@@ -6,18 +6,18 @@
   },
   "main": [
     "./dist/js/behavior-ui.js",
-    "./sandbox/doc_assets/color-picker/blank.gif",
-    "./sandbox/doc_assets/color-picker/moor_arrows.gif",
-    "./sandbox/doc_assets/color-picker/moor_boverlay.png",
-    "./sandbox/doc_assets/color-picker/moor_cursor.gif",
-    "./sandbox/doc_assets/color-picker/moor_sider.png",
-    "./sandbox/doc_assets/color-picker/moor_woverlay.png",
-    "./sandbox/doc_assets/flat-ui-assets/carousel/image-01.jpg",
-    "./sandbox/doc_assets/flat-ui-assets/carousel/image-02.jpg",
-    "./sandbox/doc_assets/flat-ui-assets/carousel/image-03.jpg",
-    "./sandbox/doc_assets/flat-ui-assets/switch/mask-square.jpg",
-    "./sandbox/doc_assets/flat-ui-assets/switch/mask.jpg",
-    "./sandbox/doc_assets/flat-ui-assets/example-image.jpg"
+    "./images/blank.gif",
+    "./images/moor_arrows.gif",
+    "./images/moor_boverlay.png",
+    "./images/moor_cursor.gif",
+    "./images/moor_sider.png",
+    "./images/moor_woverlay.png",
+    "./images/image-01.jpg",
+    "./images/image-02.jpg",
+    "./images/image-03.jpg",
+    "./images/mask-square.jpg",
+    "./images/mask.jpg",
+    "./images/example-image.jpg"
   ],
   "ignore": [
     "js/Tests/*"
