@@ -10985,9 +10985,9 @@ provides: [Behavior.init]
 window.addEvent('domready', function(){
 	var behavior = new Behavior({
 	  verbose: window.location.search.indexOf('verbose=true') >= 0 ||
-	           window.location.search.indexOf('debug=true'),
+	           window.location.search.indexOf('debug=true') >= 0,
 	  breakOnErrors: window.location.search.indexOf('breakOnErrors=true') >= 0 ||
-	           window.location.search.indexOf('debug=true'),
+	           window.location.search.indexOf('debug=true') >= 0,
 	});
 	var delegator = new Delegator({
 	  getBehavior: function(){ return behavior; }
