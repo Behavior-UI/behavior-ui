@@ -7,7 +7,7 @@
   <h3>Basic Ajax functionality</h3>
   <%= render layout: "codeblock" do %>
 <%= link_to sandbox_echo_html_path(html: "<li>I'm a list item added to the bottom of the list!</li>"),
-  class: 'btn',
+  class: 'btn btn-default',
   data: {
     trigger: "ajax",
     ajax_options: {
@@ -17,7 +17,7 @@
     }
   } do %>Add to bottom of list.<% end %>
 <%= link_to sandbox_echo_html_path(html: "<li>I'm a list item added to the top of the list!</li>"),
-  class: 'btn',
+  class: 'btn btn-default',
   data: {
     trigger: "ajax",
     ajax_options: {
@@ -27,7 +27,7 @@
     }
   } do %>Add to top of list.<% end %>
 <%= link_to sandbox_echo_html_path(html: "<li>I'm a list item added before #foo!</li>"),
-  class: 'btn',
+  class: 'btn btn-default',
   data: {
     trigger: "ajax",
     ajax_options: {
@@ -37,7 +37,7 @@
     }
   } do %>Before #foo<% end %>
 <%= link_to sandbox_echo_html_path(html: "<li>I'm a list item added after #foo!</li>"),
-  class: 'btn',
+  class: 'btn btn-default',
   data: {
     trigger: "ajax",
     ajax_options: {
@@ -54,7 +54,7 @@
   <hr/>
   <%= render layout: "codeblock" do %>
 <%= link_to sandbox_echo_html_path(html: "<p id='par' class='par'>I'm a <b>new</b> paragraph with the id 'par'.</p><p class='par'>And I'm another paragraph (without an id).</p>"),
-  class: 'btn',
+  class: 'btn btn-default',
   data: {
     trigger: "ajax",
     ajax_options: {
@@ -69,7 +69,7 @@
   <hr/>
   <%= render layout: "codeblock" do %>
 <%= link_to sandbox_echo_html_path(html: "<p>I'm <b>different</b> stuff!</p><p>So am I!</p>"),
-  class: 'btn',
+  class: 'btn btn-default',
   data: {
     trigger: "ajax",
     ajax_options: {
@@ -90,7 +90,7 @@
 
   <%= render layout: "codeblock" do %>
 <%= link_to sandbox_echo_html_path(html: "<a data-behavior='BS.Tooltip' title='The NEW tooltip!'>this NEW link has a tip</a>"),
-  class: 'btn',
+  class: 'btn btn-default',
   data: {
     trigger: "ajax Stop",
     ajax_options: {

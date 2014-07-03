@@ -8,29 +8,29 @@
   <h3>Toggle Class</h3>
 	<%= render layout: "codeblock" do %>
 <div class="box">
-  <a class="btn" data-trigger="toggleClass" data-toggleclass-options="'target': '!div.box', 'class':'red'">Toggle this box's color to red and back.</a>
+  <a class="btn btn-default" data-trigger="toggleClass" data-toggleclass-options="'target': '!div.box', 'class':'red'">Toggle this box's color to red and back.</a>
 </div>
  <% end %>
 
   <%= render layout: "codeblock" do %>
-    <a class="btn" data-trigger="toggleClass" data-toggleclass-class="btn-danger">I can toggle myself instead of some target.</a>
+    <a class="btn btn-default" data-trigger="toggleClass" data-toggleclass-class="btn-danger">I can toggle myself instead of some target.</a>
   <% end %>
 
   <h3>Add Class</h3>
   <p class="text-muted">(clicking again will have no effect)</p>
   <%= render layout: "codeblock" do %>
 <div class="box">
-  <a data-trigger="addClass" data-addclass-options="'target': '!div.box', 'class':'red'" class="btn">Change this box's color to red.</a><br/>
+  <a data-trigger="addClass" data-addclass-options="'target': '!div.box', 'class':'red'" class="btn btn-default">Change this box's color to red.</a><br/>
 </div>
   <% end %>
   <%= render layout: "codeblock" do %>
-    <a data-trigger="addClass" data-addclass-class="btn-danger" class="btn">I can add <code>btn-danger</code> from myself instead of some target.</a>
+    <a data-trigger="addClass" data-addclass-class="btn-danger" class="btn btn-default">I can add <code>btn-danger</code> from myself instead of some target.</a>
   <% end %>
   <hr/>
   <h3>Remove Class</h3>
   <p class="text-muted">(clicking again will have no effect)</p>
   <div class="box red">
-    <a data-trigger="removeClass" data-removeclass-options="'target': '!div.box', 'class':'red'" class="btn">Remove red from this box.</a>
+    <a data-trigger="removeClass" data-removeclass-options="'target': '!div.box', 'class':'red'" class="btn btn-default">Remove red from this box.</a>
   </div>
   <hr/>
   <a data-trigger="removeClass" data-removeclass-class="btn-danger" class="btn btn-danger">I can remove <code>btn-danger</code> from myself instead of some target.</a>

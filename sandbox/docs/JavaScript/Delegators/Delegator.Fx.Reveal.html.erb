@@ -7,7 +7,7 @@
 <h3>Reveal Target</h3>
 
 <%= render layout: "codeblock" do %>
-<a class="btn" data-trigger="reveal" data-reveal-target="!body #boxReveal">click to show box</a>
+<a class="btn btn-default" data-trigger="reveal" data-reveal-target="!body #boxReveal">click to show box</a>
 <div id="boxReveal" class="box" style="display: none">I'm a box!</div>
 <% end %>
 
@@ -15,7 +15,7 @@
 <h3>Dissolve Target</h3>
 
 <%= render layout: "codeblock" do %>
-<a class="btn" data-trigger="dissolve" data-dissolve-target="!body #boxDissolve">click to hide box</a>
+<a class="btn btn-default" data-trigger="dissolve" data-dissolve-target="!body #boxDissolve">click to hide box</a>
 <div id="boxDissolve" class="box">I'm a box!</div>
 <% end %>
 
@@ -23,7 +23,7 @@
 <h3>Toggle Target</h3>
 
 <%= render layout: "codeblock" do %>
-<a class="btn" data-trigger="toggleReveal" data-togglereveal-target="!body #boxToggle">click to toggle box</a>
+<a class="btn btn-default" data-trigger="toggleReveal" data-togglereveal-target="!body #boxToggle">click to toggle box</a>
 <div id="boxToggle" class="box">I'm a box!</div>
 <% end %>
 
@@ -31,7 +31,7 @@
 <h3>Nix Target (hide and then destroy)</h3>
 
 <%= render layout: "codeblock" do %>
-<a class="btn" data-trigger="nix" data-nix-target="!body #boxNix">click to nix box</a>
+<a class="btn btn-default" data-trigger="nix" data-nix-target="!body #boxNix">click to nix box</a>
 <div id="boxNix" class="box">I'm a box!</div>
 <% end %>
 </div>

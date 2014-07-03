@@ -7,7 +7,7 @@
 
   <h3>Basic Usage</h3>
   <%= render layout: "codeblock" do %>
-<%= link_to "Reload this page", url_for, class: 'btn', data: {
+<%= link_to "Reload this page", url_for, class: 'btn btn-default', data: {
   trigger: 'confirm',
   confirm_options: {
     content: 'You sure you wanna do that?'
@@ -19,7 +19,7 @@
   <p>For those actions you really want the user to be sure about, you can make them confirm <em>twice</em>.</p>
 
   <%= render layout: "codeblock" do %>
-<%= link_to "Visit Fox News", "http://foxnews.com", class: 'btn', data: {
+<%= link_to "Visit Fox News", "http://foxnews.com", class: 'btn btn-default', data: {
   trigger: 'confirm',
   confirm_options: {
     content: 'You sure you wanna do that?',
@@ -32,7 +32,7 @@
   <p>If you want to include some basic HTML, don't use the <code>content</code> option, use the <code>body</code> option.</p>
 
   <%= render layout: "codeblock" do %>
-<%= link_to "Visit Bing", "http://foxnews.com", class: 'btn', data: {
+<%= link_to "Visit Bing", "http://foxnews.com", class: 'btn btn-default', data: {
   trigger: 'confirm',
   confirm_options: {
     body: '<p>You sure you wanna do that?</p><ol><li>Google is better.</li><li>See #1</li></ol>',
@@ -46,7 +46,7 @@
     and submit it with the approrpiate action. Here, a post:</p>
 
   <%= render layout: "codeblock" do %>
-<%= link_to "Post it!", sandbox_echo_html_path(html: "<p>You posted it! <a href='#{url_for}'>Go back</a>.</p>"), class: 'btn', data: {
+<%= link_to "Post it!", sandbox_echo_html_path(html: "<p>You posted it! <a href='#{url_for}'>Go back</a>.</p>"), class: 'btn btn-default', data: {
   trigger: 'confirm',
   method: 'post',
   confirm_options: {
@@ -61,8 +61,8 @@
     <%= render layout: "codeblock" do %>
 <form action="<%= sandbox_echo_html_path %>">
   <input type="hidden" name="html" value="<p>You posted it! <a href='<%= url_for %>'>Go back</a>.</p>">
-  <input type="submit" class="btn" name="send" value="Send w/o prompting"/>
-  <input type="submit" class="btn" name="send" value="Send w/ prompting" data-trigger="confirm" data-confirm-content="Post some stuff?"/>
+  <input type="submit" class="btn btn-default" name="send" value="Send w/o prompting"/>
+  <input type="submit" class="btn btn-default" name="send" value="Send w/ prompting" data-trigger="confirm" data-confirm-content="Post some stuff?"/>
 </form>
     <% end %>
 
