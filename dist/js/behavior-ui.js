@@ -23,8 +23,8 @@ provides: [Core, MooTools, Type, typeOf, instanceOf, Native]
 (function(){
 
 this.MooTools = {
-	version: '1.5.1-dev',
-	build: '%build%'
+	version: '1.5.0',
+	build: '0f7b690afee9349b15909f33016a25d2e4d9f4e3'
 };
 
 // typeOf, instanceOf
@@ -1245,7 +1245,7 @@ var parse = function(ua, platform){
 		UA[1] = 'chrome';
 	}
 
-	platform = ua.match(/ip(?:ad|od|hone)/) ? 'ios' : (ua.match(/(?:webos|android)/) || platform.match(/mac|win|linux/) || ['other'])[0];
+	var platform = ua.match(/ip(?:ad|od|hone)/) ? 'ios' : (ua.match(/(?:webos|android)/) || platform.match(/mac|win|linux/) || ['other'])[0];
 	if (platform == 'win') platform = 'windows';
 
 	return {
@@ -1258,7 +1258,7 @@ var parse = function(ua, platform){
 
 var Browser = this.Browser = parse(navigator.userAgent, navigator.platform);
 
-if (Browser.name == 'ie'){
+if (Browser.ie){
 	Browser.version = document.documentMode;
 }
 
@@ -3519,28 +3519,15 @@ el = null;
 /* </webkit> */
 
 /*<IE>*/
-var input = document.createElement('input'), volatileInputValue, html5InputSupport;
-
-// #2178
+var input = document.createElement('input');
 input.value = 't';
 input.type = 'submit';
-volatileInputValue = input.value != 't';
-
-// #2443 - IE throws "Invalid Argument" when trying to use html5 input types
-try {
-	input.type = 'email';
-	html5InputSupport = input.type == 'email';
-} catch(e){}
-
-input = null;
-
-if (volatileInputValue || !html5InputSupport) propertySetters.type = function(node, type){
-	try {
-		var value = node.value;
-		node.type = type;
-		node.value = value;
-	} catch (e){}
+if (input.value != 't') propertySetters.type = function(node, type){
+	var value = node.value;
+	node.type = type;
+	node.value = value;
 };
+input = null;
 /*</IE>*/
 
 /* getProperty, setProperty */
@@ -3658,7 +3645,7 @@ Element.implement({
 	hasClass: hasClassList ? function(className){
 		return this.classList.contains(className);
 	} : function(className){
-		return classes(this.className).contains(className);
+		return this.className.clean().contains(className, ' ');
 	},
 
 	addClass: hasClassList ? function(className){
@@ -4469,8 +4456,8 @@ provides: [MooTools.More]
 */
 
 MooTools.More = {
-	version: '1.5.1-dev',
-	build: '%build%'
+	version: '1.5.0',
+	build: '73db5e24e6e9c5c87b3a27aebef2248053f7db37'
 };
 
 /*
@@ -13286,7 +13273,7 @@ Element.Properties.validatorProps = {
 					var split = cls.split(':');
 					if (split[1]){
 						try {
-							props[split[0]] = JSON.decode(split[1], false);
+							props[split[0]] = JSON.decode(split[1]);
 						} catch(e){}
 					}
 				});
@@ -13640,15 +13627,13 @@ Form.Validator.addAllThese([
 				value = element.get('value'),
 				wordsInValue = value.match(/[a-z]+/gi);
 
-			if (wordsInValue && !wordsInValue.every(dateNouns.exec, dateNouns)) return false;
+				if (wordsInValue && !wordsInValue.every(dateNouns.exec, dateNouns)) return false;
 
-			var date = Date.parse(value);
-			if (!date) return false;
-
-			var format = props.dateFormat || '%x',
-				formatted = date.format(format);
-			if (formatted != 'invalid date') element.set('value', formatted);
-			return date.isValid();
+				var date = Date.parse(value),
+					format = props.dateFormat || '%x',
+					formatted = date.format(format);
+				if (formatted != 'invalid date') element.set('value', formatted);
+				return date.isValid();
 		}
 	}],
 
@@ -24974,7 +24959,7 @@ HtmlTable = Class.refactor(HtmlTable, {
 		return typeOf(parser) == 'string' ? HtmlTable.Parsers[parser] : parser;
 	},
 
-	sort: function(index, reverse, pre, sortFunction){
+	sort: function(index, reverse, pre){
 		if (!this.head) return;
 
 		if (!pre){
@@ -24992,7 +24977,7 @@ HtmlTable = Class.refactor(HtmlTable, {
 			this.body.dispose();
 		}
 
-		var data = this.parseData(parser).sort(sortFunction ? sortFunction : function(a, b){
+		var data = this.parseData(parser).sort(function(a, b){
 			if (a.value === b.value) return 0;
 			return a.value > b.value ? 1 : -1;
 		});

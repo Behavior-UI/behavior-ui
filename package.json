@@ -28,7 +28,7 @@
     "grunt-debug-task": "^0.1.4",
     "grunt-mootools-packager": "https://github.com/anutron/grunt-mootools-packager/tarball/master",
     "load-grunt-tasks": "~0.4.0",
-    "mootools-core": "https://github.com/mootools/mootools-core/tarball/master",
-    "mootools-more": "https://github.com/mootools/mootools-more/tarball/master"
+    "mootools-core": "https://github.com/mootools/mootools-core/tarball/1.5.0",
+    "mootools-more": "https://github.com/mootools/mootools-more/tarball/1.5.0"
   }
 }
