@@ -11,11 +11,16 @@
 
 .form-group {
   &.validation-failed, &.validation-failed.focus {
-    .input-group-btn {
+    .input-group-btn, .input-group-addon {
       button {
         border-color: @alizarin !important;
         color: @alizarin !important;
         background-color: @white;
+      }
+      // vanilla bootstrap
+      border-color: @alizarin !important;
+      > span {
+        color: @alizarin !important;
       }
     }
   }

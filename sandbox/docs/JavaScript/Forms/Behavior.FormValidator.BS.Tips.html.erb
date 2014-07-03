@@ -23,9 +23,13 @@
       <input type="search" class="form-control" name="email" placeholder="validates email"
         data-validators="required validate-email" data-tip-offset="'x': 40, 'y': -2"
         value="<%= params[:email] %>">
-      <span class="input-group-btn">
-        <button type="submit" class="btn btn-default"><span class="fui-search"></span></button>
-      </span>
+        <span class="<%= @bootstrap_styles ? 'input-group-addon' : 'input-group-btn' %>">
+          <% if @bootstrap_styles %>
+            <span class="glyphicon glyphicon-search"></span>
+          <% else %>
+            <button type="submit" class="btn"><span class="fui-search"></span></button>
+          <% end %>
+        </span>
     </div>
   </div>
 
