@@ -11,9 +11,12 @@ Behavior UI is a set of UI components based on [Bootstrap](http://getbootstrap.c
 
 ## Getting Behavior UI
 
-The project is [available on github](http://github.com/behavior-ui/behavior-ui).
+The project is [available on github](http://github.com/behavior-ui/behavior-ui) where  you'll also find in the `/dist` directory:
 
-You can download it and use [nodejs](http://nodejs.org/) to compile the components into a single, stand-alone js file or [use the one found in the /dist directory](https://raw.githubusercontent.com/Behavior-UI/behavior-ui/master/dist/js/behavior-ui.js). The less components are vanilla Bootstrap in almost all cases. There are a few styles to be found in the repo on github that we will soon be packaging as well.
+* [pre-built css files with both Flat-UI and Bootstrap](https://github.com/Behavior-UI/behavior-ui/tree/master/dist/css)
+* [the compiled JavaScript file](https://raw.githubusercontent.com/Behavior-UI/behavior-ui/master/dist/js/behavior-ui.js)
+
+You can also fork/download the repo from github and use [nodejs](http://nodejs.org/) to compile the components by running `grunt`. See the Readme in the repo for details. We'll be providing a builder for it soon.
 
 ## What's In Behavior UI
 

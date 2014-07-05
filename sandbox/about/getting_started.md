@@ -47,17 +47,7 @@ One of the many benefits you get to adopting this style of development is that o
 
 Much of what you need to build a UI is already here for you to use. Part of stringing it all together though is about figuring out how to use `Behavior` and `Delegator` together, how to add your own components to the library, and when.
 
-Included in the Behavior library itself you'll find a few special components that provide a great deal of power for building UIs. The first is `Behavior.Startup` and the other are the `Invoke` components - `Behavior.Invoke` and `Delegator.Invoke`.
-
-### Behavior.Startup
-
-In a nutshell, `Behavior.Startup` allows you to invoke a Delegator trigger when the page loads (instead of waiting for the user to click a button for example). This allows you to, for example, select a tab in a Tab UI when the page loads, or show a tooltip when the page loads.
-
-### Invoke
-
-The other super-handy component is the `Invoke` component (available as both a [Behavior filter](<%= sandbox_dir_file_path('JavaScript', 'General Use Behaviors', 'Behavior.Invoke') %>) and a [Delegator](<%= sandbox_dir_file_path('JavaScript', 'Delegators', 'Delegator.Invoke') %>) trigger). These allow you to invoke an element method upon any target element or elements. This includes [all the methods supplied by MooTools](http://mootools.net/docs/core/Element/Element) and beyond. This single component will probably save you having to write many a custom handler if you think about what you're building carefully.
-
-## Writing Your Own Behaviors And Delegators
+### Writing Your Own Behaviors And Delegators
 
 When is the right time to author your own Behavior filters and Delegator triggers? The short answer is when there isn't something there already that will accomplish the task, or, when you wish to simplify the pattern you're using. Because of generic things like `Behavior.Invoke` as well as complex stuff like the switches and conditionals possible with `Delegator`, it's possible to do quite a lot using just them. But while it may be possible, it may make your HTML cumbersome to manage with large JSON configurations inline. When you reach a complex problem like this, or you encounter a pattern that you really can't express with the filters and triggers included here, it's best to just go write a new one.
 
