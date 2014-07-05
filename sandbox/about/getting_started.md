@@ -8,21 +8,13 @@ Using Behavior UI requires only that you include the JavaScript and the styles i
 &lt;html>
   &lt;head>
     &lt;title>Behavior-UI UI 101 Template&lt;/title>
-    &lt;link href="bootstrap.css" media="screen" rel="stylesheet" />
+    &lt;link href="behavior-ui-bootstrap.css" media="screen" rel="stylesheet" />
   &lt;/head>
   &lt;body>
 
     &lt;a data-behavior="BS.Tooltip" title="I'm a tooltip!">I've got a tip!&lt;/a>
 
-    &lt;script src="sandbox.js">&lt;/script>
-    &lt;script>
-      var behavior = new Behavior();
-      var delegator = new Delegator({
-        getBehavior: function(){ return behavior; }
-      }).attach(document.body);
-      behavior.setDelegator(delegator).apply(document.body);
-    &lt;/script>
-
+    &lt;script src="behavior-ui.js">&lt;/script>
   &lt;/body>
 &lt;/html>
 </pre>
@@ -99,3 +91,7 @@ Behavior.addGlobalFilter('Form.Validator', {
 </pre>
 
 A Delegator is much the same only instead of it finding an element and turning it into an interactive component, it is handed an element and event and performs an action (i.e. user clicks a link and the link changes color). As such it doesn't tend to return an instance of anything. The documentation found at [github.com/anutron/behavior/](https://github.com/anutron/behavior/) includes lots of examples. The code included in this repository includes many, many more, so if you want to write some custom filters or triggers, look to them for examples.
+
+## Building the Library
+
+You can use the `grunt` configuration in the [behavior-ui github repo](https://github.com/Behavior-UI/behavior-ui) to build the output files that you'll find in the `/dist` directory there, but chances are you'll want to build your own using only the parts you need. Until we get a builder set up, you can use the [grunt-mootools-packager](https://github.com/anutron/grunt-mootools-packager) to do it. See the `package.json`, `Gruntfile.js`, and `bower.json` files in the `behavior-ui` project for an example of what this looks like.
