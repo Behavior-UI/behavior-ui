@@ -2,10 +2,15 @@
   "name": "behavior-ui",
   "dependencies": {
     "bootstrap": "3.1.0",
-    "flat-ui-official": "2.1.3"
+    "flat-ui-official": "2.1.3",
+    "high-stock": "https://github.com/Behavior-UI/highstock-release.git#v2.0.3a"
   },
   "main": [
     "./dist/js/behavior-ui.js",
+    "./dist/css/behavior-ui-bootstrap.css",
+    "./dist/css/behavior-ui-bootstrap.css.map",
+    "./dist/css/behavior-ui-flatui.css",
+    "./dist/css/behavior-ui-flatui.css.map",
     "./images/blank.gif",
     "./images/moor_arrows.gif",
     "./images/moor_boverlay.png",
