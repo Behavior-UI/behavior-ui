@@ -1,3 +1,10 @@
+
+<div class="jumbotron">
+  <p><img src="<%= ActionController::Base.helpers.asset_path 'behavior_ui/images/behavior-ui-logo.png' %>" width="100" height="100"></p>
+  <p>Interface driven behavioral markup powered by <a href="http://mootools.net">MooTools</a> and <a href="http://getbootstrap.com">Bootstrap</a> brought to you by <a href="http://thanx.com">Thanx</a>.</p>
+  <pre class="prettyprint" data-behavior="BS.Tooltip" title="I'm a tooltip!">&lt;a data-behavior="BS.Tooltip" title="I'm a tooltip!">I've got a tip!&lt;/a>      Go ahead, try it! Mouse over this code block!</pre>
+</div>
+
 # Overview
 
 Behavior UI is a set of UI components based on [Bootstrap](http://getbootstrap.com/) and (optionally) [Flat UI](http://designmodo.github.io/Flat-UI/) coupled with a JavaScript framework for building interactive components with a inline declaration for their invocation.
