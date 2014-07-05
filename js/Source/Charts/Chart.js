@@ -385,7 +385,7 @@ Chart = new Class({
             duration: 500,
             transition: Fx.Transitions.Pow.easeOut
           },
-          thanxTweakPointSize: function(pointWidth, pointPadding){
+          tweakPointSize: function(pointWidth, pointPadding){
             if (pointWidth > 2.5){
               pointWidth = pointWidth.round();
               pointPadding = pointPadding.round();
@@ -513,8 +513,8 @@ Chart = new Class({
             return (this.chart.options.yPrefix || "") + label + (this.chart.options.ySuffix || "");
           }
         },
-        // thanx hack!
-        thanxTweakGridLine: function(path, index){
+        // behavior-ui hack!
+        tweakGridLine: function(path, index){
           // hide the very bottom line
           if (index === 0) return ["M", 0, 0, "L", 0, 0];
           // pushes grid lines 60px to the left and right

@@ -17250,7 +17250,7 @@ Chart = new Class({
             duration: 500,
             transition: Fx.Transitions.Pow.easeOut
           },
-          thanxTweakPointSize: function(pointWidth, pointPadding){
+          tweakPointSize: function(pointWidth, pointPadding){
             if (pointWidth > 2.5){
               pointWidth = pointWidth.round();
               pointPadding = pointPadding.round();
@@ -17378,8 +17378,8 @@ Chart = new Class({
             return (this.chart.options.yPrefix || "") + label + (this.chart.options.ySuffix || "");
           }
         },
-        // thanx hack!
-        thanxTweakGridLine: function(path, index){
+        // behavior-ui hack!
+        tweakGridLine: function(path, index){
           // hide the very bottom line
           if (index === 0) return ["M", 0, 0, "L", 0, 0];
           // pushes grid lines 60px to the left and right
@@ -18247,7 +18247,6 @@ Chart.Stock = new Class({
     options (object, optional) - the options to merge with the defaults defined within this getter
   */
   getChartOptions: function(options){
-
     var timer, chartOptions, self = this;
     if (this.options.v2Styles){
     // HighStock calls chart.defaultSeriesType just chart.type...
@@ -18268,8 +18267,8 @@ Chart.Stock = new Class({
           // positioning
           margin: 90,
           height: 50,
-          // thanx hack!
-          thanxTweakNavigatorOptions: function(options){
+          // behavior-ui hack!
+          tweakNavigatorOptions: function(options){
             // expands the navigator so that it is as wide as the graph area above it
             options.offsetLeft = 0;
             options.offsetRight = 0;
@@ -18284,8 +18283,8 @@ Chart.Stock = new Class({
             backgroundColor: "rgba(222,222,222, .8)",
             // only affects rifles
             borderColor: '#b6b6b7',
-            // thanx hack!
-            thanxTweakGrip: function(type, elem){
+            // behavior-ui hack!
+            tweakGrip: function(type, elem){
               // this callback is run against the grips and the rifles
               if (type == 'grip'){
                 // if grip, change its size and position
@@ -18294,7 +18293,8 @@ Chart.Stock = new Class({
                   height: 18,
                   x: -9,
                   y: 0,
-                  strokeWidth: 0
+                  r: 3,
+                  'stroke-width': 0
                 });
               } else if (type == 'rifle'){
                 // if it's the rifle, just translate the position a little
@@ -18494,6 +18494,11 @@ Chart.Stock = new Class({
       // monitor the navigator for mouse enter/leave so we can hide/show the grips and scrubber bar
       var isOverNavigator;
       chart.container.addEvent('mouseover', function(e){
+        // chart.pointer.normalize expects e.pageX/Y and e.clientX/Y
+        e.pageX = e.page.x;
+        e.pageY = e.page.y;
+        e.clientX = e.client.x;
+        e.clientY = e.client.y;
         // this bit of code is basically cribbed from highchart::scroller.mouseDownHandler
         e = chart.pointer.normalize(e);
         var top = chart.scroller.top - 50,
