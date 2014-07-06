@@ -8,21 +8,27 @@
   <p>Add dismiss functionality to all alert messages with this plugin.</p>
 
   <div class="alert alert-info">
-    <button type="button" class="close fui-cross" data-trigger="nix" data-nix-target="!.alert"></button>
+    <!-- note: this button has classes for BOTH Bootstrap and FlatUI;
+         use "close fui-cross" for FlatUI,  "glyphicon glyphicon-remove" for bootstrap -->
+    <button type="button" class="close fui-cross glyphicon glyphicon-remove" data-trigger="nix" data-nix-target="!.alert"></button>
     Your computer restarted <a href="#fakelink">because of a problem</a>. Sorry for any inconvenience and appreciate your patience.
   </div>
 
   <%= render layout: "codeblock" do %>
 
 <div class="alert alert-warning fade in">
-  <button type="button" class="close fui-cross" data-trigger="nix" data-nix-target="!.alert"></button>
+  <!-- note: this button has classes for BOTH Bootstrap and FlatUI;
+       use "close fui-cross" for FlatUI,  "glyphicon glyphicon-remove" for bootstrap -->
+  <button type="button" class="close fui-cross glyphicon glyphicon-remove" data-trigger="nix" data-nix-target="!.alert"></button>
   <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
 </div>
     <% end %>
 
     <%= render layout: "codeblock" do %>
 <div class="alert alert-block alert-danger fade in">
-  <button type="button" class="close fui-cross" data-trigger="nix" data-nix-target="!.alert"></button>
+  <!-- note: this button has classes for BOTH Bootstrap and FlatUI;
+       use "close fui-cross" for FlatUI,  "glyphicon glyphicon-remove" for bootstrap -->
+  <button type="button" class="close fui-cross glyphicon glyphicon-remove" data-trigger="nix" data-nix-target="!.alert"></button>
   <h4>Oh snap! You got an error!</h4>
   <p>Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
   <p>

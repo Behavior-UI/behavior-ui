@@ -17,18 +17,13 @@
 
   <%= render layout: "codeblock" do %>
 <div class="col">
-  <div class="form-group col-md-3">
-    <div class="input-group">
-      <label class="input-group-btn" for="datepicker">
-        <button class="btn btn-default" type="button"><span class="fui-calendar"></span></button>
-      </label>
+  <div class="col-md-3">
       <input type="text" class="form-control" id="datepicker"
         data-behavior="DatePicker"
         data-datepicker-options="
           'format':'%m/%d/%Y'
         " value="<%= "#{Time.current.strftime('%m/%d/%Y')}"%>"
       >
-    </div>
   </div>
 </div>
   <% end %>
@@ -37,18 +32,13 @@
     <h3>Single Date Example</h3>
     <%= render layout: "codeblock" do %>
   <div class="col">
-    <div class="form-group col-md-5">
-      <div class="input-group">
-        <label class="input-group-btn" for="rangepicker">
-          <button class="btn btn-default" type="button"><span class="fui-calendar"></span></button>
-        </label>
+    <div class="col-md-5">
         <input type="text" class="form-control" id="rangepicker"
           data-behavior="RangePicker"
           data-rangepicker-options="
             'format':'%m/%d/%Y'
           " value="<%= "#{(Time.current - 1.day).strftime('%m/%d/%Y')} - #{Time.current.strftime('%m/%d/%Y')}"%>"
         >
-      </div>
     </div>
   </div>
     <% end %>
