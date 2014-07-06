@@ -112,10 +112,81 @@
 
 <div data-behavior="FrameFlow">
   <div class="frame-container">
-    <%= render partial: "admin/sandbox/docs/JavaScript/Thanx_Behaviors/frame1" %>
-    <%= render partial: "admin/sandbox/docs/JavaScript/Thanx_Behaviors/frame2" %>
+    <div id="frame1" data-frameflow-frame="{
+      'activeState': {
+        '#frame1': {
+          'classes': [
+            'active'
+          ],
+        },
+        '.header-bar': {
+          'classes': [
+            'bottom-to-top'
+          ]
+        }
+      },
+      'exitState': {
+        '#frame1': {
+          'classes': [
+            'scroll-up'
+          ]
+        },
+        '#frame2': {
+          'classes': [
+            'scroll-up'
+          ]
+        }
+      }
+    }">
+
+    </div>
+
+
+    <div id="frame2" data-frameflow-frame="{
+      'activeState': {
+        '#frame2': {
+          'classes': [
+            'active'
+          ],
+        },
+        '.header-bar': {
+          'classes': [
+            'first-class',
+            'second-class'
+          ]
+        }
+      },
+      'exitState': {
+        '#frame2 ! .frame-container': {
+          'classes': [
+            'move-off-screen-to-left'
+          ]
+        }
+      }
+    }">
+
+    </div>
+
   </div>
-  <%= render partial: "admin/sandbox/docs/JavaScript/Thanx_Behaviors/frame3" %>
+  <div class="frame3" data-frameflow-frame="{
+    'activeState': {
+      '#frame1 ! .frame-container': {
+        'classes': [
+          'disappear'
+        ],
+      }
+    },
+    'exitState': {
+      '.frame3': {
+        'classes': [
+          'move-3-to-the-bottom'
+        ]
+      }
+    }
+  }">
+
+  </div>
+
 
   <div class="header-bar"></div>
   <div style="margin-top: 100px;">
