@@ -1,6 +1,5 @@
 # 1.0 milestone
 
-* flat-ui glyphicons are available only in the pro version; all the sandbox examples with icons need work
 * the tests need to get updated to run from the command line. The tests in `js/Tests/` are an incomplete list
   that should be expanded to cover all the behaviors and delegators.
 

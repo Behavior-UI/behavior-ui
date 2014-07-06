@@ -5,7 +5,9 @@
   <p>A generic handler for allowing for the selection of items in a list.</p>
 
   <h3>Examples</h3>
+<% if @flat_ui_pro %>
   <%= render layout: "codeblock" do %>
+
 <div class="iconbar iconbar-horizontal" data-behavior="InteractiveList" data-interactivelist-options="
   'selectedClass': 'active',
   'autoScroll': false
@@ -23,10 +25,46 @@
   </ul>
 </div>
   <% end %>
+<% end %>
+
+<p>This simple example just lets you select a button from the group to demonstrate the selection of an item from the list.</p>
+  <%= render layout: "codeblock" do %>
+
+<div data-behavior="InteractiveList" data-interactivelist-options="
+  'selectedClass': 'btn-primary',
+  'autoScroll': false,
+  'listItems': '.btn'
+">
+  <button type="button" class="btn btn-default">
+    One
+  </button>
+  <button type="button" class="btn btn-default">
+    Two
+  </button>
+  <button type="button" class="btn btn-default">
+    Three
+  </button>
+  <button type="button" class="btn btn-default">
+    Four
+  </button>
+</div>
+  <% end %>
 
   <h3>Example with auto-scrolling</h3>
   <p>Interactive list defaults to scrolling oveflown elements to their selected item. In this example clicking any element
     automatically scrolls it to the top of the component.</p>
+
+<% unless @flat_ui_pro %>
+<% content_for :styles do %>
+  <style>
+    .nav-list { width: 100%;}
+    .nav-list li.active { background: #526476; border-radius: 6px; }
+    .nav-list li.active a { color: #fff; }
+    .nav-list li a:hover { color: #000; }
+    .nav-list li.active a .badge { color: #526476; }
+  </style>
+<% end %>
+<% end %>
 
   <%= render layout: "codeblock" do %>
 <ul class="nav nav-list nav-list-vivid col-md-3"  data-behavior="InteractiveList" data-interactivelist-options="
