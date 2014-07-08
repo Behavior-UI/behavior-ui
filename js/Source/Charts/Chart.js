@@ -639,9 +639,14 @@ Chart = new Class({
             var tooltipOptions = point.series.tooltipOptions;
             var suffix = tooltipOptions && point.point.tipValue === undefined ? tooltipOptions.valueSuffix || "" : "";
             var prefix = tooltipOptions && point.point.tipValue === undefined ? tooltipOptions.valuePrefix || "" : "";
+
+            var tipBackgroundColor = point.series.color;
+            // if the point includes a per-point color, use that as the background color of the tooltip
+            if (point.point && point.point.options && point.point.options.color) tipBackgroundColor = point.point.options.color;
+
             // finish our our tip. We set an explicit background color so each item in the tip matches the color
             // of its series
-            tip += "<li style='background-color: " + point.series.color + "'><span class='chart-metric'>" +
+            tip += "<li style='background-color: " + tipBackgroundColor + "'><span class='chart-metric'>" +
                     prefix + value + suffix + "</span>" + "<span class='chart-metric-name'>" + point.series.name + "</span></li>";
           };
 
