@@ -434,14 +434,14 @@ Chart = new Class({
       title: this.options.showTitle ? {
         align: 'left',
         x: 29,
-        y: 35,
+        y: this.options.showSubTitle ? 20 : 35,
         useHTML: true
       } : null,
       // subtitle styles, location; depends on if title is visible for positioning
       subtitle: this.options.showSubTitle ? {
         align: 'left',
         x: 29,
-        y: this.options.showTitle ? 68 : 26,
+        y: this.options.showTitle ? 44 : 26,
         useHTML: true
       } : null,
       // xAxis styles
