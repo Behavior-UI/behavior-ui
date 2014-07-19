@@ -36,11 +36,19 @@ This library follows the MooTools Style Guide with *one important exception*: It
 
 Current build process uses [Grunt](http://github.com/gruntjs) and [Grunt MooTools Packager plugin](https://github.com/ibolmo/grunt-packager).
 
+### Installation Prerequisites
+
+You need to have grunt and bower installed in order to run through the build instructions below. Install them globally by doing:
+
+    $ npm install bower -g        # installs bower globally
+    $ npm install grunt -g        # installs grunt globally
+    $ npm install grunt-cli -g    # installs the grunt command line interpreter which allows you to actually run grunt
+   
 
 ### Installation, Building locally
 
     $ git clone https://github.com/behavior-ui/behavior-ui  # clone the repo
     $ cd behavior-ui                                        # get into the directory
     $ npm install                                           # install de testing tools
-    $ bowser install                                        # installs external dependencies
+    $ bower install                                         # installs external dependencies
     $ grunt default                                         # build the /dist/js/behavior-ui file
