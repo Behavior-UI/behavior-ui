@@ -1,0 +1,40 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>charsRemaining <small>Delegator.CharsRemaining.js</small></h1>
+  </div>
+
+  <p>Changing an input (with a maxlength property) will decrement a target's value</p>
+
+  <%= render layout: "codeblock" do %>
+<div class="box">
+  <input maxlength="32" data-trigger="charsRemaining"
+    data-charsremaining-target="!body #chars-target"
+    style="margin-right: 10px;"
+  >
+  <span id="chars-target">32</span> characters remaining
+</div>
+ <% end %>
+
+ <h2>Delegator Options</h2>
+ <div class="table-responsive">
+   <table class="table table-striped table-bordered">
+     <thead>
+      <tr>
+        <th style="width: 100px;">Name</th>
+        <th style="width: 50px;">type</th>
+        <th style="width: 50px;">default</th>
+        <th>description</th>
+      </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <td>target</td>
+         <td>string</td>
+         <td>~</td>
+         <td>Selector to find character count to update.</td>
+       </tr>
+     </tbody>
+   </table>
+ </div>
+
+</div>
