@@ -1,0 +1,187 @@
+
+<style type="text/css">
+  .slider {
+    height: 14px;
+    background-color: grey;
+    border-radius: 7px;
+    overflow: hidden;
+  }
+  .slider-fill {
+    position: relative;
+    height: 14px;
+    border-radius: 7px 0px 0px 7px;
+    background-color: lightblue;
+  }
+  .slider-knob {
+    display: inline-block;
+    background-color: blue;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    border-radius: 10px;
+    top: -17px;
+  }
+  .complete {
+    background-color: rgba(0, 255, 255, 1);
+    -webkit-animation: fade-out .5s ease-out;
+    -webkit-animation-fill-mode: forwards;
+  }
+  @-webkit-keyframes fade-out {
+    0% {background-color: rgba(0, 255, 255, 1);}
+    100% {background-color: rgba(0, 255, 255, 0);}
+  }
+</style>
+
+
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>Slider.Modify <small>Behavior.Slider.Modify.js</small></h1>
+  </div>
+  <p>
+    A slider for controlling multiple elements. It allows control over what's modified
+    (an element's value or html for example) and uses an extension of Number to
+    alter the output value. If provided, it will also apply a class to the target
+    after the slider fires the 'complete' event.
+  </p>
+
+  <p>
+    <code>Note</code>If using the 'operators' feature, ensure that the structure is
+    an Array of Objects, where the keys are strings and the values are Arrays:
+    <pre>
+      'operators': [
+          {
+            'string': ['array'] // because we are using .apply, the value must be an array even if it only has one member
+          }
+        ]
+    </pre>
+  </p>
+  <h3>Example</h3>
+
+  <%= render layout: "codeblock" do %>
+<div class="slider full-width" data-behavior="Slider.Modify" data-slider-modify-options="
+  'endRange': 286,
+  'initialStep': 286,
+  'steps': 285,
+  'targets': [
+    {
+      'selector': '!body #html-example',
+      'property': 'html',
+      'operators': [
+        {'operate': ['pow', 2]},
+        {'humanize': [{'decimalsLessThanBase': false}]}
+      ],
+      'completeClass': 'complete'
+    },
+    {
+      'selector': '!body #value-example',
+      'property': 'value'
+    },
+    {
+      'selector': '!body #simple-operator',
+      'operators': [{
+        'operate': ['*', 7]
+      }]
+    }
+  ]
+">
+  <div class="slider-fill "></div>
+</div>
+<div class="slider-knob"></div>
+<div>
+  Slider value raised to the 2nd power, and then humanized: <span id="html-example"></span>
+</div>
+<div>
+  Slider value: <input id="value-example">
+</div>
+Slider multiplied by 7 (setting the html property is the default behavior): <span id="simple-operator"></span>
+
+  <% end %>
+</div>
+
+
+  <h2>Behavior Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 150px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>knob</td>
+          <td>String</td>
+          <td><code>~.slider-knob</code></td>
+          <td>
+            The part of the slider that is grabbed and slid around.
+          </td>
+        </tr>
+        <tr>
+          <td>fill</td>
+          <td>String</td>
+          <td><code>~.slider-fill</code></td>
+          <td>
+            The 'filled' part of the slider.
+          </td>
+        </tr>
+        <tr>
+          <td>startRange</td>
+          <td>Number</td>
+          <td>1</td>
+          <td>
+            The value when the slider is all the way to the left.
+          </td>
+        </tr>
+        <tr>
+          <td>endRange</td>
+          <td>Number</td>
+          <td><em>required</em></td>
+          <td>
+            The value when the slider is all the way to the right.
+          </td>
+        </tr>
+        <tr>
+          <td>initialStep</td>
+          <td>Number</td>
+          <td><em>required</em></td>
+          <td>
+            Where the knob starts.
+          </td>
+        </tr>
+        <tr>
+          <td>steps</td>
+          <td>Number</td>
+          <td></td>
+          <td>
+            The number of divisions between the startRange and endRange numbers.
+          </td>
+        </tr>
+        <tr>
+          <td>targets</td>
+          <td>Array</td>
+          <td></td>
+          <td>
+            This is an Array of Objects. The Objects describe what element to target,
+            which property to update, any modifications to the value and what class
+            to apply to the target when the slider is done moving.
+            <code>
+              [{'selector': '!body #someElement'}]
+            </code>
+            will set the html property of the given element to the value of the slider.
+            This is the minimal input for the 'targets' option. See the code examples
+            above for more complex options.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+

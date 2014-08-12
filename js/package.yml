@@ -120,6 +120,8 @@ sources:
  - Source/Request/Request.Limit.js
  - Source/Request/Request.PollForUpdate.js
  - Source/ScrollTween/ScrollTween.js
+ - Source/Slider.Modify/Behavior.Slider.Modify.js
+ - Source/Slider.Modify/Slider.Modify.js
  - Source/Spinner/Spinner.CSS.js
  - Source/Swipe/Swipe.js
  - Source/Tabs/Behavior.Tabs.js
