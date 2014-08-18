@@ -34,7 +34,9 @@ Behavior.addGlobalFilter('DatePicker', {
       Object.merge({
           toggle: toggles,
           onSelect: function(){
-            element.fireEvent('change');
+            var delegator = api.getDelegator();
+            if (delegator) delegator.fireEventForElement(element, 'change');
+            else element.fireEvent('change');
             if (api.get('submitTarget')){
               element.getElement(api.get('submitTarget')).submit();
             }
@@ -84,7 +86,9 @@ Behavior.addGlobalFilter('RangePicker', {
       Object.merge({
         toggle: toggles,
         onSelect: function(){
-          element.fireEvent('change');
+          var delegator = api.getDelegator();
+          if (delegator) delegator.fireEventForElement(element, 'change');
+          else element.fireEvent('change');
           if (api.get('submitTarget')){
             element.getElement(api.get('submitTarget')).submit();
           }
