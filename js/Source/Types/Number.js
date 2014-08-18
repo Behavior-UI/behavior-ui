@@ -28,7 +28,7 @@ Number.implement({
     if (!options.decimalsLessThanBase && value < options.base) return value;
     while (value > options.base && i < options.suffixes.length - 1){
         ++i;
-        value = Math.round((value / options.base) * 100) / 100;
+        value = Math.round((value / options.base) * Math.pow(10, options.decimals)) / Math.pow(10, options.decimals);
     }
     return (value).format({ decimals: options.decimals }) + options.suffixes[i];
   },
