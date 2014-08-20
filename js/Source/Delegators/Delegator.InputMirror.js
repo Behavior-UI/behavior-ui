@@ -19,19 +19,24 @@ provides: [Delegator.InputMirror]
   //   'targets':'!body .cardspring-business-id'
   // }" >
 
-Delegator.register('change', {
+Delegator.register(['change','keyup'], {
   inputMirror: {
     requireAs: {
-      targets: String
-    },
-    defaults: {
-      property: 'value'
+      targets: Array
     },
     handler: function(event, element, api){
-      var targets = api.getElements('targets');
-      targets.erase(element);
-      if (targets.length == 0) api.fail("Could not find InputMirror's targets: ", api.get('targets'));
-      targets.set(api.get('property'), element.get('value'));
+      var targets = api.get('targets');
+
+      if (!targets && targets.length) api.fail('Unable to find targets option.');
+
+
+      targets.each(function(target){
+        var targetElement = element.getElement(target.selector);
+        if (!targetElement) api.warn('Unable to find element for inputMirror selector: '+target.selector);
+        if (targetElement && targetElement != element){
+          targetElement.set(target.property || 'value', element.get('value'));
+        }
+      });
     }
   }
 });
