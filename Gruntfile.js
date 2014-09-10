@@ -54,7 +54,7 @@ module.exports = function(grunt) {
 
     clean: {
       all: {
-        src: 'mootools-*.js'
+        src: ['<%= dev %>/js/*.js', '<%= prod %>/js/*.js']
       }
     },
 
