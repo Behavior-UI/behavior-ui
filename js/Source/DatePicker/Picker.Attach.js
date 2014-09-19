@@ -5,6 +5,8 @@ description: Adds attach and detach methods to the Picker, to attach it to eleme
 authors: Arian Stolwijk
 requires: [Picker, Core/Element.Event]
 provides: Picker.Attach
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 

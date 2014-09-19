@@ -5,6 +5,8 @@ description: English Language File for DatePicker
 authors: Arian Stolwijk
 requires: [More/Locale]
 provides: Locale.en-US.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 

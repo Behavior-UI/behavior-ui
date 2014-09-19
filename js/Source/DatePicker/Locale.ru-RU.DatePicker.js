@@ -5,6 +5,8 @@ description: Russian Language File for DatePicker
 authors: https://github.com/rwz
 requires: [More/Locale]
 provides: Locale.ru-RU.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 

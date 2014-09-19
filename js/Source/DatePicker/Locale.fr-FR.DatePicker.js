@@ -5,6 +5,8 @@ description: French Language File for DatePicker
 authors: ["Arian Stolwijk", "charlouze", "Abric Armand"]
 requires: [More/Locale]
 provides: Locale.fr-FR.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 

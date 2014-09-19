@@ -5,6 +5,8 @@ description: Creates a Picker, which can be used for anything
 authors: Arian Stolwijk
 requires: [Core/Element.Dimensions, Core/Fx.Tween, Core/Fx.Transitions]
 provides: Picker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 

@@ -5,6 +5,8 @@ description: Creates a DatePicker, can be used for picking years/months/days and
 authors: Arian Stolwijk
 requires: [Picker, Picker.Attach, Locale.en-US.DatePicker, More/Locale, More/Date]
 provides: Picker.Date
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 

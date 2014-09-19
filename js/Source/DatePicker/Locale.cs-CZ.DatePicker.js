@@ -5,6 +5,8 @@ description: Czech Language File for DatePicker
 authors: Jan Cerny
 requires: [More/Locale]
 provides: Locale.cs-CZ.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 

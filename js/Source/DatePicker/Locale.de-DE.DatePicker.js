@@ -5,6 +5,8 @@ description: German Language File for DatePicker
 authors: Bastian Bringenberg
 requires: [More/Locale]
 provides: Locale.de-DE.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 

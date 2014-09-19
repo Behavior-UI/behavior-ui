@@ -5,6 +5,8 @@ description: Hebrew Language File for DatePicker
 authors: Amitay Horwitz
 requires: [More/Locale]
 provides: Locale.he-IL.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 

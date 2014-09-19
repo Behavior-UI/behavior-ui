@@ -5,6 +5,8 @@ description: Polish Language File for DatePicker
 authors: Tomek Wójcik
 requires: [More/Locale]
 provides: Locale.pl-PL.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 

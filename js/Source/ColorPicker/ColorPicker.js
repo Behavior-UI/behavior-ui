@@ -5,7 +5,10 @@ name: ColorPicker
 
 description: MooRainbow is a ColorPicker for MooTools 1.3 and higher
 
-license: MIT-Style
+license: http://www.opensource.org/licenses/mit-license.php
+
+source: https://github.com/CBeloch/mooRainbow/
+
 authors:
   - Djamil Legato (w00fz)
   - Christopher Beloch

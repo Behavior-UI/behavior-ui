@@ -5,6 +5,8 @@ description: Dutch Language File for DatePicker
 authors: Arian Stolwijk
 requires: [More/Locale]
 provides: Locale.nl-NL.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 

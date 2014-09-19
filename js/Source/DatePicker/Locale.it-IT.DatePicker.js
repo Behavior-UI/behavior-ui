@@ -5,6 +5,8 @@ description: Italian Language File for DatePicker
 authors: danielec (https://github.com/danielec)
 requires: [More/Locale]
 provides: Locale.it-IT.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 

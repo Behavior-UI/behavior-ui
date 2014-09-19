@@ -5,6 +5,8 @@ description: Select a Range of Dates
 authors: Arian Stolwijk
 requires: [Picker, Picker.Date]
 provides: Picker.Date.Range
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 
