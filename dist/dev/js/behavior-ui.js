@@ -5052,9 +5052,9 @@ provides: [Behavior]
 		initialize: function(options){
 			this.setOptions(options);
 			this.API = new Class({ Extends: BehaviorAPI });
-			var self = this;
 			this.passMethods({
 				getDelegator: this.getDelegator.bind(this),
+				getBehavior: Function.from(this),
 				addEvent: this.addEvent.bind(this),
 				removeEvent: this.removeEvent.bind(this),
 				addEvents: this.addEvents.bind(this),
@@ -5104,6 +5104,11 @@ provides: [Behavior]
 					this.apply(container);
 				}.bind(this)
 			});
+			if (history && 'pushState' in history){
+				this.addEvent('updateHistory', function(url){
+					history.pushState(null, null, url);
+				});
+			}
 		},
 
 		getDelegator: function(){
@@ -10328,7 +10333,8 @@ provides: [Delegator, Delegator.verifyTargets]
 				}.bind(this),
 				getBehavior: function(){
 					return this.options.getBehavior();
-				}.bind(this)
+				}.bind(this),
+				getDelegator: Function.from(this)
 			});
 
 			this.bindToBehavior(this.options.getBehavior());
@@ -10351,6 +10357,9 @@ provides: [Delegator, Delegator.verifyTargets]
 					},
 					ammendDom: function(container){
 						self._behavior.fireEvent('ammendDom', container);
+					},
+					updateHistory: function(url){
+						self._behavior.fireEvent('updateHistory', url);
 					}
 				};
 			}
@@ -10396,6 +10405,16 @@ provides: [Delegator, Delegator.verifyTargets]
 			return this;
 		},
 
+		fireEventForElement: function(element, eventType, force){
+			var e = new Event.Mock(element, eventType);
+			element.getTriggers().each(function(triggerName){
+			  var trigger = this.getTrigger(triggerName);
+			  if (force || trigger.types.contains(eventType)){
+			    this.trigger(triggerName, element, e);
+			  }
+			}, this);
+			element.fireEvent(eventType, [e]);
+		},
 
 		/*
 			invokes a specific trigger upon an element
@@ -10986,6 +11005,7 @@ window.addEvent('domready', function(){
 	  getBehavior: function(){ return behavior; }
 	}).attach(document.body);
 	behavior.setDelegator(delegator).apply(document.body);
+	window.fireEvent('behaviorInit', [behavior, delegator]);
 });
 
 /*
@@ -19366,7 +19386,10 @@ name: ColorPicker
 
 description: MooRainbow is a ColorPicker for MooTools 1.3 and higher
 
-license: MIT-Style
+license: http://www.opensource.org/licenses/mit-license.php
+
+source: https://github.com/CBeloch/mooRainbow/
+
 authors:
   - Djamil Legato (w00fz)
   - Christopher Beloch
@@ -20158,6 +20181,8 @@ description: Creates a Picker, which can be used for anything
 authors: Arian Stolwijk
 requires: [Core/Element.Dimensions, Core/Fx.Tween, Core/Fx.Transitions]
 provides: Picker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 
@@ -20499,6 +20524,8 @@ description: Adds attach and detach methods to the Picker, to attach it to eleme
 authors: Arian Stolwijk
 requires: [Picker, Core/Element.Event]
 provides: Picker.Attach
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 
@@ -20661,6 +20688,8 @@ description: English Language File for DatePicker
 authors: Arian Stolwijk
 requires: [More/Locale]
 provides: Locale.en-US.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 
@@ -20681,6 +20710,8 @@ description: Creates a DatePicker, can be used for picking years/months/days and
 authors: Arian Stolwijk
 requires: [Picker, Picker.Attach, Locale.en-US.DatePicker, More/Locale, More/Date]
 provides: Picker.Date
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 
@@ -21350,6 +21381,8 @@ description: Select a Range of Dates
 authors: Arian Stolwijk
 requires: [Picker, Picker.Date]
 provides: Picker.Date.Range
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 
@@ -21605,6 +21638,8 @@ description: Czech Language File for DatePicker
 authors: Jan Cerny
 requires: [More/Locale]
 provides: Locale.cs-CZ.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 
@@ -21622,6 +21657,8 @@ description: German Language File for DatePicker
 authors: Bastian Bringenberg
 requires: [More/Locale]
 provides: Locale.de-DE.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 
@@ -21639,6 +21676,8 @@ description: Spanish Language File for DatePicker
 authors: Juan Lago D.
 requires: [More/Locale]
 provides: Locale.es-ES.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 
@@ -21656,6 +21695,8 @@ description: French Language File for DatePicker
 authors: ["Arian Stolwijk", "charlouze", "Abric Armand"]
 requires: [More/Locale]
 provides: Locale.fr-FR.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 
@@ -21675,6 +21716,8 @@ description: Hebrew Language File for DatePicker
 authors: Amitay Horwitz
 requires: [More/Locale]
 provides: Locale.he-IL.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 
@@ -21695,6 +21738,8 @@ description: Italian Language File for DatePicker
 authors: danielec (https://github.com/danielec)
 requires: [More/Locale]
 provides: Locale.it-IT.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 
@@ -21711,6 +21756,8 @@ description: Dutch Language File for DatePicker
 authors: Arian Stolwijk
 requires: [More/Locale]
 provides: Locale.nl-NL.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 
@@ -21731,6 +21778,8 @@ description: Polish Language File for DatePicker
 authors: Tomek Wójcik
 requires: [More/Locale]
 provides: Locale.pl-PL.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 
@@ -21748,6 +21797,8 @@ description: Portuguese Language File for DatePicker
 authors: Jonnathan Soares
 requires: [More/Locale]
 provides: Locale.pt-BR.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 
@@ -21768,6 +21819,8 @@ description: Russian Language File for DatePicker
 authors: https://github.com/rwz
 requires: [More/Locale]
 provides: Locale.ru-RU.DatePicker
+license: http://www.opensource.org/licenses/mit-license.php
+source: https://github.com/arian/mootools-datepicker/
 ...
 */
 
@@ -21888,6 +21941,9 @@ name: Delegator.Ajax
               if (where == 'top' || where == 'after') elements.reverse();
               elements.inject(target, where);
               api.fireEvent('ammendDom', [target, elements]);
+          }
+          if (api.get('updateHistory')){
+            api.fireEvent('updateHistory', api.get('historyURI') || api.get('href') || link.get('href'));
           }
         }
       })
@@ -26132,7 +26188,7 @@ HtmlTable.defineParsers({
   dataSortNumeric: {
     match: /data-sort-numeric/,
     convert: function(){
-      return this.getElement('[data-sort-numeric]').getData('sort-numeric').toInt();
+      return this.getElement('[data-sort-numeric]').getData('sort-numeric').toFloat();
     },
     number: true
   },
@@ -26145,6 +26201,7 @@ HtmlTable.defineParsers({
     number: false
   }
 });
+
 /*
 ---
 
@@ -27429,6 +27486,123 @@ provides: [Behavior.Tabs.ShowAll]
   Behavior.addGlobalPlugin('Tabs', 'Behavior.Tabs.ShowAll', getFilter('Tabs'));
   Behavior.addGlobalPlugin('BS.Tabs', 'Behavior.BS.Tabs.ShowAll', getFilter('BS.Tabs'));
 })();
+/*
+---
+
+name: History
+
+description: History Management via popstate or hashchange.
+
+authors: Christoph Pojer (@cpojer)
+
+license: MIT-style license.
+
+requires: [Core/Events, Core/Element.Event]
+
+provides: History
+
+...
+*/
+
+(function(){
+
+var events = Element.NativeEvents,
+  location = window.location,
+  cleanURL = function(url){
+    if (url && url.match(/^https?:\/\//)) url = '/' + url.split('/').slice(3).join('/');
+    return url;
+  },
+  base = cleanURL(location.href),
+  history = window.history,
+  hasPushState = ('pushState' in history),
+  event = hasPushState ? 'popstate' : 'hashchange';
+
+this.History = new new Class({
+
+  Implements: [Events],
+
+  $bound: {},
+
+  bound: function(name){
+    return this.$bound[name] ? this.$bound[name] : this.$bound[name] = this[name].bind(this);
+  },
+
+  initialize: hasPushState ? function(){
+    events[event] = 2;
+    window.addEvent(event, this.bound('pop'));
+  } : function(){
+    events[event] = 1;
+    window.addEvent(event, this.bound('pop'));
+
+    this.hash = location.hash;
+    var hashchange = ('onhashchange' in window);
+    if (!(hashchange && (document.documentMode === undefined || document.documentMode > 7)))
+      this.timer = this.check.periodical(200, this);
+  },
+
+  cleanURL: cleanURL,
+
+  push: hasPushState ? function(url, title, state){
+    url = cleanURL(url);
+    if (base && base != url) base = null;
+
+    history.pushState(state || null, title || null, url);
+    this.onChange(url, state);
+  } : function(url){
+    location.hash = cleanURL(url);
+  },
+
+  replace: hasPushState ? function(url, title, state){
+    history.replaceState(state || null, title || null, cleanURL(url));
+  } : function(url){
+    url = cleanURL(url);
+    this.hash = '#' + url;
+    this.push(url);
+  },
+
+  pop: hasPushState ? function(event){
+    var url = cleanURL(location.href);
+    if (url == base){
+      base = null;
+      return;
+    }
+    this.onChange(url, event.event.state);
+  } : function(){
+    var hash = location.hash;
+    if (this.hash == hash) return;
+
+    this.hash = hash;
+    this.onChange(cleanURL(hash.substr(1)));
+  },
+
+  onChange: function(url, state){
+    this.fireEvent('change', [url, state || {}]);
+  },
+
+  back: function(){
+    history.back();
+  },
+
+  forward: function(){
+    history.forward();
+  },
+
+  getPath: function(){
+    return cleanURL(hasPushState ? location.href : location.hash.substr(1));
+  },
+
+  hasPushState: function(){
+    return hasPushState;
+  },
+
+  check: function(){
+    if (this.hash != location.hash) this.pop();
+  }
+
+});
+
+}).call(this);
+
 /*
 ---
 

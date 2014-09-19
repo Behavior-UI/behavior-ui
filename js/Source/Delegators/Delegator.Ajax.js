@@ -76,6 +76,9 @@ name: Delegator.Ajax
               elements.inject(target, where);
               api.fireEvent('ammendDom', [target, elements]);
           }
+          if (api.get('updateHistory')){
+            api.fireEvent('updateHistory', api.get('historyURI') || api.get('href') || link.get('href'));
+          }
         }
       })
     );

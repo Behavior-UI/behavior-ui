@@ -30,6 +30,8 @@ The above example will load the response from the links HREF (`get/list/item.php
 * spinnerTarget - (*string*; optionals) - selector to find an alternate target for the spinner than the ajax update target.
 * evalScripts - (*boolean*; optional) - if `true` evaluates scrips in the response.
 * href - (*string*; optional) - specifies the url to fetch; defaults to the `href` property on the element.
+* updateHistory - (*boolean*; optional) - if `true` changes the url of the document upon request success. Uses the api value for `historyURI` if set, otherwise the api value for `href` if it is set, and finally defaults to the `href` property of the element.
+* historyURI - (*string*; optional) - if set and the api value for `updateHistory` is `true` this value is used for the new location of the page.
 
 ### Actions
 
