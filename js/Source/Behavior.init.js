@@ -26,4 +26,5 @@ window.addEvent('domready', function(){
 	  getBehavior: function(){ return behavior; }
 	}).attach(document.body);
 	behavior.setDelegator(delegator).apply(document.body);
+	window.fireEvent('behaviorInit', [behavior, delegator]);
 });
