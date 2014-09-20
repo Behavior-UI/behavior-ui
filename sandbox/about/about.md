@@ -46,7 +46,7 @@ If you'd like to contribute, send a pull request. You can file bugs and change r
 [github issues](https://github.com/Behavior-UI/behavior-ui/issues). If you'd like to file a ticket,
 do the following:
 
-1. [Fork our jsFiddle](http://jsfiddle.net/QtLZ9/) and creat an example that demonstrates the problem.
+1. [Fork our jsFiddle](http://jsfiddle.net/QtLZ9/2/) and creat an example that demonstrates the problem.
 2. Always add information on what browser it applies to, and other information needed for us to debug.
 3. It may be that the bug is already fixed. If you don't fork our jsFiddle (which points to the latest
    version) be sure to update.

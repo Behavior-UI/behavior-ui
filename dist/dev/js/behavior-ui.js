@@ -5104,7 +5104,7 @@ provides: [Behavior]
 					this.apply(container);
 				}.bind(this)
 			});
-			if (history && 'pushState' in history){
+			if (window.history && 'pushState' in history){
 				this.addEvent('updateHistory', function(url){
 					history.pushState(null, null, url);
 				});
