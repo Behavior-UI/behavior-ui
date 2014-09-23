@@ -17470,10 +17470,8 @@ Chart = new Class({
         align: 'left',
         x: 29,
         y: this.options.showSubTitle ? 20 : 35,
-        useHTML: true,
-      } : {
-        fontSize: 14
-      },
+        useHTML: true
+      } : null,
       // subtitle styles, location; depends on if title is visible for positioning
       subtitle: this.options.showSubTitle ? {
         align: 'left',
@@ -18531,6 +18529,9 @@ Chart.Stock = new Class({
               }).delay(200);
             }
           }
+        },
+        yAxis: {
+          opposite: false
         }
       });
     } else {

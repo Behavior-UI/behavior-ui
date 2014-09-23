@@ -137,6 +137,9 @@ Chart.Stock = new Class({
               }).delay(200);
             }
           }
+        },
+        yAxis: {
+          opposite: false
         }
       });
     } else {
