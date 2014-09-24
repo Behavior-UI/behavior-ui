@@ -28,18 +28,18 @@ module.exports = function(grunt) {
 
       options: {
         name: {
-          Core: 'node_modules/mootools-core',
-          More: 'node_modules/mootools-more',
-          Behavior: 'node_modules/behavior',
+          Core: 'bower_components/mootools-core',
+          More: 'bower_components/mootools-more',
+          Behavior: 'bower_components/behavior',
           'Behavior-UI': 'js/'
         }
       },
 
       all: {
         src: [
-          'node_modules/mootools-core/Source/**/*.js',
-          'node_modules/mootools-more/Source/**/*.js',
-          'node_modules/behavior/Source/*.js',
+          'bower_components/mootools-core/Source/**/*.js',
+          'bower_components/mootools-more/Source/**/*.js',
+          'bower_components/behavior/Source/*.js',
           'js/Source/**/*.js',
           'js/Source/*.js'
         ],
