@@ -57,43 +57,38 @@
 
 <div class="bs-docs-section">
   <div class="page-header">
-    <h1>FrameFlow<small>Behavior.FrameFlow.js</small></h1>
+    <h1>FrameFlow <small>Behavior.FrameFlow.js</small></h1>
   </div>
   <p>Simplifies construction of CSS-transition based flows.</p>
 
   <p>
     A parent element (that has the FrameFlow Behavior) should include elements with
-    frame definitions and optional controls. An example frame definition:
-    <pre><%="
-      <div class=\"frame3\" data-frameflow-frame=\"{
-        'activeState': {
-          '#frame1 ! .frame-container': {
-            'classes': [
-              'disappear'
-            ],
-          }
-        },
-        'exitState': {
-          '.frame3': {
-            'classes': [
-              'move-3-to-the-bottom'
-            ]
-          }
-        }
-      }\">
+    frame definitions and optional controls. An example frame definition:  </p>
 
-      </div>
-
-    "%></pre>
-  </p>
+<pre><code><%="<div class=\"frame3\" data-frameflow-frame=\"{
+    'activeState': {
+      '#frame1 ! .frame-container': {
+        'classes': [
+          'disappear'
+        ],
+      }
+    },
+    'exitState': {
+      '.frame3': {
+        'classes': [
+          'move-3-to-the-bottom'
+        ]
+      }
+    }
+  }\"></div>"%></code></pre>
 
   <p>
     Controls can be defined within the html like so:
-    <pre><%="
-      <button data-frameflow-previous>Prev</button>
-      <button data-frameflow-next>Next</button>
-      "%>
-    </pre>
+  </p>
+<pre><code><%="<button data-frameflow-previous>Prev</button>
+<button data-frameflow-next>Next</button>
+"%></code></pre>
+  <p>
     Next moves to the next Frame (as defined by DOM order) and previous returns to the
     last <b>active</b> frame. So if you skip from frame 1 to frame 3, clicking a 'previous'
     control will take you back to frame 1.
@@ -102,11 +97,8 @@
   <p>
     Additionally, a control can specify a target, such that it always goes to a specific
     frame.
-    <pre><%= "
-      <button data-frameflow-target=\".frame3\">Frame 3</button>
-      " %>
-    </pre>
   </p>
+  <pre><code><%= "<button data-frameflow-target=\".frame3\">Frame 3</button>" %></code></pre>
   <h3>Example</h3>
   <%= render layout: "codeblock" do %>
 
