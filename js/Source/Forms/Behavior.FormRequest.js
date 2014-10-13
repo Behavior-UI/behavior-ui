@@ -17,26 +17,46 @@ Behavior.addGlobalFilter('FormRequest', {
   returns: Form.Request,
 
   setup: function(element, api){
+    // figure out which element we're updating, spinning over
     var updateElement,
         update = api.get('update'),
         spinner = api.get('spinner');
     if (update =="self") updateElement = element;
     else updateElement = element.getElement(update);
 
+    // placeholder for response
+    var requestTarget = new Element('div');
+
+    // spinner target
     if (spinner == "self") spinner = element;
     else if (spinner) spinner = element.getElement(spinner);
     else spinner = updateElement;
 
+    // no update element? no worky!
     if (!updateElement) api.fail('Could not find target element for form update');
     var sentAt;
-    var req = new Form.Request(element, updateElement, {
+    var req = new Form.Request(element, requestTarget, {
       requestOptions: {
-        filter: api.get('filter'),
         spinnerTarget: spinner
       },
       resetForm: api.get('resetForm')
     }).addEvent('complete', function(){
-      api.applyFilters(updateElement);
+      // when our placeholder has been updated, get it's inner HTML (i.e. the response)
+      var html = requestTarget.get('html');
+      // are we filtering that response?
+      var elements;
+      if (api.get('filter')){
+        elements = new Element('div').set('html', html).getElements(api.get('filter'));
+      }
+      // destroy old DOM
+      api.fireEvent('destroyDom', updateElement.getChildren());
+      updateElement.empty();
+      // did we filter? if so, insert filtered, else just update HTML
+      if (elements) updateElement.adopt(elements);
+      else updateElement.set('html', html);
+      // apply behaviors and whatnot
+      api.fireEvent('ammendDom', [updateElement, updateElement.getChildren()]);
+      elements = []; //garbage collection
     }).addEvent('send', function(){
       sentAt = new Date().getTime();
     });

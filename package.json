@@ -18,6 +18,9 @@
   "bugs": {
     "url": "https://github.com/behavior-ui/behavior-ui/issues"
   },
+  "scripts": {
+    "postinstall": "bower cache clean && bower install"
+  },
   "homepage": "http://thanx.com",
   "devDependencies": {
     "grunt": "~0.4.2",

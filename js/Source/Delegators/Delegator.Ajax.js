@@ -79,6 +79,7 @@ name: Delegator.Ajax
           if (api.get('updateHistory')){
             api.fireEvent('updateHistory', api.get('historyURI') || api.get('href') || link.get('href'));
           }
+          elements = []; //garbage collection
         }
       })
     );
