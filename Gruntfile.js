@@ -4,26 +4,32 @@ module.exports = function(grunt) {
 
 
   require('load-grunt-tasks')(grunt);
+
   var browser = process.env.BROWSER;
 
-  grunt.loadNpmTasks('grunt-bower-task');
-  grunt.loadNpmTasks('grunt-debug-task');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  var sourceFiles = [
+    'bower_components/mootools-core/Source/**/*.js',
+    'bower_components/mootools-more/Source/**/*.js',
+    'bower_components/behavior/Source/*.js',
+    'js/Source/**/*.js',
+    'js/Source/*.js'
+  ];
 
   grunt.initConfig({
-    //properties to use
+
     dev: 'dist/dev',
+
     prod: 'dist/prod',
+
     bower: {
-        install: {
-          options: {
-            install: true,
-            copy: false
-          }
+      install: {
+        options: {
+          install: true,
+          copy: false
         }
+      }
     },
+
     packager: {
 
       options: {
@@ -36,13 +42,7 @@ module.exports = function(grunt) {
       },
 
       all: {
-        src: [
-          'bower_components/mootools-core/Source/**/*.js',
-          'bower_components/mootools-more/Source/**/*.js',
-          'bower_components/behavior/Source/*.js',
-          'js/Source/**/*.js',
-          'js/Source/*.js'
-        ],
+        src: sourceFiles,
         only: [
           'Behavior-UI/*',
           'Behavior/*'
@@ -55,6 +55,13 @@ module.exports = function(grunt) {
     clean: {
       all: {
         src: ['<%= dev %>/js/*.js', '<%= prod %>/js/*.js']
+      }
+    },
+
+    watch: {
+      js: {
+        files: sourceFiles,
+        tasks: ['packager:all']
       }
     },
 

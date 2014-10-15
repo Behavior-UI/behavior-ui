@@ -19,7 +19,7 @@
     "url": "https://github.com/behavior-ui/behavior-ui/issues"
   },
   "scripts": {
-    "postinstall": "bower cache clean && bower install"
+    "postinstall": "bower cache clean && bower install && bower update"
   },
   "homepage": "http://thanx.com",
   "devDependencies": {
@@ -29,6 +29,7 @@
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-less": "~0.11.3",
     "grunt-debug-task": "^0.1.4",
+    "grunt-contrib-watch": "^0.6.1",
     "grunt-mootools-packager": "https://github.com/anutron/grunt-mootools-packager/tarball/master",
     "load-grunt-tasks": "~0.4.0",
     "grunt-contrib-copy": "~0.5.0",
