@@ -17492,11 +17492,10 @@ Chart = new Class({
         y: this.options.showSubTitle ? 20 : 35,
         useHTML: true
       } : null,
-      // subtitle styles, location; depends on if title is visible for positioning
-      subtitle: this.options.showSubTitle ? {
+      subtitle: this.options.showTitle && this.options.showSubTitle ? {
         align: 'left',
         x: 29,
-        y: this.options.showTitle ? 44 : 26,
+        y: 44,
         useHTML: true
       } : null,
       // xAxis styles
@@ -17510,7 +17509,6 @@ Chart = new Class({
         offset: 10,
         title: {
           margin: 10,
-          align: 'left',
           style: {
             fontFamily: 'lato',
             fontSize: 14,

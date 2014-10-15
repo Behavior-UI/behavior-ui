@@ -65,18 +65,6 @@
 " data-tosource-target="!.example-block .response"></div>
 <% end %>
 
-  <h3>Subtitle and Legend Only</h3>
-  <%= render layout: "codeblock", locals: { include_response: true} do %>
-<div data-behavior="Chart.Stock ToSource" class="chart" data-chart-stock-options="
-  'showTitle': false,
-  'showSubTitle': true,
-  'showLegend': true,
-  'seriesType':'column',
-  'stack': 'column',
-  'url': '/sandbox/chart/three_lines'
-" data-tosource-target="!.example-block .response"></div>
-<% end %>
-
   <h3>Title and Legend Only</h3>
   <%= render layout: "codeblock", locals: { include_response: true} do %>
 <div data-behavior="Chart.Stock ToSource" class="chart" data-chart-stock-options="
