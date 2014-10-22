@@ -59,8 +59,6 @@
 @import "../bower_components/flat-ui/less/modules/scaffolding";
 
 // Modules
-@icon-font-path: "../fonts/";
-@local-font-path: "../fonts/lato/";
 @import "../bower_components/flat-ui/less/modules/local-fonts";
 @import "../bower_components/flat-ui/less/modules/glyphicons";
 @import "../bower_components/flat-ui/less/modules/type";
@@ -98,22 +96,54 @@
 // Spaces
 @import "../bower_components/flat-ui/less/spaces";
 
-// Components
+// behavior-ui components
+@import "components/css-glyphs.less";
+@import "components/footer.less";
+@import "components/slider.less";
+@import "components/thanx-glyphs.less";
+@import "components/thanx-palette.less";
+@import "components/triptych.less";
+
+// overrides for bootstrap/flat-ui
+@import "overrides/alerts.less";
+@import "overrides/anchors.less";
+@import "overrides/arrow.less";
 @import "overrides/autocomplete.less";
+@import "overrides/badges.less";
+@import "overrides/bottom.less";
+@import "overrides/buttons.less";
+@import "overrides/carousel.less";
 @import "overrides/charts.less";
 @import "overrides/color-picker.less";
 @import "overrides/date-picker.less";
+@import "overrides/dropdown.less";
+@import "overrides/dropdowns.less";
 @import "overrides/form-validator.less";
+@import "overrides/forms.less";
+@import "overrides/grid.less";
 @import "overrides/htmltable.less";
+@import "overrides/iconbar.less";
+@import "overrides/ie.less";
+@import "overrides/input-groups.less";
+@import "overrides/jumbotron.less";
+@import "overrides/lists.less";
 @import "overrides/modals.less";
+@import "overrides/mixins.less";
+@import "overrides/nav-list.less";
+@import "overrides/nav-pills.less";
+@import "overrides/nav-tabs.less";
+@import "overrides/navbar.less";
+@import "overrides/nonresponsive.less";
+@import "overrides/pagination.less";
+@import "overrides/popovers.less";
+@import "overrides/progress-bars.less";
+@import "overrides/scaffolding.less";
 @import "overrides/select.less";
 @import "overrides/spinner.less";
-@import "components/thanx-glyphs.less";
-@import "components/thanx-palette.less";
+@import "overrides/tables.less";
+@import "overrides/tooltip.less";
+@import "overrides/typography.less";
 @import "overrides/underscrolls.less";
-@import "overrides/variables.less";
 @import "overrides/utilities.less";
-
-
-
-
+@import "overrides/variables.less";
+@import "overrides/wells.less";

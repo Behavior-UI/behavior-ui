@@ -1,0 +1,25 @@
+.thanx-slider {
+  height: 14px;
+  background-color: @grey-20;
+  border-radius: 7px;
+  overflow: hidden;
+  .thanx-slider-fill {
+    position: relative;
+    height: 14px;
+    border-radius: 7px 0px 0px 7px;
+    background-color: @peter-river;
+  }
+}
+.thanx-slider-knob {
+  display: inline-block;
+  background-color: @belize-hole;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  border-radius: 10px;
+  top: -17px;
+  .transition(background-color @transition_speed ease-in-out);
+  &:hover {
+    background-color: lighten(@belize-hole, 10%);
+  }
+}
