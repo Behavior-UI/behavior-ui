@@ -5818,1059 +5818,6 @@ td.visible-print {
     display: none !important;
   }
 }
-ul.autocompleter-choices {
-  position: absolute;
-  list-style: none;
-  text-align: left;
-  z-index: 50;
-  background-color: #fff;
-  border: 2px solid #00ccce;
-  padding: 5px 0;
-  margin: 6px 0 0;
-  background-color: #ffffff;
-  border-radius: 6px;
-}
-ul.autocompleter-choices li {
-  position: relative;
-  padding: 6px 14px;
-  margin: -2px 0 0 0;
-  display: block;
-  float: none !important;
-  cursor: pointer;
-  font-weight: normal;
-  white-space: nowrap;
-}
-ul.autocompleter-choices li:hover,
-ul.autocompleter-choices li:focus {
-  background: #00adaf;
-  color: #ffffff;
-}
-ul.autocompleter-choices li.autocompleter-selected {
-  background: #00ccce;
-  color: #a6edee;
-}
-ul.autocompleter-choices li.autocompleter-selected span.autocompleter-queried {
-  color: #ffffff;
-}
-ul.autocompleter-choices li:first-child a,
-ul.autocompleter-choices li:last-child a {
-  padding: 6px 14px;
-  border-radius: 0;
-}
-ul.autocompleter-choices span.autocompleter-queried {
-  display: inline;
-  float: none;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-}
-[data-behavior~="Thanx.Chart.Stock"] {
-  margin-bottom: 16px;
-}
-.highcharts-title span {
-  font-family: 'Lato', Helvetica, Arial, sans-serif;
-  font-size: 27px;
-  font-weight: 300;
-  color: #3f3f3f;
-  fill: #3f3f3f;
-}
-.highcharts-subtitle span {
-  font-family: 'Lato', Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  font-weight: normal;
-  color: #acacac;
-  fill: #acacac;
-}
-.chart,
-[data-behavior~="Thanx.Chart"],
-[data-behavior~="Thanx.Chart.Stock"] {
-  overflow: hidden;
-  width: 100%;
-  font-family: 'Lato', Helvetica, Arial, sans-serif;
-  /*
-
-  <div class='chart-tip'>
-    <h5>Tue - Aug 27, 2013</h5>
-
-    <ul class='chart-metrics'>
-      <li style='background-color: #00CCCE'><span class=
-      'chart-metric'>6129</span><span class='chart-metric-name'>Total Users</span></li>
-
-      <li style='background-color: #2ECC71'><span class=
-      'chart-metric'>4063</span><span class='chart-metric-name'>Linked Users</span></li>
-
-      <li style='background-color: #27AE60'><span class=
-      'chart-metric'>2972</span><span class='chart-metric-name'>Transacted
-      Users</span></li>
-    </ul>
-  </div>
-
-  */
-}
-.chart .axis-date span,
-[data-behavior~="Thanx.Chart"] .axis-date span,
-[data-behavior~="Thanx.Chart.Stock"] .axis-date span {
-  display: block;
-  clear: both;
-  text-transform: uppercase;
-  color: #acacac;
-}
-.chart .axis-date span.day,
-[data-behavior~="Thanx.Chart"] .axis-date span.day,
-[data-behavior~="Thanx.Chart.Stock"] .axis-date span.day {
-  font-size: 18px;
-  padding-bottom: 3px;
-}
-.chart .axis-date span.week,
-[data-behavior~="Thanx.Chart"] .axis-date span.week,
-[data-behavior~="Thanx.Chart.Stock"] .axis-date span.week {
-  padding-bottom: 3px;
-}
-.chart .axis-date span.month,
-[data-behavior~="Thanx.Chart"] .axis-date span.month,
-[data-behavior~="Thanx.Chart.Stock"] .axis-date span.month {
-  font-size: 16px;
-}
-.chart .legend-name,
-[data-behavior~="Thanx.Chart"] .legend-name,
-[data-behavior~="Thanx.Chart.Stock"] .legend-name {
-  font-family: 'Lato', Helvetica, Arial, sans-serif;
-  color: #c3c3c3;
-  font-size: 15px;
-  padding-right: 12px;
-  margin-bottom: 0;
-  margin-top: 4px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-weight: normal;
-}
-.chart .legend-name .icons span,
-[data-behavior~="Thanx.Chart"] .legend-name .icons span,
-[data-behavior~="Thanx.Chart.Stock"] .legend-name .icons span {
-  background-color: transparent;
-}
-.chart .highcharts-tooltip,
-[data-behavior~="Thanx.Chart"] .highcharts-tooltip,
-[data-behavior~="Thanx.Chart.Stock"] .highcharts-tooltip {
-  width: 100%;
-  z-index: 10;
-}
-.chart .chart-tip,
-[data-behavior~="Thanx.Chart"] .chart-tip,
-[data-behavior~="Thanx.Chart.Stock"] .chart-tip {
-  background-color: #252f3a;
-  border-radius: 4px;
-  padding: 7px;
-  color: #fff;
-}
-.chart .chart-tip h5,
-[data-behavior~="Thanx.Chart"] .chart-tip h5,
-[data-behavior~="Thanx.Chart.Stock"] .chart-tip h5 {
-  font-weight: normal;
-  text-align: center;
-  font-size: 12px;
-  margin: 0 0 5px 0;
-  line-height: 14px;
-  color: #c0c2c4;
-  text-transform: uppercase;
-}
-.chart .chart-tip .chart-metrics,
-[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics,
-[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.chart .chart-tip .chart-metrics:before,
-[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics:before,
-[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics:before,
-.chart .chart-tip .chart-metrics:after,
-[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics:after,
-[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics:after {
-  content: " ";
-  display: table;
-}
-.chart .chart-tip .chart-metrics:after,
-[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics:after,
-[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics:after {
-  clear: both;
-}
-.chart .chart-tip .chart-metrics:before,
-[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics:before,
-[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics:before,
-.chart .chart-tip .chart-metrics:after,
-[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics:after,
-[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics:after {
-  content: " ";
-  display: table;
-}
-.chart .chart-tip .chart-metrics:after,
-[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics:after,
-[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics:after {
-  clear: both;
-}
-.chart .chart-tip .chart-metrics li,
-[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics li,
-[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics li {
-  width: 90px;
-  height: 80px;
-  float: left;
-}
-.chart .chart-tip .chart-metrics li .chart-metric,
-[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics li .chart-metric,
-[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics li .chart-metric {
-  font-size: 21px;
-  padding-top: 4px;
-  line-height: 36px;
-  text-align: center;
-  display: block;
-}
-.chart .chart-tip .chart-metrics li .chart-metric-name,
-[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics li .chart-metric-name,
-[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics li .chart-metric-name {
-  font-size: 12px;
-  white-space: normal;
-  text-align: center;
-  display: block;
-  height: 30px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 0 10px 14px;
-}
-.chart .chart-tip .triangle,
-[data-behavior~="Thanx.Chart"] .chart-tip .triangle,
-[data-behavior~="Thanx.Chart.Stock"] .chart-tip .triangle {
-  width: 0;
-  height: 0;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid #252f3a;
-  bottom: -9px;
-  position: absolute;
-  left: 50%;
-  margin-left: -9px;
-}
-.chart .chart-tip.single > ul li:first-child,
-[data-behavior~="Thanx.Chart"] .chart-tip.single > ul li:first-child,
-[data-behavior~="Thanx.Chart.Stock"] .chart-tip.single > ul li:first-child {
-  width: 100%;
-  min-width: 105px;
-  float: none;
-}
-.chart .highchart-bullets,
-[data-behavior~="Thanx.Chart"] .highchart-bullets,
-[data-behavior~="Thanx.Chart.Stock"] .highchart-bullets {
-  margin: 6px 0 0;
-  list-style: none;
-}
-.chart .highchart-bullets li,
-[data-behavior~="Thanx.Chart"] .highchart-bullets li,
-[data-behavior~="Thanx.Chart.Stock"] .highchart-bullets li {
-  width: 200px;
-  white-space: normal;
-  text-indent: -20px;
-  margin-left: 20px;
-}
-.chart .navigator-label,
-[data-behavior~="Thanx.Chart"] .navigator-label,
-[data-behavior~="Thanx.Chart.Stock"] .navigator-label {
-  color: #a0a0a1;
-  border-left: 1px solid #a0a0a1;
-  padding-left: 7px;
-  font-size: 11px;
-  text-transform: uppercase;
-}
-.chart .plotline-label,
-[data-behavior~="Thanx.Chart"] .plotline-label,
-[data-behavior~="Thanx.Chart.Stock"] .plotline-label {
-  background-color: #252f3a;
-  color: #fff;
-  padding: 8px;
-  border-radius: 4px;
-  margin-left: -10px;
-  margin-top: 0.5px;
-}
-.chart .plotline-label .triangle,
-[data-behavior~="Thanx.Chart"] .plotline-label .triangle,
-[data-behavior~="Thanx.Chart.Stock"] .plotline-label .triangle {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  top: 50%;
-  right: -5px;
-  margin-top: -5px + 1px;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #131a21;
-}
-/***
- *  - mooRainbow: defaultCSS
- * author: w00fz <w00fzIT@gmail.com>
- */
-#color-picker {
-  font-size: 11px;
-  color: #000;
-}
-.moor-box {
-  width: 390px;
-  height: 328px;
-  border: 1px solid #636163;
-  background-color: #f9f9f9;
-}
-.moor-overlayBox {
-  width: 256px;
-  /* Width and Height of the overlay must be setted here: default 256x256 */
-  height: 256px;
-  margin-top: 9px;
-  margin-left: 9px;
-  border: 1px solid #000;
-}
-.moor-slider {
-  border: 1px solid #000;
-  margin-top: 9px;
-  margin-left: 280px;
-  width: 19px;
-  /* if you want a bigger or smaller slider... */
-  height: 256px;
-}
-.moor-colorBox {
-  border: 1px solid #000;
-  width: 59px;
-  height: 68px;
-  margin-top: 20px;
-  margin-left: 315px;
-}
-.moor-currentColor {
-  /* Bottom Box Color, the backup one */
-  margin-top: 55px;
-  margin-left: 316px;
-  width: 59px;
-  height: 34px;
-}
-.moor-okButton {
-  font-family: Tahoma;
-  font-weight: bold;
-  font-size: 11px;
-  margin-top: 278px;
-  margin-left: 8px;
-  background: #e6e6e6;
-  height: 23px;
-  border: 1px solid #d6d6d6;
-  border-left-color: #f5f5f5;
-  border-top-color: #f5f5f5;
-}
-#mooRainbow label {
-  font-family: "Lucida Console", Monaco, monospace;
-}
-#mooRainbow label input {
-  padding: 2px;
-  font-size: 12px;
-}
-/* Following are just <label> */
-.moor-rLabel {
-  margin-top: 100px;
-  margin-left: 315px;
-}
-.moor-gLabel {
-  margin-top: 125px;
-  margin-left: 315px;
-}
-.moor-bLabel {
-  margin-top: 150px;
-  margin-left: 315px;
-}
-.moor-HueLabel {
-  margin-top: 190px;
-  margin-left: 315px;
-}
-span.moor-ballino {
-  /* Style hue ° (degree) !! */
-  margin-top: 190px;
-  margin-left: 370px;
-}
-.moor-SatuLabel {
-  margin-top: 215px;
-  margin-left: 315px;
-}
-.moor-BrighLabel {
-  margin-top: 240px;
-  margin-left: 315px;
-}
-.moor-hexLabel {
-  margin-top: 275px;
-  margin-left: 280px;
-}
-/* <input> */
-.moor-rInput,
-.moor-gInput,
-.moor-bInput,
-.moor-HueInput,
-.moor-SatuInput,
-.moor-BrighInput {
-  width: 30px;
-  display: inline-block;
-}
-.moor-hexInput {
-  width: 55px;
-}
-.moor-cursor {
-  width: 12px;
-  height: 12px;
-}
-.moor-arrows {
-  top: 9px;
-  left: 270px;
-  width: 41px;
-  height: 9px;
-  line-height: 9px;
-  font-size: 0px;
-  /* IE Fix, thanks atany */
-}
-.moor-chooseColor {
-  /* Top Box Color, the choosen one */
-  margin-top: 21px;
-  margin-left: 316px;
-  width: 59px;
-  height: 34px;
-}
-/* date picker */
-/*
-  Minimal Theme
-  Author: Leon Radley (github.com/leon)
-
-  Selected: #95adb8
-  Hover: #c6d2d8
-  Current: #f60
-*/
-.rangepicker_minimal,
-.datepicker_minimal {
-  position: absolute;
-  border: 1px solid #ddd;
-  font-size: 11px;
-  width: 220px;
-  height: 200px;
-  background: #fff;
-  line-height: normal;
-  z-index: 3003;
-  border-radius: 2p;
-  -webkit-border-radius: 2p;
-  -moz-border-radius: 2p;
-  /*
-    Header
-  */
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
-  overflow: hidden;
-  /*
-    Days
-  */
-  /*
-    Months
-  */
-  /*
-    Years
-  */
-  /*
-    Time
-  */
-}
-.rangepicker_minimal th,
-.datepicker_minimal th,
-.rangepicker_minimal td,
-.datepicker_minimal td {
-  margin: 0;
-  padding: 0;
-}
-.rangepicker_minimal .selected,
-.datepicker_minimal .selected {
-  background: #95adb8 !important;
-  color: #fff !important;
-}
-.rangepicker_minimal .unavailable,
-.datepicker_minimal .unavailable,
-.rangepicker_minimal .day.unavailable:hover,
-.datepicker_minimal .day.unavailable:hover {
-  background: #edd !important;
-  color: #b88 !important;
-  cursor: default !important;
-}
-.rangepicker_minimal td.day:hover,
-.datepicker_minimal td.day:hover,
-.rangepicker_minimal .month:hover,
-.datepicker_minimal .month:hover,
-.rangepicker_minimal .year:hover,
-.datepicker_minimal .year:hover {
-  background: #c6d2d8 !important;
-  color: #222 !important;
-}
-.rangepicker_minimal .header,
-.datepicker_minimal .header {
-  position: relative;
-  background: #333;
-  height: 25px;
-}
-.rangepicker_minimal .header .title,
-.datepicker_minimal .header .title {
-  margin: 0 50px;
-  text-align: center;
-  line-height: 25px;
-}
-.rangepicker_minimal .header .titleText,
-.datepicker_minimal .header .titleText {
-  color: #fff;
-  font-weight: bold;
-}
-.rangepicker_minimal .header .next,
-.datepicker_minimal .header .next,
-.rangepicker_minimal .header .previous,
-.datepicker_minimal .header .previous,
-.rangepicker_minimal .header .closeButton,
-.datepicker_minimal .header .closeButton {
-  position: absolute;
-  top: 0;
-  width: 25px;
-  height: 25px;
-  line-height: 25px;
-  text-align: center;
-  color: #fff;
-  cursor: pointer;
-}
-.rangepicker_minimal .header .previous,
-.datepicker_minimal .header .previous {
-  left: 0;
-}
-.rangepicker_minimal .header .next,
-.datepicker_minimal .header .next {
-  right: 25px;
-}
-.rangepicker_minimal .header .closeButton,
-.datepicker_minimal .header .closeButton {
-  right: 0;
-}
-.rangepicker_minimal .body,
-.datepicker_minimal .body {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 175px;
-  overflow: hidden;
-}
-.rangepicker_minimal .column,
-.datepicker_minimal .column {
-  height: 100%;
-}
-.rangepicker_minimal .days,
-.datepicker_minimal .days {
-  width: 100%;
-  border: 0;
-  border-spacing: 0;
-}
-.rangepicker_minimal .days .title,
-.datepicker_minimal .days .title {
-  font-weight: bold;
-  color: #444;
-  cursor: default;
-  width: 14.2857142857143%;
-  /* 100/7 */
-}
-.rangepicker_minimal .days.weeknumbers .title,
-.datepicker_minimal .days.weeknumbers .title {
-  width: 12.5%;
-}
-.rangepicker_minimal .days .otherMonth,
-.datepicker_minimal .days .otherMonth {
-  background: #eee;
-  color: #aaa;
-}
-.rangepicker_minimal .days .week5 .day,
-.datepicker_minimal .days .week5 .day {
-  margin-bottom: 0;
-}
-.rangepicker_minimal .day,
-.datepicker_minimal .day {
-  cursor: pointer;
-  text-align: center;
-  overflow: hidden;
-  line-height: 25px;
-}
-.rangepicker_minimal .today,
-.datepicker_minimal .today {
-  color: #f60;
-  font-weight: bold;
-}
-.rangepicker_minimal .day0,
-.datepicker_minimal .day0 {
-  margin-right: 0;
-}
-.rangepicker_minimal .months,
-.datepicker_minimal .months {
-  height: 100%;
-}
-.rangepicker_minimal .month,
-.datepicker_minimal .month {
-  float: left;
-  display: inline;
-  width: 33.33333333%;
-  line-height: 44px;
-  cursor: pointer;
-  vertical-align: middle;
-  text-align: center;
-  overflow: hidden;
-}
-.rangepicker_minimal .years,
-.datepicker_minimal .years {
-  height: 100%;
-}
-.rangepicker_minimal .year,
-.datepicker_minimal .year {
-  float: left;
-  display: inline;
-  width: 25%;
-  line-height: 35px;
-  cursor: pointer;
-  text-align: center;
-  overflow: hidden;
-}
-.rangepicker_minimal .time,
-.datepicker_minimal .time {
-  width: 100%;
-  height: 100%;
-  background: #fff;
-}
-.rangepicker_minimal .time .hour,
-.datepicker_minimal .time .hour,
-.rangepicker_minimal .time .separator,
-.datepicker_minimal .time .separator,
-.rangepicker_minimal .time .minutes,
-.datepicker_minimal .time .minutes {
-  height: 35px;
-  position: absolute;
-  top: 50px;
-  width: 50px;
-  border: 1px dashed #ddd;
-  font-size: 32px;
-  text-align: center;
-}
-.rangepicker_minimal .time .hour,
-.datepicker_minimal .time .hour {
-  left: 40px;
-}
-.rangepicker_minimal .time .separator,
-.datepicker_minimal .time .separator {
-  background: transparent;
-  border: 0px;
-  width: 18px;
-  left: 100px;
-  vertical-align: middle;
-  padding: 6px 0;
-}
-.rangepicker_minimal .time .minutes,
-.datepicker_minimal .time .minutes {
-  left: 120px;
-}
-.rangepicker_minimal .time .ok,
-.datepicker_minimal .time .ok {
-  position: absolute;
-  top: 105px;
-  width: 136px;
-  left: 40px;
-  font-size: 20px;
-}
-.rangepicker_minimal {
-  height: 280px;
-}
-.rangepicker_minimal .footer {
-  padding: 4px;
-  text-align: center;
-}
-.rangepicker_minimal .footer input {
-  display: inline;
-  width: 80px;
-}
-.rangepicker_minimal .footer button {
-  float: right;
-  display: inline-block;
-  margin-bottom: 0;
-  font-weight: normal;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  background-image: none;
-  border: 1px solid transparent;
-  white-space: nowrap;
-  padding: 6px 12px;
-  font-size: 15px;
-  line-height: 1.37;
-  border-radius: 4px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-.rangepicker_minimal .footer button:focus {
-  outline: thin dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-}
-.rangepicker_minimal .footer button:hover,
-.rangepicker_minimal .footer button:focus {
-  color: #333333;
-  text-decoration: none;
-}
-.rangepicker_minimal .footer button:active,
-.rangepicker_minimal .footer button.active {
-  outline: 0;
-  background-image: none;
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-}
-.rangepicker_minimal .footer button.disabled,
-.rangepicker_minimal .footer button[disabled],
-fieldset[disabled] .rangepicker_minimal .footer button {
-  cursor: not-allowed;
-  pointer-events: none;
-  opacity: 0.65;
-  filter: alpha(opacity=65);
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-.rangepicker_minimal .footer button.apply {
-  border-radius: 0 5px 5px 0;
-  margin-right: 10px;
-  color: #ffffff;
-  background-color: #428bca;
-  border-color: #357ebd;
-}
-.rangepicker_minimal .footer button.apply:hover,
-.rangepicker_minimal .footer button.apply:focus,
-.rangepicker_minimal .footer button.apply:active,
-.rangepicker_minimal .footer button.apply.active,
-.open .dropdown-toggle.rangepicker_minimal .footer button.apply {
-  color: #ffffff;
-  background-color: #3276b1;
-  border-color: #285e8e;
-}
-.rangepicker_minimal .footer button.apply:active,
-.rangepicker_minimal .footer button.apply.active,
-.open .dropdown-toggle.rangepicker_minimal .footer button.apply {
-  background-image: none;
-}
-.rangepicker_minimal .footer button.apply.disabled,
-.rangepicker_minimal .footer button.apply[disabled],
-fieldset[disabled] .rangepicker_minimal .footer button.apply,
-.rangepicker_minimal .footer button.apply.disabled:hover,
-.rangepicker_minimal .footer button.apply[disabled]:hover,
-fieldset[disabled] .rangepicker_minimal .footer button.apply:hover,
-.rangepicker_minimal .footer button.apply.disabled:focus,
-.rangepicker_minimal .footer button.apply[disabled]:focus,
-fieldset[disabled] .rangepicker_minimal .footer button.apply:focus,
-.rangepicker_minimal .footer button.apply.disabled:active,
-.rangepicker_minimal .footer button.apply[disabled]:active,
-fieldset[disabled] .rangepicker_minimal .footer button.apply:active,
-.rangepicker_minimal .footer button.apply.disabled.active,
-.rangepicker_minimal .footer button.apply[disabled].active,
-fieldset[disabled] .rangepicker_minimal .footer button.apply.active {
-  background-color: #428bca;
-  border-color: #357ebd;
-}
-.rangepicker_minimal .footer button.apply .badge {
-  color: #428bca;
-  background-color: #ffffff;
-}
-.rangepicker_minimal .footer button.cancel {
-  border-right: 0;
-  border-radius: 5px 0 0 5px;
-}
-.form-control.validation-failed {
-  border-color: #e74c3c !important;
-  color: #e74c3c !important;
-}
-.form-control.validation-failed.border-none {
-  border-width: inherit !important;
-  border-style: solid !important;
-}
-.form-group.validation-failed .input-group-btn,
-.form-group.validation-failed.focus .input-group-btn,
-.form-group.validation-failed .input-group-addon,
-.form-group.validation-failed.focus .input-group-addon {
-  border-color: #e74c3c !important;
-}
-.form-group.validation-failed .input-group-btn button,
-.form-group.validation-failed.focus .input-group-btn button,
-.form-group.validation-failed .input-group-addon button,
-.form-group.validation-failed.focus .input-group-addon button {
-  border-color: #e74c3c !important;
-  color: #e74c3c !important;
-  background-color: #ffffff;
-}
-.form-group.validation-failed .input-group-btn > span,
-.form-group.validation-failed.focus .input-group-btn > span,
-.form-group.validation-failed .input-group-addon > span,
-.form-group.validation-failed.focus .input-group-addon > span {
-  color: #e74c3c !important;
-}
-.validation-tooltip .tooltip-inner {
-  max-width: 300px;
-}
-.validation-tooltip .tooltip-inner ul li {
-  white-space: nowrap;
-}
-table[data-behavior*=HtmlTable] th {
-  cursor: pointer;
-}
-table[data-behavior*=HtmlTable] .table-th-sort-span {
-  width: 12px;
-  height: 12px;
-  float: right !important;
-  display: block;
-}
-table[data-behavior*=HtmlTable] .table-th-sort .table-th-sort-span {
-  position: relative;
-  top: 1px;
-  display: inline-block;
-  font-family: 'Glyphicons Halflings';
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-table[data-behavior*=HtmlTable] .table-th-sort .table-th-sort-span:before {
-  content: "\e114";
-}
-table[data-behavior*=HtmlTable] .table-th-sort-rev .table-th-sort-span {
-  float: right !important;
-  position: relative;
-  top: 1px;
-  display: inline-block;
-  font-family: 'Glyphicons Halflings';
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-table[data-behavior*=HtmlTable] .table-th-sort-rev .table-th-sort-span:before {
-  content: "\e113";
-}
-div[data-behavior*=Popup] form {
-  margin: 0;
-}
-[data-behavior*="FlatUI.Select"],
-select:not(.no-flat-select) {
-  display: none;
-}
-.select.btn-group.select button:focus {
-  border-color: #00ccce;
-}
-.select.btn-group.select button.full-width {
-  width: 100%;
-}
-.select.select-transparent.select.open i.dropdown-arrow.dropdown-arrow-inverse,
-.select.open i.dropdown-arrow.dropdown-arrow-inverse {
-  border-bottom-color: #131a21;
-}
-.select.select-transparent.select.open.dropup > .dropdown-arrow.dropdown-arrow-inverse,
-.select.open.dropup > .dropdown-arrow.dropdown-arrow-inverse {
-  border-top-color: #131a21;
-}
-.validation-failed .select .btn {
-  background-color: #e74c3c !important;
-}
-.css-spinner {
-  width: 45px;
-  height: 45px;
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -22.5px;
-  margin-right: 0;
-  margin-bottom: 0;
-  margin-left: -22.5px;
-}
-.css-spinner div {
-  width: 12%;
-  height: 40%;
-  background: #000;
-  position: absolute;
-  left: 44.5%;
-  top: 37%;
-  opacity: 0;
-  -webkit-animation: spinner-fade 1s linear infinite;
-  -moz-animation: spinner-fade 1s linear infinite;
-  animation: spinner-fade 1s linear infinite;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px;
-  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-}
-.css-spinner div.bar1 {
-  -webkit-transform: rotate(0deg) translate(0, -112%);
-  -moz-transform: rotate(0deg) translate(0, -112%);
-  transform: rotate(0deg) translate(0, -112%);
-  -webkit-animation-delay: 0s;
-  -moz-animation-delay: 0s;
-  animation-delay: 0s;
-}
-.css-spinner div.bar2 {
-  -webkit-transform: rotate(30deg) translate(0, -112%);
-  -moz-transform: rotate(30deg) translate(0, -112%);
-  transform: rotate(30deg) translate(0, -112%);
-  -webkit-animation-delay: -0.9167s;
-  -moz-animation-delay: -0.9167s;
-  animation-delay: -0.9167s;
-}
-.css-spinner div.bar3 {
-  -webkit-transform: rotate(60deg) translate(0, -112%);
-  -moz-transform: rotate(60deg) translate(0, -112%);
-  transform: rotate(60deg) translate(0, -112%);
-  -webkit-animation-delay: -0.833s;
-  -moz-animation-delay: -0.833s;
-  animation-delay: -0.833s;
-}
-.css-spinner div.bar4 {
-  -webkit-transform: rotate(90deg) translate(0, -112%);
-  -moz-transform: rotate(90deg) translate(0, -112%);
-  transform: rotate(90deg) translate(0, -112%);
-  -webkit-animation-delay: -0.75s;
-  -moz-animation-delay: -0.75s;
-  animation-delay: -0.75s;
-}
-.css-spinner div.bar5 {
-  -webkit-transform: rotate(120deg) translate(0, -112%);
-  -moz-transform: rotate(120deg) translate(0, -112%);
-  transform: rotate(120deg) translate(0, -112%);
-  -webkit-animation-delay: -0.667s;
-  -moz-animation-delay: -0.667s;
-  animation-delay: -0.667s;
-}
-.css-spinner div.bar6 {
-  -webkit-transform: rotate(150deg) translate(0, -112%);
-  -moz-transform: rotate(150deg) translate(0, -112%);
-  transform: rotate(150deg) translate(0, -112%);
-  -webkit-animation-delay: -0.5833s;
-  -moz-animation-delay: -0.5833s;
-  animation-delay: -0.5833s;
-}
-.css-spinner div.bar7 {
-  -webkit-transform: rotate(180deg) translate(0, -112%);
-  -moz-transform: rotate(180deg) translate(0, -112%);
-  transform: rotate(180deg) translate(0, -112%);
-  -webkit-animation-delay: -0.5s;
-  -moz-animation-delay: -0.5s;
-  animation-delay: -0.5s;
-}
-.css-spinner div.bar8 {
-  -webkit-transform: rotate(210deg) translate(0, -112%);
-  -moz-transform: rotate(210deg) translate(0, -112%);
-  transform: rotate(210deg) translate(0, -112%);
-  -webkit-animation-delay: -0.41667s;
-  -moz-animation-delay: -0.41667s;
-  animation-delay: -0.41667s;
-}
-.css-spinner div.bar9 {
-  -webkit-transform: rotate(240deg) translate(0, -112%);
-  -moz-transform: rotate(240deg) translate(0, -112%);
-  transform: rotate(240deg) translate(0, -112%);
-  -webkit-animation-delay: -0.333s;
-  -moz-animation-delay: -0.333s;
-  animation-delay: -0.333s;
-}
-.css-spinner div.bar10 {
-  -webkit-transform: rotate(270deg) translate(0, -112%);
-  -moz-transform: rotate(270deg) translate(0, -112%);
-  transform: rotate(270deg) translate(0, -112%);
-  -webkit-animation-delay: -0.25s;
-  -moz-animation-delay: -0.25s;
-  animation-delay: -0.25s;
-}
-.css-spinner div.bar11 {
-  -webkit-transform: rotate(300deg) translate(0, -112%);
-  -moz-transform: rotate(300deg) translate(0, -112%);
-  transform: rotate(300deg) translate(0, -112%);
-  -webkit-animation-delay: -0.1667s;
-  -moz-animation-delay: -0.1667s;
-  animation-delay: -0.1667s;
-}
-.css-spinner div.bar12 {
-  -webkit-transform: rotate(330deg) translate(0, -112%);
-  -moz-transform: rotate(330deg) translate(0, -112%);
-  transform: rotate(330deg) translate(0, -112%);
-  -webkit-animation-delay: -0.0833s;
-  -moz-animation-delay: -0.0833s;
-  animation-delay: -0.0833s;
-}
-.css-spinner.spinner-invert div {
-  background: #fff;
-}
-.css-spinner.spinner-small {
-  width: 15px;
-  height: 15px;
-  margin-top: -7.5px;
-  margin-left: -7.5px;
-}
-.css-spinner.spinner-large {
-  width: 90px;
-  height: 90px;
-  margin-top: -45px;
-  margin-left: -45px;
-}
-.css-spinner.spinner-top {
-  top: 45px;
-}
-.css-spinner.spinner-top.spinner-small {
-  top: 15px;
-}
-@-webkit-keyframes spinner-fade {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.25;
-  }
-}
-@-moz-keyframes spinner-fade {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.25;
-  }
-}
-@-ms-keyframes spinner-fade {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.25;
-  }
-}
-@keyframes spinner-fade {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.25;
-  }
-}
-.spinner {
-  position: absolute;
-  opacity: 0.9;
-  filter: alpha(opacity=90);
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
-  z-index: 9999;
-  background: #fff;
-}
-.spinner .spinner-msg {
-  text-align: center;
-  font-weight: bold;
-}
 @font-face {
   font-family: 'Thanx-glyphs';
   src: url('../fonts/Thanx-glyphs.eot');
@@ -9273,6 +8220,1059 @@ BORDERS
 }
 .black-border {
   border-color: #000000;
+}
+ul.autocompleter-choices {
+  position: absolute;
+  list-style: none;
+  text-align: left;
+  z-index: 50;
+  background-color: #fff;
+  border: 2px solid #00ccce;
+  padding: 5px 0;
+  margin: 6px 0 0;
+  background-color: #ffffff;
+  border-radius: 6px;
+}
+ul.autocompleter-choices li {
+  position: relative;
+  padding: 6px 14px;
+  margin: -2px 0 0 0;
+  display: block;
+  float: none !important;
+  cursor: pointer;
+  font-weight: normal;
+  white-space: nowrap;
+}
+ul.autocompleter-choices li:hover,
+ul.autocompleter-choices li:focus {
+  background: #00adaf;
+  color: #ffffff;
+}
+ul.autocompleter-choices li.autocompleter-selected {
+  background: #00ccce;
+  color: #a6edee;
+}
+ul.autocompleter-choices li.autocompleter-selected span.autocompleter-queried {
+  color: #ffffff;
+}
+ul.autocompleter-choices li:first-child a,
+ul.autocompleter-choices li:last-child a {
+  padding: 6px 14px;
+  border-radius: 0;
+}
+ul.autocompleter-choices span.autocompleter-queried {
+  display: inline;
+  float: none;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+[data-behavior~="Thanx.Chart.Stock"] {
+  margin-bottom: 16px;
+}
+.highcharts-title span {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-size: 27px;
+  font-weight: 300;
+  color: #3f3f3f;
+  fill: #3f3f3f;
+}
+.highcharts-subtitle span {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  color: #acacac;
+  fill: #acacac;
+}
+.chart,
+[data-behavior~="Thanx.Chart"],
+[data-behavior~="Thanx.Chart.Stock"] {
+  overflow: hidden;
+  width: 100%;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  /*
+
+  <div class='chart-tip'>
+    <h5>Tue - Aug 27, 2013</h5>
+
+    <ul class='chart-metrics'>
+      <li style='background-color: #00CCCE'><span class=
+      'chart-metric'>6129</span><span class='chart-metric-name'>Total Users</span></li>
+
+      <li style='background-color: #2ECC71'><span class=
+      'chart-metric'>4063</span><span class='chart-metric-name'>Linked Users</span></li>
+
+      <li style='background-color: #27AE60'><span class=
+      'chart-metric'>2972</span><span class='chart-metric-name'>Transacted
+      Users</span></li>
+    </ul>
+  </div>
+
+  */
+}
+.chart .axis-date span,
+[data-behavior~="Thanx.Chart"] .axis-date span,
+[data-behavior~="Thanx.Chart.Stock"] .axis-date span {
+  display: block;
+  clear: both;
+  text-transform: uppercase;
+  color: #acacac;
+}
+.chart .axis-date span.day,
+[data-behavior~="Thanx.Chart"] .axis-date span.day,
+[data-behavior~="Thanx.Chart.Stock"] .axis-date span.day {
+  font-size: 18px;
+  padding-bottom: 3px;
+}
+.chart .axis-date span.week,
+[data-behavior~="Thanx.Chart"] .axis-date span.week,
+[data-behavior~="Thanx.Chart.Stock"] .axis-date span.week {
+  padding-bottom: 3px;
+}
+.chart .axis-date span.month,
+[data-behavior~="Thanx.Chart"] .axis-date span.month,
+[data-behavior~="Thanx.Chart.Stock"] .axis-date span.month {
+  font-size: 16px;
+}
+.chart .legend-name,
+[data-behavior~="Thanx.Chart"] .legend-name,
+[data-behavior~="Thanx.Chart.Stock"] .legend-name {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  color: #c3c3c3;
+  font-size: 15px;
+  padding-right: 12px;
+  margin-bottom: 0;
+  margin-top: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: normal;
+}
+.chart .legend-name .icons span,
+[data-behavior~="Thanx.Chart"] .legend-name .icons span,
+[data-behavior~="Thanx.Chart.Stock"] .legend-name .icons span {
+  background-color: transparent;
+}
+.chart .highcharts-tooltip,
+[data-behavior~="Thanx.Chart"] .highcharts-tooltip,
+[data-behavior~="Thanx.Chart.Stock"] .highcharts-tooltip {
+  width: 100%;
+  z-index: 10;
+}
+.chart .chart-tip,
+[data-behavior~="Thanx.Chart"] .chart-tip,
+[data-behavior~="Thanx.Chart.Stock"] .chart-tip {
+  background-color: #252f3a;
+  border-radius: 4px;
+  padding: 7px;
+  color: #fff;
+}
+.chart .chart-tip h5,
+[data-behavior~="Thanx.Chart"] .chart-tip h5,
+[data-behavior~="Thanx.Chart.Stock"] .chart-tip h5 {
+  font-weight: normal;
+  text-align: center;
+  font-size: 12px;
+  margin: 0 0 5px 0;
+  line-height: 14px;
+  color: #c0c2c4;
+  text-transform: uppercase;
+}
+.chart .chart-tip .chart-metrics,
+[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics,
+[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.chart .chart-tip .chart-metrics:before,
+[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics:before,
+[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics:before,
+.chart .chart-tip .chart-metrics:after,
+[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics:after,
+[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics:after {
+  content: " ";
+  display: table;
+}
+.chart .chart-tip .chart-metrics:after,
+[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics:after,
+[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics:after {
+  clear: both;
+}
+.chart .chart-tip .chart-metrics:before,
+[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics:before,
+[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics:before,
+.chart .chart-tip .chart-metrics:after,
+[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics:after,
+[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics:after {
+  content: " ";
+  display: table;
+}
+.chart .chart-tip .chart-metrics:after,
+[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics:after,
+[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics:after {
+  clear: both;
+}
+.chart .chart-tip .chart-metrics li,
+[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics li,
+[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics li {
+  width: 90px;
+  height: 80px;
+  float: left;
+}
+.chart .chart-tip .chart-metrics li .chart-metric,
+[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics li .chart-metric,
+[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics li .chart-metric {
+  font-size: 21px;
+  padding-top: 4px;
+  line-height: 36px;
+  text-align: center;
+  display: block;
+}
+.chart .chart-tip .chart-metrics li .chart-metric-name,
+[data-behavior~="Thanx.Chart"] .chart-tip .chart-metrics li .chart-metric-name,
+[data-behavior~="Thanx.Chart.Stock"] .chart-tip .chart-metrics li .chart-metric-name {
+  font-size: 12px;
+  white-space: normal;
+  text-align: center;
+  display: block;
+  height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 10px 14px;
+}
+.chart .chart-tip .triangle,
+[data-behavior~="Thanx.Chart"] .chart-tip .triangle,
+[data-behavior~="Thanx.Chart.Stock"] .chart-tip .triangle {
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 9px solid #252f3a;
+  bottom: -9px;
+  position: absolute;
+  left: 50%;
+  margin-left: -9px;
+}
+.chart .chart-tip.single > ul li:first-child,
+[data-behavior~="Thanx.Chart"] .chart-tip.single > ul li:first-child,
+[data-behavior~="Thanx.Chart.Stock"] .chart-tip.single > ul li:first-child {
+  width: 100%;
+  min-width: 105px;
+  float: none;
+}
+.chart .highchart-bullets,
+[data-behavior~="Thanx.Chart"] .highchart-bullets,
+[data-behavior~="Thanx.Chart.Stock"] .highchart-bullets {
+  margin: 6px 0 0;
+  list-style: none;
+}
+.chart .highchart-bullets li,
+[data-behavior~="Thanx.Chart"] .highchart-bullets li,
+[data-behavior~="Thanx.Chart.Stock"] .highchart-bullets li {
+  width: 200px;
+  white-space: normal;
+  text-indent: -20px;
+  margin-left: 20px;
+}
+.chart .navigator-label,
+[data-behavior~="Thanx.Chart"] .navigator-label,
+[data-behavior~="Thanx.Chart.Stock"] .navigator-label {
+  color: #a0a0a1;
+  border-left: 1px solid #a0a0a1;
+  padding-left: 7px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+.chart .plotline-label,
+[data-behavior~="Thanx.Chart"] .plotline-label,
+[data-behavior~="Thanx.Chart.Stock"] .plotline-label {
+  background-color: #252f3a;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  margin-left: -10px;
+  margin-top: 0.5px;
+}
+.chart .plotline-label .triangle,
+[data-behavior~="Thanx.Chart"] .plotline-label .triangle,
+[data-behavior~="Thanx.Chart.Stock"] .plotline-label .triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  top: 50%;
+  right: -5px;
+  margin-top: -5px + 1px;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #131a21;
+}
+/***
+ *  - mooRainbow: defaultCSS
+ * author: w00fz <w00fzIT@gmail.com>
+ */
+#color-picker {
+  font-size: 11px;
+  color: #000;
+}
+.moor-box {
+  width: 390px;
+  height: 328px;
+  border: 1px solid #636163;
+  background-color: #f9f9f9;
+}
+.moor-overlayBox {
+  width: 256px;
+  /* Width and Height of the overlay must be setted here: default 256x256 */
+  height: 256px;
+  margin-top: 9px;
+  margin-left: 9px;
+  border: 1px solid #000;
+}
+.moor-slider {
+  border: 1px solid #000;
+  margin-top: 9px;
+  margin-left: 280px;
+  width: 19px;
+  /* if you want a bigger or smaller slider... */
+  height: 256px;
+}
+.moor-colorBox {
+  border: 1px solid #000;
+  width: 59px;
+  height: 68px;
+  margin-top: 20px;
+  margin-left: 315px;
+}
+.moor-currentColor {
+  /* Bottom Box Color, the backup one */
+  margin-top: 55px;
+  margin-left: 316px;
+  width: 59px;
+  height: 34px;
+}
+.moor-okButton {
+  font-family: Tahoma;
+  font-weight: bold;
+  font-size: 11px;
+  margin-top: 278px;
+  margin-left: 8px;
+  background: #e6e6e6;
+  height: 23px;
+  border: 1px solid #d6d6d6;
+  border-left-color: #f5f5f5;
+  border-top-color: #f5f5f5;
+}
+#mooRainbow label {
+  font-family: "Lucida Console", Monaco, monospace;
+}
+#mooRainbow label input {
+  padding: 2px;
+  font-size: 12px;
+}
+/* Following are just <label> */
+.moor-rLabel {
+  margin-top: 100px;
+  margin-left: 315px;
+}
+.moor-gLabel {
+  margin-top: 125px;
+  margin-left: 315px;
+}
+.moor-bLabel {
+  margin-top: 150px;
+  margin-left: 315px;
+}
+.moor-HueLabel {
+  margin-top: 190px;
+  margin-left: 315px;
+}
+span.moor-ballino {
+  /* Style hue ° (degree) !! */
+  margin-top: 190px;
+  margin-left: 370px;
+}
+.moor-SatuLabel {
+  margin-top: 215px;
+  margin-left: 315px;
+}
+.moor-BrighLabel {
+  margin-top: 240px;
+  margin-left: 315px;
+}
+.moor-hexLabel {
+  margin-top: 275px;
+  margin-left: 280px;
+}
+/* <input> */
+.moor-rInput,
+.moor-gInput,
+.moor-bInput,
+.moor-HueInput,
+.moor-SatuInput,
+.moor-BrighInput {
+  width: 30px;
+  display: inline-block;
+}
+.moor-hexInput {
+  width: 55px;
+}
+.moor-cursor {
+  width: 12px;
+  height: 12px;
+}
+.moor-arrows {
+  top: 9px;
+  left: 270px;
+  width: 41px;
+  height: 9px;
+  line-height: 9px;
+  font-size: 0px;
+  /* IE Fix, thanks atany */
+}
+.moor-chooseColor {
+  /* Top Box Color, the choosen one */
+  margin-top: 21px;
+  margin-left: 316px;
+  width: 59px;
+  height: 34px;
+}
+/* date picker */
+/*
+  Minimal Theme
+  Author: Leon Radley (github.com/leon)
+
+  Selected: #95adb8
+  Hover: #c6d2d8
+  Current: #f60
+*/
+.rangepicker_minimal,
+.datepicker_minimal {
+  position: absolute;
+  border: 1px solid #ddd;
+  font-size: 11px;
+  width: 220px;
+  height: 200px;
+  background: #fff;
+  line-height: normal;
+  z-index: 3003;
+  border-radius: 2p;
+  -webkit-border-radius: 2p;
+  -moz-border-radius: 2p;
+  /*
+    Header
+  */
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  overflow: hidden;
+  /*
+    Days
+  */
+  /*
+    Months
+  */
+  /*
+    Years
+  */
+  /*
+    Time
+  */
+}
+.rangepicker_minimal th,
+.datepicker_minimal th,
+.rangepicker_minimal td,
+.datepicker_minimal td {
+  margin: 0;
+  padding: 0;
+}
+.rangepicker_minimal .selected,
+.datepicker_minimal .selected {
+  background: #95adb8 !important;
+  color: #fff !important;
+}
+.rangepicker_minimal .unavailable,
+.datepicker_minimal .unavailable,
+.rangepicker_minimal .day.unavailable:hover,
+.datepicker_minimal .day.unavailable:hover {
+  background: #edd !important;
+  color: #b88 !important;
+  cursor: default !important;
+}
+.rangepicker_minimal td.day:hover,
+.datepicker_minimal td.day:hover,
+.rangepicker_minimal .month:hover,
+.datepicker_minimal .month:hover,
+.rangepicker_minimal .year:hover,
+.datepicker_minimal .year:hover {
+  background: #c6d2d8 !important;
+  color: #222 !important;
+}
+.rangepicker_minimal .header,
+.datepicker_minimal .header {
+  position: relative;
+  background: #333;
+  height: 25px;
+}
+.rangepicker_minimal .header .title,
+.datepicker_minimal .header .title {
+  margin: 0 50px;
+  text-align: center;
+  line-height: 25px;
+}
+.rangepicker_minimal .header .titleText,
+.datepicker_minimal .header .titleText {
+  color: #fff;
+  font-weight: bold;
+}
+.rangepicker_minimal .header .next,
+.datepicker_minimal .header .next,
+.rangepicker_minimal .header .previous,
+.datepicker_minimal .header .previous,
+.rangepicker_minimal .header .closeButton,
+.datepicker_minimal .header .closeButton {
+  position: absolute;
+  top: 0;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+.rangepicker_minimal .header .previous,
+.datepicker_minimal .header .previous {
+  left: 0;
+}
+.rangepicker_minimal .header .next,
+.datepicker_minimal .header .next {
+  right: 25px;
+}
+.rangepicker_minimal .header .closeButton,
+.datepicker_minimal .header .closeButton {
+  right: 0;
+}
+.rangepicker_minimal .body,
+.datepicker_minimal .body {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 175px;
+  overflow: hidden;
+}
+.rangepicker_minimal .column,
+.datepicker_minimal .column {
+  height: 100%;
+}
+.rangepicker_minimal .days,
+.datepicker_minimal .days {
+  width: 100%;
+  border: 0;
+  border-spacing: 0;
+}
+.rangepicker_minimal .days .title,
+.datepicker_minimal .days .title {
+  font-weight: bold;
+  color: #444;
+  cursor: default;
+  width: 14.2857142857143%;
+  /* 100/7 */
+}
+.rangepicker_minimal .days.weeknumbers .title,
+.datepicker_minimal .days.weeknumbers .title {
+  width: 12.5%;
+}
+.rangepicker_minimal .days .otherMonth,
+.datepicker_minimal .days .otherMonth {
+  background: #eee;
+  color: #aaa;
+}
+.rangepicker_minimal .days .week5 .day,
+.datepicker_minimal .days .week5 .day {
+  margin-bottom: 0;
+}
+.rangepicker_minimal .day,
+.datepicker_minimal .day {
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+  line-height: 25px;
+}
+.rangepicker_minimal .today,
+.datepicker_minimal .today {
+  color: #f60;
+  font-weight: bold;
+}
+.rangepicker_minimal .day0,
+.datepicker_minimal .day0 {
+  margin-right: 0;
+}
+.rangepicker_minimal .months,
+.datepicker_minimal .months {
+  height: 100%;
+}
+.rangepicker_minimal .month,
+.datepicker_minimal .month {
+  float: left;
+  display: inline;
+  width: 33.33333333%;
+  line-height: 44px;
+  cursor: pointer;
+  vertical-align: middle;
+  text-align: center;
+  overflow: hidden;
+}
+.rangepicker_minimal .years,
+.datepicker_minimal .years {
+  height: 100%;
+}
+.rangepicker_minimal .year,
+.datepicker_minimal .year {
+  float: left;
+  display: inline;
+  width: 25%;
+  line-height: 35px;
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+}
+.rangepicker_minimal .time,
+.datepicker_minimal .time {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+.rangepicker_minimal .time .hour,
+.datepicker_minimal .time .hour,
+.rangepicker_minimal .time .separator,
+.datepicker_minimal .time .separator,
+.rangepicker_minimal .time .minutes,
+.datepicker_minimal .time .minutes {
+  height: 35px;
+  position: absolute;
+  top: 50px;
+  width: 50px;
+  border: 1px dashed #ddd;
+  font-size: 32px;
+  text-align: center;
+}
+.rangepicker_minimal .time .hour,
+.datepicker_minimal .time .hour {
+  left: 40px;
+}
+.rangepicker_minimal .time .separator,
+.datepicker_minimal .time .separator {
+  background: transparent;
+  border: 0px;
+  width: 18px;
+  left: 100px;
+  vertical-align: middle;
+  padding: 6px 0;
+}
+.rangepicker_minimal .time .minutes,
+.datepicker_minimal .time .minutes {
+  left: 120px;
+}
+.rangepicker_minimal .time .ok,
+.datepicker_minimal .time .ok {
+  position: absolute;
+  top: 105px;
+  width: 136px;
+  left: 40px;
+  font-size: 20px;
+}
+.rangepicker_minimal {
+  height: 280px;
+}
+.rangepicker_minimal .footer {
+  padding: 4px;
+  text-align: center;
+}
+.rangepicker_minimal .footer input {
+  display: inline;
+  width: 80px;
+}
+.rangepicker_minimal .footer button {
+  float: right;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 15px;
+  line-height: 1.37;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.rangepicker_minimal .footer button:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.rangepicker_minimal .footer button:hover,
+.rangepicker_minimal .footer button:focus {
+  color: #333333;
+  text-decoration: none;
+}
+.rangepicker_minimal .footer button:active,
+.rangepicker_minimal .footer button.active {
+  outline: 0;
+  background-image: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.rangepicker_minimal .footer button.disabled,
+.rangepicker_minimal .footer button[disabled],
+fieldset[disabled] .rangepicker_minimal .footer button {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.rangepicker_minimal .footer button.apply {
+  border-radius: 0 5px 5px 0;
+  margin-right: 10px;
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+.rangepicker_minimal .footer button.apply:hover,
+.rangepicker_minimal .footer button.apply:focus,
+.rangepicker_minimal .footer button.apply:active,
+.rangepicker_minimal .footer button.apply.active,
+.open .dropdown-toggle.rangepicker_minimal .footer button.apply {
+  color: #ffffff;
+  background-color: #3276b1;
+  border-color: #285e8e;
+}
+.rangepicker_minimal .footer button.apply:active,
+.rangepicker_minimal .footer button.apply.active,
+.open .dropdown-toggle.rangepicker_minimal .footer button.apply {
+  background-image: none;
+}
+.rangepicker_minimal .footer button.apply.disabled,
+.rangepicker_minimal .footer button.apply[disabled],
+fieldset[disabled] .rangepicker_minimal .footer button.apply,
+.rangepicker_minimal .footer button.apply.disabled:hover,
+.rangepicker_minimal .footer button.apply[disabled]:hover,
+fieldset[disabled] .rangepicker_minimal .footer button.apply:hover,
+.rangepicker_minimal .footer button.apply.disabled:focus,
+.rangepicker_minimal .footer button.apply[disabled]:focus,
+fieldset[disabled] .rangepicker_minimal .footer button.apply:focus,
+.rangepicker_minimal .footer button.apply.disabled:active,
+.rangepicker_minimal .footer button.apply[disabled]:active,
+fieldset[disabled] .rangepicker_minimal .footer button.apply:active,
+.rangepicker_minimal .footer button.apply.disabled.active,
+.rangepicker_minimal .footer button.apply[disabled].active,
+fieldset[disabled] .rangepicker_minimal .footer button.apply.active {
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+.rangepicker_minimal .footer button.apply .badge {
+  color: #428bca;
+  background-color: #ffffff;
+}
+.rangepicker_minimal .footer button.cancel {
+  border-right: 0;
+  border-radius: 5px 0 0 5px;
+}
+.form-control.validation-failed {
+  border-color: #e74c3c !important;
+  color: #e74c3c !important;
+}
+.form-control.validation-failed.border-none {
+  border-width: inherit !important;
+  border-style: solid !important;
+}
+.form-group.validation-failed .input-group-btn,
+.form-group.validation-failed.focus .input-group-btn,
+.form-group.validation-failed .input-group-addon,
+.form-group.validation-failed.focus .input-group-addon {
+  border-color: #e74c3c !important;
+}
+.form-group.validation-failed .input-group-btn button,
+.form-group.validation-failed.focus .input-group-btn button,
+.form-group.validation-failed .input-group-addon button,
+.form-group.validation-failed.focus .input-group-addon button {
+  border-color: #e74c3c !important;
+  color: #e74c3c !important;
+  background-color: #ffffff;
+}
+.form-group.validation-failed .input-group-btn > span,
+.form-group.validation-failed.focus .input-group-btn > span,
+.form-group.validation-failed .input-group-addon > span,
+.form-group.validation-failed.focus .input-group-addon > span {
+  color: #e74c3c !important;
+}
+.validation-tooltip .tooltip-inner {
+  max-width: 300px;
+}
+.validation-tooltip .tooltip-inner ul li {
+  white-space: nowrap;
+}
+table[data-behavior*=HtmlTable] th {
+  cursor: pointer;
+}
+table[data-behavior*=HtmlTable] .table-th-sort-span {
+  width: 12px;
+  height: 12px;
+  float: right !important;
+  display: block;
+}
+table[data-behavior*=HtmlTable] .table-th-sort .table-th-sort-span {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+table[data-behavior*=HtmlTable] .table-th-sort .table-th-sort-span:before {
+  content: "\e114";
+}
+table[data-behavior*=HtmlTable] .table-th-sort-rev .table-th-sort-span {
+  float: right !important;
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+table[data-behavior*=HtmlTable] .table-th-sort-rev .table-th-sort-span:before {
+  content: "\e113";
+}
+div[data-behavior*=Popup] form {
+  margin: 0;
+}
+[data-behavior*="FlatUI.Select"],
+select:not(.no-flat-select) {
+  display: none;
+}
+.select.btn-group.select button:focus {
+  border-color: #00ccce;
+}
+.select.btn-group.select button.full-width {
+  width: 100%;
+}
+.select.select-transparent.select.open i.dropdown-arrow.dropdown-arrow-inverse,
+.select.open i.dropdown-arrow.dropdown-arrow-inverse {
+  border-bottom-color: #131a21;
+}
+.select.select-transparent.select.open.dropup > .dropdown-arrow.dropdown-arrow-inverse,
+.select.open.dropup > .dropdown-arrow.dropdown-arrow-inverse {
+  border-top-color: #131a21;
+}
+.validation-failed .select .btn {
+  background-color: #e74c3c !important;
+}
+.css-spinner {
+  width: 45px;
+  height: 45px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -22.5px;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: -22.5px;
+}
+.css-spinner div {
+  width: 12%;
+  height: 40%;
+  background: #000;
+  position: absolute;
+  left: 44.5%;
+  top: 37%;
+  opacity: 0;
+  -webkit-animation: spinner-fade 1s linear infinite;
+  -moz-animation: spinner-fade 1s linear infinite;
+  animation: spinner-fade 1s linear infinite;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+.css-spinner div.bar1 {
+  -webkit-transform: rotate(0deg) translate(0, -112%);
+  -moz-transform: rotate(0deg) translate(0, -112%);
+  transform: rotate(0deg) translate(0, -112%);
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.css-spinner div.bar2 {
+  -webkit-transform: rotate(30deg) translate(0, -112%);
+  -moz-transform: rotate(30deg) translate(0, -112%);
+  transform: rotate(30deg) translate(0, -112%);
+  -webkit-animation-delay: -0.9167s;
+  -moz-animation-delay: -0.9167s;
+  animation-delay: -0.9167s;
+}
+.css-spinner div.bar3 {
+  -webkit-transform: rotate(60deg) translate(0, -112%);
+  -moz-transform: rotate(60deg) translate(0, -112%);
+  transform: rotate(60deg) translate(0, -112%);
+  -webkit-animation-delay: -0.833s;
+  -moz-animation-delay: -0.833s;
+  animation-delay: -0.833s;
+}
+.css-spinner div.bar4 {
+  -webkit-transform: rotate(90deg) translate(0, -112%);
+  -moz-transform: rotate(90deg) translate(0, -112%);
+  transform: rotate(90deg) translate(0, -112%);
+  -webkit-animation-delay: -0.75s;
+  -moz-animation-delay: -0.75s;
+  animation-delay: -0.75s;
+}
+.css-spinner div.bar5 {
+  -webkit-transform: rotate(120deg) translate(0, -112%);
+  -moz-transform: rotate(120deg) translate(0, -112%);
+  transform: rotate(120deg) translate(0, -112%);
+  -webkit-animation-delay: -0.667s;
+  -moz-animation-delay: -0.667s;
+  animation-delay: -0.667s;
+}
+.css-spinner div.bar6 {
+  -webkit-transform: rotate(150deg) translate(0, -112%);
+  -moz-transform: rotate(150deg) translate(0, -112%);
+  transform: rotate(150deg) translate(0, -112%);
+  -webkit-animation-delay: -0.5833s;
+  -moz-animation-delay: -0.5833s;
+  animation-delay: -0.5833s;
+}
+.css-spinner div.bar7 {
+  -webkit-transform: rotate(180deg) translate(0, -112%);
+  -moz-transform: rotate(180deg) translate(0, -112%);
+  transform: rotate(180deg) translate(0, -112%);
+  -webkit-animation-delay: -0.5s;
+  -moz-animation-delay: -0.5s;
+  animation-delay: -0.5s;
+}
+.css-spinner div.bar8 {
+  -webkit-transform: rotate(210deg) translate(0, -112%);
+  -moz-transform: rotate(210deg) translate(0, -112%);
+  transform: rotate(210deg) translate(0, -112%);
+  -webkit-animation-delay: -0.41667s;
+  -moz-animation-delay: -0.41667s;
+  animation-delay: -0.41667s;
+}
+.css-spinner div.bar9 {
+  -webkit-transform: rotate(240deg) translate(0, -112%);
+  -moz-transform: rotate(240deg) translate(0, -112%);
+  transform: rotate(240deg) translate(0, -112%);
+  -webkit-animation-delay: -0.333s;
+  -moz-animation-delay: -0.333s;
+  animation-delay: -0.333s;
+}
+.css-spinner div.bar10 {
+  -webkit-transform: rotate(270deg) translate(0, -112%);
+  -moz-transform: rotate(270deg) translate(0, -112%);
+  transform: rotate(270deg) translate(0, -112%);
+  -webkit-animation-delay: -0.25s;
+  -moz-animation-delay: -0.25s;
+  animation-delay: -0.25s;
+}
+.css-spinner div.bar11 {
+  -webkit-transform: rotate(300deg) translate(0, -112%);
+  -moz-transform: rotate(300deg) translate(0, -112%);
+  transform: rotate(300deg) translate(0, -112%);
+  -webkit-animation-delay: -0.1667s;
+  -moz-animation-delay: -0.1667s;
+  animation-delay: -0.1667s;
+}
+.css-spinner div.bar12 {
+  -webkit-transform: rotate(330deg) translate(0, -112%);
+  -moz-transform: rotate(330deg) translate(0, -112%);
+  transform: rotate(330deg) translate(0, -112%);
+  -webkit-animation-delay: -0.0833s;
+  -moz-animation-delay: -0.0833s;
+  animation-delay: -0.0833s;
+}
+.css-spinner.spinner-invert div {
+  background: #fff;
+}
+.css-spinner.spinner-small {
+  width: 15px;
+  height: 15px;
+  margin-top: -7.5px;
+  margin-left: -7.5px;
+}
+.css-spinner.spinner-large {
+  width: 90px;
+  height: 90px;
+  margin-top: -45px;
+  margin-left: -45px;
+}
+.css-spinner.spinner-top {
+  top: 45px;
+}
+.css-spinner.spinner-top.spinner-small {
+  top: 15px;
+}
+@-webkit-keyframes spinner-fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.25;
+  }
+}
+@-moz-keyframes spinner-fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.25;
+  }
+}
+@-ms-keyframes spinner-fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.25;
+  }
+}
+@keyframes spinner-fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.25;
+  }
+}
+.spinner {
+  position: absolute;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+  z-index: 9999;
+  background: #fff;
+}
+.spinner .spinner-msg {
+  text-align: center;
+  font-weight: bold;
 }
 .underscroll-shadow-center {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
