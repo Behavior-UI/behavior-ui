@@ -67,6 +67,18 @@
     &.bottom-percent {
       bottom: -34%;
     }
+    &.bottom-x-large {
+      bottom: -47px;
+      @media (min-width: @screen-sm) {
+        bottom: -56px;
+      }
+      @media (min-width: @screen-md) {
+        bottom: -72px;
+      }
+      @media (min-width: @screen-lg) {
+        bottom: -92px;
+      }
+    }
     &.bottom-large {
       bottom: -60px;
     }
@@ -77,6 +89,9 @@
       bottom: 0px;
     }
     display: none;
+    &.block {
+      display: block;
+    }
     @media (min-width: @screen-tablet) {
       display: block;
     }
@@ -85,6 +100,12 @@
       &.tiny {
         .square(8px);
         margin: 0 0 0 5px;
+      }
+      &.responsive {
+        @media (max-width: @screen-xs-max) {
+          .square(10px);
+          margin: 0 0 0 7px;
+        }
       }
       border-radius: 15px;
       background-color: @grey-50;
