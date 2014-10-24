@@ -9,7 +9,7 @@ description: Behavior for creating an interactive slider that can update and
 requires:
  - Behavior/Behavior
  - More/Object.Extras
- - /Slider.Modify
+ - Behavior-UI/Slider.Modify
 
 provides: [Behavior.Slider.Modify]
 
