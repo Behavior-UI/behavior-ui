@@ -9,6 +9,7 @@ You are welcome to contribute to Behavior-UI! What we ask of you:
 a. __To report a bug:__
 
    1. Create a [jsFiddle](http://jsfiddle.net/) with the minimal amount of code to reproduce the bug.
+      You can fork this one: [http://jsfiddle.net/nutron/70rmvys6/](http://jsfiddle.net/nutron/70rmvys6/)
    2. Create a [Github Issue](https://github.com/behavior-ui/behavior-ui/issues), and link to the jsFiddle.
 
 b. __To fix a bug:__
@@ -43,7 +44,7 @@ You need to have grunt and bower installed in order to run through the build ins
     $ npm install bower -g        # installs bower globally
     $ npm install grunt -g        # installs grunt globally
     $ npm install grunt-cli -g    # installs the grunt command line interpreter which allows you to actually run grunt
-   
+
 
 ### Installation, Building locally
 
