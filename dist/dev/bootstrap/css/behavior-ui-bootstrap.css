@@ -8227,7 +8227,7 @@ ul.autocompleter-choices {
   text-align: left;
   z-index: 50;
   background-color: #fff;
-  border: 2px solid #00ccce;
+  border: 2px solid #0073bf;
   padding: 5px 0;
   margin: 6px 0 0;
   background-color: #ffffff;
@@ -8245,12 +8245,12 @@ ul.autocompleter-choices li {
 }
 ul.autocompleter-choices li:hover,
 ul.autocompleter-choices li:focus {
-  background: #00adaf;
+  background: #0062a2;
   color: #ffffff;
 }
 ul.autocompleter-choices li.autocompleter-selected {
-  background: #00ccce;
-  color: #a6edee;
+  background: #0073bf;
+  color: #a6cee9;
 }
 ul.autocompleter-choices li.autocompleter-selected span.autocompleter-queried {
   color: #ffffff;
@@ -9068,7 +9068,7 @@ select:not(.no-flat-select) {
   display: none;
 }
 .select.btn-group.select button:focus {
-  border-color: #00ccce;
+  border-color: #0073bf;
 }
 .select.btn-group.select button.full-width {
   width: 100%;
@@ -9293,6 +9293,12 @@ label,
 .inline {
   display: inline;
 }
+.display-table {
+  display: table;
+}
+.display-table-cell {
+  display: table-cell;
+}
 .nowrap {
   white-space: nowrap;
 }
@@ -9311,6 +9317,15 @@ label,
 }
 .fixed {
   position: fixed;
+}
+.background-position-y-bottom {
+  background-position: center bottom;
+}
+.background-position-y-top {
+  background-position: center top;
+}
+.background-position-center {
+  background-position: center;
 }
 .yeswrap {
   white-space: normal;
@@ -9491,6 +9506,18 @@ label,
 .z2500up {
   z-index: 2500;
 }
+.nudge-left {
+  left: -2px !important;
+}
+.nudge-left-large {
+  left: -5px !important;
+}
+.nudge-right {
+  left: 2px !important;
+}
+.nudge-right-large {
+  left: 5px !important;
+}
 .nudge-up {
   top: -2px !important;
 }
@@ -9533,5 +9560,8 @@ label,
 .split4 {
   display: inline-block;
   width: 25%;
+}
+.cursor-default {
+  cursor: default;
 }
 /*# sourceMappingURL=behavior-ui-bootstrap.css.map */

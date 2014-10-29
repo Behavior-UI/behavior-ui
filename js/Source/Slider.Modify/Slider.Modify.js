@@ -76,7 +76,7 @@ Slider.Modify = new Class({
   },
 
   updateSlideFill: function(){
-    var percentage = 100*this.step/this.max;
+    var percentage = 100*(this.step-this.min)/(this.max-this.min);
     if (this.slideFill) this.slideFill.setStyle('width', percentage+"%");
   },
 
