@@ -107,6 +107,49 @@
 </select>
   <% end %>
 
+  <h3>Change On Submit</h3>
+  <p>The select list is built with DOM elements. When you make a selection, this plugin updates the actual select list
+     and fires it's <code>change</code> event. Because the manual <code>fireEvent</code> method on elements doesn't actually
+     bubble up like a native event, this means it doesn't work with delegation (and hence, not with the triggers registered
+     with Delegator). <b>If you want to submit a form with one of these select elements, you have to put the trigger on
+     the element.</b> You still need to put this trigger on the form itself if you want other native inputs to update the form
+     on change.
+   </p>
+
+  <%= render layout: "codeblock" do %>
+  <form id="test"
+    data-behavior="FormRequest"
+    data-trigger="submitOnChange"
+    data-formrequest-update="!body #update"
+    data-submitonchange-options="
+      'onlyOnce': false
+    "
+    action="<%= sandbox_echo_html_path %>"
+    method="get">
+    <p>Select some text to update the box below.</p>
+    <div class="form-group">
+      <select name="html" data-behavior="FlatUI.Select" data-trigger="submitOnChange"
+              data-submitonchange-options="
+                'onlyOnce': false,
+                'target': '!form'
+              "
+              class="select-block mbl">
+          <option>This is some text.</option>
+          <option>Hey, this is some other text.</option>
+          <option>Yet more text.</option>
+          <option>Neato, even more text.</option>
+          <option>Ok, we're done here.</option>
+      </select>
+    </div>
+  </form>
+
+  <div id="update" class="box">
+    this box should get new text when you change the input above.
+  </div>
+
+
+  <% end %>
+
     <h2>Behavior Options</h2>
     <p>These options apply only to the <code>data-</code> tag invocation.</p>
     <div class="table-responsive">
