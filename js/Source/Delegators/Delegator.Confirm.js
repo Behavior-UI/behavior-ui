@@ -17,10 +17,15 @@ name: Delegator.Confirm
       },
       handler: function(event, link, api){
         event.preventDefault();
-
+        var doubleCheck = function(){
+          return !api.get('doubleCheck') ||
+                  confirm("No, SERIOUSLY. Do you like, double-dog, totally, for sure you want to do this?");
+        };
         var onConfirm = function(e){
-          var doubleCheck = !api.get('doubleCheck') ||
-                             confirm("No, SERIOUSLY. Do you like, double-dog, totally, for sure you want to do this?");
+          if (!doubleCheck()){
+            e.preventDefault()
+            return;
+          }
           // allow delete
           if (link.get('data-method')){
             e.preventDefault();
@@ -38,8 +43,8 @@ name: Delegator.Confirm
             })).inject(link, 'after');
             var auth = $$(api.get('authInput'))[0];
             if (auth) auth.clone().inject(form);
-            if (doubleCheck) form.fireEvent('submit').submit();
-          } else if (!doubleCheck) return;
+            form.fireEvent('submit').submit();
+          }
 
         };
         var onCancel = function(){};
@@ -62,6 +67,7 @@ name: Delegator.Confirm
             btnInfo.inject(form);
 
             onConfirm = function(){
+              if (!doubleCheck()) return;
               // allow delete
               if (link.get('data-method')) form.set('method', link.get('data-method'));
               form.fireEvent('submit').submit();
