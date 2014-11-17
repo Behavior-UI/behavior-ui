@@ -25,7 +25,7 @@ Delegator.register(['change','keyup'], {
       targets: Array
     },
     handler: function(event, element, api){
-      var targets = api.get('targets');
+      var targets = api.getAs(Array, 'targets');
 
       if (!targets && targets.length) api.fail('Unable to find targets option.');
 

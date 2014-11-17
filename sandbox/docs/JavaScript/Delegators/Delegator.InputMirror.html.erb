@@ -11,7 +11,12 @@
   <div class="form-group col-md-3">
     <input type="text" class="form-control"
       data-trigger="inputMirror"
-      data-inputmirror-targets="!.col .target"
+      data-inputmirror-targets="
+      [
+        {
+          'selector': '!.col .target'
+        }
+      ]"
     />
   </div>
   <div class="form-group col-md-3">
