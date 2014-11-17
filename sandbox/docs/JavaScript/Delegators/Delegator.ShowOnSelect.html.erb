@@ -28,14 +28,16 @@
 
   <p>Using the <code>targets</code> option to specify a set of selectors referenced by index.</p>
   <%= render layout: "codeblock" do %>
-    <select data-trigger="showOnSelect" data-showonselect-options="
-      'hideClass': 'hide',
-      'targets': ['!> p !> div .first', '!> p !> div .second', '!> p !> div .third']
-    ">
-      <option>first</option>
-      <option>second</option>
-      <option>third</option>
-    </select>
+    <p>
+      <select data-trigger="showOnSelect" data-showonselect-options="
+        'hideClass': 'hide',
+        'targets': ['!> p !> div .first', '!> p !> div .second', '!> p !> div .third']
+      ">
+        <option>first</option>
+        <option>second</option>
+        <option>third</option>
+      </select>
+    </p>
     <p class="first">I'm the first!</p>
     <p class="second hide">I'm the second!</p>
     <p class="third hide">I'm the third!</p>
@@ -43,15 +45,17 @@
 
   <p>Using the <code>disableInputs</code> option to specify to disable / enable nested inputs</p>
   <%= render layout: "codeblock" do %>
-    <select data-trigger="showOnSelect" data-showonselect-options="
-      'hideClass': 'hide',
-      'disableInputs': 'true',
-      'targets': ['!> p !> div .first', '!> p !> div .second', '!> p !> div .third']
-    ">
-      <option>first</option>
-      <option>second</option>
-      <option>third</option>
-    </select>
+    <p>
+      <select data-trigger="showOnSelect" data-showonselect-options="
+        'hideClass': 'hide',
+        'disableInputs': 'true',
+        'targets': ['!> p !> div .first', '!> p !> div .second', '!> p !> div .third']
+      ">
+        <option>first</option>
+        <option>second</option>
+        <option>third</option>
+      </select>
+    </p>
     <div class="first">
       I'm the first!
       <input class="form-control"></input>

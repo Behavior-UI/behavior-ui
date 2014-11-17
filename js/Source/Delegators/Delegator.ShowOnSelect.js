@@ -70,6 +70,7 @@ provides: [Delegator.ShowOnSelect]
         hideAll(api, element);
         // get the target that corresponds to the selected option
         var targets = getTargetElements(api, element, element.getSelected()[0]);
+
         if (targets.length){
           if (api.get('hideClass')) targets.removeClass(api.get('hideClass'));
           else if (api.get('showClass')) targets.addClass(api.get('showClass'));
@@ -79,7 +80,7 @@ provides: [Delegator.ShowOnSelect]
           // select elements of the given to-be-shown target
           if(api.get('disableInputs')){
             targets.each(function(target){
-              target.getElements('input, select:not([data-remain-locked])')
+              target.getElements('input:not([data-remain-locked]), select:not([data-remain-locked])')
                     .set('disabled', '')
             });
           }
