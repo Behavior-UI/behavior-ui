@@ -262,6 +262,25 @@ a, label, .pointer {
   .border-radius(@border-radius-large @border-radius-large 0 0);
 }
 
+.border-radius-large {
+  .border-radius(@border-radius-large);
+}
+
+.border-radius-top-large {
+  .border-radius(@border-radius-large @border-radius-large 0 0);
+}
+
+.border-radius-right-large {
+  .border-radius(0 @border-radius-large @border-radius-large 0);
+}
+
+.border-radius-left-large {
+  .border-radius(@border-radius-large 0 0 @border-radius-large);
+}
+
+.border-radius-left {
+  .border-radius(@border-radius-base 0 0 @border-radius-base);
+}
 
 .placeholder-color(@color) {
   &:-moz-placeholder            { color: @color; } // Firefox 4-18

@@ -118,9 +118,26 @@ h6 {
   font-size: 24px;
   line-height: 26px;
 }
+.font-size-13 {
+  font-size: 13px;
+}
+.font-size-17 {
+  font-size: 17px;
+}
+.font-size-18 {
+  font-size: 18px;
+  line-height: 26px;
+}
 .font-size-20 {
   font-size: 20px;
   line-height: 24px;
+}
+.font-size-30 {
+  font-size: 30px;
+  line-height: 36px;
+}
+.font-size-50 {
+  font-size: 50px;
 }
 .font-size-half {
   font-size: 50%;
@@ -179,6 +196,12 @@ h6 {
     line-height: 24px;
   }
 }
+.line-height-22 {
+  line-height: 22px;
+  span[class*="thanx-glyph"] {
+    line-height: 22px;
+  }
+}
 .line-height-15 {
   line-height: 15px;
   span[class*="thanx-glyph"] {
@@ -219,6 +242,11 @@ h6 {
     text-align: left;
   }
 }
+.text-center-on-xs {
+  @media (max-width: @screen-xs-max) {
+    text-align: center;
+  }
+}
 .uppercase {
   text-transform: uppercase;
 }
@@ -227,4 +255,109 @@ h6 {
 }
 .text-transform-none {
   text-transform: none;
+}
+
+
+
+span.h1-responsive {
+  .uppercase;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 15px;
+  &.emphasized {
+    margin-bottom: 1.5em;
+  }
+  &.less-emphasized {
+    margin-bottom: 15px;
+  }
+}
+
+span.h2-responsive {
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+span.h3-responsive {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 22px;
+}
+span.p-responsive {
+  font-size: 13px;
+  color: @grey-60;
+}
+@media (min-width: @screen-tablet) {
+  span.h1-responsive {
+    font-size: 40px;
+    margin-top: 7px;
+    &.emphasized {
+      margin-bottom: .5em;
+    }
+    &.less-emphasized {
+      margin-bottom: 0px;
+    }
+  }
+  span.h2-responsive {
+    font-size: 32px;
+    font-weight: 300;
+  }
+  span.h3-responsive {
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 22px;
+  }
+  span.p-responsive {
+    font-size: 14px;
+  }
+}
+@media (min-width: @screen-desktop) {
+  span.h1-responsive {
+    margin-top: 30px;
+    margin-bottom: 0px;
+    &.emphasized {
+      margin-top: 0px;
+      margin-bottom: 35px;
+    }
+    &.less-emphasized {
+      margin-bottom: 12px;
+    }
+  }
+  span.h2-responsive {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  span.h3-responsive {
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 23px;
+  }
+  span.p-responsive {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: @screen-lg) {
+  span.h1-responsive {
+    font-size: 60px;
+    margin-bottom: 5px;
+    &.emphasized {
+      margin-bottom: 80px;
+    }
+    &.less-emphasized {
+      margin-bottom: 30px;
+    }
+  }
+  span.h2-responsive {
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+  span.h3-responsive {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  span.p-responsive {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
 }

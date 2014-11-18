@@ -131,6 +131,9 @@ textarea {
   color: @grey-60;
   height: 2 * @size1;
   resize: none;
+  &.validation-failed {
+    border-color: @alizarin;
+  }
 }
 
 label.checkbox, label.radio {
@@ -307,7 +310,7 @@ label.checkbox, label.radio {
   button {
     .border-radius(6px) !important;
     width: 100%;
-    padding: 10px 10px 10px;
+    padding: 8px 10px 9px;
     .btn-transparent;
     border-color: @grey-30;
     &:hover {
@@ -315,7 +318,7 @@ label.checkbox, label.radio {
       border-color: @brand-secondary;
     }
     .filter-option {
-      top: 12px;
+      top: 8px;
       left: 12px;
       right: 22px;
       font-size: 15px;
@@ -330,9 +333,9 @@ label.checkbox, label.radio {
   }
   &.input-sm {
     button {
-      padding: 7px 10px 6px;
+      padding: 5px 10px 5px;
       .filter-option {
-        top: 9px;
+        top: 5px;
       }
     }
   }
@@ -348,6 +351,16 @@ textarea,
 .datepicker-group {
   .input-group-btn .btn {
     padding: 10px 14px;
+  }
+
+  &.input-group-sm {
+    .input-group-btn .btn {
+      padding: 7px 10px 6px;
+    }
+    input {
+      .input-sm;
+      padding-left: 0px;
+    }
   }
 
   .form-control {
