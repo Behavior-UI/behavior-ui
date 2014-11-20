@@ -16,7 +16,15 @@ provides: [Behavior.ColorPicker]
 
 (function(){
   var hexCheck = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
+  // counter allows for multiple instances per page
+  var counter = 0;
+
   Behavior.addGlobalFilter('ColorPicker', {
+
+    defaults: {
+      'property': 'backgroundColor',
+      'setOnStart': true
+    },
 
     returns: ColorPicker,
 
@@ -32,19 +40,23 @@ provides: [Behavior.ColorPicker]
         'moor_cursor.gif'
       */
       var paths = api.get('imgs');
+      counter++;
       return new ColorPicker(el, {
+        id: 'mooRainbow'+counter,
         imgPath: api.get('imgPath'),
         startColor: startColor,
+        setOnStart: api.getAs(Boolean, 'setOnStart'),
         getImage: function(file){
           return paths && paths[file] ? paths[file] : this.options.imgPath + file;
         },
         onChange: function(color){
           el.set('value', color.hex);
           if (api.get('update')){
-            api.getElements('update').setStyles({
-              backgroundColor: color.hex,
+            var stylesObj = {
               backgroundImage: 'none'
-            });
+            };
+            stylesObj[api.get('property')] = color.hex;
+            api.getElements('update').setStyles(stylesObj);
           }
         }
       });

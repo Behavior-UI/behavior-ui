@@ -1,3 +1,10 @@
+<%
+  imgs = {}
+  ['moor_woverlay.png', 'moor_boverlay.png', 'blank.gif', 'moor_slider.png', 'moor_cursor.gif'].each do |filename|
+    imgs[filename] = asset_path("#{filename}")
+  end
+%>
+
 <div class="bs-docs-section">
   <div class="page-header">
     <h1>ColorPicker <small>Behavior.ColorPicker.js</small></h1>
@@ -6,14 +13,8 @@
 
   <h3>Example</h3>
   <%= render layout: "codeblock" do %>
-  <%
-    imgs = {}
-    ['moor_woverlay.png', 'moor_boverlay.png', 'blank.gif', 'moor_slider.png', 'moor_cursor.gif'].each do |filename|
-      imgs[filename] = asset_path("#{filename}")
-    end
-  %>
   <div class="box">
-    <%= text_field_tag 'color', '#ffffff',
+    <%= text_field_tag 'backgroundColor', '#ffffff',
     class: 'form-control',
     data: {
       behavior: "ColorPicker",
@@ -21,6 +22,25 @@
         imgs: imgs,
         startColor: [255,255,255],
         update: "!div.box"
+      }
+    } %>
+  </div>
+  <% end %>
+
+
+  <h3>Example <small>with optional property</small></h3>
+  <%= render layout: "codeblock" do %>
+  <div class="colorbox">
+    <span>Color change</span>
+    <%= text_field_tag 'color', '#000000',
+    class: 'form-control',
+    data: {
+      behavior: "ColorPicker",
+      colorpicker_options: {
+        imgs: imgs,
+        startColor: [0,0,0],
+        update: "!div.colorbox span",
+        property: "color"
       }
     } %>
   </div>
@@ -108,6 +128,18 @@ end</pre>
           <td>string</td>
           <td>~</td>
           <td>If set, defines the elements in the DOM to update colors when the user selects one.</td>
+        </tr>
+        <tr>
+          <td>property</td>
+          <td>string</td>
+          <td>'backgroundColor'</td>
+          <td>Allows control over which property of the 'update' target is to be changed.</td>
+        </tr>
+        <tr>
+          <td>setOnStart</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>If false, ignores the startColor in the color picker UI.</td>
         </tr>
       </tbody>
     </table>
