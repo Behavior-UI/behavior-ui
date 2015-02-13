@@ -181,8 +181,12 @@ var MooRainbow = ColorPicker = new Class({options: {
     }.bind(this));
 
     inputs.each(function(el){
-      el.addEvent('keydown', this.eventKeydown.bind(this, el));
-      el.addEvent('keyup', this.eventKeyup.bind(this, el));
+      el.addEvent('keydown', function(e){
+        this.eventKeydown(el, e)
+      }.bind(this));
+      el.addEvent('keyup', function(e){
+        this.eventKeyup(el, e)
+      }.bind(this));
     }, this);
     [this.element, this.layout].each(function(el){
       el.addEvents({
@@ -363,7 +367,7 @@ var MooRainbow = ColorPicker = new Class({options: {
       if (chr != "#" && el.value.length != 6) return;
       if (chr == '#' && el.value.length != 7) return;
     } else {
-      if (!(n >= 48 && n <= 57) && (!['backspace', 'tab', 'delete', 'left', 'right'].test(k)) && el.value.length > 3) return;
+      if (!(n >= 48 && n <= 57) && (!['backspace', 'tab', 'delete', 'left', 'right'].contains(k)) && el.value.length > 3) return;
     }
 
     prefix = this.options.prefix;
