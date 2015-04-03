@@ -1,0 +1,55 @@
+// thanx-palette.less is required in addition to this file
+
+// v2 palette
+@grey-10:               #F3F4F4;
+@grey-20:               #E9E9EA;
+@grey-30:               #DEDFE0;
+@grey-40:               #CFD1D2;
+@grey-50:               #BCBEC0;
+@grey-60:               #9FA1A4;
+@grey-70:               #808285;
+@grey-80:               #67686B;
+@grey-90:               #4D4D4F;
+@grey-100:              #363436;
+@gold:                  #CBB54E;
+@bright-gold-20:        #F5F3DF;
+@bright-gold-40:        #EAE3B9;
+@bright-gold-60:        #E0D294;
+@bright-gold-80:        #D6C371;
+@dark-gold-20:          #BB9B07;
+@dark-gold-40:          #8C7405;
+@dark-gold-60:          #5E4E04;
+@dark-gold-80:          #2F2702;
+@bright-blue-chrome-20: #D6DADF;
+@bright-blue-chrome-40: #AEB6BF;
+@bright-blue-chrome-60: #8692A0;
+@bright-blue-chrome-80: #5D6E7F;
+@blue-chrome:           #35495E;
+@dark-blue-chrome-20:   #2A3C4F;
+@dark-blue-chrome-40:   #1E2E3F;
+@dark-blue-chrome-60:   #0E1E2E;
+@dark-blue-chrome-80:   #000317;
+@bright-spearmint-20:   #D1ECF0;
+@bright-spearmint-40:   #A5DCDF;
+@bright-spearmint-60:   #7ACDD0;
+@bright-spearmint-80:   #51C3C5;
+@spearmint:             #13C1BF;
+@dark-spearmint-20:     #229D9D;
+@dark-spearmint-40:     #138080;
+@dark-spearmint-60:     #006262;
+@dark-spearmint-80:     #004242;
+@bright-cayenne-20:     #FBDFD6;
+@bright-cayenne-40:     #F8C0AE;
+@bright-cayenne-60:     #F6A085;
+@bright-cayenne-80:     #F4825C;
+@cayenne:               #F26335;
+@dark-cayenne-20:       #C5522C;
+@dark-cayenne-40:       #9E401E;
+@dark-cayenne-60:       #7A2D0B;
+@dark-cayenne-80:       #531600;
+
+@palette-addons: ~'grey-10', ~'grey-20', ~'grey-30', ~'grey-40', ~'grey-50', ~'grey-60', ~'grey-70', ~'grey-80', ~'grey-90', ~'grey-100', ~'gold', ~'bright-gold-20', ~'bright-gold-40', ~'bright-gold-60', ~'bright-gold-80', ~'dark-gold-20', ~'dark-gold-40', ~'dark-gold-60', ~'dark-gold-80', ~'bright-blue-chrome-20', ~'bright-blue-chrome-40', ~'bright-blue-chrome-60', ~'bright-blue-chrome-80', ~'blue-chrome', ~'dark-blue-chrome-20', ~'dark-blue-chrome-40', ~'dark-blue-chrome-60', ~'dark-blue-chrome-80', ~'bright-spearmint-20', ~'bright-spearmint-40', ~'bright-spearmint-60', ~'bright-spearmint-80', ~'spearmint', ~'dark-spearmint-20', ~'dark-spearmint-40', ~'dark-spearmint-60', ~'dark-spearmint-80', ~'bright-cayenne-20', ~'bright-cayenne-40', ~'bright-cayenne-60', ~'bright-cayenne-80', ~'cayenne', ~'dark-cayenne-20', ~'dark-cayenne-40', ~'dark-cayenne-60', ~'dark-cayenne-80';
+.for(@palette-addons); .-each(@value) {
+  .palette-constructor(@value);
+}
+
