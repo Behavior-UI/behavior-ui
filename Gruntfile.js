@@ -48,6 +48,19 @@ module.exports = function(grunt) {
           'Behavior/*'
         ],
         dest: '<%= dev %>/js/behavior-ui.js'
+      },
+
+      standalone: {
+        src: sourceFiles,
+        only: [
+          'Behavior-UI/*',
+          'Behavior/*'
+        ],
+        exclude: [
+          'Core/*',
+          'More/*'
+        ],
+        dest: '<%= dev %>/js/behavior-ui-standalone.js'
       }
 
     },
@@ -177,7 +190,8 @@ module.exports = function(grunt) {
       },
       prodJs: {
         files: {
-          '<%= prod %>/js/behavior-ui.js': ['<%= dev %>/js/behavior-ui.js']
+          '<%= prod %>/js/behavior-ui.js': ['<%= dev %>/js/behavior-ui.js'],
+          '<%= prod %>/js/behavior-ui-standalone.js': ['<%= dev %>/js/behavior-ui-standalone.js']
         }
       }
     },
@@ -197,7 +211,7 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('default', ['bower:install', 'clean', 'packager:all']);
+  grunt.registerTask('default', ['bower:install', 'clean', 'packager:all', 'packager:standalone']);
   grunt.registerTask('less-compile', ['less:compileBootstrap', 'less:compileFlatUI']);
   grunt.registerTask('copy-assets', ['copy:copyBootstrap','copy:copyFlatUI']);
 
