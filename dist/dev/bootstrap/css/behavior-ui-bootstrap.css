@@ -7451,772 +7451,1074 @@ you can use the generic selector below, but it's slower:
 .thanx-glyph-employees:before {
   content: "\e082";
 }
+a,
+label,
+.pointer {
+  cursor: pointer;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline {
+  display: inline;
+}
+.display-table {
+  display: table;
+}
+.display-table-cell {
+  display: table-cell;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.no-margin {
+  margin: 0px;
+}
+.transition-none {
+  -webkit-transition: none !important;
+  transition: none !important;
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.fixed {
+  position: fixed;
+}
+.background-position-y-bottom {
+  background-position: center bottom;
+}
+.background-position-y-top {
+  background-position: center top;
+}
+.background-position-center {
+  background-position: center;
+}
+.yeswrap {
+  white-space: normal;
+}
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.invisible {
+  visibility: hidden;
+}
+.invisible-important {
+  visibility: hidden !important;
+}
+.visible {
+  visibility: visible;
+}
+.full-width {
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .full-width-on-xs {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .width-50-on-xs {
+    width: 50%;
+    max-width: 50%;
+    min-width: 50%;
+  }
+}
+.width-0 {
+  width: 0%;
+}
+.width-0-important {
+  width: 0% !important;
+}
+.width-25 {
+  width: 25%;
+  min-width: 25%;
+  max-width: 25%;
+}
+.width-33 {
+  width: 33.33333%;
+  min-width: 33.33333%;
+  max-width: 33.33333%;
+}
+.width-50 {
+  width: 50%;
+  min-width: 50%;
+  max-width: 50%;
+}
+.width-66 {
+  width: 66.66667%;
+  min-width: 66.66667%;
+  max-width: 66.66667%;
+}
+.width-75 {
+  width: 75%;
+  min-width: 75%;
+  max-width: 75%;
+}
+.width-90 {
+  width: 90%;
+  min-width: 90%;
+  max-width: 90%;
+}
+.width-100 {
+  width: 100%;
+}
+.width-100-important {
+  width: 100% !important;
+}
+.min-width-0 {
+  min-width: 0%;
+}
+.full-height {
+  height: 100%;
+}
+.header-height {
+  height: 60px;
+}
+.center {
+  display: block;
+  margin: 0 auto;
+}
+.overflow-y {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.overflow-y.overflow-x {
+  overflow-x: visible;
+}
+.overflow-x {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.overflow-x.overflow-y {
+  overflow-y: visible;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.main-content {
+  position: absolute;
+  bottom: 0px;
+  top: 60px;
+  width: 100%;
+  overflow: none;
+}
+.help {
+  display: inline-block;
+}
+.help span {
+  font-size: 26px;
+  position: relative;
+  line-height: 10px;
+}
+.help span:hover {
+  color: #757575;
+}
+@media (max-width: 767px) {
+  .hidden-phone {
+    display: none !important;
+  }
+}
+@media (max-width: 767px) {
+  .visible-inline-block-phone {
+    display: inline-block !important;
+  }
+}
+@media (max-width: 991px) {
+  .visible-inline-block-tablet {
+    display: inline-block !important;
+  }
+}
+.invisible-phone {
+  visibility: hidden;
+}
+@media (min-width: 768px) {
+  .invisible-phone {
+    visibility: visible;
+  }
+}
+.invisible-tablet {
+  visibility: hidden;
+}
+@media (min-width: 992px) {
+  .invisible-tablet {
+    visibility: visible;
+  }
+}
+.hover-opacity-0:hover {
+  opacity: 0;
+}
+/*
+  used to fix rendering issues. for example, transitions measuring with improper rounding
+  see: http://stackoverflow.com/questions/15051557/very-difficult-to-solve-and-strange-css3-opacity-transition-issue-must-be-a
+*/
+.webkit-hardware-accel {
+  -webkit-transform: translateZ(0);
+}
+.unimportant-hide {
+  display: none;
+}
+.vertical-top {
+  vertical-align: top !important;
+}
+.vertical-middle {
+  vertical-align: middle !important;
+}
+.vertical-bottom {
+  vertical-align: bottom !important;
+}
+.z1up {
+  z-index: 1;
+}
+.z500up {
+  z-index: 500;
+}
+.z2500up {
+  z-index: 2500;
+}
+.nudge-left {
+  left: -2px !important;
+}
+.nudge-left-large {
+  left: -5px !important;
+}
+.nudge-right {
+  left: 2px !important;
+}
+.nudge-right-large {
+  left: 5px !important;
+}
+.nudge-up {
+  top: -2px !important;
+}
+.nudge-up-large {
+  top: -5px !important;
+}
+.nudge-down {
+  top: 2px !important;
+}
+.nudge-down-large {
+  top: 5px !important;
+}
+.border-radius-large {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.border-radius-top-large {
+  -webkit-border-radius: 6px 6px 0 0;
+  -moz-border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
+}
+.border-radius-large {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.border-radius-top-large {
+  -webkit-border-radius: 6px 6px 0 0;
+  -moz-border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
+}
+.border-radius-right-large {
+  -webkit-border-radius: 0 6px 6px 0;
+  -moz-border-radius: 0 6px 6px 0;
+  border-radius: 0 6px 6px 0;
+}
+.border-radius-left-large {
+  -webkit-border-radius: 6px 0 0 6px;
+  -moz-border-radius: 6px 0 0 6px;
+  border-radius: 6px 0 0 6px;
+}
+.border-radius-left {
+  -webkit-border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+}
+/*
+  when adding two splits next to each other, DO NOT separate them with whitespace
+  use a comment instead, like this:
+     <div class="split2">
+     </div><!--
+     use comment to make code readable (whitespace will add additional pixels)
+  --><div class="split2">
+
+*/
+.split2 {
+  display: inline-block;
+  width: 50%;
+}
+.split3 {
+  display: inline-block;
+  width: 33.3%;
+}
+.split4 {
+  display: inline-block;
+  width: 25%;
+}
+.cursor-default {
+  cursor: default;
+}
 /*
   this file is parsed by the palette viewer on admin.
   make sure you stick to this format:
     @variable-name: #hexvalue;
 */
-/*
-
-COLOR
-
-*/
 .blue-chrome {
   color: #34495e;
 }
-.blue-steel {
-  color: #252f3a;
-}
-.midnight-blue {
-  color: #131a21;
-}
-.emerland-light {
-  color: #7ee2a8;
-}
-.emerland {
-  color: #2ecc71;
-}
-.nephritis {
-  color: #27ae60;
-}
-.sempervirens {
-  color: #248a54;
-}
-.amethyst {
-  color: #ac69c7;
-}
-.wisteria {
-  color: #8e44ad;
-}
-.nightfall {
-  color: #642b7b;
-}
-.gold-dust {
-  color: #f3f0de;
-}
-.gold {
-  color: #cbb44e;
-}
-.goldstein {
-  color: #bb9b07;
-}
-.egg-yolk {
-  color: #e7b41a;
-}
-.crayola {
-  color: #6570ff;
-}
-.violet-fox {
-  color: #5248df;
-}
-.indigo {
-  color: #352cb8;
-}
-.citrine {
-  color: #fff55b;
-}
-.sun-flower {
-  color: #f1c40f;
-}
-.orange {
-  color: #f39c12;
-}
-.blue-aragonite {
-  color: #5fccff;
-}
-.peter-river {
-  color: #338fcc;
-}
-.belize-hole {
-  color: #0073bf;
-}
-.waterworld {
-  color: #01568e;
-}
-.carrot {
-  color: #f67a00;
-}
-.pumpkin {
-  color: #d35400;
-}
-.bright-turquoise {
-  color: #44e3e5;
-}
-.turquoise {
-  color: #00ccce;
-}
-.mediterranean {
-  color: #00a0a1;
-}
-.anemone-light {
-  color: #29ffd0;
-}
-.anemone {
-  color: #14ddb3;
-}
-.jungle {
-  color: #1abc9c;
-}
-.green-sea {
-  color: #16a085;
-}
-.clay {
-  color: #ee8176;
-}
-.alizarin {
-  color: #e74c3c;
-}
-.pomegranate {
-  color: #c0392b;
-}
-.bright-bandaid {
-  color: #df9274;
-}
-.bandaid {
-  color: #d48a6d;
-}
-.grey-10 {
-  color: #f7f7f7;
-}
-.grey-20 {
-  color: #efefef;
-}
-.grey-30 {
-  color: #e6e6e6;
-}
-.grey-40 {
-  color: #dcdcdc;
-}
-.grey-50 {
-  color: #c3c3c3;
-}
-.grey-60 {
-  color: #acacac;
-}
-.grey-70 {
-  color: #757575;
-}
-.grey-80 {
-  color: #595959;
-}
-.grey-90 {
-  color: #3f3f3f;
-}
-.grey-100 {
-  color: #2c2c2c;
-}
-.white {
-  color: #ffffff;
-}
-.black {
-  color: #000000;
-}
-/*
-
-BACKGROUND
-
-*/
 .blue-chrome-bkg {
   background-color: #34495e;
-}
-.blue-steel-bkg {
-  background-color: #252f3a;
-}
-.midnight-blue-bkg {
-  background-color: #131a21;
-}
-.emerland-light-bkg {
-  background-color: #7ee2a8;
-}
-.emerland-bkg {
-  background-color: #2ecc71;
-}
-.nephritis-bkg {
-  background-color: #27ae60;
-}
-.sempervirens-bkg {
-  background-color: #248a54;
-}
-.amethyst-bkg {
-  background-color: #ac69c7;
-}
-.wisteria-bkg {
-  background-color: #8e44ad;
-}
-.nightfall-bkg {
-  background-color: #642b7b;
-}
-.gold-dust-bkg {
-  background-color: #f3f0de;
-}
-.gold-bkg {
-  background-color: #cbb44e;
-}
-.goldstein-bkg {
-  background-color: #bb9b07;
-}
-.egg-yolk-bkg {
-  background-color: #e7b41a;
-}
-.crayola-bkg {
-  background-color: #6570ff;
-}
-.violet-fox-bkg {
-  background-color: #5248df;
-}
-.indigo-bkg {
-  background-color: #352cb8;
-}
-.citrine-bkg {
-  background-color: #fff55b;
-}
-.sun-flower-bkg {
-  background-color: #f1c40f;
-}
-.orange-bkg {
-  background-color: #f39c12;
-}
-.blue-aragonite-bkg {
-  background-color: #5fccff;
-}
-.peter-river-bkg {
-  background-color: #338fcc;
-}
-.belize-hole-bkg {
-  background-color: #0073bf;
-}
-.waterworld-bkg {
-  background-color: #01568e;
-}
-.carrot-bkg {
-  background-color: #f67a00;
-}
-.pumpkin-bkg {
-  background-color: #d35400;
-}
-.bright-turquoise-bkg {
-  background-color: #44e3e5;
-}
-.turquoise-bkg {
-  background-color: #00ccce;
-}
-.mediterranean-bkg {
-  background-color: #00a0a1;
-}
-.anemone-light-bkg {
-  background-color: #29ffd0;
-}
-.anemone-bkg {
-  background-color: #14ddb3;
-}
-.jungle-bkg {
-  background-color: #1abc9c;
-}
-.green-sea-bkg {
-  background-color: #16a085;
-}
-.clay-bkg {
-  background-color: #ee8176;
-}
-.alizarin-bkg {
-  background-color: #e74c3c;
-}
-.pomegranate-bkg {
-  background-color: #c0392b;
-}
-.bright-bandaid-bkg {
-  background-color: #df9274;
-}
-.bandaid-bkg {
-  background-color: #d48a6d;
-}
-.grey-10-bkg {
-  background-color: #f7f7f7;
-}
-.grey-20-bkg {
-  background-color: #efefef;
-}
-.grey-30-bkg {
-  background-color: #e6e6e6;
-}
-.grey-40-bkg {
-  background-color: #dcdcdc;
-}
-.grey-50-bkg {
-  background-color: #c3c3c3;
-}
-.grey-60-bkg {
-  background-color: #acacac;
-}
-.grey-70-bkg {
-  background-color: #757575;
-}
-.grey-80-bkg {
-  background-color: #595959;
-}
-.grey-90-bkg {
-  background-color: #3f3f3f;
-}
-.grey-100-bkg {
-  background-color: #2c2c2c;
-}
-.white-bkg {
-  background-color: #ffffff;
-}
-.black-bkg {
-  background-color: #000000;
 }
 .blue-chrome-hover:hover {
   color: #34495e;
 }
-.blue-steel-hover:hover {
-  color: #252f3a;
-}
-.midnight-blue-hover:hover {
-  color: #131a21;
-}
-.emerland-light-hover:hover {
-  color: #7ee2a8;
-}
-.emerland-hover:hover {
-  color: #2ecc71;
-}
-.nephritis-hover:hover {
-  color: #27ae60;
-}
-.sempervirens-hover:hover {
-  color: #248a54;
-}
-.amethyst-hover:hover {
-  color: #ac69c7;
-}
-.wisteria-hover:hover {
-  color: #8e44ad;
-}
-.nightfall-hover:hover {
-  color: #642b7b;
-}
-.gold-dust-hover:hover {
-  color: #f3f0de;
-}
-.gold-hover:hover {
-  color: #cbb44e;
-}
-.goldstein-hover:hover {
-  color: #bb9b07;
-}
-.egg-yolk-hover:hover {
-  color: #e7b41a;
-}
-.crayola-hover:hover {
-  color: #6570ff;
-}
-.violet-fox-hover:hover {
-  color: #5248df;
-}
-.indigo-hover:hover {
-  color: #352cb8;
-}
-.citrine-hover:hover {
-  color: #fff55b;
-}
-.sun-flower-hover:hover {
-  color: #f1c40f;
-}
-.orange-hover:hover {
-  color: #f39c12;
-}
-.blue-aragonite-hover:hover {
-  color: #5fccff;
-}
-.peter-river-hover:hover {
-  color: #338fcc;
-}
-.belize-hole-hover:hover {
-  color: #0073bf;
-}
-.waterworld-hover:hover {
-  color: #01568e;
-}
-.carrot-hover:hover {
-  color: #f67a00;
-}
-.pumpkin-hover:hover {
-  color: #d35400;
-}
-.bright-turquoise-hover:hover {
-  color: #44e3e5;
-}
-.turquoise-hover:hover {
-  color: #00ccce;
-}
-.mediterranean-hover:hover {
-  color: #00a0a1;
-}
-.anemone-light-hover:hover {
-  color: #29ffd0;
-}
-.anemone-hover:hover {
-  color: #14ddb3;
-}
-.jungle-hover:hover {
-  color: #1abc9c;
-}
-.green-sea-hover:hover {
-  color: #16a085;
-}
-.clay-hover:hover {
-  color: #ee8176;
-}
-.alizarin-hover:hover {
-  color: #e74c3c;
-}
-.pomegranate-hover:hover {
-  color: #c0392b;
-}
-.bright-bandaid-hover:hover {
-  color: #df9274;
-}
-.bandaid-hover:hover {
-  color: #d48a6d;
-}
-.grey-10-hover:hover {
-  color: #f7f7f7;
-}
-.grey-20-hover:hover {
-  color: #efefef;
-}
-.grey-30-hover:hover {
-  color: #e6e6e6;
-}
-.grey-40-hover:hover {
-  color: #dcdcdc;
-}
-.grey-50-hover:hover {
-  color: #c3c3c3;
-}
-.grey-60-hover:hover {
-  color: #acacac;
-}
-.grey-70-hover:hover {
-  color: #757575;
-}
-.grey-80-hover:hover {
-  color: #595959;
-}
-.grey-90-hover:hover {
-  color: #3f3f3f;
-}
-.grey-100-hover:hover {
-  color: #2c2c2c;
-}
-.white-hover:hover {
-  color: #ffffff;
-}
-.black-hover:hover {
-  color: #000000;
-}
 .blue-chrome-hover-bkg:hover {
   background-color: #34495e;
+}
+.blue-chrome-border {
+  border-color: #34495e;
+}
+.blue-steel {
+  color: #252f3a;
+}
+.blue-steel-bkg {
+  background-color: #252f3a;
+}
+.blue-steel-hover:hover {
+  color: #252f3a;
 }
 .blue-steel-hover-bkg:hover {
   background-color: #252f3a;
 }
-.midnight-blue-hover-bkg:hover {
-  background-color: #131a21;
-}
-.emerland-light-hover-bkg:hover {
-  background-color: #7ee2a8;
-}
-.emerland-hover-bkg:hover {
-  background-color: #2ecc71;
-}
-.nephritis-hover-bkg:hover {
-  background-color: #27ae60;
-}
-.sempervirens-hover-bkg:hover {
-  background-color: #248a54;
-}
-.amethyst-hover-bkg:hover {
-  background-color: #ac69c7;
-}
-.wisteria-hover-bkg:hover {
-  background-color: #8e44ad;
-}
-.nightfall-hover-bkg:hover {
-  background-color: #642b7b;
-}
-.gold-dust-hover-bkg:hover {
-  background-color: #f3f0de;
-}
-.gold-hover-bkg:hover {
-  background-color: #cbb44e;
-}
-.goldstein-hover-bkg:hover {
-  background-color: #bb9b07;
-}
-.egg-yolk-hover-bkg:hover {
-  background-color: #e7b41a;
-}
-.crayola-hover-bkg:hover {
-  background-color: #6570ff;
-}
-.violet-fox-hover-bkg:hover {
-  background-color: #5248df;
-}
-.indigo-hover-bkg:hover {
-  background-color: #352cb8;
-}
-.citrine-hover-bkg:hover {
-  background-color: #fff55b;
-}
-.sun-flower-hover-bkg:hover {
-  background-color: #f1c40f;
-}
-.orange-hover-bkg:hover {
-  background-color: #f39c12;
-}
-.blue-aragonite-hover-bkg:hover {
-  background-color: #5fccff;
-}
-.peter-river-hover-bkg:hover {
-  background-color: #338fcc;
-}
-.belize-hole-hover-bkg:hover {
-  background-color: #0073bf;
-}
-.waterworld-hover-bkg:hover {
-  background-color: #01568e;
-}
-.carrot-hover-bkg:hover {
-  background-color: #f67a00;
-}
-.pumpkin-hover-bkg:hover {
-  background-color: #d35400;
-}
-.bright-turquoise-hover-bkg:hover {
-  background-color: #44e3e5;
-}
-.turquoise-hover-bkg:hover {
-  background-color: #00ccce;
-}
-.mediterranean-hover-bkg:hover {
-  background-color: #00a0a1;
-}
-.anemone-light-hover-bkg:hover {
-  background-color: #29ffd0;
-}
-.anemone-hover-bkg:hover {
-  background-color: #14ddb3;
-}
-.jungle-hover-bkg:hover {
-  background-color: #1abc9c;
-}
-.green-sea-hover-bkg:hover {
-  background-color: #16a085;
-}
-.clay-hover-bkg:hover {
-  background-color: #ee8176;
-}
-.alizarin-hover-bkg:hover {
-  background-color: #e74c3c;
-}
-.pomegranate-hover-bkg:hover {
-  background-color: #c0392b;
-}
-.bright-bandaid-hover-bkg:hover {
-  background-color: #df9274;
-}
-.bandaid-hover-bkg:hover {
-  background-color: #d48a6d;
-}
-.grey-10-hover-bkg:hover {
-  background-color: #f7f7f7;
-}
-.grey-20-hover-bkg:hover {
-  background-color: #efefef;
-}
-.grey-30-hover-bkg:hover {
-  background-color: #e6e6e6;
-}
-.grey-40-hover-bkg:hover {
-  background-color: #dcdcdc;
-}
-.grey-50-hover-bkg:hover {
-  background-color: #c3c3c3;
-}
-.grey-60-hover-bkg:hover {
-  background-color: #acacac;
-}
-.grey-70-hover-bkg:hover {
-  background-color: #757575;
-}
-.grey-80-hover-bkg:hover {
-  background-color: #595959;
-}
-.grey-90-hover-bkg:hover {
-  background-color: #3f3f3f;
-}
-.grey-100-hover-bkg:hover {
-  background-color: #2c2c2c;
-}
-.white-hover-bkg:hover {
-  background-color: #ffffff;
-}
-.black-hover-bkg:hover {
-  background-color: #000000;
-}
-/*
-
-BORDERS
-
-*/
-.blue-chrome-border {
-  border-color: #34495e;
-}
 .blue-steel-border {
   border-color: #252f3a;
+}
+.midnight-blue {
+  color: #131a21;
+}
+.midnight-blue-bkg {
+  background-color: #131a21;
+}
+.midnight-blue-hover:hover {
+  color: #131a21;
+}
+.midnight-blue-hover-bkg:hover {
+  background-color: #131a21;
 }
 .midnight-blue-border {
   border-color: #131a21;
 }
-.emerland-light-border {
-  border-color: #7ee2a8;
+.emerland {
+  color: #2ecc71;
+}
+.emerland-bkg {
+  background-color: #2ecc71;
+}
+.emerland-hover:hover {
+  color: #2ecc71;
+}
+.emerland-hover-bkg:hover {
+  background-color: #2ecc71;
 }
 .emerland-border {
   border-color: #2ecc71;
 }
+.nephritis {
+  color: #27ae60;
+}
+.nephritis-bkg {
+  background-color: #27ae60;
+}
+.nephritis-hover:hover {
+  color: #27ae60;
+}
+.nephritis-hover-bkg:hover {
+  background-color: #27ae60;
+}
 .nephritis-border {
   border-color: #27ae60;
+}
+.sempervirens {
+  color: #248a54;
+}
+.sempervirens-bkg {
+  background-color: #248a54;
+}
+.sempervirens-hover:hover {
+  color: #248a54;
+}
+.sempervirens-hover-bkg:hover {
+  background-color: #248a54;
 }
 .sempervirens-border {
   border-color: #248a54;
 }
+.emerland-light {
+  color: #7ee2a8;
+}
+.emerland-light-bkg {
+  background-color: #7ee2a8;
+}
+.emerland-light-hover:hover {
+  color: #7ee2a8;
+}
+.emerland-light-hover-bkg:hover {
+  background-color: #7ee2a8;
+}
+.emerland-light-border {
+  border-color: #7ee2a8;
+}
+.amethyst {
+  color: #ac69c7;
+}
+.amethyst-bkg {
+  background-color: #ac69c7;
+}
+.amethyst-hover:hover {
+  color: #ac69c7;
+}
+.amethyst-hover-bkg:hover {
+  background-color: #ac69c7;
+}
 .amethyst-border {
   border-color: #ac69c7;
+}
+.wisteria {
+  color: #8e44ad;
+}
+.wisteria-bkg {
+  background-color: #8e44ad;
+}
+.wisteria-hover:hover {
+  color: #8e44ad;
+}
+.wisteria-hover-bkg:hover {
+  background-color: #8e44ad;
 }
 .wisteria-border {
   border-color: #8e44ad;
 }
+.nightfall {
+  color: #642b7b;
+}
+.nightfall-bkg {
+  background-color: #642b7b;
+}
+.nightfall-hover:hover {
+  color: #642b7b;
+}
+.nightfall-hover-bkg:hover {
+  background-color: #642b7b;
+}
 .nightfall-border {
   border-color: #642b7b;
+}
+.gold-dust {
+  color: #f3f0de;
+}
+.gold-dust-bkg {
+  background-color: #f3f0de;
+}
+.gold-dust-hover:hover {
+  color: #f3f0de;
+}
+.gold-dust-hover-bkg:hover {
+  background-color: #f3f0de;
 }
 .gold-dust-border {
   border-color: #f3f0de;
 }
+.gold {
+  color: #cbb44e;
+}
+.gold-bkg {
+  background-color: #cbb44e;
+}
+.gold-hover:hover {
+  color: #cbb44e;
+}
+.gold-hover-bkg:hover {
+  background-color: #cbb44e;
+}
 .gold-border {
   border-color: #cbb44e;
+}
+.goldstein {
+  color: #bb9b07;
+}
+.goldstein-bkg {
+  background-color: #bb9b07;
+}
+.goldstein-hover:hover {
+  color: #bb9b07;
+}
+.goldstein-hover-bkg:hover {
+  background-color: #bb9b07;
 }
 .goldstein-border {
   border-color: #bb9b07;
 }
+.egg-yolk {
+  color: #e7b41a;
+}
+.egg-yolk-bkg {
+  background-color: #e7b41a;
+}
+.egg-yolk-hover:hover {
+  color: #e7b41a;
+}
+.egg-yolk-hover-bkg:hover {
+  background-color: #e7b41a;
+}
 .egg-yolk-border {
   border-color: #e7b41a;
+}
+.crayola {
+  color: #6570ff;
+}
+.crayola-bkg {
+  background-color: #6570ff;
+}
+.crayola-hover:hover {
+  color: #6570ff;
+}
+.crayola-hover-bkg:hover {
+  background-color: #6570ff;
 }
 .crayola-border {
   border-color: #6570ff;
 }
+.violet-fox {
+  color: #5248df;
+}
+.violet-fox-bkg {
+  background-color: #5248df;
+}
+.violet-fox-hover:hover {
+  color: #5248df;
+}
+.violet-fox-hover-bkg:hover {
+  background-color: #5248df;
+}
 .violet-fox-border {
   border-color: #5248df;
+}
+.indigo {
+  color: #352cb8;
+}
+.indigo-bkg {
+  background-color: #352cb8;
+}
+.indigo-hover:hover {
+  color: #352cb8;
+}
+.indigo-hover-bkg:hover {
+  background-color: #352cb8;
 }
 .indigo-border {
   border-color: #352cb8;
 }
+.citrine {
+  color: #fff55b;
+}
+.citrine-bkg {
+  background-color: #fff55b;
+}
+.citrine-hover:hover {
+  color: #fff55b;
+}
+.citrine-hover-bkg:hover {
+  background-color: #fff55b;
+}
 .citrine-border {
   border-color: #fff55b;
+}
+.sun-flower {
+  color: #f1c40f;
+}
+.sun-flower-bkg {
+  background-color: #f1c40f;
+}
+.sun-flower-hover:hover {
+  color: #f1c40f;
+}
+.sun-flower-hover-bkg:hover {
+  background-color: #f1c40f;
 }
 .sun-flower-border {
   border-color: #f1c40f;
 }
+.orange {
+  color: #f39c12;
+}
+.orange-bkg {
+  background-color: #f39c12;
+}
+.orange-hover:hover {
+  color: #f39c12;
+}
+.orange-hover-bkg:hover {
+  background-color: #f39c12;
+}
 .orange-border {
   border-color: #f39c12;
+}
+.blue-aragonite {
+  color: #5fccff;
+}
+.blue-aragonite-bkg {
+  background-color: #5fccff;
+}
+.blue-aragonite-hover:hover {
+  color: #5fccff;
+}
+.blue-aragonite-hover-bkg:hover {
+  background-color: #5fccff;
 }
 .blue-aragonite-border {
   border-color: #5fccff;
 }
+.peter-river {
+  color: #338fcc;
+}
+.peter-river-bkg {
+  background-color: #338fcc;
+}
+.peter-river-hover:hover {
+  color: #338fcc;
+}
+.peter-river-hover-bkg:hover {
+  background-color: #338fcc;
+}
 .peter-river-border {
   border-color: #338fcc;
+}
+.belize-hole {
+  color: #0073bf;
+}
+.belize-hole-bkg {
+  background-color: #0073bf;
+}
+.belize-hole-hover:hover {
+  color: #0073bf;
+}
+.belize-hole-hover-bkg:hover {
+  background-color: #0073bf;
 }
 .belize-hole-border {
   border-color: #0073bf;
 }
+.waterworld {
+  color: #01568e;
+}
+.waterworld-bkg {
+  background-color: #01568e;
+}
+.waterworld-hover:hover {
+  color: #01568e;
+}
+.waterworld-hover-bkg:hover {
+  background-color: #01568e;
+}
 .waterworld-border {
   border-color: #01568e;
+}
+.carrot {
+  color: #f67a00;
+}
+.carrot-bkg {
+  background-color: #f67a00;
+}
+.carrot-hover:hover {
+  color: #f67a00;
+}
+.carrot-hover-bkg:hover {
+  background-color: #f67a00;
 }
 .carrot-border {
   border-color: #f67a00;
 }
+.pumpkin {
+  color: #d35400;
+}
+.pumpkin-bkg {
+  background-color: #d35400;
+}
+.pumpkin-hover:hover {
+  color: #d35400;
+}
+.pumpkin-hover-bkg:hover {
+  background-color: #d35400;
+}
 .pumpkin-border {
   border-color: #d35400;
+}
+.bright-turquoise {
+  color: #44e3e5;
+}
+.bright-turquoise-bkg {
+  background-color: #44e3e5;
+}
+.bright-turquoise-hover:hover {
+  color: #44e3e5;
+}
+.bright-turquoise-hover-bkg:hover {
+  background-color: #44e3e5;
 }
 .bright-turquoise-border {
   border-color: #44e3e5;
 }
+.turquoise {
+  color: #00ccce;
+}
+.turquoise-bkg {
+  background-color: #00ccce;
+}
+.turquoise-hover:hover {
+  color: #00ccce;
+}
+.turquoise-hover-bkg:hover {
+  background-color: #00ccce;
+}
 .turquoise-border {
   border-color: #00ccce;
+}
+.mediterranean {
+  color: #00a0a1;
+}
+.mediterranean-bkg {
+  background-color: #00a0a1;
+}
+.mediterranean-hover:hover {
+  color: #00a0a1;
+}
+.mediterranean-hover-bkg:hover {
+  background-color: #00a0a1;
 }
 .mediterranean-border {
   border-color: #00a0a1;
 }
+.anemone-light {
+  color: #29ffd0;
+}
+.anemone-light-bkg {
+  background-color: #29ffd0;
+}
+.anemone-light-hover:hover {
+  color: #29ffd0;
+}
+.anemone-light-hover-bkg:hover {
+  background-color: #29ffd0;
+}
 .anemone-light-border {
   border-color: #29ffd0;
+}
+.anemone {
+  color: #14ddb3;
+}
+.anemone-bkg {
+  background-color: #14ddb3;
+}
+.anemone-hover:hover {
+  color: #14ddb3;
+}
+.anemone-hover-bkg:hover {
+  background-color: #14ddb3;
 }
 .anemone-border {
   border-color: #14ddb3;
 }
+.jungle {
+  color: #1abc9c;
+}
+.jungle-bkg {
+  background-color: #1abc9c;
+}
+.jungle-hover:hover {
+  color: #1abc9c;
+}
+.jungle-hover-bkg:hover {
+  background-color: #1abc9c;
+}
 .jungle-border {
   border-color: #1abc9c;
+}
+.green-sea {
+  color: #16a085;
+}
+.green-sea-bkg {
+  background-color: #16a085;
+}
+.green-sea-hover:hover {
+  color: #16a085;
+}
+.green-sea-hover-bkg:hover {
+  background-color: #16a085;
 }
 .green-sea-border {
   border-color: #16a085;
 }
+.clay {
+  color: #ee8176;
+}
+.clay-bkg {
+  background-color: #ee8176;
+}
+.clay-hover:hover {
+  color: #ee8176;
+}
+.clay-hover-bkg:hover {
+  background-color: #ee8176;
+}
 .clay-border {
   border-color: #ee8176;
+}
+.alizarin {
+  color: #e74c3c;
+}
+.alizarin-bkg {
+  background-color: #e74c3c;
+}
+.alizarin-hover:hover {
+  color: #e74c3c;
+}
+.alizarin-hover-bkg:hover {
+  background-color: #e74c3c;
 }
 .alizarin-border {
   border-color: #e74c3c;
 }
+.pomegranate {
+  color: #c0392b;
+}
+.pomegranate-bkg {
+  background-color: #c0392b;
+}
+.pomegranate-hover:hover {
+  color: #c0392b;
+}
+.pomegranate-hover-bkg:hover {
+  background-color: #c0392b;
+}
 .pomegranate-border {
   border-color: #c0392b;
+}
+.bright-bandaid {
+  color: #df9274;
+}
+.bright-bandaid-bkg {
+  background-color: #df9274;
+}
+.bright-bandaid-hover:hover {
+  color: #df9274;
+}
+.bright-bandaid-hover-bkg:hover {
+  background-color: #df9274;
 }
 .bright-bandaid-border {
   border-color: #df9274;
 }
+.bandaid {
+  color: #d48a6d;
+}
+.bandaid-bkg {
+  background-color: #d48a6d;
+}
+.bandaid-hover:hover {
+  color: #d48a6d;
+}
+.bandaid-hover-bkg:hover {
+  background-color: #d48a6d;
+}
 .bandaid-border {
   border-color: #d48a6d;
+}
+.grey-10 {
+  color: #f7f7f7;
+}
+.grey-10-bkg {
+  background-color: #f7f7f7;
+}
+.grey-10-hover:hover {
+  color: #f7f7f7;
+}
+.grey-10-hover-bkg:hover {
+  background-color: #f7f7f7;
 }
 .grey-10-border {
   border-color: #f7f7f7;
 }
+.grey-20 {
+  color: #efefef;
+}
+.grey-20-bkg {
+  background-color: #efefef;
+}
+.grey-20-hover:hover {
+  color: #efefef;
+}
+.grey-20-hover-bkg:hover {
+  background-color: #efefef;
+}
 .grey-20-border {
   border-color: #efefef;
+}
+.grey-30 {
+  color: #e6e6e6;
+}
+.grey-30-bkg {
+  background-color: #e6e6e6;
+}
+.grey-30-hover:hover {
+  color: #e6e6e6;
+}
+.grey-30-hover-bkg:hover {
+  background-color: #e6e6e6;
 }
 .grey-30-border {
   border-color: #e6e6e6;
 }
+.grey-40 {
+  color: #dcdcdc;
+}
+.grey-40-bkg {
+  background-color: #dcdcdc;
+}
+.grey-40-hover:hover {
+  color: #dcdcdc;
+}
+.grey-40-hover-bkg:hover {
+  background-color: #dcdcdc;
+}
 .grey-40-border {
   border-color: #dcdcdc;
+}
+.grey-50 {
+  color: #c3c3c3;
+}
+.grey-50-bkg {
+  background-color: #c3c3c3;
+}
+.grey-50-hover:hover {
+  color: #c3c3c3;
+}
+.grey-50-hover-bkg:hover {
+  background-color: #c3c3c3;
 }
 .grey-50-border {
   border-color: #c3c3c3;
 }
+.grey-60 {
+  color: #acacac;
+}
+.grey-60-bkg {
+  background-color: #acacac;
+}
+.grey-60-hover:hover {
+  color: #acacac;
+}
+.grey-60-hover-bkg:hover {
+  background-color: #acacac;
+}
 .grey-60-border {
   border-color: #acacac;
+}
+.grey-70 {
+  color: #757575;
+}
+.grey-70-bkg {
+  background-color: #757575;
+}
+.grey-70-hover:hover {
+  color: #757575;
+}
+.grey-70-hover-bkg:hover {
+  background-color: #757575;
 }
 .grey-70-border {
   border-color: #757575;
 }
+.grey-80 {
+  color: #595959;
+}
+.grey-80-bkg {
+  background-color: #595959;
+}
+.grey-80-hover:hover {
+  color: #595959;
+}
+.grey-80-hover-bkg:hover {
+  background-color: #595959;
+}
 .grey-80-border {
   border-color: #595959;
+}
+.grey-90 {
+  color: #3f3f3f;
+}
+.grey-90-bkg {
+  background-color: #3f3f3f;
+}
+.grey-90-hover:hover {
+  color: #3f3f3f;
+}
+.grey-90-hover-bkg:hover {
+  background-color: #3f3f3f;
 }
 .grey-90-border {
   border-color: #3f3f3f;
 }
+.grey-100 {
+  color: #2c2c2c;
+}
+.grey-100-bkg {
+  background-color: #2c2c2c;
+}
+.grey-100-hover:hover {
+  color: #2c2c2c;
+}
+.grey-100-hover-bkg:hover {
+  background-color: #2c2c2c;
+}
 .grey-100-border {
   border-color: #2c2c2c;
 }
+.white {
+  color: #ffffff;
+}
+.white-bkg {
+  background-color: #ffffff;
+}
+.white-hover:hover {
+  color: #ffffff;
+}
+.white-hover-bkg:hover {
+  background-color: #ffffff;
+}
 .white-border {
   border-color: #ffffff;
+}
+.black {
+  color: #000000;
+}
+.black-bkg {
+  background-color: #000000;
+}
+.black-hover:hover {
+  color: #000000;
+}
+.black-hover-bkg:hover {
+  background-color: #000000;
 }
 .black-border {
   border-color: #000000;
@@ -9267,7 +9569,7 @@ select:not(.no-flat-select) {
   opacity: 0.9;
   filter: alpha(opacity=90);
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
-  z-index: 9999;
+  z-index: 998;
   background: #fff;
 }
 .spinner .spinner-msg {
@@ -9278,290 +9580,5 @@ select:not(.no-flat-select) {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   z-index: 2;
   position: relative;
-}
-a,
-label,
-.pointer {
-  cursor: pointer;
-}
-.block {
-  display: block;
-}
-.inline-block {
-  display: inline-block;
-}
-.inline {
-  display: inline;
-}
-.display-table {
-  display: table;
-}
-.display-table-cell {
-  display: table-cell;
-}
-.nowrap {
-  white-space: nowrap;
-}
-.no-margin {
-  margin: 0px;
-}
-.transition-none {
-  -webkit-transition: none !important;
-  transition: none !important;
-}
-.relative {
-  position: relative;
-}
-.absolute {
-  position: absolute;
-}
-.fixed {
-  position: fixed;
-}
-.background-position-y-bottom {
-  background-position: center bottom;
-}
-.background-position-y-top {
-  background-position: center top;
-}
-.background-position-center {
-  background-position: center;
-}
-.yeswrap {
-  white-space: normal;
-}
-.ellipsis {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.invisible {
-  visibility: hidden;
-}
-.invisible-important {
-  visibility: hidden !important;
-}
-.visible {
-  visibility: visible;
-}
-.full-width {
-  width: 100%;
-}
-@media (max-width: 767px) {
-  .full-width-on-xs {
-    width: 100%;
-    max-width: 100%;
-    min-width: 100%;
-  }
-}
-.width-0 {
-  width: 0%;
-}
-.width-0-important {
-  width: 0% !important;
-}
-.width-25 {
-  width: 25%;
-  min-width: 25%;
-  max-width: 25%;
-}
-.width-33 {
-  width: 33.33333%;
-  min-width: 33.33333%;
-  max-width: 33.33333%;
-}
-.width-50 {
-  width: 50%;
-  min-width: 50%;
-  max-width: 50%;
-}
-.width-66 {
-  width: 66.66667%;
-  min-width: 66.66667%;
-  max-width: 66.66667%;
-}
-.width-75 {
-  width: 75%;
-  min-width: 75%;
-  max-width: 75%;
-}
-.width-90 {
-  width: 90%;
-  min-width: 90%;
-  max-width: 90%;
-}
-.width-100 {
-  width: 100%;
-}
-.width-100-important {
-  width: 100% !important;
-}
-.min-width-0 {
-  min-width: 0%;
-}
-.full-height {
-  height: 100%;
-}
-.header-height {
-  height: 60px;
-}
-.center {
-  display: block;
-  margin: 0 auto;
-}
-.overflow-y {
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-.overflow-y.overflow-x {
-  overflow-x: visible;
-}
-.overflow-x {
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-.overflow-x.overflow-y {
-  overflow-y: visible;
-}
-.overflow-hidden {
-  overflow: hidden;
-}
-.main-content {
-  position: absolute;
-  bottom: 0px;
-  top: 60px;
-  width: 100%;
-  overflow: none;
-}
-.help {
-  display: inline-block;
-}
-.help span {
-  font-size: 26px;
-  position: relative;
-  line-height: 10px;
-}
-.help span:hover {
-  color: #757575;
-}
-@media (max-width: 767px) {
-  .hidden-phone {
-    display: none !important;
-  }
-}
-@media (max-width: 767px) {
-  .visible-inline-block-phone {
-    display: inline-block !important;
-  }
-}
-@media (max-width: 991px) {
-  .visible-inline-block-tablet {
-    display: inline-block !important;
-  }
-}
-.invisible-phone {
-  visibility: hidden;
-}
-@media (min-width: 768px) {
-  .invisible-phone {
-    visibility: visible;
-  }
-}
-.invisible-tablet {
-  visibility: hidden;
-}
-@media (min-width: 992px) {
-  .invisible-tablet {
-    visibility: visible;
-  }
-}
-.hover-opacity-0:hover {
-  opacity: 0;
-}
-/*
-  used to fix rendering issues. for example, transitions measuring with improper rounding
-  see: http://stackoverflow.com/questions/15051557/very-difficult-to-solve-and-strange-css3-opacity-transition-issue-must-be-a
-*/
-.webkit-hardware-accel {
-  -webkit-transform: translateZ(0);
-}
-.unimportant-hide {
-  display: none;
-}
-.vertical-top {
-  vertical-align: top !important;
-}
-.vertical-middle {
-  vertical-align: middle !important;
-}
-.vertical-bottom {
-  vertical-align: bottom !important;
-}
-.z1up {
-  z-index: 1;
-}
-.z500up {
-  z-index: 500;
-}
-.z2500up {
-  z-index: 2500;
-}
-.nudge-left {
-  left: -2px !important;
-}
-.nudge-left-large {
-  left: -5px !important;
-}
-.nudge-right {
-  left: 2px !important;
-}
-.nudge-right-large {
-  left: 5px !important;
-}
-.nudge-up {
-  top: -2px !important;
-}
-.nudge-up-large {
-  top: -5px !important;
-}
-.nudge-down {
-  top: 2px !important;
-}
-.nudge-down-large {
-  top: 5px !important;
-}
-.border-radius-large {
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-}
-.border-radius-top-large {
-  -webkit-border-radius: 6px 6px 0 0;
-  -moz-border-radius: 6px 6px 0 0;
-  border-radius: 6px 6px 0 0;
-}
-/*
-  when adding two splits next to each other, DO NOT separate them with whitespace
-  use a comment instead, like this:
-     <div class="split2">
-     </div><!--
-     use comment to make code readable (whitespace will add additional pixels)
-  --><div class="split2">
-
-*/
-.split2 {
-  display: inline-block;
-  width: 50%;
-}
-.split3 {
-  display: inline-block;
-  width: 33.3%;
-}
-.split4 {
-  display: inline-block;
-  width: 25%;
-}
-.cursor-default {
-  cursor: default;
 }
 /*# sourceMappingURL=behavior-ui-bootstrap.css.map */

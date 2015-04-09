@@ -17314,6 +17314,7 @@ Chart = new Class({
       colors: this.options.colors,
       plotOptions: {
         series: {
+          turboThreshold: 2000,
           animation: {
             duration: 500,
             transition: Fx.Transitions.Pow.easeOut
@@ -18282,83 +18283,113 @@ provides: [Behavior.Chart]
 ...
 */
 
-Behavior.addGlobalFilter('Chart', {
+(function(){
 
-  defaults: {
-    exportable: true
-  },
+  // determines if an element is visible
+  var isVisible = function(el){
+    return !!(!el || el.offsetHeight || el.offsetWidth);
+  };
 
-  returns: Chart,
 
-  setup: function(el, api){
+  Behavior.addGlobalFilter('Chart', {
 
-    var options = Object.cleanValues(
-      api.getAs({
-        v2Styles: Boolean,
-        xAxis: Object,
-        yAxis: Object,
-        tooltips: Boolean,
-        showTitle: Boolean,
-        showSubTitle: Boolean,
-        showLegend: Boolean,
-        exportable: Boolean,
-        showLabels: Boolean,
-        showMarkers: Boolean,
-        pointUrl: String,
-        flagUrl: String,
-        data: Object,
-        url: String,
-        useSpinner: Boolean,
-        seriesType: String,
-        columnStacking: String,
-        columnGrouping: String,
-        legendRowSize: Number,
-        legendItemWidth: Number,
-        baseHeight: Number,
-        showFlagsInLegend: Boolean,
-        navigatorSeriesColor: String,
-        margin: Array,
-        size: Object,
-        sizeToElement: Boolean,
-        zoomable: Boolean,
-        dateFormat: String,
-        plotBorderWidth: Number,
-        plotBorderColor: String,
-        plotBackgroundColor: String,
-        stack: String,
-        showTotal: Boolean,
-        fetchEvery: Number,
-        navigation: Object,
-        colors: Array,
-        minPointLength: Number
-      })
-    );
+    defaults: {
+      exportable: true
+    },
 
-    if (api.get('dataElement')){
-      var dataElement = api.getElement('dataElement', 'warn');
-      if (dataElement){
-        options = Object.merge(options, {
-          data: {
-            table: dataElement
+    returns: Chart,
+
+    // custom initializer to prevent charts from initializing before they are displayed
+    initializer: function(element, api){
+      // if the element is visible on startup, show it.
+      if (isVisible(element)) return api.runSetup();
+      else {
+        // measure it every quarter second
+        var timer = (function(){
+          // if the element isn't in the DOM anymore, stop checking
+          if (!document.body.contains(element)){
+            clearInterval(timer);
+          // if it's visible, stop the timer and show it
+          } else if (isVisible(element)){
+            clearInterval(timer);
+            api.runSetup();
           }
-        });
+        }).periodical(250);
       }
+    },
+
+    setup: function(el, api){
+
+      var options = Object.cleanValues(
+        api.getAs({
+          v2Styles: Boolean,
+          xAxis: Object,
+          yAxis: Object,
+          tooltips: Boolean,
+          showTitle: Boolean,
+          showSubTitle: Boolean,
+          showLegend: Boolean,
+          exportable: Boolean,
+          showLabels: Boolean,
+          showMarkers: Boolean,
+          pointUrl: String,
+          flagUrl: String,
+          data: Object,
+          url: String,
+          useSpinner: Boolean,
+          seriesType: String,
+          columnStacking: String,
+          columnGrouping: String,
+          legendRowSize: Number,
+          legendItemWidth: Number,
+          baseHeight: Number,
+          showFlagsInLegend: Boolean,
+          navigatorSeriesColor: String,
+          margin: Array,
+          size: Object,
+          sizeToElement: Boolean,
+          zoomable: Boolean,
+          dateFormat: String,
+          plotBorderWidth: Number,
+          plotBorderColor: String,
+          plotBackgroundColor: String,
+          stack: String,
+          showTotal: Boolean,
+          fetchEvery: Number,
+          navigation: Object,
+          colors: Array,
+          minPointLength: Number
+        })
+      );
+
+      if (api.get('dataElement')){
+        var dataElement = api.getElement('dataElement', 'warn');
+        if (dataElement){
+          options = Object.merge(options, {
+            data: {
+              table: dataElement
+            }
+          });
+        }
+      }
+
+      if (!options.data && !options.url) api.fail('cannot create chart without a url or a data object.');
+
+      var chart = new Chart(el, options).addEvents({
+        // when the chart is instantiated, we pass the event up to our Behavior instance
+        onChartCreated: function(){
+          api.fireEvent('chartCreated', [el, chart]);
+        }
+      }).update();
+      api.onCleanup(function(){
+        chart.destroy();
+      });
+      return chart;
     }
+  });
 
-    if (!options.data && !options.url) api.fail('cannot create chart without a url or a data object.');
+})();
 
-    var chart = new Chart(el, options).addEvents({
-      // when the chart is instantiated, we pass the event up to our Behavior instance
-      onChartCreated: function(){
-        api.fireEvent('chartCreated', [el, chart]);
-      }
-    }).update();
-    api.onCleanup(function(){
-      chart.destroy();
-    });
-    return chart;
-  }
-});
 /*
 ---
 
@@ -18779,83 +18810,111 @@ provides: [Behavior.Chart.Stock]
 ...
 */
 
-Behavior.addGlobalFilter('Chart.Stock', {
+(function(){
+  // determines if an element is visible
+  var isVisible = function(el){
+    return !!(!el || el.offsetHeight || el.offsetWidth);
+  };
 
-  defaults: {
-    exportable: true
-  },
+  Behavior.addGlobalFilter('Chart.Stock', {
 
-  returns: Chart.Stock,
+    defaults: {
+      exportable: true
+    },
 
-  setup: function(el, api){
+    returns: Chart.Stock,
 
-    var options = Object.cleanValues(
-      api.getAs({
-        v2Styles: Boolean,
-        xAxis: Object,
-        yAxis: Object,
-        tooltips: Boolean,
-        showTitle: Boolean,
-        showSubTitle: Boolean,
-        showLegend: Boolean,
-        exportable: Boolean,
-        showLabels: Boolean,
-        showMarkers: Boolean,
-        pointUrl: String,
-        flagUrl: String,
-        data: Object,
-        url: String,
-        useSpinner: Boolean,
-        seriesType: String,
-        columnStacking: String,
-        columnGrouping: String,
-        legendRowSize: Number,
-        legendItemWidth: Number,
-        baseHeight: Number,
-        showFlagsInLegend: Boolean,
-        navigatorSeriesColor: String,
-        margin: Array,
-        size: Object,
-        sizeToElement: Boolean,
-        zoomable: Boolean,
-        dateFormat: String,
-        plotBorderWidth: Number,
-        plotBorderColor: String,
-        plotBackgroundColor: String,
-        stack: String,
-        showTotal: Boolean,
-        fetchEvery: Number,
-        navigation: Object,
-        colors: Array,
-        minPointLength: Number
-      })
-    );
-
-    if (api.get('dataElement')){
-      var dataElement = api.getElement('dataElement', 'warn');
-      if (dataElement){
-        options = Object.merge(options, {
-          data: {
-            table: dataElement
+    // custom initializer to prevent charts from initializing before they are displayed
+    initializer: function(element, api){
+      // if the element is visible on startup, show it.
+      if (isVisible(element)) return api.runSetup();
+      else {
+        // measure it every quarter second
+        var timer = (function(){
+          // if the element isn't in the DOM anymore, stop checking
+          if (!document.body.contains(element)){
+            clearInterval(timer);
+          // if it's visible, stop the timer and show it
+          } else if (isVisible(element)){
+            clearInterval(timer);
+            api.runSetup();
           }
-        });
+        }).periodical(250);
       }
+    },
+
+    setup: function(el, api){
+
+      var options = Object.cleanValues(
+        api.getAs({
+          v2Styles: Boolean,
+          xAxis: Object,
+          yAxis: Object,
+          tooltips: Boolean,
+          showTitle: Boolean,
+          showSubTitle: Boolean,
+          showLegend: Boolean,
+          exportable: Boolean,
+          showLabels: Boolean,
+          showMarkers: Boolean,
+          pointUrl: String,
+          flagUrl: String,
+          data: Object,
+          url: String,
+          useSpinner: Boolean,
+          seriesType: String,
+          columnStacking: String,
+          columnGrouping: String,
+          legendRowSize: Number,
+          legendItemWidth: Number,
+          baseHeight: Number,
+          showFlagsInLegend: Boolean,
+          navigatorSeriesColor: String,
+          margin: Array,
+          size: Object,
+          sizeToElement: Boolean,
+          zoomable: Boolean,
+          dateFormat: String,
+          plotBorderWidth: Number,
+          plotBorderColor: String,
+          plotBackgroundColor: String,
+          stack: String,
+          showTotal: Boolean,
+          fetchEvery: Number,
+          navigation: Object,
+          colors: Array,
+          minPointLength: Number
+        })
+      );
+
+      if (api.get('dataElement')){
+        var dataElement = api.getElement('dataElement', 'warn');
+        if (dataElement){
+          options = Object.merge(options, {
+            data: {
+              table: dataElement
+            }
+          });
+        }
+      }
+
+      if (!options.data && !options.url) api.fail('cannot create chart without a url or a data object.');
+
+      var chart = new Chart.Stock(el, options).addEvents({
+        // when the chart is instantiated, we pass the event up to our Behavior instance
+        onChartCreated: function(){
+          api.fireEvent('chartCreated', [el, chart]);
+        }
+      }).update();
+      api.onCleanup(function(){
+        chart.destroy();
+      });
+      return chart;
     }
+  });
 
-    if (!options.data && !options.url) api.fail('cannot create chart without a url or a data object.');
+})();
 
-    var chart = new Chart.Stock(el, options).addEvents({
-      // when the chart is instantiated, we pass the event up to our Behavior instance
-      onChartCreated: function(){
-        api.fireEvent('chartCreated', [el, chart]);
-      }
-    }).update();
-    api.onCleanup(function(){
-      chart.destroy();
-    });
-    return chart;
-  }
-});
 /*
 ---
 
@@ -19748,8 +19807,12 @@ var MooRainbow = ColorPicker = new Class({options: {
     }.bind(this));
 
     inputs.each(function(el){
-      el.addEvent('keydown', this.eventKeydown.bind(this, el));
-      el.addEvent('keyup', this.eventKeyup.bind(this, el));
+      el.addEvent('keydown', function(e){
+        this.eventKeydown(el, e)
+      }.bind(this));
+      el.addEvent('keyup', function(e){
+        this.eventKeyup(el, e)
+      }.bind(this));
     }, this);
     [this.element, this.layout].each(function(el){
       el.addEvents({
@@ -19930,7 +19993,7 @@ var MooRainbow = ColorPicker = new Class({options: {
       if (chr != "#" && el.value.length != 6) return;
       if (chr == '#' && el.value.length != 7) return;
     } else {
-      if (!(n >= 48 && n <= 57) && (!['backspace', 'tab', 'delete', 'left', 'right'].test(k)) && el.value.length > 3) return;
+      if (!(n >= 48 && n <= 57) && (!['backspace', 'tab', 'delete', 'left', 'right'].contains(k)) && el.value.length > 3) return;
     }
 
     prefix = this.options.prefix;
@@ -20169,7 +20232,15 @@ provides: [Behavior.ColorPicker]
 
 (function(){
   var hexCheck = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
+  // counter allows for multiple instances per page
+  var counter = 0;
+
   Behavior.addGlobalFilter('ColorPicker', {
+
+    defaults: {
+      'property': 'backgroundColor',
+      'setOnStart': true
+    },
 
     returns: ColorPicker,
 
@@ -20185,25 +20256,30 @@ provides: [Behavior.ColorPicker]
         'moor_cursor.gif'
       */
       var paths = api.get('imgs');
+      counter++;
       return new ColorPicker(el, {
+        id: 'mooRainbow'+counter,
         imgPath: api.get('imgPath'),
         startColor: startColor,
+        setOnStart: api.getAs(Boolean, 'setOnStart'),
         getImage: function(file){
           return paths && paths[file] ? paths[file] : this.options.imgPath + file;
         },
         onChange: function(color){
           el.set('value', color.hex);
           if (api.get('update')){
-            api.getElements('update').setStyles({
-              backgroundColor: color.hex,
+            var stylesObj = {
               backgroundImage: 'none'
-            });
+            };
+            stylesObj[api.get('property')] = color.hex;
+            api.getElements('update').setStyles(stylesObj);
           }
         }
       });
     }
   });
 })();
+
 
 /*
 ---
@@ -22339,10 +22415,15 @@ name: Delegator.Confirm
       },
       handler: function(event, link, api){
         event.preventDefault();
-
+        var doubleCheck = function(){
+          return !api.get('doubleCheck') ||
+                  confirm("No, SERIOUSLY. Do you like, double-dog, totally, for sure you want to do this?");
+        };
         var onConfirm = function(e){
-          var doubleCheck = !api.get('doubleCheck') ||
-                             confirm("No, SERIOUSLY. Do you like, double-dog, totally, for sure you want to do this?");
+          if (!doubleCheck()){
+            e.preventDefault()
+            return;
+          }
           // allow delete
           if (link.get('data-method')){
             e.preventDefault();
@@ -22360,8 +22441,8 @@ name: Delegator.Confirm
             })).inject(link, 'after');
             var auth = $$(api.get('authInput'))[0];
             if (auth) auth.clone().inject(form);
-            if (doubleCheck) form.fireEvent('submit').submit();
-          } else if (!doubleCheck) return;
+            form.fireEvent('submit').submit();
+          }
 
         };
         var onCancel = function(){};
@@ -22384,6 +22465,7 @@ name: Delegator.Confirm
             btnInfo.inject(form);
 
             onConfirm = function(){
+              if (!doubleCheck()) return;
               // allow delete
               if (link.get('data-method')) form.set('method', link.get('data-method'));
               form.fireEvent('submit').submit();
@@ -22463,6 +22545,7 @@ name: Delegator.Confirm
   };
 
 })();
+
 /*
 ---
 
@@ -22571,7 +22654,7 @@ Delegator.register(['change','keyup'], {
       targets: Array
     },
     handler: function(event, element, api){
-      var targets = api.get('targets');
+      var targets = api.getAs(Array, 'targets');
 
       if (!targets && targets.length) api.fail('Unable to find targets option.');
 
@@ -22898,6 +22981,7 @@ provides: [Delegator.ShowOnSelect]
         hideAll(api, element);
         // get the target that corresponds to the selected option
         var targets = getTargetElements(api, element, element.getSelected()[0]);
+
         if (targets.length){
           if (api.get('hideClass')) targets.removeClass(api.get('hideClass'));
           else if (api.get('showClass')) targets.addClass(api.get('showClass'));
@@ -22907,7 +22991,7 @@ provides: [Delegator.ShowOnSelect]
           // select elements of the given to-be-shown target
           if(api.get('disableInputs')){
             targets.each(function(target){
-              target.getElements('input, select:not([data-remain-locked])')
+              target.getElements('input:not([data-remain-locked]), select:not([data-remain-locked])')
                     .set('disabled', '')
             });
           }
