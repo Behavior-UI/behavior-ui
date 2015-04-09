@@ -259,6 +259,7 @@ Chart = new Class({
       colors: this.options.colors,
       plotOptions: {
         series: {
+          turboThreshold: 2000,
           animation: {
             duration: 500,
             transition: Fx.Transitions.Pow.easeOut
