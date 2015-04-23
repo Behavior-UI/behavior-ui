@@ -128,29 +128,38 @@
       left: 50%;
       margin-left: -9px;
     }
-    &.single > ul li:first-child {
-      width: 100%;
-      min-width: 105px;
-      float: none;
+    &.single {
+      > ul li:first-child {
+        width: 100%;
+        min-width: 105px;
+        float: none;
+        .highchart-bullets li {
+          margin: 0;
+          text-indent: 0;
+          padding: 0 10px;
+          max-width: 150px;
+        }
+      }
     }
   }
 
   .highchart-bullets {
-  	margin: 6px 0 0;
-  	list-style: none;
-  	li {
-  		width: 200px;
-  		white-space: normal;
-  		text-indent: -20px;
-  		margin-left: 20px;
-  	}
+    margin: 6px 0 0;
+    list-style: none;
+    li {
+      width: 150px;
+      white-space: normal;
+      text-indent: -20px;
+      margin-left: 20px;
+      font-size: @baseFontSize;
+    }
   }
 
   .navigator-label {
-  	color: #a0a0a1;
-  	border-left: 1px solid #a0a0a1;
-  	padding-left: 7px;
-  	font-size: 11px;
+    color: #a0a0a1;
+    border-left: 1px solid #a0a0a1;
+    padding-left: 7px;
+    font-size: 11px;
     text-transform: uppercase;
   }
   .plotline-label {

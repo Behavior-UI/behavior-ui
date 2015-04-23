@@ -628,6 +628,7 @@ Chart = new Class({
             var num = point.y;
             if (point.point && point.point.tipValue !== undefined) num = point.point.tipValue;
             var value = (self.options.absoluteLabels ? Math.abs(num) : num);
+            if (point.options && point.options.text) value = point.options.text;
             // if it's a number
             if (typeOf(value) == "number"){
               // hey, let's make it fun to read
@@ -636,8 +637,12 @@ Chart = new Class({
             }
 
             var tooltipOptions = point.series.tooltipOptions;
-            var suffix = tooltipOptions && point.point.tipValue === undefined ? tooltipOptions.valueSuffix || "" : "";
-            var prefix = tooltipOptions && point.point.tipValue === undefined ? tooltipOptions.valuePrefix || "" : "";
+            var suffix = tooltipOptions &&
+                         point.point &&
+                         point.point.tipValue === undefined ? tooltipOptions.valueSuffix || "" : "";
+            var prefix = tooltipOptions &&
+                         point.point &&
+                         point.point.tipValue === undefined ? tooltipOptions.valuePrefix || "" : "";
 
             var tipBackgroundColor = point.series.color;
             // if the point includes a per-point color, use that as the background color of the tooltip
