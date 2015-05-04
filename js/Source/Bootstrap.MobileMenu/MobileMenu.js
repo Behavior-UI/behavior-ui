@@ -16,7 +16,7 @@ provides: [MobileMenu]
 
 var MobileMenu = new Class({
 
-  Implements: [Options],
+  Implements: [Options, Events],
 
   options: {
     zIndex: 500,
@@ -74,6 +74,7 @@ var MobileMenu = new Class({
     this.target.removeClass(this.options.revealClass);
     if (this.mask) this.mask.setStyle('display', 'none');
     this.revealed = false;
+    this.fireEvent('hide');
   },
 
   reveal: function(){
@@ -81,6 +82,7 @@ var MobileMenu = new Class({
     this.target.mask();
     if (this.mask) this.mask.setStyle('display', 'block');
     this.revealed = true;
+    this.fireEvent('reveal');
   },
 
   toggle: function(){
