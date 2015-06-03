@@ -18,7 +18,8 @@ provides: [Behavior.MobileMenu]
 Behavior.addGlobalFilter('MobileMenu', {
 
   defaults: {
-    target: '.mobile-nav'
+    target: '.mobile-nav',
+    delay: 0
   },
 
   returns: MobileMenu,
@@ -43,7 +44,8 @@ Behavior.addGlobalFilter('MobileMenu', {
         Object.cleanValues(
           api.getAs({
             zIndex: Number,
-            revealClass: String
+            revealClass: String,
+            delay: Number
           })
         )
       )
@@ -52,3 +54,4 @@ Behavior.addGlobalFilter('MobileMenu', {
     return mm;
   }
 });
+

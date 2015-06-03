@@ -20,7 +20,8 @@ var MobileMenu = new Class({
 
   options: {
     zIndex: 500,
-    revealClass: 'reveal'
+    revealClass: 'reveal',
+    delay: 0
   },
 
   initialize: function(button, target, options){
@@ -38,7 +39,8 @@ var MobileMenu = new Class({
     if (!this.boundEvents){
       this.boundEvents = {
         toggle: this.toggle.bind(this),
-        hide: this.hide.bind(this)
+        hide: this.hide.bind(this),
+        delayedHide: this.delayedHide.bind(this)
       };
     }
     var method = _detach ? 'removeEvent' : 'addEvent';
@@ -46,7 +48,7 @@ var MobileMenu = new Class({
     if (this.mask) this.mask[method]('click', this.boundEvents.hide);
     // when clicking on a link within the target (the menu), hide the menu
     // this is helpful for the case that the link goes to an anchor on the current page
-    this.target[method]('click:relay(a)', this.boundEvents.hide);
+    this.target[method]('click:relay(a)', this.boundEvents.delayedHide);
   },
 
   detach: function(){
@@ -75,6 +77,10 @@ var MobileMenu = new Class({
     if (this.mask) this.mask.setStyle('display', 'none');
     this.revealed = false;
     this.fireEvent('hide');
+  },
+
+  delayedHide: function(){
+    this.hide.delay(this.options.delay)
   },
 
   reveal: function(){
