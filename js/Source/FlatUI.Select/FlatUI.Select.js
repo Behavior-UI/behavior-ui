@@ -287,7 +287,7 @@ FlatUI.Select = new Class({
   },
 
   scrollTo: function(option){
-    option = option || this.element.getElements('li > a')[this.select.getElements('option').indexOf(this.select.getSelected()[0])];
+    option = option || this.element.getElements('.selected')[0];
     if (!option) return;
     if (!this.fx) this.fx = new Fx.Scroll(this.list, {duration: 0, offset: {y: -50}});
     this.fx.toElement(option);
