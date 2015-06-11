@@ -73,7 +73,7 @@ var MobileMenu = new Class({
   },
 
   hide: function(){
-    this.target.removeClass(this.options.revealClass);
+    if (this.target) this.target.removeClass(this.options.revealClass);
     if (this.mask) this.mask.setStyle('display', 'none');
     this.revealed = false;
     this.fireEvent('hide');
