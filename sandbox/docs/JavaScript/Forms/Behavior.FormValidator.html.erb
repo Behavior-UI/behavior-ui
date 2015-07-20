@@ -60,6 +60,14 @@
     <div class="col-lg-5"><input name="k" data-validators="required validate-currency-dollar" class="form-control"></div>
   </div>
   <div class="form-group">
+    <label class="col-lg-5 control-label">You must select a time after at least 1 day ago, and before at least 1 day from now</label>
+    <div class="col-lg-5"><input name="m" type="datetime-local"
+      value="<%= (Time.current + 10.minutes).strftime("%Y-%m-%dT%H:%M:00") %>"
+      data-validators="required validate-time-before validate-time-after offsetAfter:-86400 offsetBefore:86400"
+      class="form-control"></div>
+  </div>
+
+  <div class="form-group">
     <label class="col-lg-5 control-label">this one of these must be checked</label>
     <div class="col-lg-5">
       <label class="checkbox-inline">
