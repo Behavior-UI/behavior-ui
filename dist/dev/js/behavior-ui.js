@@ -15041,11 +15041,12 @@ provides: [MobileMenu]
 
 var MobileMenu = new Class({
 
-  Implements: [Options],
+  Implements: [Options, Events],
 
   options: {
     zIndex: 500,
-    revealClass: 'reveal'
+    revealClass: 'reveal',
+    delay: 0
   },
 
   initialize: function(button, target, options){
@@ -15063,7 +15064,8 @@ var MobileMenu = new Class({
     if (!this.boundEvents){
       this.boundEvents = {
         toggle: this.toggle.bind(this),
-        hide: this.hide.bind(this)
+        hide: this.hide.bind(this),
+        delayedHide: this.delayedHide.bind(this)
       };
     }
     var method = _detach ? 'removeEvent' : 'addEvent';
@@ -15071,7 +15073,7 @@ var MobileMenu = new Class({
     if (this.mask) this.mask[method]('click', this.boundEvents.hide);
     // when clicking on a link within the target (the menu), hide the menu
     // this is helpful for the case that the link goes to an anchor on the current page
-    this.target[method]('click:relay(a)', this.boundEvents.hide);
+    this.target[method]('click:relay(a)', this.boundEvents.delayedHide);
   },
 
   detach: function(){
@@ -15096,9 +15098,14 @@ var MobileMenu = new Class({
   },
 
   hide: function(){
-    this.target.removeClass(this.options.revealClass);
+    if (this.target) this.target.removeClass(this.options.revealClass);
     if (this.mask) this.mask.setStyle('display', 'none');
     this.revealed = false;
+    this.fireEvent('hide');
+  },
+
+  delayedHide: function(){
+    this.hide.delay(this.options.delay)
   },
 
   reveal: function(){
@@ -15106,12 +15113,14 @@ var MobileMenu = new Class({
     this.target.mask();
     if (this.mask) this.mask.setStyle('display', 'block');
     this.revealed = true;
+    this.fireEvent('reveal');
   },
 
   toggle: function(){
     this[this.revealed ? 'hide' : 'reveal']();
   }
 });
+
 /*
 ---
 
@@ -15132,29 +15141,44 @@ provides: [Behavior.MobileMenu]
 Behavior.addGlobalFilter('MobileMenu', {
 
   defaults: {
-    target: '.mobile-nav'
+    target: '.mobile-nav',
+    delay: 0
   },
 
   returns: MobileMenu,
 
   setup: function(element, api){
+    var navbar = $$(api.get('navbar'))[0];
+    var navbarClass = api.get('navbarClass');
     var target = $$(api.get('target'))[0];
     if (!element) api.fail('Could not find the button for MobileMenu');
     if (!target) api.fail('Could not find the target (the menu itself) for MobileMenu');
 
-    var mm = new MobileMenu(element, target, Object.cleanValues(
-        api.getAs({
-          zIndex: Number,
-          revealClass: String
-        })
+    var mm = new MobileMenu(element, target,
+      Object.merge(
+        {
+          onHide: function(){
+            if (navbar && navbarClass) navbar.removeClass(navbarClass);
+          },
+          onReveal: function(){
+            if (navbar && navbarClass) navbar.addClass(navbarClass);
+          }
+        },
+        Object.cleanValues(
+          api.getAs({
+            zIndex: Number,
+            revealClass: String,
+            delay: Number
+          })
+        )
       )
     );
-
     api.onCleanup(mm.detach.bind(mm));
-
     return mm;
   }
 });
+
+
 /*
 ---
 
@@ -17683,6 +17707,7 @@ Chart = new Class({
             var num = point.y;
             if (point.point && point.point.tipValue !== undefined) num = point.point.tipValue;
             var value = (self.options.absoluteLabels ? Math.abs(num) : num);
+            if (point.options && point.options.text) value = point.options.text;
             // if it's a number
             if (typeOf(value) == "number"){
               // hey, let's make it fun to read
@@ -17691,8 +17716,12 @@ Chart = new Class({
             }
 
             var tooltipOptions = point.series.tooltipOptions;
-            var suffix = tooltipOptions && point.point.tipValue === undefined ? tooltipOptions.valueSuffix || "" : "";
-            var prefix = tooltipOptions && point.point.tipValue === undefined ? tooltipOptions.valuePrefix || "" : "";
+            var suffix = tooltipOptions &&
+                         point.point &&
+                         point.point.tipValue === undefined ? tooltipOptions.valueSuffix || "" : "";
+            var prefix = tooltipOptions &&
+                         point.point &&
+                         point.point.tipValue === undefined ? tooltipOptions.valuePrefix || "" : "";
 
             var tipBackgroundColor = point.series.color;
             // if the point includes a per-point color, use that as the background color of the tooltip
@@ -23607,7 +23636,7 @@ FlatUI.Select = new Class({
   },
 
   scrollTo: function(option){
-    option = option || this.element.getElements('li > a')[this.select.getElements('option').indexOf(this.select.getSelected()[0])];
+    option = option || this.element.getElements('.selected')[0];
     if (!option) return;
     if (!this.fx) this.fx = new Fx.Scroll(this.list, {duration: 0, offset: {y: -50}});
     this.fx.toElement(option);
@@ -23714,6 +23743,7 @@ FlatUI.Select = new Class({
   }
 
 });
+
 /*
 ---
 

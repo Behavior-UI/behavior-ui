@@ -7451,323 +7451,6 @@ you can use the generic selector below, but it's slower:
 .thanx-glyph-employees:before {
   content: "\e082";
 }
-a,
-label,
-.pointer {
-  cursor: pointer;
-}
-.block {
-  display: block;
-}
-.inline-block {
-  display: inline-block;
-}
-.inline {
-  display: inline;
-}
-.display-table {
-  display: table;
-}
-.display-table-cell {
-  display: table-cell;
-}
-.nowrap {
-  white-space: nowrap;
-}
-.no-margin {
-  margin: 0px;
-}
-.transition-none {
-  -webkit-transition: none !important;
-  transition: none !important;
-}
-.relative {
-  position: relative;
-}
-.absolute {
-  position: absolute;
-}
-.fixed {
-  position: fixed;
-}
-.background-position-y-bottom {
-  background-position: center bottom;
-}
-.background-position-y-top {
-  background-position: center top;
-}
-.background-position-center {
-  background-position: center;
-}
-.yeswrap {
-  white-space: normal;
-}
-.ellipsis {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.invisible {
-  visibility: hidden;
-}
-.invisible-important {
-  visibility: hidden !important;
-}
-.visible {
-  visibility: visible;
-}
-.full-width {
-  width: 100%;
-}
-@media (max-width: 767px) {
-  .full-width-on-xs {
-    width: 100%;
-    max-width: 100%;
-    min-width: 100%;
-  }
-}
-@media (max-width: 767px) {
-  .width-50-on-xs {
-    width: 50%;
-    max-width: 50%;
-    min-width: 50%;
-  }
-}
-.width-0 {
-  width: 0%;
-}
-.width-0-important {
-  width: 0% !important;
-}
-.width-25 {
-  width: 25%;
-  min-width: 25%;
-  max-width: 25%;
-}
-.width-33 {
-  width: 33.33333%;
-  min-width: 33.33333%;
-  max-width: 33.33333%;
-}
-.width-50 {
-  width: 50%;
-  min-width: 50%;
-  max-width: 50%;
-}
-.width-66 {
-  width: 66.66667%;
-  min-width: 66.66667%;
-  max-width: 66.66667%;
-}
-.width-75 {
-  width: 75%;
-  min-width: 75%;
-  max-width: 75%;
-}
-.width-90 {
-  width: 90%;
-  min-width: 90%;
-  max-width: 90%;
-}
-.width-100 {
-  width: 100%;
-}
-.width-100-important {
-  width: 100% !important;
-}
-.min-width-0 {
-  min-width: 0%;
-}
-.full-height {
-  height: 100%;
-}
-.header-height {
-  height: 60px;
-}
-.center {
-  display: block;
-  margin: 0 auto;
-}
-.overflow-y {
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-.overflow-y.overflow-x {
-  overflow-x: visible;
-}
-.overflow-x {
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-.overflow-x.overflow-y {
-  overflow-y: visible;
-}
-.overflow-hidden {
-  overflow: hidden;
-}
-.main-content {
-  position: absolute;
-  bottom: 0px;
-  top: 60px;
-  width: 100%;
-  overflow: none;
-}
-.help {
-  display: inline-block;
-}
-.help span {
-  font-size: 26px;
-  position: relative;
-  line-height: 10px;
-}
-.help span:hover {
-  color: #757575;
-}
-@media (max-width: 767px) {
-  .hidden-phone {
-    display: none !important;
-  }
-}
-@media (max-width: 767px) {
-  .visible-inline-block-phone {
-    display: inline-block !important;
-  }
-}
-@media (max-width: 991px) {
-  .visible-inline-block-tablet {
-    display: inline-block !important;
-  }
-}
-.invisible-phone {
-  visibility: hidden;
-}
-@media (min-width: 768px) {
-  .invisible-phone {
-    visibility: visible;
-  }
-}
-.invisible-tablet {
-  visibility: hidden;
-}
-@media (min-width: 992px) {
-  .invisible-tablet {
-    visibility: visible;
-  }
-}
-.hover-opacity-0:hover {
-  opacity: 0;
-}
-/*
-  used to fix rendering issues. for example, transitions measuring with improper rounding
-  see: http://stackoverflow.com/questions/15051557/very-difficult-to-solve-and-strange-css3-opacity-transition-issue-must-be-a
-*/
-.webkit-hardware-accel {
-  -webkit-transform: translateZ(0);
-}
-.unimportant-hide {
-  display: none;
-}
-.vertical-top {
-  vertical-align: top !important;
-}
-.vertical-middle {
-  vertical-align: middle !important;
-}
-.vertical-bottom {
-  vertical-align: bottom !important;
-}
-.z1up {
-  z-index: 1;
-}
-.z500up {
-  z-index: 500;
-}
-.z2500up {
-  z-index: 2500;
-}
-.nudge-left {
-  left: -2px !important;
-}
-.nudge-left-large {
-  left: -5px !important;
-}
-.nudge-right {
-  left: 2px !important;
-}
-.nudge-right-large {
-  left: 5px !important;
-}
-.nudge-up {
-  top: -2px !important;
-}
-.nudge-up-large {
-  top: -5px !important;
-}
-.nudge-down {
-  top: 2px !important;
-}
-.nudge-down-large {
-  top: 5px !important;
-}
-.border-radius-large {
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-}
-.border-radius-top-large {
-  -webkit-border-radius: 6px 6px 0 0;
-  -moz-border-radius: 6px 6px 0 0;
-  border-radius: 6px 6px 0 0;
-}
-.border-radius-large {
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-}
-.border-radius-top-large {
-  -webkit-border-radius: 6px 6px 0 0;
-  -moz-border-radius: 6px 6px 0 0;
-  border-radius: 6px 6px 0 0;
-}
-.border-radius-right-large {
-  -webkit-border-radius: 0 6px 6px 0;
-  -moz-border-radius: 0 6px 6px 0;
-  border-radius: 0 6px 6px 0;
-}
-.border-radius-left-large {
-  -webkit-border-radius: 6px 0 0 6px;
-  -moz-border-radius: 6px 0 0 6px;
-  border-radius: 6px 0 0 6px;
-}
-.border-radius-left {
-  -webkit-border-radius: 4px 0 0 4px;
-  -moz-border-radius: 4px 0 0 4px;
-  border-radius: 4px 0 0 4px;
-}
-/*
-  when adding two splits next to each other, DO NOT separate them with whitespace
-  use a comment instead, like this:
-     <div class="split2">
-     </div><!--
-     use comment to make code readable (whitespace will add additional pixels)
-  --><div class="split2">
-
-*/
-.split2 {
-  display: inline-block;
-  width: 50%;
-}
-.split3 {
-  display: inline-block;
-  width: 33.3%;
-}
-.split4 {
-  display: inline-block;
-  width: 25%;
-}
-.cursor-default {
-  cursor: default;
-}
 /*
   this file is parsed by the palette viewer on admin.
   make sure you stick to this format:
@@ -8762,6 +8445,14 @@ ul.autocompleter-choices span.autocompleter-queried {
   min-width: 105px;
   float: none;
 }
+.chart .chart-tip.single > ul li:first-child .highchart-bullets li,
+[data-behavior~="Thanx.Chart"] .chart-tip.single > ul li:first-child .highchart-bullets li,
+[data-behavior~="Thanx.Chart.Stock"] .chart-tip.single > ul li:first-child .highchart-bullets li {
+  margin: 0;
+  text-indent: 0;
+  padding: 0 10px;
+  max-width: 150px;
+}
 .chart .highchart-bullets,
 [data-behavior~="Thanx.Chart"] .highchart-bullets,
 [data-behavior~="Thanx.Chart.Stock"] .highchart-bullets {
@@ -8771,10 +8462,11 @@ ul.autocompleter-choices span.autocompleter-queried {
 .chart .highchart-bullets li,
 [data-behavior~="Thanx.Chart"] .highchart-bullets li,
 [data-behavior~="Thanx.Chart.Stock"] .highchart-bullets li {
-  width: 200px;
+  width: 150px;
   white-space: normal;
   text-indent: -20px;
   margin-left: 20px;
+  font-size: 12px;
 }
 .chart .navigator-label,
 [data-behavior~="Thanx.Chart"] .navigator-label,
@@ -9580,5 +9272,325 @@ select:not(.no-flat-select) {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   z-index: 2;
   position: relative;
+}
+a,
+label,
+.pointer {
+  cursor: pointer;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline {
+  display: inline;
+}
+.display-table {
+  display: table;
+}
+.display-table-row {
+  display: table-row;
+}
+.display-table-cell {
+  display: table-cell;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.no-margin {
+  margin: 0px;
+}
+.transition-none {
+  -webkit-transition: none !important;
+  transition: none !important;
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.fixed {
+  position: fixed;
+}
+.background-position-y-bottom {
+  background-position: center bottom;
+}
+.background-position-y-top {
+  background-position: center top;
+}
+.background-position-center {
+  background-position: center;
+}
+.yeswrap {
+  white-space: normal;
+}
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.invisible {
+  visibility: hidden;
+}
+.invisible-important {
+  visibility: hidden !important;
+}
+.visible {
+  visibility: visible;
+}
+.full-width {
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .full-width-on-xs {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .width-50-on-xs {
+    width: 50%;
+    max-width: 50%;
+    min-width: 50%;
+  }
+}
+.width-0 {
+  width: 0%;
+}
+.width-0-important {
+  width: 0% !important;
+}
+.width-25 {
+  width: 25%;
+  min-width: 25%;
+  max-width: 25%;
+}
+.width-33 {
+  width: 33.33333%;
+  min-width: 33.33333%;
+  max-width: 33.33333%;
+}
+.width-50 {
+  width: 50%;
+  min-width: 50%;
+  max-width: 50%;
+}
+.width-66 {
+  width: 66.66667%;
+  min-width: 66.66667%;
+  max-width: 66.66667%;
+}
+.width-75 {
+  width: 75%;
+  min-width: 75%;
+  max-width: 75%;
+}
+.width-90 {
+  width: 90%;
+  min-width: 90%;
+  max-width: 90%;
+}
+.width-100 {
+  width: 100%;
+}
+.width-100-important {
+  width: 100% !important;
+}
+.min-width-0 {
+  min-width: 0%;
+}
+.full-height {
+  height: 100%;
+}
+.header-height {
+  height: 60px;
+}
+.center {
+  display: block;
+  margin: 0 auto;
+}
+.overflow-y {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.overflow-y.overflow-x {
+  overflow-x: visible;
+}
+.overflow-x {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.overflow-x.overflow-y {
+  overflow-y: visible;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.main-content {
+  position: absolute;
+  bottom: 0px;
+  top: 60px;
+  width: 100%;
+  overflow: none;
+}
+.help {
+  display: inline-block;
+}
+.help span {
+  font-size: 26px;
+  position: relative;
+  line-height: 10px;
+}
+.help span:hover {
+  color: #757575;
+}
+@media (max-width: 767px) {
+  .hidden-phone {
+    display: none !important;
+  }
+}
+@media (max-width: 767px) {
+  .visible-inline-block-phone {
+    display: inline-block !important;
+  }
+}
+@media (max-width: 991px) {
+  .visible-inline-block-tablet {
+    display: inline-block !important;
+  }
+}
+.invisible-phone {
+  visibility: hidden;
+}
+@media (min-width: 768px) {
+  .invisible-phone {
+    visibility: visible;
+  }
+}
+.invisible-tablet {
+  visibility: hidden;
+}
+@media (min-width: 992px) {
+  .invisible-tablet {
+    visibility: visible;
+  }
+}
+.hover-opacity-0:hover {
+  opacity: 0;
+}
+/*
+  used to fix rendering issues. for example, transitions measuring with improper rounding
+  see: http://stackoverflow.com/questions/15051557/very-difficult-to-solve-and-strange-css3-opacity-transition-issue-must-be-a
+*/
+.webkit-hardware-accel {
+  -webkit-transform: translateZ(0);
+}
+.unimportant-hide {
+  display: none;
+}
+.vertical-top {
+  vertical-align: top !important;
+}
+.vertical-middle {
+  vertical-align: middle !important;
+}
+.vertical-bottom {
+  vertical-align: bottom !important;
+}
+.z1up {
+  z-index: 1;
+}
+.z500up {
+  z-index: 500;
+}
+.z2500up {
+  z-index: 2500;
+}
+.nudge-left {
+  left: -2px !important;
+}
+.nudge-left-large {
+  left: -5px !important;
+}
+.nudge-right {
+  left: 2px !important;
+}
+.nudge-right-large {
+  left: 5px !important;
+}
+.nudge-up {
+  top: -2px !important;
+}
+.nudge-up-large {
+  top: -5px !important;
+}
+.nudge-down {
+  top: 2px !important;
+}
+.nudge-down-large {
+  top: 5px !important;
+}
+.border-radius-large {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.border-radius-top-large {
+  -webkit-border-radius: 6px 6px 0 0;
+  -moz-border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
+}
+.border-radius-large {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.border-radius-top-large {
+  -webkit-border-radius: 6px 6px 0 0;
+  -moz-border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
+}
+.border-radius-right-large {
+  -webkit-border-radius: 0 6px 6px 0;
+  -moz-border-radius: 0 6px 6px 0;
+  border-radius: 0 6px 6px 0;
+}
+.border-radius-left-large {
+  -webkit-border-radius: 6px 0 0 6px;
+  -moz-border-radius: 6px 0 0 6px;
+  border-radius: 6px 0 0 6px;
+}
+.border-radius-left {
+  -webkit-border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+}
+/*
+  when adding two splits next to each other, DO NOT separate them with whitespace
+  use a comment instead, like this:
+     <div class="split2">
+     </div><!--
+     use comment to make code readable (whitespace will add additional pixels)
+  --><div class="split2">
+
+*/
+.split2 {
+  display: inline-block;
+  width: 50%;
+}
+.split3 {
+  display: inline-block;
+  width: 33.3%;
+}
+.split4 {
+  display: inline-block;
+  width: 25%;
+}
+.cursor-default {
+  cursor: default;
 }
 /*# sourceMappingURL=behavior-ui-bootstrap.css.map */
