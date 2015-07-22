@@ -84,6 +84,7 @@ sources:
  - Source/Delegators/Delegator.SelectWithOther.js
  - Source/Delegators/Delegator.SetProperty.js
  - Source/Delegators/Delegator.ShowOnSelect.js
+ - Source/Delegators/Delegator.ShowAccordionSection.js
  - Source/Delegators/Delegator.SpinAndConfirm.js
  - Source/Delegators/Delegator.SpinOnClick.js
  - Source/Delegators/Delegator.SpinOnSubmit.js

@@ -1,4 +1,4 @@
-Behavior Filter: Behavior.OverText
+Behavior Filter: Behavior.Accordion
 ===================================
 
 Creates an instance of [Fx.Accorion][] for an element using the `Accordion` data filter.

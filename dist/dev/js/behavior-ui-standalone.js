@@ -10556,6 +10556,7 @@ Behavior.addGlobalPlugin('FormValidator', 'FormValidatorChanges', function(eleme
     api.removeEvent('formLayoutChange', watcher);
   });
 });
+
 /*
 ---
 description: Provides methods to set or toggle properties on target elements.
@@ -10566,35 +10567,37 @@ name: Delegator.SetProperty
 
 ...
 */
-(function(){
-  var triggers = {};
 
-  ['set', 'erase', 'toggle'].each(function(action){
+Delegator.register('click', {
+  'showAccordionSection': {
+    requireAs: {
+      // gotta tell it which section you want to show
+      target: String
+    },
+    defaults: {
+      // how to find the accordion instance
+      // by convention, all selectors are relative to the element with
+      // the trigger. this default assumes the clicked element is inside
+      // the accordion.
+      accordionSelector: '![data-behavior*=Accordion]'
+    },
+    handler: function(event, element, api){
+      // find the target section to show
+      var target = api.getElement('target');
+      // we gotta find the accordion instance
+      var accordionElement = api.getElement('accordionSelector');
+      // get the accordion instance from the element, created by Behavior
+      var accordionInstance = accordionElement.getBehaviorResult('Accordion');
+      // no accordion found? fail quietly
+      if (!accordionInstance) api.fail('Could not retrieve Fx.Accordion instance from element', accordionElement);
+      // not a section of the accordion? fail quietly
+      if (accordionInstance.elements.indexOf(target) < 0) api.fail('Target element is not an accordion section', target);
+      // show it!
+      accordionInstance.display(target);
+    }
+  }
+});
 
-    triggers[action + 'Property'] = {
-      require: ['property'],
-      handler: function(event, link, api){
-        var target = link;
-        if (api.get('target') && api.get('target') != 'self'){
-          target = link.getElement(api.get('target'));
-          if (!target) api.fail('could not locate target element to ' + action + ' its property', link);
-        }
-        var current = target.get(api.get('property'));
-        if (current !== null) current = current.toString();
-        if (action == 'set' || (action == 'toggle' && current != api.get('value'))){
-          if (api.get('value') === null) api.fail('Could not retrieve eraseproperty-value option from element.');
-          target.set(api.get('property'), api.get('value'));
-        } else {
-          target.erase(api.get('property'));
-        }
-      }
-    };
-
-  });
-
-  Delegator.register('click', triggers);
-
-})();
 /*
 ---
 
