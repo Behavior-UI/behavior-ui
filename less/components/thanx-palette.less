@@ -1,9 +1,6 @@
 @import "../mixins/iterators.less";
-/*
-  this file is parsed by the palette viewer on admin.
-  make sure you stick to this format:
-    @variable-name: #hexvalue;
-*/
+@import "../mixins/palette-utils.less";
+
 @blue-chrome:       #34495E;
 @blue-steel:        #252F3A;
 @midnight-blue:     #131A21;
@@ -71,28 +68,6 @@
 // the ~ is how less escapes the string, ie, 'blue-chrome' will resolve to blue-chrome (without the quotes)
 
 @palette: ~'blue-chrome', ~'blue-steel', ~'midnight-blue', ~'emerland', ~'nephritis', ~'sempervirens', ~'emerland-light', ~'amethyst', ~'wisteria', ~'nightfall', ~'gold-dust', ~'gold', ~'goldstein', ~'egg-yolk', ~'crayola', ~'violet-fox', ~'indigo', ~'citrine', ~'sun-flower', ~'orange', ~'blue-aragonite', ~'peter-river', ~'belize-hole', ~'waterworld', ~'carrot', ~'pumpkin', ~'bright-turquoise', ~'turquoise', ~'mediterranean', ~'anemone-light', ~'anemone', ~'jungle', ~'green-sea', ~'clay', ~'alizarin', ~'pomegranate', ~'bright-bandaid', ~'bandaid', ~'grey-10', ~'grey-20', ~'grey-30', ~'grey-40', ~'grey-50', ~'grey-60', ~'grey-70', ~'grey-80', ~'grey-90', ~'grey-100', ~'white', ~'black';
-
-.palette-constructor(@value) {
-  .@{value} {
-    color: @@value;
-  }
-  .@{value}-bkg {
-    background-color: @@value;
-  }
-  .@{value}-hover {
-    &:hover {
-      color: @@value;
-    }
-  }
-  .@{value}-hover-bkg {
-    &:hover {
-      background-color: @@value;
-    }
-  }
-  .@{value}-border {
-    border-color: @@value;
-  }
-}
 
 .for(@palette); .-each(@value) {
   .palette-constructor(@value);

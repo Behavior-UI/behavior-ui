@@ -1,0 +1,21 @@
+.palette-constructor(@value) {
+  .@{value} {
+    color: @@value;
+  }
+  .@{value}-bkg {
+    background-color: @@value;
+  }
+  .@{value}-hover {
+    &:hover {
+      color: @@value;
+    }
+  }
+  .@{value}-hover-bkg {
+    &:hover {
+      background-color: @@value;
+    }
+  }
+  .@{value}-border {
+    border-color: @@value;
+  }
+}
