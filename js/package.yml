@@ -138,3 +138,4 @@ sources:
  - Source/Validators/Form.Validator.Range.js
  - Source/Validators/Form.Validator.Tag.js
  - Source/Validators/Form.Validator.Time.js
+ - Source/Validators/Form.Validator.Zip.js
