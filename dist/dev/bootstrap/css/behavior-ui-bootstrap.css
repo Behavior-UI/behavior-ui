@@ -7451,11 +7451,6 @@ you can use the generic selector below, but it's slower:
 .thanx-glyph-employees:before {
   content: "\e082";
 }
-/*
-  this file is parsed by the palette viewer on admin.
-  make sure you stick to this format:
-    @variable-name: #hexvalue;
-*/
 .blue-chrome {
   color: #34495e;
 }
@@ -7463,6 +7458,9 @@ you can use the generic selector below, but it's slower:
   background-color: #34495e;
 }
 .blue-chrome-hover:hover {
+  color: #34495e;
+}
+.blue-chrome-focus:focus {
   color: #34495e;
 }
 .blue-chrome-hover-bkg:hover {
@@ -7480,6 +7478,9 @@ you can use the generic selector below, but it's slower:
 .blue-steel-hover:hover {
   color: #252f3a;
 }
+.blue-steel-focus:focus {
+  color: #252f3a;
+}
 .blue-steel-hover-bkg:hover {
   background-color: #252f3a;
 }
@@ -7493,6 +7494,9 @@ you can use the generic selector below, but it's slower:
   background-color: #131a21;
 }
 .midnight-blue-hover:hover {
+  color: #131a21;
+}
+.midnight-blue-focus:focus {
   color: #131a21;
 }
 .midnight-blue-hover-bkg:hover {
@@ -7510,6 +7514,9 @@ you can use the generic selector below, but it's slower:
 .emerland-hover:hover {
   color: #2ecc71;
 }
+.emerland-focus:focus {
+  color: #2ecc71;
+}
 .emerland-hover-bkg:hover {
   background-color: #2ecc71;
 }
@@ -7523,6 +7530,9 @@ you can use the generic selector below, but it's slower:
   background-color: #27ae60;
 }
 .nephritis-hover:hover {
+  color: #27ae60;
+}
+.nephritis-focus:focus {
   color: #27ae60;
 }
 .nephritis-hover-bkg:hover {
@@ -7540,6 +7550,9 @@ you can use the generic selector below, but it's slower:
 .sempervirens-hover:hover {
   color: #248a54;
 }
+.sempervirens-focus:focus {
+  color: #248a54;
+}
 .sempervirens-hover-bkg:hover {
   background-color: #248a54;
 }
@@ -7553,6 +7566,9 @@ you can use the generic selector below, but it's slower:
   background-color: #7ee2a8;
 }
 .emerland-light-hover:hover {
+  color: #7ee2a8;
+}
+.emerland-light-focus:focus {
   color: #7ee2a8;
 }
 .emerland-light-hover-bkg:hover {
@@ -7570,6 +7586,9 @@ you can use the generic selector below, but it's slower:
 .amethyst-hover:hover {
   color: #ac69c7;
 }
+.amethyst-focus:focus {
+  color: #ac69c7;
+}
 .amethyst-hover-bkg:hover {
   background-color: #ac69c7;
 }
@@ -7583,6 +7602,9 @@ you can use the generic selector below, but it's slower:
   background-color: #8e44ad;
 }
 .wisteria-hover:hover {
+  color: #8e44ad;
+}
+.wisteria-focus:focus {
   color: #8e44ad;
 }
 .wisteria-hover-bkg:hover {
@@ -7600,6 +7622,9 @@ you can use the generic selector below, but it's slower:
 .nightfall-hover:hover {
   color: #642b7b;
 }
+.nightfall-focus:focus {
+  color: #642b7b;
+}
 .nightfall-hover-bkg:hover {
   background-color: #642b7b;
 }
@@ -7613,6 +7638,9 @@ you can use the generic selector below, but it's slower:
   background-color: #f3f0de;
 }
 .gold-dust-hover:hover {
+  color: #f3f0de;
+}
+.gold-dust-focus:focus {
   color: #f3f0de;
 }
 .gold-dust-hover-bkg:hover {
@@ -7630,6 +7658,9 @@ you can use the generic selector below, but it's slower:
 .gold-hover:hover {
   color: #cbb44e;
 }
+.gold-focus:focus {
+  color: #cbb44e;
+}
 .gold-hover-bkg:hover {
   background-color: #cbb44e;
 }
@@ -7643,6 +7674,9 @@ you can use the generic selector below, but it's slower:
   background-color: #bb9b07;
 }
 .goldstein-hover:hover {
+  color: #bb9b07;
+}
+.goldstein-focus:focus {
   color: #bb9b07;
 }
 .goldstein-hover-bkg:hover {
@@ -7660,6 +7694,9 @@ you can use the generic selector below, but it's slower:
 .egg-yolk-hover:hover {
   color: #e7b41a;
 }
+.egg-yolk-focus:focus {
+  color: #e7b41a;
+}
 .egg-yolk-hover-bkg:hover {
   background-color: #e7b41a;
 }
@@ -7673,6 +7710,9 @@ you can use the generic selector below, but it's slower:
   background-color: #6570ff;
 }
 .crayola-hover:hover {
+  color: #6570ff;
+}
+.crayola-focus:focus {
   color: #6570ff;
 }
 .crayola-hover-bkg:hover {
@@ -7690,6 +7730,9 @@ you can use the generic selector below, but it's slower:
 .violet-fox-hover:hover {
   color: #5248df;
 }
+.violet-fox-focus:focus {
+  color: #5248df;
+}
 .violet-fox-hover-bkg:hover {
   background-color: #5248df;
 }
@@ -7703,6 +7746,9 @@ you can use the generic selector below, but it's slower:
   background-color: #352cb8;
 }
 .indigo-hover:hover {
+  color: #352cb8;
+}
+.indigo-focus:focus {
   color: #352cb8;
 }
 .indigo-hover-bkg:hover {
@@ -7720,6 +7766,9 @@ you can use the generic selector below, but it's slower:
 .citrine-hover:hover {
   color: #fff55b;
 }
+.citrine-focus:focus {
+  color: #fff55b;
+}
 .citrine-hover-bkg:hover {
   background-color: #fff55b;
 }
@@ -7733,6 +7782,9 @@ you can use the generic selector below, but it's slower:
   background-color: #f1c40f;
 }
 .sun-flower-hover:hover {
+  color: #f1c40f;
+}
+.sun-flower-focus:focus {
   color: #f1c40f;
 }
 .sun-flower-hover-bkg:hover {
@@ -7750,6 +7802,9 @@ you can use the generic selector below, but it's slower:
 .orange-hover:hover {
   color: #f39c12;
 }
+.orange-focus:focus {
+  color: #f39c12;
+}
 .orange-hover-bkg:hover {
   background-color: #f39c12;
 }
@@ -7763,6 +7818,9 @@ you can use the generic selector below, but it's slower:
   background-color: #5fccff;
 }
 .blue-aragonite-hover:hover {
+  color: #5fccff;
+}
+.blue-aragonite-focus:focus {
   color: #5fccff;
 }
 .blue-aragonite-hover-bkg:hover {
@@ -7780,6 +7838,9 @@ you can use the generic selector below, but it's slower:
 .peter-river-hover:hover {
   color: #338fcc;
 }
+.peter-river-focus:focus {
+  color: #338fcc;
+}
 .peter-river-hover-bkg:hover {
   background-color: #338fcc;
 }
@@ -7793,6 +7854,9 @@ you can use the generic selector below, but it's slower:
   background-color: #0073bf;
 }
 .belize-hole-hover:hover {
+  color: #0073bf;
+}
+.belize-hole-focus:focus {
   color: #0073bf;
 }
 .belize-hole-hover-bkg:hover {
@@ -7810,6 +7874,9 @@ you can use the generic selector below, but it's slower:
 .waterworld-hover:hover {
   color: #01568e;
 }
+.waterworld-focus:focus {
+  color: #01568e;
+}
 .waterworld-hover-bkg:hover {
   background-color: #01568e;
 }
@@ -7823,6 +7890,9 @@ you can use the generic selector below, but it's slower:
   background-color: #f67a00;
 }
 .carrot-hover:hover {
+  color: #f67a00;
+}
+.carrot-focus:focus {
   color: #f67a00;
 }
 .carrot-hover-bkg:hover {
@@ -7840,6 +7910,9 @@ you can use the generic selector below, but it's slower:
 .pumpkin-hover:hover {
   color: #d35400;
 }
+.pumpkin-focus:focus {
+  color: #d35400;
+}
 .pumpkin-hover-bkg:hover {
   background-color: #d35400;
 }
@@ -7853,6 +7926,9 @@ you can use the generic selector below, but it's slower:
   background-color: #44e3e5;
 }
 .bright-turquoise-hover:hover {
+  color: #44e3e5;
+}
+.bright-turquoise-focus:focus {
   color: #44e3e5;
 }
 .bright-turquoise-hover-bkg:hover {
@@ -7870,6 +7946,9 @@ you can use the generic selector below, but it's slower:
 .turquoise-hover:hover {
   color: #00ccce;
 }
+.turquoise-focus:focus {
+  color: #00ccce;
+}
 .turquoise-hover-bkg:hover {
   background-color: #00ccce;
 }
@@ -7883,6 +7962,9 @@ you can use the generic selector below, but it's slower:
   background-color: #00a0a1;
 }
 .mediterranean-hover:hover {
+  color: #00a0a1;
+}
+.mediterranean-focus:focus {
   color: #00a0a1;
 }
 .mediterranean-hover-bkg:hover {
@@ -7900,6 +7982,9 @@ you can use the generic selector below, but it's slower:
 .anemone-light-hover:hover {
   color: #29ffd0;
 }
+.anemone-light-focus:focus {
+  color: #29ffd0;
+}
 .anemone-light-hover-bkg:hover {
   background-color: #29ffd0;
 }
@@ -7913,6 +7998,9 @@ you can use the generic selector below, but it's slower:
   background-color: #14ddb3;
 }
 .anemone-hover:hover {
+  color: #14ddb3;
+}
+.anemone-focus:focus {
   color: #14ddb3;
 }
 .anemone-hover-bkg:hover {
@@ -7930,6 +8018,9 @@ you can use the generic selector below, but it's slower:
 .jungle-hover:hover {
   color: #1abc9c;
 }
+.jungle-focus:focus {
+  color: #1abc9c;
+}
 .jungle-hover-bkg:hover {
   background-color: #1abc9c;
 }
@@ -7943,6 +8034,9 @@ you can use the generic selector below, but it's slower:
   background-color: #16a085;
 }
 .green-sea-hover:hover {
+  color: #16a085;
+}
+.green-sea-focus:focus {
   color: #16a085;
 }
 .green-sea-hover-bkg:hover {
@@ -7960,6 +8054,9 @@ you can use the generic selector below, but it's slower:
 .clay-hover:hover {
   color: #ee8176;
 }
+.clay-focus:focus {
+  color: #ee8176;
+}
 .clay-hover-bkg:hover {
   background-color: #ee8176;
 }
@@ -7973,6 +8070,9 @@ you can use the generic selector below, but it's slower:
   background-color: #e74c3c;
 }
 .alizarin-hover:hover {
+  color: #e74c3c;
+}
+.alizarin-focus:focus {
   color: #e74c3c;
 }
 .alizarin-hover-bkg:hover {
@@ -7990,6 +8090,9 @@ you can use the generic selector below, but it's slower:
 .pomegranate-hover:hover {
   color: #c0392b;
 }
+.pomegranate-focus:focus {
+  color: #c0392b;
+}
 .pomegranate-hover-bkg:hover {
   background-color: #c0392b;
 }
@@ -8003,6 +8106,9 @@ you can use the generic selector below, but it's slower:
   background-color: #df9274;
 }
 .bright-bandaid-hover:hover {
+  color: #df9274;
+}
+.bright-bandaid-focus:focus {
   color: #df9274;
 }
 .bright-bandaid-hover-bkg:hover {
@@ -8020,6 +8126,9 @@ you can use the generic selector below, but it's slower:
 .bandaid-hover:hover {
   color: #d48a6d;
 }
+.bandaid-focus:focus {
+  color: #d48a6d;
+}
 .bandaid-hover-bkg:hover {
   background-color: #d48a6d;
 }
@@ -8033,6 +8142,9 @@ you can use the generic selector below, but it's slower:
   background-color: #f7f7f7;
 }
 .grey-10-hover:hover {
+  color: #f7f7f7;
+}
+.grey-10-focus:focus {
   color: #f7f7f7;
 }
 .grey-10-hover-bkg:hover {
@@ -8050,6 +8162,9 @@ you can use the generic selector below, but it's slower:
 .grey-20-hover:hover {
   color: #efefef;
 }
+.grey-20-focus:focus {
+  color: #efefef;
+}
 .grey-20-hover-bkg:hover {
   background-color: #efefef;
 }
@@ -8063,6 +8178,9 @@ you can use the generic selector below, but it's slower:
   background-color: #e6e6e6;
 }
 .grey-30-hover:hover {
+  color: #e6e6e6;
+}
+.grey-30-focus:focus {
   color: #e6e6e6;
 }
 .grey-30-hover-bkg:hover {
@@ -8080,6 +8198,9 @@ you can use the generic selector below, but it's slower:
 .grey-40-hover:hover {
   color: #dcdcdc;
 }
+.grey-40-focus:focus {
+  color: #dcdcdc;
+}
 .grey-40-hover-bkg:hover {
   background-color: #dcdcdc;
 }
@@ -8093,6 +8214,9 @@ you can use the generic selector below, but it's slower:
   background-color: #c3c3c3;
 }
 .grey-50-hover:hover {
+  color: #c3c3c3;
+}
+.grey-50-focus:focus {
   color: #c3c3c3;
 }
 .grey-50-hover-bkg:hover {
@@ -8110,6 +8234,9 @@ you can use the generic selector below, but it's slower:
 .grey-60-hover:hover {
   color: #acacac;
 }
+.grey-60-focus:focus {
+  color: #acacac;
+}
 .grey-60-hover-bkg:hover {
   background-color: #acacac;
 }
@@ -8123,6 +8250,9 @@ you can use the generic selector below, but it's slower:
   background-color: #757575;
 }
 .grey-70-hover:hover {
+  color: #757575;
+}
+.grey-70-focus:focus {
   color: #757575;
 }
 .grey-70-hover-bkg:hover {
@@ -8140,6 +8270,9 @@ you can use the generic selector below, but it's slower:
 .grey-80-hover:hover {
   color: #595959;
 }
+.grey-80-focus:focus {
+  color: #595959;
+}
 .grey-80-hover-bkg:hover {
   background-color: #595959;
 }
@@ -8153,6 +8286,9 @@ you can use the generic selector below, but it's slower:
   background-color: #3f3f3f;
 }
 .grey-90-hover:hover {
+  color: #3f3f3f;
+}
+.grey-90-focus:focus {
   color: #3f3f3f;
 }
 .grey-90-hover-bkg:hover {
@@ -8170,6 +8306,9 @@ you can use the generic selector below, but it's slower:
 .grey-100-hover:hover {
   color: #2c2c2c;
 }
+.grey-100-focus:focus {
+  color: #2c2c2c;
+}
 .grey-100-hover-bkg:hover {
   background-color: #2c2c2c;
 }
@@ -8185,6 +8324,9 @@ you can use the generic selector below, but it's slower:
 .white-hover:hover {
   color: #ffffff;
 }
+.white-focus:focus {
+  color: #ffffff;
+}
 .white-hover-bkg:hover {
   background-color: #ffffff;
 }
@@ -8198,6 +8340,9 @@ you can use the generic selector below, but it's slower:
   background-color: #000000;
 }
 .black-hover:hover {
+  color: #000000;
+}
+.black-focus:focus {
   color: #000000;
 }
 .black-hover-bkg:hover {

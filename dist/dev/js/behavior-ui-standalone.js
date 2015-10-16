@@ -10556,7 +10556,6 @@ Behavior.addGlobalPlugin('FormValidator', 'FormValidatorChanges', function(eleme
     api.removeEvent('formLayoutChange', watcher);
   });
 });
-
 /*
 ---
 description: Provides methods to set or toggle properties on target elements.
@@ -10564,6 +10563,46 @@ provides: [Delegator.setProperty, Delegator.eraseProperty, Delegator.togglePrope
 requires: [Behavior/Delegator, Core/Element]
 script: Delegator.SetProperty.js
 name: Delegator.SetProperty
+
+...
+*/
+(function(){
+  var triggers = {};
+
+  ['set', 'erase', 'toggle'].each(function(action){
+
+    triggers[action + 'Property'] = {
+      require: ['property'],
+      handler: function(event, link, api){
+        var target = link;
+        if (api.get('target') && api.get('target') != 'self'){
+          target = link.getElement(api.get('target'));
+          if (!target) api.fail('could not locate target element to ' + action + ' its property', link);
+        }
+        var current = target.get(api.get('property'));
+        if (current !== null) current = current.toString();
+        if (action == 'set' || (action == 'toggle' && current != api.get('value'))){
+          if (api.get('value') === null) api.fail('Could not retrieve eraseproperty-value option from element.');
+          target.set(api.get('property'), api.get('value'));
+        } else {
+          target.erase(api.get('property'));
+        }
+      }
+    };
+
+  });
+
+  Delegator.register('click', triggers);
+
+})();
+
+/*
+---
+description: Allows you to show a specific section of an accordion by clicking the element.
+provides: [Delegator.ShowAccordionSection]
+requires: [Behavior.Accordion]
+script: Delegator.ShowAccordionSection.js
+name: Delegator.ShowAccordionSection
 
 ...
 */
@@ -14152,6 +14191,36 @@ provides: [Form.Validator.Time]
 Locale.define('en-US', 'FormValidator', {
   'time-offset':  'Please enter a time {when} {amount}.'
 });
+
+/*
+---
+
+name: Form.Validator.Zip
+
+description: Validates the entry is a 5 digit zip code (numerals only)
+
+requires:
+ - More/Form.Validator
+
+provides: [Form.Validator.Zip]
+
+...
+*/
+
+Form.Validator.add('zip', {
+  errorMsg: Form.Validator.getMsg.pass('zip'),
+  test: function(element){
+    return Form.Validator.getValidator('IsEmpty').test(element) || (/^(\d{5})?$/).test(element.get('value'));
+  }
+});
+
+
+Locale.define('en-US', 'FormValidator', {
+
+  'zip': 'Please enter a 5 digit zip code.'
+
+});
+
 
 /*
 ---
