@@ -76,8 +76,15 @@ Slider.Modify = new Class({
   },
 
   updateSlideFill: function(){
-    var percentage = 100*(this.step-this.min)/(this.max-this.min);
-    if (this.slideFill) this.slideFill.setStyle('width', percentage+"%");
+    var knobWidth = this.knob.getSize()[this.axis].toInt()/2;
+    var pos = 'top';
+    var dimension = 'height';
+    if (this.axis == 'x'){
+      pos = 'left';
+      dimension = 'width';
+    }
+    var knobCenter = this.knob.getStyle(pos).toInt() + knobWidth;
+    if (this.slideFill) this.slideFill.setStyle(dimension, knobCenter+"px");
   },
 
   updateTargets: function(){

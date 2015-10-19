@@ -19,7 +19,8 @@ Behavior.addGlobalFilter('Slider.Modify', {
   defaults: {
     knob: '~.slider-knob',
     fill: '.slider-fill',
-    startRange: 1
+    startRange: 1,
+    offset: 0
   },
   requireAs: {
     endRange: Number,
@@ -31,6 +32,7 @@ Behavior.addGlobalFilter('Slider.Modify', {
     // slideFill is optional
     var slideFill = api.get('fill') ? api.getElement('fill') : null;
     var knob = api.getElement('knob');
+    var offset = api.get('offset');
     var targets = api.getAs(Array, 'targets');
 
     if (!targets && targets.length) api.fail('Unable to find targets option.');
@@ -44,7 +46,8 @@ Behavior.addGlobalFilter('Slider.Modify', {
         range: [api.getAs(Number, 'startRange'), api.getAs(Number, 'endRange')],
         initialStep: api.getAs(Number, 'initialStep'),
         slideFill: slideFill,
-        targets: targets
+        targets: targets,
+        offset: offset
       }
     );
     api.onCleanup(slider.detach.bind(slider));
