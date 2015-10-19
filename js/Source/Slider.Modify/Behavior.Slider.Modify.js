@@ -34,6 +34,9 @@ Behavior.addGlobalFilter('Slider.Modify', {
     var knob = api.getElement('knob');
     var offset = api.get('offset');
     var targets = api.getAs(Array, 'targets');
+    var moveClassTargets;
+    if(api.get('moveClassTargets')) moveClassTargets = api.getElements('moveClassTargets');
+    var moveClass = api.get('moveClass');
 
     if (!targets && targets.length) api.fail('Unable to find targets option.');
 
@@ -47,7 +50,9 @@ Behavior.addGlobalFilter('Slider.Modify', {
         initialStep: api.getAs(Number, 'initialStep'),
         slideFill: slideFill,
         targets: targets,
-        offset: offset
+        offset: offset,
+        moveClassTargets: moveClassTargets,
+        moveClass: moveClass
       }
     );
     api.onCleanup(slider.detach.bind(slider));

@@ -53,6 +53,7 @@ Slider.Modify = new Class({
     onMove: function(){
       this.updateSlideFill();
       this.updateTargets();
+      this.addMoveClass();
     },
 
     onComplete: function(){
@@ -73,6 +74,12 @@ Slider.Modify = new Class({
       target['element'] = this.element.getElement(target['selector']);
       if (!target['element'] && console && console.warn) console.warn('Unable to find target from selector '+target['selector']);
     }, this);
+  },
+
+  addMoveClass: function(){
+    if(this.options.moveClass && this.options.moveClassTargets){
+      this.options.moveClassTargets.addClass(this.options.moveClass)
+    }
   },
 
   updateSlideFill: function(){
