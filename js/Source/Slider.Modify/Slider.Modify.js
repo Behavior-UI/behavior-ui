@@ -91,7 +91,7 @@ Slider.Modify = new Class({
       dimension = 'width';
     }
     var knobCenter = this.knob.getStyle(pos).toInt() + knobWidth;
-    if (this.slideFill) this.slideFill.setStyle(dimension, knobCenter+"px");
+    if (this.slideFill) this.slideFill.setStyle(dimension, knobCenter);
   },
 
   updateTargets: function(){

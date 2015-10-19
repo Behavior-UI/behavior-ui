@@ -27784,7 +27784,7 @@ Slider.Modify = new Class({
       dimension = 'width';
     }
     var knobCenter = this.knob.getStyle(pos).toInt() + knobWidth;
-    if (this.slideFill) this.slideFill.setStyle(dimension, knobCenter+"px");
+    if (this.slideFill) this.slideFill.setStyle(dimension, knobCenter);
   },
 
   updateTargets: function(){
@@ -27848,11 +27848,9 @@ Behavior.addGlobalFilter('Slider.Modify', {
     // slideFill is optional
     var slideFill = api.get('fill') ? api.getElement('fill') : null;
     var knob = api.getElement('knob');
-    var offset = api.get('offset');
     var targets = api.getAs(Array, 'targets');
     var moveClassTargets;
     if(api.get('moveClassTargets')) moveClassTargets = api.getElements('moveClassTargets');
-    var moveClass = api.get('moveClass');
 
     if (!targets && targets.length) api.fail('Unable to find targets option.');
 
@@ -27866,9 +27864,9 @@ Behavior.addGlobalFilter('Slider.Modify', {
         initialStep: api.getAs(Number, 'initialStep'),
         slideFill: slideFill,
         targets: targets,
-        offset: offset,
+        offset: api.getAs(Number, 'offset'),
         moveClassTargets: moveClassTargets,
-        moveClass: moveClass
+        moveClass: api.get('moveClass')
       }
     );
     api.onCleanup(slider.detach.bind(slider));

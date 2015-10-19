@@ -41,7 +41,7 @@
     A slider for controlling multiple elements. It allows control over what's modified
     (an element's value or html for example) and uses an extension of Number to
     alter the output value. If provided, it will also apply a class to the target
-    after the slider fires the 'complete' event.
+    after the slider fires the 'complete' and 'move' events.
   </p>
 
   <p>
@@ -158,6 +158,31 @@ Slider multiplied by 7 (setting the html property is the default behavior): <spa
           <td></td>
           <td>
             The number of divisions between the startRange and endRange numbers.
+          </td>
+        </tr>
+        <tr>
+          <td>offset</td>
+          <td>Number</td>
+          <td>0</td>
+          <td>
+            Shifts the knob so that it is centered over the value on the slider.
+            If used, it is generally set to half the width of the knob.
+          </td>
+        </tr>
+        <tr>
+          <td>moveClass</td>
+          <td>String</td>
+          <td></td>
+          <td>
+            The class applied to <code>moveClassTargets</code> upon the 'move' event.
+          </td>
+        </tr>
+        <tr>
+          <td>moveClassTargets</td>
+          <td>string</td>
+          <td></td>
+          <td>
+            Relative selector for objects to apply the <code>moveClass</code> to.
           </td>
         </tr>
         <tr>
