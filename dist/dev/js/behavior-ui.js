@@ -4576,8 +4576,8 @@ provides: [MooTools.More]
 */
 
 MooTools.More = {
-	version: '1.5.2',
-	build: 'facdf0458d10fd214aa9f5fa71935a23a772cc48'
+	version: '1.5.3-dev',
+	build: '%build%'
 };
 
 /*
@@ -9959,7 +9959,7 @@ String.implement({
 
 });
 
-})()
+})();
 
 /*
 ---
@@ -16734,7 +16734,7 @@ var URI = this.URI = new Class({
 		/*base: false*/
 	},
 
-	regex: /^(?:(\w+):)?(?:\/\/(?:(?:([^:@\/]*):?([^:@\/]*))?@)?([^:\/?#]*)(?::(\d*))?)?(\.\.?$|(?:[^?#\/]*\/)*)([^?#]*)(?:\?([^#]*))?(?:#(.*))?/,
+	regex: /^(?:(\w+):)?(?:\/\/(?:(?:([^:@\/]*):?([^:@\/]*))?@)?(\[[A-Fa-f0-9:]+\]|[^:\/?#]*)(?::(\d*))?)?(\.\.?$|(?:[^?#\/]*\/)*)([^?#]*)(?:\?([^#]*))?(?:#(.*))?/,
 	parts: ['scheme', 'user', 'password', 'host', 'port', 'directory', 'file', 'query', 'fragment'],
 	schemes: {http: 80, https: 443, ftp: 21, rtsp: 554, mms: 1755, file: 0},
 
@@ -27746,6 +27746,7 @@ Slider.Modify = new Class({
     onMove: function(){
       this.updateSlideFill();
       this.updateTargets();
+      this.addMoveClass();
     },
 
     onComplete: function(){
@@ -27768,9 +27769,22 @@ Slider.Modify = new Class({
     }, this);
   },
 
+  addMoveClass: function(){
+    if(this.options.moveClass && this.options.moveClassTargets){
+      this.options.moveClassTargets.addClass(this.options.moveClass)
+    }
+  },
+
   updateSlideFill: function(){
-    var percentage = 100*(this.step-this.min)/(this.max-this.min);
-    if (this.slideFill) this.slideFill.setStyle('width', percentage+"%");
+    var knobWidth = this.knob.getSize()[this.axis].toInt()/2;
+    var pos = 'top';
+    var dimension = 'height';
+    if (this.axis == 'x'){
+      pos = 'left';
+      dimension = 'width';
+    }
+    var knobCenter = this.knob.getStyle(pos).toInt() + knobWidth;
+    if (this.slideFill) this.slideFill.setStyle(dimension, knobCenter+"px");
   },
 
   updateTargets: function(){
@@ -27821,7 +27835,8 @@ Behavior.addGlobalFilter('Slider.Modify', {
   defaults: {
     knob: '~.slider-knob',
     fill: '.slider-fill',
-    startRange: 1
+    startRange: 1,
+    offset: 0
   },
   requireAs: {
     endRange: Number,
@@ -27833,7 +27848,11 @@ Behavior.addGlobalFilter('Slider.Modify', {
     // slideFill is optional
     var slideFill = api.get('fill') ? api.getElement('fill') : null;
     var knob = api.getElement('knob');
+    var offset = api.get('offset');
     var targets = api.getAs(Array, 'targets');
+    var moveClassTargets;
+    if(api.get('moveClassTargets')) moveClassTargets = api.getElements('moveClassTargets');
+    var moveClass = api.get('moveClass');
 
     if (!targets && targets.length) api.fail('Unable to find targets option.');
 
@@ -27846,7 +27865,10 @@ Behavior.addGlobalFilter('Slider.Modify', {
         range: [api.getAs(Number, 'startRange'), api.getAs(Number, 'endRange')],
         initialStep: api.getAs(Number, 'initialStep'),
         slideFill: slideFill,
-        targets: targets
+        targets: targets,
+        offset: offset,
+        moveClassTargets: moveClassTargets,
+        moveClass: moveClass
       }
     );
     api.onCleanup(slider.detach.bind(slider));
