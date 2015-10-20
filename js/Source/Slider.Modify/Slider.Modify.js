@@ -67,6 +67,7 @@ Slider.Modify = new Class({
     this.slideFill = document.id(options.slideFill);
     this.parent(element, knob, options);
     this.buildTargets();
+    this.updateSlideFill();
   },
 
   buildTargets: function(){
