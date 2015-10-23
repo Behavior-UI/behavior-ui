@@ -107,6 +107,7 @@ sources:
  - Source/Fx.Progress/Fx.Progress.js
  - Source/GoogleMap/GoogleMap.js
  - Source/HtmlTable/Behavior.HtmlTable.js
+ - Source/InfiniteScroll/Behavior.InfiniteScroll.js
  - Source/InteractiveList/Behavior.InteractiveList.js
  - Source/InteractiveList/Behavior.InteractiveMessageList.js
  - Source/InteractiveList/InteractiveList.js

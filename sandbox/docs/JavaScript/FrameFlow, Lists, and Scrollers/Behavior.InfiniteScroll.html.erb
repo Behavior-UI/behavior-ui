@@ -1,0 +1,110 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>InfiniteScroll <small>Behavior.InfiniteScroll.js</small></h1>
+  </div>
+  <p>
+    Fires an element's Ajax delegator when that element is scrolled to.
+  </p>
+
+
+  <h3>Example</h3>
+  <b>Scroll to the bottom of the page to see it in action.</b> The InfiniteScroll
+  behavior is AJAXed in, and looks like this:
+
+  <pre class="prettyprint">
+    &lt;ul>
+      &lt;li>
+        lots of elements
+      &lt;/li>
+    &lt;/ul>
+    &lt;div class="pagination-target">
+      &lt;a href="path_to_your_next_page_of_content" data="
+          'trigger': "Ajax Stop",
+          'ajax-target': '!body div.pagination-target',
+          'ajax-options': {
+            'action': 'replace',
+            'target': '!body div.pagination-target'
+            'useSpinner': true
+          },
+          'behavior': 'InfiniteScroll',
+          'infinitescroll-options': {
+            'ajaxElement': 'self',
+            'ajaxElementOffset': 15
+          }
+        }
+        "
+      >
+        Next
+      &lt;/a>
+    &lt;/div>
+  </pre>
+
+  Each AJAX response includes additional content and a behavior that replaces the
+  previous behavior. InfiniteScroll is a simplified version of Affix,
+  and uses <code>ajaxElement</code> and <code>ajaxElementOffset</code> as Affix's
+  affixAtElement[top][element] and affixAtElement[top][offset].
+
+
+  <h2>Behavior Options</h2>
+  <p>These options apply only to the <code>data-</code> tag invocation.</p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Name</th>
+         <th style="width: 50px;">type</th>
+         <th style="width: 50px;">default</th>
+         <th>description</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ajaxElement</td>
+          <td>String</td>
+          <td></code></td>
+          <td>The element that has an AJAX delegator.</td>
+        </tr>
+        <tr>
+          <td>ajaxElementOffset</td>
+          <td>Number</td>
+          <td></td>
+          <td>
+            The scroll offset from the ajaxElement to fire the AJAX delegator.
+          </td>
+        </tr>
+        <tr>
+          <td>monitor</td>
+          <td>String</td>
+          <td>!body</td>
+          <td>
+            The element to monitor for scrolling
+          </td>
+        </tr>
+        <tr>
+          <td>classNames</td>
+          <td>Object</td>
+          <td></td>
+          <td>
+            See <code>classNames</code> on BS.Affix
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  <div class="unstyled" style="max-width: 50px; background-color: #DDDDDD">
+    <div
+      data-trigger="Ajax" href="<%= sandbox_infinite_scroll_path %>"
+      data-ajax-options="
+        'target': 'self',
+        'action': 'replace',
+        'userSpinner': true
+      "
+      data-behavior="Startup" data-startup-options="
+        'delegators': {
+          'Ajax': {}
+        }
+      "
+    ></div>
+  </div>
