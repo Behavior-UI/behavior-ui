@@ -20,7 +20,8 @@ Behavior.addGlobalFilter('Slider.Modify', {
     knob: '~.slider-knob',
     fill: '.slider-fill',
     startRange: 1,
-    offset: 0
+    offset: 0,
+    jumpstart: false
   },
   requireAs: {
     endRange: Number,
@@ -50,7 +51,8 @@ Behavior.addGlobalFilter('Slider.Modify', {
         targets: targets,
         offset: api.getAs(Number, 'offset'),
         moveClassTargets: moveClassTargets,
-        moveClass: api.get('moveClass')
+        moveClass: api.get('moveClass'),
+        jumpstart: api.getAs(Boolean, 'jumpstart')
       }
     );
     api.onCleanup(slider.detach.bind(slider));

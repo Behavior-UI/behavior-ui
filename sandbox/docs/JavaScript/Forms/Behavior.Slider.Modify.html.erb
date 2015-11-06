@@ -62,6 +62,7 @@
   'endRange': 286,
   'initialStep': 286,
   'steps': 285,
+  'jumpstart': true,
   'targets': [
     {
       'selector': '!body #html-example',
@@ -199,6 +200,15 @@ Slider multiplied by 7 (setting the html property is the default behavior): <spa
             will set the html property of the given element to the value of the slider.
             This is the minimal input for the 'targets' option. See the code examples
             above for more complex options.
+          </td>
+        </tr>
+        <tr>
+          <td>jumpstart</td>
+          <td>Boolean</td>
+          <td><code>false</code></td>
+          <td>
+            If true, the slider will "jump" to where the user initially taps or puts
+            the mouse down and allow them to continue dragging from there.
           </td>
         </tr>
       </tbody>

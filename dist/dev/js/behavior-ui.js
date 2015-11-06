@@ -27818,9 +27818,12 @@ provides: [Slider.Modify]
 
 Slider.Modify = new Class({
   Extends: Slider,
+
   options: {
     // slideFill: Element,
     targets: [],
+
+    jumpstart: false,
 
     onMove: function(){
       this.updateSlideFill();
@@ -27837,9 +27840,29 @@ Slider.Modify = new Class({
   initialize: function(element, knob, options){
     this.targets = options.targets;
     this.slideFill = document.id(options.slideFill);
+    // not overwriting the Binds property from the parent class, so do this manually
+    this.jumpstart = this._jumpstart.bind(this);
     this.parent(element, knob, options);
     this.buildTargets();
     this.updateSlideFill();
+  },
+
+  attach: function(){
+    this.parent();
+    if (this.options.jumpstart){
+      var event = ('ontouchstart' in window) ? 'touchstart' : 'mousedown';
+      this.element.addEvent(event, this.jumpstart);
+      // remove mousedown handler added by Slider class;
+      this.element.removeEvent('mousedown', this.clickedElement);
+    }
+  },
+
+  detach: function(){
+    this.element.removeEvents({
+      touchstart: this.jumpstart,
+      mousedown: this.jumpstart
+    });
+    return this.parent();
   },
 
   buildTargets: function(){
@@ -27851,7 +27874,7 @@ Slider.Modify = new Class({
 
   addMoveClass: function(){
     if(this.options.moveClass && this.options.moveClassTargets){
-      this.options.moveClassTargets.addClass(this.options.moveClass)
+      this.options.moveClassTargets.addClass(this.options.moveClass);
     }
   },
 
@@ -27891,7 +27914,13 @@ Slider.Modify = new Class({
   applyOperator: function(modifiedCount, operator, params){
     // ensure the 'this' for apply is the Number.
     return modifiedCount[operator].apply(modifiedCount, params);
+  },
+
+  _jumpstart: function(event){
+    this.clickedElement(event);
+    this.drag.start(event);
   }
+
 });
 
 /*
@@ -27916,7 +27945,8 @@ Behavior.addGlobalFilter('Slider.Modify', {
     knob: '~.slider-knob',
     fill: '.slider-fill',
     startRange: 1,
-    offset: 0
+    offset: 0,
+    jumpstart: false
   },
   requireAs: {
     endRange: Number,
@@ -27946,7 +27976,8 @@ Behavior.addGlobalFilter('Slider.Modify', {
         targets: targets,
         offset: api.getAs(Number, 'offset'),
         moveClassTargets: moveClassTargets,
-        moveClass: api.get('moveClass')
+        moveClass: api.get('moveClass'),
+        jumpstart: api.getAs(Boolean, 'jumpstart')
       }
     );
     api.onCleanup(slider.detach.bind(slider));
