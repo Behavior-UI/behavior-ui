@@ -14588,7 +14588,7 @@ input.form-control {
   border-top-style: solid;
 }
 .border-top.border-width-1 {
-  border-bottom-width: 1px;
+  border-top-width: 1px;
 }
 .border-bottom {
   border-bottom-width: 2px;
@@ -14604,7 +14604,7 @@ input.form-control {
   border-left-style: solid;
 }
 .border-left.border-width-1 {
-  border-bottom-width: 1px;
+  border-left-width: 1px;
 }
 .border-right {
   border-right-width: 2px;
@@ -14612,7 +14612,7 @@ input.form-control {
   border-right-style: solid;
 }
 .border-right.border-width-1 {
-  border-bottom-width: 1px;
+  border-right-width: 1px;
 }
 @media (max-width: 767px) {
   .border-none-xs {
@@ -16051,6 +16051,9 @@ ul.autocompleter-choices span.autocompleter-queried {
   padding: 28px 20px;
   border-radius: 6px;
 }
+.btn.btn-round-border {
+  border-radius: 100px;
+}
 .btn.btn-large-radius {
   border-radius: 6px;
 }
@@ -17304,6 +17307,9 @@ fieldset[disabled] .rangepicker_minimal .footer button {
   line-height: 0.95;
   padding: 28px 20px;
   border-radius: 6px;
+}
+.rangepicker_minimal .footer button.btn-round-border {
+  border-radius: 100px;
 }
 .rangepicker_minimal .footer button.apply {
   border-radius: 0 5px 5px 0;

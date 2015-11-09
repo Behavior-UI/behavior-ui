@@ -39,6 +39,10 @@ Behavior.addGlobalFilter('Slider.Modify', {
 
     if (!targets && targets.length) api.fail('Unable to find targets option.');
 
+    if (api.getAs(Number, 'roundAfterSnap') !== null && api.getAs(Number, 'roundAfterSnap') <= 0){
+      api.fail('Error: roundAfterSnap must be greater than zero.');
+    }
+
     // instantiate a new Slider.Modify instance.
     var slider = new Slider.Modify(
       element,
@@ -52,7 +56,9 @@ Behavior.addGlobalFilter('Slider.Modify', {
         offset: api.getAs(Number, 'offset'),
         moveClassTargets: moveClassTargets,
         moveClass: api.get('moveClass'),
-        jumpstart: api.getAs(Boolean, 'jumpstart')
+        jumpstart: api.getAs(Boolean, 'jumpstart'),
+        snap: api.getAs(Boolean, 'snap'),
+        roundAfterSnap: api.getAs(Number, 'roundAfterSnap')
       }
     );
     api.onCleanup(slider.detach.bind(slider));

@@ -49,9 +49,11 @@ Slider.Modify = new Class({
 
   options: {
     // slideFill: Element,
+    // roundAfterSnap: null,
     targets: [],
 
     jumpstart: false,
+
 
     onMove: function(){
       this.updateSlideFill();
@@ -73,6 +75,12 @@ Slider.Modify = new Class({
     this.parent(element, knob, options);
     this.buildTargets();
     this.updateSlideFill();
+    if (this.options.roundAfterSnap){
+      this.addEvent('complete', function(step){
+        var target = (step / this.options.roundAfterSnap).round() * this.options.roundAfterSnap;
+        if (step != target) this.set(target).fireEvent('afterSnap', step);
+      }.bind(this));
+    }
   },
 
   attach: function(){
@@ -144,8 +152,15 @@ Slider.Modify = new Class({
     return modifiedCount[operator].apply(modifiedCount, params);
   },
 
+  end: function(){
+    if (this.jumpStarting) return this;
+    return this.parent();
+  },
+
   _jumpstart: function(event){
+    this.jumpStarting = true;
     this.clickedElement(event);
+    this.jumpStarting = false;
     this.drag.start(event);
   }
 
