@@ -133,6 +133,8 @@ Bootstrap.Affix = new Class({
 
 Bootstrap.Affix.instances = [];
 
+
+// register an instance with the element to monitor for scroll
 Bootstrap.Affix.register = function(instance, monitor){
   monitor = monitor || window;
   monitor.retrieve('Bootstrap.Affix.registered', []).push(instance);
@@ -141,12 +143,14 @@ Bootstrap.Affix.register = function(instance, monitor){
   Bootstrap.Affix.onScroll.apply(monitor);
 };
 
+// unregister an instance
 Bootstrap.Affix.drop = function(instance, monitor){
   monitor.retrieve('Bootstrap.Affix.registered', []).erase(instance);
   if (monitor.retrieve('Bootstrap.Affix.registered').length == 0) Bootstrap.Affix.detach(monitor);
   Bootstrap.Affix.instances.erase(instance);
 };
 
+// attach affix scroll monitor to element
 Bootstrap.Affix.attach = function(monitor){
   if (!Bootstrap.Affix.attachedToWindowResize){
     Bootstrap.Affix.attachedToWindowResize = true;
@@ -156,18 +160,32 @@ Bootstrap.Affix.attach = function(monitor){
   monitor.store('Bootstrap.Affix.attached', true);
 };
 
+// detach affix scroll monitor
 Bootstrap.Affix.detach = function(monitor){
   monitor = monitor || window;
   monitor.removeEvent('scroll', Bootstrap.Affix.onScroll);
   monitor.store('Bootstrap.Affix.attached', false);
 };
 
+// call instance.refresh() on all registered instances
+// which recalculates where the affix scroll line is relative
+// to its scroll monitor
 Bootstrap.Affix.refresh = function(){
+  var monitors = [];
   Bootstrap.Affix.instances.each(function(instance){
-    instance.refresh();
+    monitors.include(instance.options.monitor || window);
+    instance.refresh(); // remeasure offsets
+    instance.unpin(); // remove all css classes
+    instance._reset();
+  });
+  monitors.each(function(monitor){
+    // remeasure the offset
+    Bootstrap.Affix.onScroll.apply(monitor);
   });
 };
 
+// handles scroll event; pass _y value optionally; otherwise
+// measures scroll offset of monitor
 Bootstrap.Affix.onScroll = function(_y){
   var monitor = this,
       y = _y || monitor.getScroll().y,
@@ -178,6 +196,8 @@ Bootstrap.Affix.onScroll = function(_y){
   }
 };
 
+// updates the pin state of an element based on passed in
+// y value
 Bootstrap.Affix.update = function(instance, y, monitorSize){
   var bottom = instance.bottom,
       top = instance.top;
@@ -187,5 +207,5 @@ Bootstrap.Affix.update = function(instance, y, monitorSize){
   if (y < top && instance.pinned) instance.unpin();
   // if we've scrolled past the bottom line, unpin
   else if (bottom && bottom < y && y > top && instance.pinned) instance.unpin(true);
-  else if (y > top && (!bottom || (bottom && y < bottom)) && !instance.pinned) instance.pin();
+  else if (y >= top && (!bottom || (bottom && y < bottom)) && !instance.pinned) instance.pin();
 };
