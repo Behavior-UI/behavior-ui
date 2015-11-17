@@ -154,7 +154,7 @@ Bootstrap.Form.Validator.Tips = new Class({
     // if we're doing the serial thing
     if (this.options.serial){
       // get any other fields that have an error state
-      var fields = this.element.getElements('.validation-failed, .warning');
+      var fields = this.element.getElements(this.options.fieldSelectors).filter('.validation-failed, .warning');
       if (fields.length){
         // and ensure their tooltips are not visible
         fields.each(function(f){

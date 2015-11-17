@@ -3768,7 +3768,7 @@ Bootstrap.Form.Validator.Tips = new Class({
     // if we're doing the serial thing
     if (this.options.serial){
       // get any other fields that have an error state
-      var fields = this.element.getElements('.validation-failed, .warning');
+      var fields = this.element.getElements(this.options.fieldSelectors).filter('.validation-failed, .warning');
       if (fields.length){
         // and ensure their tooltips are not visible
         fields.each(function(f){
@@ -3831,6 +3831,7 @@ Bootstrap.Form.Validator.Tips = new Class({
   // the tooltip has its own insertion logic invoked when you call .show, so we turn this method into a stub
   insertAdvice: function(advice, field){}
 });
+
 /*
 ---
 name: Behavior.FormValidator.BS.Tips
