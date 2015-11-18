@@ -156,7 +156,9 @@ Bootstrap.Form.Validator.Tips = new Class({
       // get any other fields that have an error state
       var fields = this.element.getElements(this.options.fieldSelectors).filter('.validation-failed, .warning');
       if (fields.length){
-        // and ensure their tooltips are not visible
+        // do not hide advice for first field
+        fields.shift();
+        // but hide advices for other fields
         fields.each(function(f){
           var adv = this.getAdvice(f);
           if (adv) adv.hide();
