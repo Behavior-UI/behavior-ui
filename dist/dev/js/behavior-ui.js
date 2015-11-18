@@ -14884,7 +14884,9 @@ Bootstrap.Form.Validator.Tips = new Class({
       // get any other fields that have an error state
       var fields = this.element.getElements(this.options.fieldSelectors).filter('.validation-failed, .warning');
       if (fields.length){
-        // and ensure their tooltips are not visible
+        // do not hide advice for first field
+        fields.shift();
+        // but hide advices for other fields
         fields.each(function(f){
           var adv = this.getAdvice(f);
           if (adv) adv.hide();
@@ -22617,8 +22619,13 @@ name: Delegator.Confirm
             };
           }
         }
+        var existingPopup = link.retrieve('Bootstrap.Popup');
+        if (existingPopup && existingPopup.visible){
+          existingPopup.show();
+          return existingPopup;
+        }
 
-        var prompt = make_prompt({
+        var prompt = makePrompt({
           caption: api.get('caption'),
           content: api.get('content'),
           body: api.get('body'),
@@ -22628,7 +22635,12 @@ name: Delegator.Confirm
           deleting: (link.get('data-method')||"").toLowerCase() == 'delete'
         }).addClass('hide');
         prompt.inject(document.body);
-        var popup = new Bootstrap.Popup(prompt, {persist: false});
+        var popup = new Bootstrap.Popup(prompt, {
+          persist: false,
+          onShow: function(){
+            this.element.getElement('.btn-ok').focus();
+          }
+        });
         popup.show();
         link.store('Bootstrap.Popup', popup);
         return popup;
@@ -22636,11 +22648,12 @@ name: Delegator.Confirm
     }
   });
 
-  var make_prompt = function(options){
+  var makePrompt = function(options){
     content = options.body ? Elements.from(options.body) : options.content ? new Element('p').set('html', options.content) : '';
     buttons = options.buttons || [{
       'class': 'btn',
       'html': 'Cancel',
+      'buttonType': 'a',
       'events': {
         'click': options.onCancel || function(){}
       }
@@ -22648,6 +22661,7 @@ name: Delegator.Confirm
       'class': 'btn btn-ok ' + (options.deleting ? 'btn-danger' : 'btn-primary'),
       'html': options.deleting ? 'DELETE' : 'Ok',
       'href': options.url,
+      'buttonType': options.url ? 'a' : 'button',
       'events': {
         'click': options.onConfirm || function(){}
       }
@@ -22661,7 +22675,7 @@ name: Delegator.Confirm
         new Element('div.modal-body').adopt(content),
         new Element('div.modal-footer').adopt(
           buttons.map(function(button){
-            return new Element('a', button).addClass('dismiss');
+            return new Element(button.buttonType, Object.erase(button, 'buttonType')).addClass('dismiss');
           })
         )
       );
@@ -22676,7 +22690,7 @@ name: Delegator.Confirm
             new Element('div.modal-body').adopt(content),
             new Element('div.modal-footer').adopt(
               buttons.map(function(button){
-                return new Element('a', button).addClass('dismiss');
+                return new Element(button.buttonType, Object.erase(button, 'buttonType')).addClass('dismiss');
               })
             )
           )
