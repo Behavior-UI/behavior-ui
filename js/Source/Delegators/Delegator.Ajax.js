@@ -80,6 +80,11 @@ name: Delegator.Ajax
             api.fireEvent('updateHistory', api.get('historyURI') || api.get('href') || link.get('href'));
           }
           elements = []; //garbage collection
+        },
+        onFailure: function(e){
+          if (api.get('errorRedirectURL')){
+            window.location.href = api.get('errorRedirectURL');
+          }
         }
       })
     );
