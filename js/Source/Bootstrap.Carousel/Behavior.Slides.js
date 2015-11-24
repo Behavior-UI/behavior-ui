@@ -32,7 +32,8 @@ Behavior.addGlobalFilter('Slides', {
           transitionPause: Number,
           startIndex: Number,
           startShowDelay: Number,
-          skipSlideClass: String
+          skipSlideClass: String,
+          swipe: Boolean
         })
       )
     );
