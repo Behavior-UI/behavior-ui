@@ -24,7 +24,8 @@ provides: [Behavior.Chart.Stock]
   Behavior.addGlobalFilter('Chart.Stock', {
 
     defaults: {
-      exportable: true
+      exportable: true,
+      selectedRange: 6
     },
 
     returns: Chart.Stock,
@@ -88,7 +89,8 @@ provides: [Behavior.Chart.Stock]
           fetchEvery: Number,
           navigation: Object,
           colors: Array,
-          minPointLength: Number
+          minPointLength: Number,
+          selectedRange: Number
         })
       );
 

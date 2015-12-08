@@ -6887,7 +6887,9 @@ Chart.Stock = new Class({
   options: {
     // the color of the series in the navigator; hex, rgb, or rgba
     // if not specified uses the first color in the colors array in options
-    navigatorSeriesColor: null
+    navigatorSeriesColor: null,
+    // default selected range = 1/mo
+    selectedRange: 0
   },
 
   /*
@@ -6991,7 +6993,7 @@ Chart.Stock = new Class({
         },
         rangeSelector: {
           inputEnabled: false,
-          selected: 0
+          selected: this.options.selectedRange
         },
         xAxis: {
           events: {
@@ -7244,7 +7246,8 @@ provides: [Behavior.Chart.Stock]
   Behavior.addGlobalFilter('Chart.Stock', {
 
     defaults: {
-      exportable: true
+      exportable: true,
+      selectedRange: 6
     },
 
     returns: Chart.Stock,
@@ -7308,7 +7311,8 @@ provides: [Behavior.Chart.Stock]
           fetchEvery: Number,
           navigation: Object,
           colors: Array,
-          minPointLength: Number
+          minPointLength: Number,
+          selectedRange: Number
         })
       );
 
