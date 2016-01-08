@@ -94,11 +94,13 @@ Bootstrap.Tooltip = new Class({
   },
 
   hide: function(){
+    clearTimeout(this._inDelay);
     this._makeTip();
     this.tip.removeClass('in').addClass('out');
     this.visible = false;
     if (!Browser.Features.cssTransition || !this.options.animate) this._complete();
     this.fireEvent('hide');
+    this._check.delay(200, this);
     return this;
   },
 
@@ -114,6 +116,13 @@ Bootstrap.Tooltip = new Class({
   },
 
   // PRIVATE METHODS
+
+  // validate that the element has been removed from the DOM if it's no longer
+  // meant to be visible; insulates from client neglecting to fire the cssTransition
+  // end event
+  _check: function(){
+    if (!this.visible && this.tip.getParent()) this._complete();
+  },
 
   _makeTip: function(){
     if (!this.tip){
