@@ -172,7 +172,7 @@ FrameFlow.Frame = new Class({
         });
       }, this);
     }
-  },
+  }
 
 
 });

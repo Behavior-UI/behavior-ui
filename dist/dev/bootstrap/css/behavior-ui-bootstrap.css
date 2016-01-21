@@ -5918,6 +5918,7 @@ you can use the generic selector below, but it's slower:
 .thanx-glyph-winback,
 .thanx-glyph-vip,
 .thanx-glyph-transaction,
+.thanx-glyph-purchase,
 .thanx-glyph-dollar-stack,
 .thanx-glyph-dollar,
 .thanx-glyph-reward,
@@ -6058,6 +6059,7 @@ you can use the generic selector below, but it's slower:
 .thanx-glyph-winback.small,
 .thanx-glyph-vip.small,
 .thanx-glyph-transaction.small,
+.thanx-glyph-purchase.small,
 .thanx-glyph-dollar-stack.small,
 .thanx-glyph-dollar.small,
 .thanx-glyph-reward.small,
@@ -6193,6 +6195,7 @@ you can use the generic selector below, but it's slower:
 .thanx-glyph-winback.small.vertical-middle,
 .thanx-glyph-vip.small.vertical-middle,
 .thanx-glyph-transaction.small.vertical-middle,
+.thanx-glyph-purchase.small.vertical-middle,
 .thanx-glyph-dollar-stack.small.vertical-middle,
 .thanx-glyph-dollar.small.vertical-middle,
 .thanx-glyph-reward.small.vertical-middle,
@@ -6326,6 +6329,7 @@ you can use the generic selector below, but it's slower:
 .thanx-glyph-winback.medium,
 .thanx-glyph-vip.medium,
 .thanx-glyph-transaction.medium,
+.thanx-glyph-purchase.medium,
 .thanx-glyph-dollar-stack.medium,
 .thanx-glyph-dollar.medium,
 .thanx-glyph-reward.medium,
@@ -6459,6 +6463,7 @@ you can use the generic selector below, but it's slower:
 .thanx-glyph-winback.large,
 .thanx-glyph-vip.large,
 .thanx-glyph-transaction.large,
+.thanx-glyph-purchase.large,
 .thanx-glyph-dollar-stack.large,
 .thanx-glyph-dollar.large,
 .thanx-glyph-reward.large,
@@ -6592,6 +6597,7 @@ you can use the generic selector below, but it's slower:
 .thanx-glyph-winback.x-large,
 .thanx-glyph-vip.x-large,
 .thanx-glyph-transaction.x-large,
+.thanx-glyph-purchase.x-large,
 .thanx-glyph-dollar-stack.x-large,
 .thanx-glyph-dollar.x-large,
 .thanx-glyph-reward.x-large,
@@ -6726,6 +6732,7 @@ you can use the generic selector below, but it's slower:
 .thanx-glyph-winback.xx-large,
 .thanx-glyph-vip.xx-large,
 .thanx-glyph-transaction.xx-large,
+.thanx-glyph-purchase.xx-large,
 .thanx-glyph-dollar-stack.xx-large,
 .thanx-glyph-dollar.xx-large,
 .thanx-glyph-reward.xx-large,
@@ -6860,6 +6867,7 @@ you can use the generic selector below, but it's slower:
 .thanx-glyph-winback.decorated,
 .thanx-glyph-vip.decorated,
 .thanx-glyph-transaction.decorated,
+.thanx-glyph-purchase.decorated,
 .thanx-glyph-dollar-stack.decorated,
 .thanx-glyph-dollar.decorated,
 .thanx-glyph-reward.decorated,
@@ -6997,6 +7005,7 @@ you can use the generic selector below, but it's slower:
 .thanx-glyph-winback.vertical-middle,
 .thanx-glyph-vip.vertical-middle,
 .thanx-glyph-transaction.vertical-middle,
+.thanx-glyph-purchase.vertical-middle,
 .thanx-glyph-dollar-stack.vertical-middle,
 .thanx-glyph-dollar.vertical-middle,
 .thanx-glyph-reward.vertical-middle,
@@ -7272,6 +7281,9 @@ you can use the generic selector below, but it's slower:
   content: "\e072";
 }
 .thanx-glyph-transaction:before {
+  content: "\e073";
+}
+.thanx-glyph-purchase:before {
   content: "\e073";
 }
 .thanx-glyph-dollar-stack:before {
