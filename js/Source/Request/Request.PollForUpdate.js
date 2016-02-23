@@ -63,7 +63,7 @@ Request.PollForUpdate = new Class({
     var data = this.request.response.json;
     // if the server provides an 'updated_at' timestamp,
     // store as an attribute
-    if (data.status == 'update'){
+    if (data && data.status == 'update'){
       if (data.updated_at) this.updatedAt = data.updated_at.toInt();
       this.data = data;
       this.fireEvent('update', data);
