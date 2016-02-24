@@ -21,7 +21,8 @@ Behavior.addGlobalFilter('Slider.Modify', {
     fill: '.slider-fill',
     startRange: 1,
     offset: 0,
-    jumpstart: false
+    jumpstart: false,
+    formSubmitDelay: 1000,
   },
   requireAs: {
     endRange: Number,
@@ -42,6 +43,8 @@ Behavior.addGlobalFilter('Slider.Modify', {
     if (api.getAs(Number, 'roundAfterSnap') !== null && api.getAs(Number, 'roundAfterSnap') <= 0){
       api.fail('Error: roundAfterSnap must be greater than zero.');
     }
+    var formTarget;
+    if (api.get('formToSubmit')) formTarget = api.getElement('formToSubmit');
 
     // instantiate a new Slider.Modify instance.
     var slider = new Slider.Modify(
@@ -61,6 +64,13 @@ Behavior.addGlobalFilter('Slider.Modify', {
         roundAfterSnap: api.getAs(Number, 'roundAfterSnap')
       }
     );
+    if(formTarget){
+      var timer;
+      slider.addEvent('move', function(){
+        clearTimeout(timer);
+        timer = setTimeout(formTarget.submit, api.get('formSubmitDelay'));
+      });
+    }
     api.onCleanup(slider.detach.bind(slider));
 
     return slider;

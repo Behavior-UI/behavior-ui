@@ -228,6 +228,24 @@ Slider multiplied by 7 (setting the html property is the default behavior): <spa
             `true` if you want the knob to snap to the nearest value.
           </td>
         </tr>
+        <tr>
+          <td>formToSubmit</td>
+          <td>string</td>
+          <td><code>null</code></td>
+          <td>
+            If present, the the target form element will be submitted after
+            <code>formSubmitDelay</code> milliseconds.
+          </td>
+        </tr>
+        <tr>
+          <td>formSubmitDelay</td>
+          <td>Number</td>
+          <td><code>1000</code></td>
+          <td>
+            If <code>formToSubmit</code> is present, this is the amount of delay
+            before that form is submitted after each <code>move</code> event.
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
