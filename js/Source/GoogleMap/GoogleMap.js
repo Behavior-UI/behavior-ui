@@ -16,7 +16,10 @@ provides: [GoogleMap, GoogleMap.Box, GoogleMap.Annotated]
 (function(){
   if (!window.google){
     try {
-      console.log("not running google map class code as google maps is not included.");
+      if (window.location.search.indexOf('verbose=true') >= 0 ||
+          window.location.search.indexOf('debug=true') >= 0) {
+        console.log("not running google map class code as google maps is not included.");
+      }
     } catch(e){}
     return;
   }

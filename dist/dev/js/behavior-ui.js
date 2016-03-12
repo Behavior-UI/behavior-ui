@@ -24840,7 +24840,10 @@ provides: [GoogleMap, GoogleMap.Box, GoogleMap.Annotated]
 (function(){
   if (!window.google){
     try {
-      console.log("not running google map class code as google maps is not included.");
+      if (window.location.search.indexOf('verbose=true') >= 0 ||
+          window.location.search.indexOf('debug=true') >= 0) {
+        console.log("not running google map class code as google maps is not included.");
+      }
     } catch(e){}
     return;
   }
@@ -27328,13 +27331,14 @@ Request.PollForUpdate = new Class({
     var data = this.request.response.json;
     // if the server provides an 'updated_at' timestamp,
     // store as an attribute
-    if (data.status == 'update'){
+    if (data && data.status == 'update'){
       if (data.updated_at) this.updatedAt = data.updated_at.toInt();
       this.data = data;
       this.fireEvent('update', data);
     }
   }
 });
+
 /*
 ---
 
@@ -28018,7 +28022,8 @@ Behavior.addGlobalFilter('Slider.Modify', {
     fill: '.slider-fill',
     startRange: 1,
     offset: 0,
-    jumpstart: false
+    jumpstart: false,
+    formSubmitDelay: 1000,
   },
   requireAs: {
     endRange: Number,
@@ -28039,6 +28044,8 @@ Behavior.addGlobalFilter('Slider.Modify', {
     if (api.getAs(Number, 'roundAfterSnap') !== null && api.getAs(Number, 'roundAfterSnap') <= 0){
       api.fail('Error: roundAfterSnap must be greater than zero.');
     }
+    var formTarget;
+    if (api.get('formToSubmit')) formTarget = api.getElement('formToSubmit');
 
     // instantiate a new Slider.Modify instance.
     var slider = new Slider.Modify(
@@ -28058,6 +28065,13 @@ Behavior.addGlobalFilter('Slider.Modify', {
         roundAfterSnap: api.getAs(Number, 'roundAfterSnap')
       }
     );
+    if(formTarget){
+      var timer;
+      slider.addEvent('move', function(){
+        clearTimeout(timer);
+        timer = setTimeout(formTarget.submit, api.get('formSubmitDelay'));
+      });
+    }
     api.onCleanup(slider.detach.bind(slider));
 
     return slider;
