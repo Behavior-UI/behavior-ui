@@ -1,6 +1,6 @@
 {
   "name": "behavior-ui",
-  "version": "0.3.46",
+  "version": "0.4.0",
   "description": "Behavior filters and UI Patterns for the Behavior framework.",
   "main": "dist/behavior-ui.js",
   "repository": {
