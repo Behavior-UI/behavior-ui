@@ -5204,7 +5204,6 @@ Behavior.addGlobalFilters({
               smoothSize: Boolean,
               rearrangeDOM: Boolean,
               selectedClass: String,
-              initPanel: Number,
               preventDefault: Boolean
             })
           )
@@ -5246,6 +5245,7 @@ Behavior.addGlobalFilters({
     }
   }
 });
+
 /*
 ---
 

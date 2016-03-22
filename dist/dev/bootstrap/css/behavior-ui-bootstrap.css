@@ -8431,6 +8431,7 @@ ul.autocompleter-choices span.autocompleter-queried {
 [data-behavior~="Thanx.Chart.Stock"] {
   overflow: hidden;
   width: 100%;
+  min-height: 300px;
   font-family: 'Lato', Helvetica, Arial, sans-serif;
   /*
 
@@ -8614,6 +8615,7 @@ ul.autocompleter-choices span.autocompleter-queried {
 [data-behavior~="Thanx.Chart"] .highchart-bullets,
 [data-behavior~="Thanx.Chart.Stock"] .highchart-bullets {
   margin: 6px 0 0;
+  padding: 0;
   list-style: none;
 }
 .chart .highchart-bullets li,
@@ -8624,6 +8626,7 @@ ul.autocompleter-choices span.autocompleter-queried {
   text-indent: -20px;
   margin-left: 20px;
   font-size: 12px;
+  line-height: 16px;
 }
 .chart .navigator-label,
 [data-behavior~="Thanx.Chart"] .navigator-label,
