@@ -22,6 +22,10 @@ provides: [Behavior.PollForUpdate]
       date: Number
     },
 
+    defaults: {
+      haltOnError: false
+    },
+
     returns: Request.PollForUpdate,
 
     setup: function(el, api){
@@ -30,6 +34,7 @@ provides: [Behavior.PollForUpdate]
         url: api.get('url'),
         date: api.get('date'),
         pollInterval: api.get('pollInterval') || 60000,
+        haltOnError: api.getAs(Boolean, 'haltOnError')
       }).poll();
 
       var target = api.get('target') ? api.getElement('target') : null;

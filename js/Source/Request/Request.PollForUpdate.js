@@ -29,7 +29,8 @@ Request.PollForUpdate = new Class({
   options: {
     pollInterval: 1000
     // url: some url returning json,
-    // date: some_time_in_seconds
+    // date: some_time_in_seconds,
+    // haltOnError: stops polling if error event is fired or if response is blank
   },
   initialize: function(options){
     this.setOptions(options);
@@ -57,10 +58,12 @@ Request.PollForUpdate = new Class({
         method: 'get'
       });
     }
+    if (this.options.haltOnError) this.request.addEvent('error', this.stop);
     this.request.send({data: this.data});
   },
   _handleData: function(){
     var data = this.request.response.json;
+    if (data == null && this.options.haltOnError) this.stop();
     // if the server provides an 'updated_at' timestamp,
     // store as an attribute
     if (data && data.status == 'update'){
