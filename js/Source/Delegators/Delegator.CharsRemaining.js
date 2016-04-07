@@ -23,7 +23,9 @@ Delegator.register('keyup', {
       var target = api.getElement('target');
       var maxChars = element.get('maxlength');
       if (!maxChars) api.fail('Could not read maxlength property of element.');
-      var difference = maxChars - element.get('value').length;
+      var value = element.get('value');
+      value = value.replace(/\n/g, '\r\n');
+      var difference = maxChars - value.length;
       target.set('html', difference);
     }
   }

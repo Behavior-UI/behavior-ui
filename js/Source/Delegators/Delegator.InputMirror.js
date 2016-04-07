@@ -24,6 +24,11 @@ Delegator.register(['change','keyup'], {
     requireAs: {
       targets: Array
     },
+    defaults: {
+      allowHTML: true,
+      stripNewlines: false
+    },
+
     handler: function(event, element, api){
       var targets = api.getAs(Array, 'targets');
 
@@ -34,9 +39,13 @@ Delegator.register(['change','keyup'], {
         var targetElement = element.getElement(target.selector);
         if (!targetElement) api.warn('Unable to find element for inputMirror selector: '+target.selector);
         if (targetElement && targetElement != element){
-          targetElement.set(target.property || 'value', element.get('value'));
+          var value = element.get('value');
+          if (!api.get('allowHTML')) value = value.replace(/</g, '&#60;').replace(/>/g, '&#62;').replace(/\//g, '&#47;');
+          if (api.get('stripNewlines')) value = value.replace(/\n/g, '');
+          targetElement.set(target.property || 'value', value);
         }
       });
     }
   }
 });
+
