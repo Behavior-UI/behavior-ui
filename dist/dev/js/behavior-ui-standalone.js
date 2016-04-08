@@ -10061,7 +10061,9 @@ Delegator.register('keyup', {
       var target = api.getElement('target');
       var maxChars = element.get('maxlength');
       if (!maxChars) api.fail('Could not read maxlength property of element.');
-      var difference = maxChars - element.get('value').length;
+      var value = element.get('value');
+      value = value.replace(/\n/g, '\r\n');
+      var difference = maxChars - value.length;
       target.set('html', difference);
     }
   }
@@ -10396,6 +10398,11 @@ Delegator.register(['change','keyup'], {
     requireAs: {
       targets: Array
     },
+    defaults: {
+      allowHTML: true,
+      stripNewlines: false
+    },
+
     handler: function(event, element, api){
       var targets = api.getAs(Array, 'targets');
 
@@ -10406,12 +10413,16 @@ Delegator.register(['change','keyup'], {
         var targetElement = element.getElement(target.selector);
         if (!targetElement) api.warn('Unable to find element for inputMirror selector: '+target.selector);
         if (targetElement && targetElement != element){
-          targetElement.set(target.property || 'value', element.get('value'));
+          var value = element.get('value');
+          if (!api.get('allowHTML')) value = value.replace(/</g, '&#60;').replace(/>/g, '&#62;').replace(/\//g, '&#47;');
+          if (api.get('stripNewlines')) value = value.replace(/\n/g, '');
+          targetElement.set(target.property || 'value', value);
         }
       });
     }
   }
 });
+
 
 /*
 ---
@@ -13206,7 +13217,8 @@ Request.PollForUpdate = new Class({
   options: {
     pollInterval: 1000
     // url: some url returning json,
-    // date: some_time_in_seconds
+    // date: some_time_in_seconds,
+    // haltOnError: stops polling if error event is fired or if response is blank
   },
   initialize: function(options){
     this.setOptions(options);
@@ -13234,10 +13246,12 @@ Request.PollForUpdate = new Class({
         method: 'get'
       });
     }
+    if (this.options.haltOnError) this.request.addEvent('error', this.stop);
     this.request.send({data: this.data});
   },
   _handleData: function(){
     var data = this.request.response.json;
+    if (data == null && this.options.haltOnError) this.stop();
     // if the server provides an 'updated_at' timestamp,
     // store as an attribute
     if (data && data.status == 'update'){
@@ -13272,6 +13286,10 @@ provides: [Behavior.PollForUpdate]
       date: Number
     },
 
+    defaults: {
+      haltOnError: false
+    },
+
     returns: Request.PollForUpdate,
 
     setup: function(el, api){
@@ -13280,6 +13298,7 @@ provides: [Behavior.PollForUpdate]
         url: api.get('url'),
         date: api.get('date'),
         pollInterval: api.get('pollInterval') || 60000,
+        haltOnError: api.getAs(Boolean, 'haltOnError')
       }).poll();
 
       var target = api.get('target') ? api.getElement('target') : null;
@@ -13325,6 +13344,7 @@ provides: [Behavior.PollForUpdate]
     }
   });
 })();
+
 /*
 ---
 
