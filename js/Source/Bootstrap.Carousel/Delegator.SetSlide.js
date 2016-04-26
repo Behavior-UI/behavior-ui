@@ -17,7 +17,8 @@ provides: [Delegator.SetSlide]
 Delegator.register('click', {
   setSlide: {
     requireAs: {
-      target: String
+      target: String,
+      slide: Number
     },
     defaults: {
       slide: 0
@@ -30,8 +31,8 @@ Delegator.register('click', {
         instance = target.getBehaviorResult(behavior);
         // this allows for any subclass of Slides to work
         if (instanceOf(instance, Slides)){
-          instance.show(api.get('slide'));
-          instance.play(); // to reset the timer
+          instance.show(api.getAs(Number, 'slide'));
+          if (instance.options.autoPlay) instance.play(); // to reset the timer
         }
       });
     }
