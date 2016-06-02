@@ -50,15 +50,22 @@ Behavior.addGlobalFilters({
           })
         )
       );
+
       popup.addEvent('destroy', function(){
-        api.cleanup(el);
+        if (!popup.hasCleanedUp){
+          popup.hasCleanedUp = true;
+          api.cleanup(el);
+        }
       });
+
       if (api.get('focusOnShow')){
         popup.addEvent('show', function(){
           var input = document.id(popup).getElement(api.get('focusOnShow'));
           if (input) input[input.get('tag') == 'select' ? 'focus' : 'select']();
         });
       }
+
+      api.onCleanup(popup.destroy.bind(popup));
 
       if (showNow) popup.show();
 
