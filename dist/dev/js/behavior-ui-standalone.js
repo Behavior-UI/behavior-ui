@@ -3107,7 +3107,8 @@ provides: [Delegator.SetSlide]
 Delegator.register('click', {
   setSlide: {
     requireAs: {
-      target: String
+      target: String,
+      slide: Number
     },
     defaults: {
       slide: 0
@@ -3120,8 +3121,8 @@ Delegator.register('click', {
         instance = target.getBehaviorResult(behavior);
         // this allows for any subclass of Slides to work
         if (instanceOf(instance, Slides)){
-          instance.show(api.get('slide'));
-          instance.play(); // to reset the timer
+          instance.show(api.getAs(Number, 'slide'));
+          if (instance.options.autoPlay) instance.play(); // to reset the timer
         }
       });
     }
@@ -4707,9 +4708,14 @@ Behavior.addGlobalFilters({
           })
         )
       );
+
       popup.addEvent('destroy', function(){
-        api.cleanup(el);
+        if (!popup.hasCleanedUp){
+          popup.hasCleanedUp = true;
+          api.cleanup(el);
+        }
       });
+
       if (api.get('focusOnShow')){
         popup.addEvent('show', function(){
           var input = document.id(popup).getElement(api.get('focusOnShow'));
@@ -4717,12 +4723,15 @@ Behavior.addGlobalFilters({
         });
       }
 
+      api.onCleanup(popup.destroy.bind(popup));
+
       if (showNow) popup.show();
 
       return popup;
     }
   }
 });
+
 /*
 ---
 
@@ -10809,10 +10818,15 @@ requires: [Behavior/Delegator, More/Spinner]
 Delegator.register('click', {
 
   spinOnClick: {
+    defaults: {
+      timeout: 0
+    },
     handler: function(event, element, api){
       var target = element;
       if (api.get('target')) target = api.getElement('target');
       target.spin();
+      var timeout = api.getAs(Number, 'timeout');
+      if (timeout && timeout > 0) target.unspin.delay(timeout, target);
       return target.get('spinner');
     }
   },
@@ -11566,6 +11580,7 @@ description: Filters a DOM element as the user types.
 requires:
  - Core/Class.Extras
  - Core/Element.Event
+ - More/String.Extras
 
 provides: [Form.Filter]
 
@@ -11580,7 +11595,8 @@ Form.Filter = new Class({
     items: '+ul li',
     text: 'a',
     hideClass: 'hide',
-    rateLimit: 200
+    rateLimit: 200,
+    elementProperty: 'html'
   },
 
   initialize: function(element, options){
@@ -11622,12 +11638,15 @@ Form.Filter = new Class({
           item.addClass(this.options.hideClass);
           return;
         }
-        if (text.get('html').test(value, 'i')) item.removeClass(this.options.hideClass);
+        var string = text.get('html');
+        if (this.options.stripTags) string = string.stripTags();
+        if (string.test(value, 'i')) item.removeClass(this.options.hideClass);
         else item.addClass(this.options.hideClass);
       }, this);
     }
   }
 });
+
 /*
 ---
 
@@ -11657,7 +11676,8 @@ Behavior.addGlobalFilter('Filter', {
           items: String,
           text: String,
           hideClass: String,
-          rateLimit: Number
+          rateLimit: Number,
+          stripTags: Boolean
         })
       )
     );
@@ -11667,6 +11687,7 @@ Behavior.addGlobalFilter('Filter', {
     return filter;
   }
 });
+
 /*
 ---
 description: Sets up an input to have an OverText instance for inline labeling. This is a global filter.

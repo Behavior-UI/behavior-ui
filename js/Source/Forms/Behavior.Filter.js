@@ -27,7 +27,8 @@ Behavior.addGlobalFilter('Filter', {
           items: String,
           text: String,
           hideClass: String,
-          rateLimit: Number
+          rateLimit: Number,
+          stripTags: Boolean
         })
       )
     );

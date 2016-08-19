@@ -8,6 +8,7 @@ description: Filters a DOM element as the user types.
 requires:
  - Core/Class.Extras
  - Core/Element.Event
+ - More/String.Extras
 
 provides: [Form.Filter]
 
@@ -22,7 +23,8 @@ Form.Filter = new Class({
     items: '+ul li',
     text: 'a',
     hideClass: 'hide',
-    rateLimit: 200
+    rateLimit: 200,
+    elementProperty: 'html'
   },
 
   initialize: function(element, options){
@@ -64,7 +66,9 @@ Form.Filter = new Class({
           item.addClass(this.options.hideClass);
           return;
         }
-        if (text.get('html').test(value, 'i')) item.removeClass(this.options.hideClass);
+        var string = text.get('html');
+        if (this.options.stripTags) string = string.stripTags();
+        if (string.test(value, 'i')) item.removeClass(this.options.hideClass);
         else item.addClass(this.options.hideClass);
       }, this);
     }
