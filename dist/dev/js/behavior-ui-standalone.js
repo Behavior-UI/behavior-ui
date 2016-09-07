@@ -5717,6 +5717,21 @@ Chart = new Class({
   },
   paused: true,
 
+  resize: function(width, height){
+    var size;
+    // get the size of the container element
+    this.element.measure(function(){
+      size = this.getSizeOptions();
+    }.bind(this));
+    // use passed in value or the one we got via masurement
+    width  = instanceOf(width, Number) ? width : size.x;
+    height = instanceOf(height, Number) ? height : size.y;
+    // invoke highcharts resize method; do not animate
+    this.chart.setSize(width, height, false);
+    // redraw the backgrounds we added so they fit the new dimentions
+    this._drawBackgrounds();
+  },
+
   getSizeOptions: function(){
     var size = this.options.size;
     if (this.options.sizeToElement) size = this.element.getSize();
@@ -6376,23 +6391,34 @@ Chart = new Class({
     }
     this._setElementHeight(legendRows);
   },
+  _backgrounds: [],
   _drawBackgrounds: function(){
+    // get rid of any backgrounds that were created already
+    this._backgrounds.each(function(svg){
+      svg.destroy();
+    });
+    this._backgrounds = [];
+
     // draw the light grey box behind the main chart
     var r = this.chart.renderer;
-    r.rect(0, 0, this.chart.chartWidth, this.chart.chartHeight - this.chart.marginBottom, 0, 1).attr({
+    var bgLight = r.rect(0, 0, this.chart.chartWidth, this.chart.chartHeight - this.chart.marginBottom, 0, 1).attr({
         fill: '#f7f7f7'
     }).add();
-    r.rect(0, this.chart.chartHeight - this.chart.marginBottom - 1, this.chart.chartWidth, 61, 0, 1).attr({
+    var bgDark = r.rect(0, this.chart.chartHeight - this.chart.marginBottom - 1, this.chart.chartWidth, 61, 0, 1).attr({
         fill: '#eff0f0'
     }).add();
+    // store references in case we need to redraw again
+    this._backgrounds.push(bgLight);
+    this._backgrounds.push(bgDark);
 
     // draw a grey plot line across the top of the graph
     if (this.options.showVerticalLines){
       var line = r.crispLine(["M", 30, this.chart.plotTop, "L", this.chart.chartWidth - 30, this.chart.plotTop], 1);
-      r.path(line).attr({
+      var bgLine = r.path(line).attr({
         stroke: '#dcdcdc',
         'stroke-width': 1
       }).add();
+      this._backgrounds.push(bgLine);
     }
   }
 });
@@ -10074,6 +10100,53 @@ Delegator.register('keyup', {
       value = value.replace(/\n/g, '\r\n');
       var difference = maxChars - value.length;
       target.set('html', difference);
+    }
+  }
+});
+
+/*
+---
+
+name: Delegator.Chart.Resize
+
+description: Resizes a chart that's been rendered to fill its element or to a specific dimension.
+
+requires:
+ - Behavior/Delegator
+ - Behavior.Chart
+
+provides: [Delegator.Chart.Resize]
+
+...
+*/
+
+
+/*
+  <input data-trigger="chart.resize"
+    data-chart-resize-options="
+      {
+        'width': 100,     //if you don't provide any values, it'll just fill the
+        'height': 100,    //element it's in IF the element is visible / measurable
+      }
+    "
+  />
+*/
+
+
+Delegator.register('click', {
+  'chart.resize': {
+    requireAs: {
+      targets: String
+    },
+    handler: function(event, element, api){
+      api.getElements('targets').each(function(chartElement){
+        var chart = chartElement.retrieve('chart');
+        if (!chart){
+          api.warn('could not retrieve chart from element', chartElement);
+          return;
+        }
+        chart.resize(api.getAs(Number, 'width'), api.getAs(Number, 'height'));
+      });
     }
   }
 });

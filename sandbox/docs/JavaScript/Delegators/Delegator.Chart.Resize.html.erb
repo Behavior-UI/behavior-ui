@@ -1,0 +1,55 @@
+<div class="bs-docs-section">
+  <div class="page-header">
+    <h1>chart.resize <small>Delegator.Chart.Resize.js</small></h1>
+  </div>
+
+  <p>Allows you to redraw a chart to a specific size or to fill its element.</p>
+
+  <p class="text-muted">Note: Charts that render in hidden elements nearly always require this because they can't measure their containers effectively on startup.</p>
+
+  <h3>A basic chart</h3>
+
+<%= render layout: "codeblock" do %>
+  <div data-behavior="Chart" class="chart" data-chart-options="
+    'url': '/sandbox/chart/three_lines'
+  "></div>
+  <a class="btn btn-default" data-trigger="chart.resize" data-chart-resize-options="'targets': '!div .chart', 'height': 400">Make it smaller</a>
+  <a class="btn btn-default" data-trigger="chart.resize" data-chart-resize-options="'targets': '!div .chart', 'width':1200, 'height': 800">Make it bigger</a>
+  <a class="btn btn-default" data-trigger="chart.resize" data-chart-resize-options="'targets': '!div .chart'">Auto-size</a>
+<% end %>
+
+ <h2>Delegator Options</h2>
+ <div class="table-responsive">
+   <table class="table table-striped table-bordered">
+     <thead>
+      <tr>
+        <th style="width: 100px;">Name</th>
+        <th style="width: 50px;">type</th>
+        <th style="width: 50px;">default</th>
+        <th>description</th>
+      </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <td>targets</td>
+         <td>string</td>
+         <td>~</td>
+         <td>Selector to find chart element(s) to update. Can match more than chart.</td>
+       </tr>
+       <tr>
+         <td>width</td>
+         <td>number</td>
+         <td>~</td>
+         <td>The width the chart should become; if left undefined, will auto size to the width of the element that contains the chart.</td>
+       </tr>
+       <tr>
+         <td>height</td>
+         <td>number</td>
+         <td>~</td>
+         <td>The height the chart should become; if left undefined, will auto size to the height of the element that contains the chart.</td>
+       </tr>
+     </tbody>
+   </table>
+ </div>
+
+</div>

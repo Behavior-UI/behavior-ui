@@ -72,6 +72,7 @@ sources:
  - Source/Delegators/Delegator.AddRemoveClass.js
  - Source/Delegators/Delegator.Ajax.js
  - Source/Delegators/Delegator.CharsRemaining.js
+ - Source/Delegators/Delegator.Chart.Resize.js
  - Source/Delegators/Delegator.CheckAllOrNone.js
  - Source/Delegators/Delegator.Confirm.js
  - Source/Delegators/Delegator.EnableForm.js
