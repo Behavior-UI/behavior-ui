@@ -35,11 +35,7 @@ Delegator.register('click', {
     handler: function(event, element, api){
       api.getElements('targets').each(function(chartElement){
         var chart = chartElement.retrieve('chart');
-        if (!chart){
-          api.warn('could not retrieve chart from element', chartElement);
-          return;
-        }
-        chart.resize(api.getAs(Number, 'width'), api.getAs(Number, 'height'));
+        if (chart) chart.resize(api.getAs(Number, 'width'), api.getAs(Number, 'height'));
       });
     }
   }

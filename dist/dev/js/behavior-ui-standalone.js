@@ -5333,6 +5333,7 @@ provides: [Behavior.BS.Tabs]
   });
 
 })();
+
 /*
 ---
 
@@ -5730,6 +5731,22 @@ Chart = new Class({
     this.chart.setSize(width, height, false);
     // redraw the backgrounds we added so they fit the new dimentions
     this._drawBackgrounds();
+
+
+    // resize the legend, which requires us to overwrite
+    // numerous width values calculated when the chart was
+    // initialized, recalculate them, then reset the options
+    // of the chart to the new sizies, destroy the legend items
+    // and re-render it
+    delete this.options.legendItemWidth;
+    delete this.options.legendWidth;
+    this._setV2Defaults();
+    this.chart.legend.options.width = this.options.legendWidth;
+    this.chart.legend.itemStyle.width = this.options.legendItemWidth;
+    this.chart.legend.options.itemWidth = this.options.legendItemWidth;
+    this.chart.legend.maxItemWidth = this.options.legendItemWidth;
+    this.chart.series.each(this.chart.legend.destroyItem, this);
+    this.chart.legend.render();
   },
 
   getSizeOptions: function(){
@@ -6330,7 +6347,6 @@ Chart = new Class({
 
   _setV2Defaults: function(){
     var size = this.getSizeOptions();
-
     this.options.legendItemWidth = this.options.legendItemWidth || size.x * 0.3;
     this.options.legendWidth = this.options.legendWidth || (size.x * 0.6) + 10;
 
@@ -10141,11 +10157,7 @@ Delegator.register('click', {
     handler: function(event, element, api){
       api.getElements('targets').each(function(chartElement){
         var chart = chartElement.retrieve('chart');
-        if (!chart){
-          api.warn('could not retrieve chart from element', chartElement);
-          return;
-        }
-        chart.resize(api.getAs(Number, 'width'), api.getAs(Number, 'height'));
+        if (chart) chart.resize(api.getAs(Number, 'width'), api.getAs(Number, 'height'));
       });
     }
   }
