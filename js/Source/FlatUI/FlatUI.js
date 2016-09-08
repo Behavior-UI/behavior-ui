@@ -37,7 +37,9 @@ window.addEvent('load', function(){
   if (!window.behavior || !behavior.getFilter('FlatUI.Select')) return;
 
   var styleSelect = function(select){
-    if (select.hasBehavior('FlatUI.Select') || select.hasClass('no-flat-select')) return;
+    if (select.hasBehavior('FlatUI.Select') ||
+        select.hasBehavior('FlatUI.Select.Filter') ||
+        select.hasClass('no-flat-select')) return;
     behavior.applyFilter(select, behavior.getFilter('FlatUI.Select'));
   };
 

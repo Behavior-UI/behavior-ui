@@ -241,7 +241,7 @@ Chart = new Class({
       // resize the legend, which requires us to overwrite
       // numerous width values calculated when the chart was
       // initialized, recalculate them, then reset the options
-      // of the chart to the new sizies, destroy the legend items
+      // of the chart to the new sizes, destroy the legend items
       // and re-render it
       delete this.options.legendItemWidth;
       delete this.options.legendWidth;

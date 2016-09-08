@@ -96,6 +96,7 @@ sources:
  - Source/FlatUI.FormValidator/FlatUI.FormValidator.js
  - Source/FlatUI.Select/Behavior.FlatUI.Select.js
  - Source/FlatUI.Select/FlatUI.Select.js
+ - Source/FlatUI.Select/FlatUI.Select.Filter.js
  - Source/Forms/Behavior.Filter.js
  - Source/Forms/Behavior.FormRequest.js
  - Source/Forms/Behavior.FormValidator.js

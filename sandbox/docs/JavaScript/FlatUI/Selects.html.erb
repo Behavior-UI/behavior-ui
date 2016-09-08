@@ -107,7 +107,96 @@
 </select>
   <% end %>
 
-  <h3>Change On Submit</h3>
+
+<h2>Selects with filter UI</h2>
+
+<p>The <code>FlatUI.Select.Filter</code> filter adds an input into the UI to allow the
+   user to type and limit the values displayed.</p>
+
+  <h3>Vanilla Select</h3>
+  <%= render layout: "codeblock" do %>
+<div class="row">
+  <div class="form-group col-lg-5 clearfix">
+    <select data-behavior="FlatUI.Select.Filter" class="select-block mbl">
+        <option value="0" selected="selected">My Profile</option>
+        <option value="1">My Friends</option>
+        <option value="2">Messages</option>
+        <option value="3">My Settings</option>
+        <option value="4">Logout</option>
+    </select>
+  </div>
+</div>
+  <% end %>
+
+  <h3>With Sections</h3>
+  <%= render layout: "codeblock" do %>
+<select data-behavior="FlatUI.Select.Filter" class="select-block mbl">
+  <optgroup label="Profile">
+    <option value="0" selected="selected">My Profile</option>
+    <option value="1">My Friends</option>
+  </optgroup>
+  <optgroup label="System">
+    <option value="2">Messages</option>
+    <option value="3">My Settings</option>
+    <option value="4" class="highlighted">Logout</option>
+  </optgroup>
+</select>
+  <% end %>
+
+  <h3>With Custom Styles</h3>
+  <%= render layout: "codeblock" do %>
+<select data-behavior="FlatUI.Select.Filter" class="mbl" data-flatui-select-options="
+  'buttonClass': 'btn btn-warning',
+  'menuClass': 'dropdown-inverse',
+  'arrowClass': 'dropdown-arrow dropdown-arrow-inverse'
+">
+  <optgroup label="Profile">
+    <option value="0" selected="selected">My Profile</option>
+    <option value="1">My Friends</option>
+  </optgroup>
+  <optgroup label="System">
+    <option value="2">Messages</option>
+    <option value="3">My Settings</option>
+    <option value="4" class="highlighted">Logout</option>
+  </optgroup>
+</select>
+  <% end %>
+
+  <h3>With a Highlighted Element and a Disabled Element</h3>
+  <%= render layout: "codeblock" do %>
+<select data-behavior="FlatUI.Select.Filter" class="select-block mbl" multiple="true">
+    <option value="0" selected="selected">My Profile</option>
+    <option value="1">My Friends</option>
+    <option value="2" disabled="true">Messages (this is disabled with the attribute disabled='true')</option>
+    <option value="3" class="disabled">My Settings (this is disabled with the 'disabled' css class)</option>
+    <option value="4" class="highlighted">Logout (this option has a custom class - 'highlighted')</option>
+</select>
+  <% end %>
+
+  <h3>Multiple Selection</h3>
+  <%= render layout: "codeblock" do %>
+<select data-behavior="FlatUI.Select.Filter" class="select-block mbl" multiple="true">
+    <option value="0" selected="selected">My Profile</option>
+    <option value="1">My Friends</option>
+    <option value="2">Messages</option>
+    <option value="3">My Settings</option>
+    <option value="4">Logout</option>
+</select>
+  <% end %>
+
+  <h3>Disabled</h3>
+  <%= render layout: "codeblock" do %>
+<select data-behavior="FlatUI.Select.Filter" class="select-block mbl" multiple="true" disabled="true">
+    <option value="0" selected="selected">My Profile</option>
+    <option value="1">My Friends</option>
+    <option value="2" class="divider">Messages</option>
+    <option value="3">My Settings</option>
+    <option value="4">Logout</option>
+</select>
+  <% end %>
+
+
+  <h2>Change On Submit</h2>
   <p>The select list is built with DOM elements. When you make a selection, this plugin updates the actual select list
      and fires it's <code>change</code> event. Because the manual <code>fireEvent</code> method on elements doesn't actually
      bubble up like a native event, this means it doesn't work with delegation (and hence, not with the triggers registered
@@ -190,6 +279,29 @@
             <td>Closes the dropdown when the user hits escape.</td>
           </tr>
 
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Behavior Options for FlatUI.Select>Filter</h2>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead>
+         <tr>
+           <th style="width: 100px;">Name</th>
+           <th style="width: 50px;">type</th>
+           <th style="width: 50px;">default</th>
+           <th>description</th>
+         </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>containerClass</td>
+            <td>String</td>
+            <td><code>.form-group.no-margin.padding-small</code></td>
+            <td>These are the classes applied to the container of the input in the select dropdown.</td>
+          </tr>
         </tbody>
       </table>
     </div>

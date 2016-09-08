@@ -55,7 +55,7 @@ Form.Filter = new Class({
 
   _filter: function(){
     var value = this.element.get('value');
-    var elements = this.element.getElements(this.options.items)
+    var elements = this.element.getElements(this.options.items);
     if (!value){
       elements.removeClass(this.options.hideClass);
     } else {
