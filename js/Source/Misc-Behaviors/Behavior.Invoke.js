@@ -51,7 +51,8 @@ provides: [Behavior.Invoke]
 
 Behavior.addGlobalFilter('Invoke', {
   defaults: {
-    events: ['click']
+    events: ['click'],
+    args: []
   },
   requireAs: {
     action: String,
@@ -63,7 +64,9 @@ Behavior.addGlobalFilter('Invoke', {
       if (api.get('targets')) targets = api.getElements('targets');
       else if (api.get('targetsFromEventTarget')) targets = el.getElements(api.get('targetsFromEventTarget'));
       if (!targets.length) api.fail('could not get target elements for invoke filter for selector ' + api.get('targets'));
-      targets[api.get('action')].apply(targets, api.get('args'));
+      targets.each(function(target){
+        target[api.get('action')].apply(target, api.get('args'));
+      });
     };
     api.get('events').each(function(selector){
       element.addEvent(selector, eventHandler);

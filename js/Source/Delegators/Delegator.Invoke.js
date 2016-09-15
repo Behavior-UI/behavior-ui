@@ -29,14 +29,18 @@ provides: [Delegator.Invoke]
 
 Delegator.register('click', {
   invoke: {
+    defaults: {
+      args: []
+    },
     requireAs: {
       action: String,
       args: Array,
       targets: String
     },
     handler: function(event, element, api){
-      var targets = api.getElements('targets');
-      targets[api.get('action')].apply(targets, api.get('args'));
+      api.getElements('targets').each(function(target){
+        target[api.get('action')].apply(target, api.get('args'));
+      });
     }
   }
 });
