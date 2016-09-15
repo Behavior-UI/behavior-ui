@@ -1,0 +1,282 @@
+<div class="bs-docs-section" data-behavior="Keyboard">
+  <div class="page-header">
+    <h1>Keyboard <small>Behavior.Keyboard.js</small></h1>
+  </div>
+
+  <p>Create hot keys for any delegator trigger.</p>
+
+  <p>
+    <span class="label label-warning">Note</span> The container of this docs
+    page has <code>data-behavior="Keyboard"</code> (with no options) and it
+    manages all the keyboard shortcuts in these examples. The recommended
+    implementation is that you put the <code>Keyboard</code> behavior on the
+    <code>document.body</code> and have only that instance.
+  </p>
+
+
+  <h3>A simple example</h3>
+  <%= render layout: "codeblock" do %>
+<div class="box">
+  <p><a class="btn btn-default" data-trigger="toggleClass"
+        data-toggleclass-options="'class':'btn-primary'"
+        data-keyboard-options="
+          'keys': {
+            'shift+b': {
+              'trigger': 'toggleClass'
+            }
+          }
+        "
+      >I toggle this button between primary and default</a></p>
+  <p>This button also has a keyboard shortcut: <code>shift+b</code></p>
+</div>
+ <% end %>
+
+  <h3>Setting a simple hot-key to invoke all triggers</h3>
+  <p>
+    It's possible to configure a hot key using the <code>data-keyboard-key</code>
+    property to invoke all the triggers that exist on an element, effectively
+    simulating a click by the user. No configuration can be specified per-delegator
+    trigger here. This is the simplest method to define a hotkey.
+  </p>
+
+  <p>
+    In this example, the button has two triggers: <code>toggleClass</code> and
+    <code>spinOnClick</code>. By configuring the hotkey without a <code>trigger</code>
+    specified, all will be invoked.
+  </p>
+  <%= render layout: "codeblock" do %>
+<div class="box">
+ <p><a class="btn btn-default" data-trigger="toggleClass spinOnClick"
+       data-toggleclass-options="'class':'btn-primary'"
+       data-spinonclick-options="
+        'timeout': 250
+       "
+       data-keyboard-key="shift+a"
+     >I toggle this button between primary and default AND spin when clicked</a></p>
+ <p>This button also has a keyboard shortcut: <code>shift+a</code></p>
+</div>
+ <% end %>
+
+
+  <h3>Working with Ajax</h3>
+  <p>
+    This example has a button like the one above, except it has no keyboard
+    shortcut. To illustrate that you can load in new content and specify keyboard
+    shortcuts on the fly, this example has a link that will ajax in new HTML that
+    adds a keyboard shortcut.
+  </p>
+  <p>
+    In addition to adding the shortcut, the ajax response includes a link to
+    delete the response from the DOM using the <code>nix</code> trigger. Removing
+    it from the DOM also removes the trigger.
+  </p>
+
+ <%= render layout: "codeblock" do %>
+<div class="box">
+  <p><a class="btn btn-default" data-trigger="toggleClass"
+                                data-toggleclass-options="'class':'btn-primary'"
+     >I toggle this button between primary and default</a></p>
+
+  <p>
+    <%= link_to sandbox_echo_html_path(html: "<p data-keyboard-keys=" +
+          "\"{'shift+v': { 'trigger': 'toggleClass', 'target':'!.box a.btn'" +
+          " }}\">The button above now has a keyboard shortcut: <code>shift+v" +
+          "</code>. <br/><a data-trigger='nix' data-nix-target='!p'>Remove this" +
+          " paragraph AND the keyboard shortcut</a></p>"),
+        data: {
+          trigger: "ajax",
+          ajax_options: {
+           useSpinner: true,
+            action: 'update',
+            target: '!p'
+          }
+        } do %>
+      Fetch new HTML for this link and add a keyboard shortcut to the
+      button above
+    <% end %>
+  </p>
+</div>
+  <% end %>
+
+
+  <h3>Keyboard events for elements w/o delegator triggers</h3>
+  <p>
+    It's possible to specify a keyboard event with delegator options in the
+    keyboard configuration. This allows you to create a keyboard handler for
+    any delegator without actualy specifying it on the target element.
+  </p>
+
+  <%= render layout: "codeblock" do %>
+<div class="box">
+  <p><a class="btn btn-default">I'm just a plain ol' button</a></p>
+
+  <p data-keyboard-options="
+          'keys': {
+            'shift+x': {
+              'trigger': 'toggleClass',
+              'target': '!div .btn',
+              'options': {
+                'class': 'btn-primary'
+              }
+            }
+          }
+        ">
+    This paragraph has <code>data-keyboard-options</code> that add the shortcut
+    key <code>shift+x</code> that toggles the class of the button above. The
+    button itself has no delegator triggers.
+  </p>
+</div>
+ <% end %>
+
+<h3>Avoiding problems with form inputs</h3>
+
+<p>
+  By default, hotkeys you create are ignored when inputs have focus. Here's an
+  example:
+</p>
+
+   <%= render layout: "codeblock" do %>
+ <div class="box">
+   <p><a class="btn btn-default" data-trigger="toggleClass"
+         data-toggleclass-options="'class':'btn-primary'"
+         data-keyboard-options="
+           'keys': {
+             'shift+f': {
+               'trigger': 'toggleClass'
+             }
+           }
+         "
+       >I toggle this button between primary and default</a></p>
+   <p>This button also has a keyboard shortcut: <code>shift+f</code></p>
+   <p><input type="text" class="form-control singleInput" value=""></p>
+   <p>Hitting shift+F has no effect while your focus is in form inputs.</p>
+ </div>
+  <% end %>
+
+<p>
+  But by specifying <code>allowInputs: true</code> in the configuration you can
+  allow the hotkey to function. A simple example for this might be to allow
+  <code>cmd+s</code> to save a form.
+</p>
+
+<%= render layout: "codeblock" do %>
+<form id="test" data-behavior="FormRequest" data-formrequest-update="!div .update"
+    action="<%= sandbox_echo_html_path %>" method="get"
+    data-keyboard-options="
+      'keys': {
+        'meta+s': {
+          'trigger': 'invoke',
+          'allowInputs': true,
+          'options': {
+            'action': 'fireEvent',
+            'targets': 'self',
+            'args': ['submit']
+          }
+        }
+      }
+    "
+  >
+  <p><input type="text" name="html" class="form-control singleInput" value=""></p>
+  <p>
+    Hit <code>command+s</code> (should also work with <code>windows key + s</code>)
+    to submit this form and update the content below with the value in the input.
+  </p>
+</form>
+
+<div class="update box">
+  this box should get updated with the contents of the input above when you hit
+  <code>cmd+s</code>
+</div>
+<% end %>
+
+<p>But what if you want a hot key that only works with specific inputs. I.e.
+  what if you want <code>command+s</code> to work for two independent forms?
+  If you used the example above twice, both forms would submit. To specify
+  a specific form input (or inputs) specify a selector for the <code>activeInputs</code>
+  value.
+</p>
+
+<p>
+  In this example, I have two forms that each update a different input using the
+  same hot key. Because their configuration limits which input can invoke the hotkey,
+  they don't both submit when you use the hotkey - only the one that has focus.
+  Note that this can be confusing to the user, as these hotkeys <em>only</em> work
+  when the input has focus.
+</p>
+
+
+<%= render layout: "codeblock" do %>
+<form id="test" data-behavior="FormRequest"
+    data-formrequest-update="!div .update"
+    action="<%= sandbox_echo_html_path %>" method="get"
+    data-keyboard-options="
+      'keys': {
+        'meta+shift+s': {
+          'trigger': 'invoke',
+          'allowInputs': true,
+          'activeInputs': 'input.onlyMe',
+          'options': {
+            'action': 'fireEvent',
+            'targets': 'self',
+            'args': ['submit']
+          }
+        }
+      }
+    "
+  >
+  <p>
+    <input type="text" name="html" class="form-control singleInput onlyMe" value="">
+  </p>
+  <p>
+    Hit <code>command+shift+s</code> to submit this form, and ONLY this form,
+    and update the content below with the value in the input.
+  </p>
+</form>
+
+<div class="update box">
+  this box should get updated with the contents of the input above when you hit
+  <code>cmd+s</code>
+</div>
+
+<hr/>
+
+<form id="test" data-behavior="FormRequest" data-formrequest-update="!div .update2"
+    action="<%= sandbox_echo_html_path %>" method="get"
+    data-keyboard-options="
+      'keys': {
+        'meta+shift+s': {
+          'trigger': 'invoke',
+          'allowInputs': true,
+          'activeInputs': 'input.onlyMe',
+          'options': {
+            'action': 'fireEvent',
+            'targets': 'self',
+            'args': ['submit']
+          }
+        }
+      }
+    "
+  >
+  <p>
+    <input type="text" name="html" class="form-control singleInput onlyMe" value="">
+  </p>
+  <p>
+    Hit <code>command+shift+s</code> to submit this form, and ONLY this form,
+    and update the content below with the value in the input.
+  </p>
+</form>
+
+<div class="update2 box">
+  this box should get updated with the contents of the input above when you hit
+  <code>cmd+s</code>
+</div>
+
+<% end %>
+
+
+<h2>Behavior Options</h2>
+
+<p>
+  There are no options specified in the behavior. All configuration is done
+  wherever you declare keys.
+</p>

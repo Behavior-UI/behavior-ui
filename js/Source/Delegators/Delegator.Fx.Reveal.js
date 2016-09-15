@@ -33,6 +33,7 @@ name: Delegator.Fx.Reveal
         }
         if (action == 'toggleReveal') targets.get('reveal').invoke('toggle');
         else targets[action]();
+        if (action == 'nix') api.fireEvent('destroyDom', targets);
         if (!api.getAs(Boolean, 'allowEvent')) event.preventDefault();
       }
     };
