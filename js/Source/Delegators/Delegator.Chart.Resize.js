@@ -29,11 +29,18 @@ provides: [Delegator.Chart.Resize]
 
 Delegator.register('click', {
   'chart.resize': {
+    defaults: {
+      failQuietly: false
+    },
     requireAs: {
       targets: String
     },
     handler: function(event, element, api){
-      api.getElements('targets').each(function(chartElement){
+      var targets = element.getElements(api.get('targets'));
+      if (targets.length == 0 && !api.getAs(Boolean, 'failQuietly')){
+        api.fail('Could not find chart.resize target: ' + api.get('targets'));
+      }
+      targets.each(function(chartElement){
         var chart = chartElement.retrieve('chart');
         if (chart) chart.resize(api.getAs(Number, 'width'), api.getAs(Number, 'height'));
       });
