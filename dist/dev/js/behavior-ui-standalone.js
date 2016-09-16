@@ -13319,7 +13319,7 @@ Can also reference itself:
 
     event.preventDefault();
     if (config.trigger){
-      if (config.options) localAPI = delegator._getAPI(target, config.trigger).setDefault(config.options);
+      if (config.options) localAPI = delegator._getAPI(target, { name: config.trigger }).setDefault(config.options);
       delegator.trigger(config.trigger, target, event, true, localAPI);
     } else {
       target.getTriggers().each(function(name){
