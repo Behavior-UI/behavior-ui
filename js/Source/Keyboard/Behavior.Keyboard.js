@@ -52,6 +52,13 @@ Can also reference itself:
             "
 >Add the .bar class on this link</a>
 
+Also quick usage:
+
+<a id="foo" data-trigger="addClass"
+            data-addclass-options="'class':'bar'"
+            data-keyboard-key="shift+b"
+>Add the .bar class on this link</a>
+
 */
 
 (function(){
@@ -87,7 +94,7 @@ Can also reference itself:
           if (hotkeys) Object.each(hotkeys, function(config, keyCombo){
             addHandler(element, api, config, keyCombo, kb);
           });
-          if (element.get('data-keyboard-key')) addHandler(element, api, {}, element.get('data-keyboard-key'), kb);
+          if (reader.get('key')) addHandler(element, api, {}, reader.get('key'), kb);
         });
       };
 
