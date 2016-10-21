@@ -22448,6 +22448,28 @@ name: Delegator.Ajax
         onFailure: function(e){
           if (api.get('errorRedirectURL')){
             window.location.href = api.get('errorRedirectURL');
+          } else if (api.get('failureTriggers')){
+            var delegators = api.getAs(Object, 'failureTriggers');
+            var delegator = api.getDelegator();
+            if (delegators){
+
+              // when the user mouses over/out, loop over the triggers
+              Object.each(delegators, function(config, trigger){
+                // split the trigger name - '.foo::addClass' > {name: addClass, selector: .foo}
+                trigger = delegator._splitTriggerName(trigger);
+                if (!trigger) return;
+
+                // iterate over the elements that match that selector using the event target as the root
+                Behavior.getTargets(link, trigger.selector).each(function(target){
+                  var api;
+                  // create an api for the trigger/element combo and set defaults to the config (if config present)
+                  if (config) api = delegator._getAPI(target, trigger).setDefault(config);
+                  // invoke the trigger
+                  delegator.trigger(trigger.name, target, event, true, api);
+                });
+              });
+
+            }
           }
         }
       })

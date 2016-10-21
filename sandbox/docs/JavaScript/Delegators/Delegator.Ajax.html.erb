@@ -102,6 +102,55 @@
 <p><a id="tip" data-behavior="BS.Tooltip" title="The tootlip!">this link has a tip</a></p>
 	<% end %>
 
+
+    <h3>Error handling</h3>
+
+    <p>There are two methods for error handling ajax failures. You can specify a <code>errorRedirectURL</code> which will send the browser to a new page upon failure, or you can specify <code>failureTriggers</code> to invoke.</p>
+
+    The code block is a little hard to read, but here's what that looks like:
+
+    <pre><code>&lt;a class="btn btn-default"
+    data-trigger="ajax Stop"
+    data-ajax-options="
+      {
+        'useSpinner':true,
+        'action':'replace',
+        'target':'self',
+        'failureTriggers':{
+          '!&gt;div::addClass':{
+            'class':'red'}
+          }
+        }"
+      href="/sandbox/echo_html">...&lt;/a>
+</code></pre>
+
+<p>This uses the same expression as <code>Behavior.Trigger</code>:</p>
+
+<pre><code>'div.foo::addClass': { //selector for elements to invoke trigger :: trigger name
+  'class': 'foo', //api options for trigger
+  'if': {
+    'div.bar::hasClass': ['boo']
+  }
+}</code></pre>
+
+    <%= render layout: "codeblock" do %>
+  <%= link_to sandbox_echo_html_path(),
+    class: 'btn btn-default',
+    data: {
+      trigger: "ajax Stop",
+      ajax_options: {
+        useSpinner: true,
+        action:'replace',
+        target:'self',
+        failureTriggers: {
+          "!>div::addClass" => {
+            class: 'red'
+          },
+        }
+      }
+    } do %>I throw an error and turn this entire box red.<% end %>
+    <% end %>
+
 </div>
 
 <%= render partial: "md_docs", locals: {

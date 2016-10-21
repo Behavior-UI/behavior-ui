@@ -33,6 +33,7 @@ The above example will load the response from the links HREF (`get/list/item.php
 * updateHistory - (*boolean*; optional) - if `true` changes the url of the document upon request success. Uses the api value for `historyURI` if set, otherwise the api value for `href` if it is set, and finally defaults to the `href` property of the element.
 * historyURI - (*string*; optional) - if set and the api value for `updateHistory` is `true` this value is used for the new location of the page.
 * errorRedirectURL - (*string*; optional) - if set, the whole page will be reloaded to the specified URL if a failure occurs during the AJAX request.
+* failureTriggers - (*object*; optional) - a list of triggers to invoke if the request throws an error. See example below.
 
 ### Actions
 
@@ -47,3 +48,22 @@ The above example will load the response from the links HREF (`get/list/item.php
 ### Notes
 
 If you're using [Behavior](http://github.com/anutron/behavior) with Delegator, you should connect the two so that the response can be run through Behavior's filtering mechanisms. See the documentation for Delegator.
+
+### failureTriggers
+
+An example of how to specify a delegators to invoke if a request should fail:
+
+  <a class="btn btn-default"
+    data-trigger="ajax Stop"
+    data-ajax-options="
+      {
+        'useSpinner':true,
+        'action':'replace',
+        'target':'self',
+        'failureTriggers':{
+          '!&gt;div::addClass':{
+            'class':'red'
+          }
+        }
+      }"
+      href="/sandbox/echo_html">...</a>

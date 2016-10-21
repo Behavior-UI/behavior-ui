@@ -10035,6 +10035,15 @@ name: Delegator.Ajax
         onFailure: function(e){
           if (api.get('errorRedirectURL')){
             window.location.href = api.get('errorRedirectURL');
+          } else if (api.get('failureTriggers')){
+            var delegators = api.getAs(Object, 'failureTriggers');
+            if (delegators){
+              Object.each(delegators, function(conditional, delegator){
+                if (Delegator.verifyTargets(link, conditional, api)) {
+                  api.getDelegator().trigger(delegator, el);
+                }
+              });
+            }
           }
         }
       })
@@ -13205,6 +13214,13 @@ Can also reference itself:
             "
 >Add the .bar class on this link</a>
 
+Also quick usage:
+
+<a id="foo" data-trigger="addClass"
+            data-addclass-options="'class':'bar'"
+            data-keyboard-key="shift+b"
+>Add the .bar class on this link</a>
+
 */
 
 (function(){
@@ -13240,7 +13256,7 @@ Can also reference itself:
           if (hotkeys) Object.each(hotkeys, function(config, keyCombo){
             addHandler(element, api, config, keyCombo, kb);
           });
-          if (element.get('data-keyboard-key')) addHandler(element, api, {}, element.get('data-keyboard-key'), kb);
+          if (reader.get('key')) addHandler(element, api, {}, reader.get('key'), kb);
         });
       };
 
