@@ -48,8 +48,8 @@ provides: [Delegator.ShowOnSelect]
     if (option.get('data-target')) return element.getElements(option.get('data-target'));
     // if there isn't a data-target value on the option, get all the targets specified in the behavior
     // and the get the element at the same index as this option
-
-    var selector = api.get('targets')[element.getElements('option').indexOf(option)];
+    var selector;
+    if (api.get('targets')) selector = api.get('targets')[element.getElements('option').indexOf(option)];
     return selector ? element.getElements(selector) : [];
   };
 
