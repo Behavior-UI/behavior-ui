@@ -50,10 +50,10 @@ Delegator.register('change', {
 
       // create a new instance of our resizer
       new ImageResizer(element, {
-        preferredWidth: api.getAs({preferredWidth: Number}),
+        preferredWidth: api.getAs(Number, 'preferredWidth'),
         onComplete: function(dataURL){
           // and set our target input's value
-          api.getElement('targetInput').src = dataURL;
+          api.getElement('targetInput').value = dataURL;
           // unset the file input (so the big image isn't submitted)
           element.removeProperty('value');
           submitter();

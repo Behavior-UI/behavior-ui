@@ -67,7 +67,7 @@ ImageResizer = new Class({
     var ctx = this.canvas.getContext("2d");
     ctx.drawImage(this.img, 0, 0, this.canvas.width, this.canvas.height);
     // read new data url for image output and call our complete event
-    this.fireEvent('complete', this.canvas.toDataURL('image/png'));
+    this.fireEvent('complete', this.canvas.toDataURL('image/jpeg'));
     // clean up what we created
     this.destroy();
   },
