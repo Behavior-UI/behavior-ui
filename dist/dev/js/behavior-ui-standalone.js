@@ -6823,6 +6823,7 @@ provides: [Behavior.Chart]
           exportable: Boolean,
           showLabels: Boolean,
           showMarkers: Boolean,
+          absoluteLabels: Boolean,
           pointUrl: String,
           flagUrl: String,
           data: Object,
@@ -7351,6 +7352,7 @@ provides: [Behavior.Chart.Stock]
           exportable: Boolean,
           showLabels: Boolean,
           showMarkers: Boolean,
+          absoluteLabels: Boolean,
           pointUrl: String,
           flagUrl: String,
           data: Object,
@@ -10036,12 +10038,22 @@ name: Delegator.Ajax
           if (api.get('errorRedirectURL')){
             window.location.href = api.get('errorRedirectURL');
           } else if (api.get('failureTriggers')){
-            var delegators = api.getAs(Object, 'failureTriggers');
-            if (delegators){
-              Object.each(delegators, function(conditional, delegator){
-                if (Delegator.verifyTargets(link, conditional, api)) {
-                  api.getDelegator().trigger(delegator, el);
-                }
+            var triggers = api.getAs(Object, 'failureTriggers');
+            var delegator = api.getDelegator();
+            if (triggers){
+              // when the user mouses over/out, loop over the triggers
+              Object.each(triggers, function(config, trigger){
+                // split the trigger name - '.foo::addClass' > {name: addClass, selector: .foo}
+                trigger = delegator._splitTriggerName(trigger);
+                if (!trigger) return;
+                // iterate over the elements that match that selector using the event target as the root
+                Behavior.getTargets(link, trigger.selector).each(function(target){
+                  var api;
+                  // create an api for the trigger/element combo and set defaults to the config (if config present)
+                  if (config) api = delegator._getAPI(target, trigger).setDefault(config);
+                  // invoke the trigger
+                  delegator.trigger(trigger.name, target, event, true, api);
+                });
               });
             }
           }
@@ -10876,8 +10888,8 @@ provides: [Delegator.ShowOnSelect]
     if (option.get('data-target')) return element.getElements(option.get('data-target'));
     // if there isn't a data-target value on the option, get all the targets specified in the behavior
     // and the get the element at the same index as this option
-
-    var selector = api.get('targets')[element.getElements('option').indexOf(option)];
+    var selector;
+    if (api.get('targets')) selector = api.get('targets')[element.getElements('option').indexOf(option)];
     return selector ? element.getElements(selector) : [];
   };
 
@@ -11077,7 +11089,8 @@ provides: [Delegator.SubmitOnChange]
 
 Delegator.register('change', 'submitOnChange', {
   defaults: {
-    onlyOnce: true
+    onlyOnce: true,
+    spin: false
   },
   handler: function(event, element, api){
     var form = element;
@@ -11085,11 +11098,13 @@ Delegator.register('change', 'submitOnChange', {
     if (api.get('onlyIfSet') && !element.get('value')) return;
     if (!api.getAs(Boolean, 'onlyOnce') || (api.get('onlyOnce') && !form.retrieve('submitted'))){
       form.fireEvent('submit').submit();
+      if (api.getAs(Boolean, 'spin')) form.spin();
       form.store('submitted', true);
     }
   }
 
 });
+
 /*
 ---
 

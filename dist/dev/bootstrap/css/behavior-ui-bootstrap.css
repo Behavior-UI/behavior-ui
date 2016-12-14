@@ -8495,6 +8495,11 @@ ul.autocompleter-choices span.autocompleter-queried {
 [data-behavior~="Thanx.Chart.Stock"] .legend-name .icons span {
   background-color: transparent;
 }
+.chart g.highcharts-legend-item,
+[data-behavior~="Thanx.Chart"] g.highcharts-legend-item,
+[data-behavior~="Thanx.Chart.Stock"] g.highcharts-legend-item {
+  display: none;
+}
 .chart .highcharts-tooltip,
 [data-behavior~="Thanx.Chart"] .highcharts-tooltip,
 [data-behavior~="Thanx.Chart.Stock"] .highcharts-tooltip {

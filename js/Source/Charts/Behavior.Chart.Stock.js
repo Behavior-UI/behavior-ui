@@ -63,6 +63,7 @@ provides: [Behavior.Chart.Stock]
           exportable: Boolean,
           showLabels: Boolean,
           showMarkers: Boolean,
+          absoluteLabels: Boolean,
           pointUrl: String,
           flagUrl: String,
           data: Object,
