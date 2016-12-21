@@ -54,6 +54,8 @@ provides: [Behavior.Chart.Stock]
       var options = Object.cleanValues(
         api.getAs({
           v2Styles: Boolean,
+          lightBackground: String,
+          darkBackground: String,
           xAxis: Object,
           yAxis: Object,
           tooltips: Boolean,

@@ -142,7 +142,10 @@ Chart = new Class({
     // width of the chart area that has lines and labels to left and right of series
     gutterWidth: 60,
     // minimum size for a column; defaults to 2 unless stacking is on
-    minPointLength: null
+    minPointLength: null,
+    // use defaults from the v2options unless specified
+    // darkBackground: null,
+    // lightBackground: null
 
     /*
       gradient example:
@@ -182,7 +185,9 @@ Chart = new Class({
           return (this.chart.options.yPrefix || "") + (self.options.absoluteLabels ? Math.abs(this.value) : this.value) +  (this.chart.options.ySuffix || "");
         }
       }
-    }
+    },
+    lightBackground: '#f7f7f7',
+    darkBackground: '#eff0f0'
   },
   basicChartOptions: {
     margin: [30, 90, 90, 90],
@@ -924,10 +929,10 @@ Chart = new Class({
     // draw the light grey box behind the main chart
     var r = this.chart.renderer;
     var bgLight = r.rect(0, 0, this.chart.chartWidth, this.chart.chartHeight - this.chart.marginBottom, 0, 1).attr({
-        fill: '#f7f7f7'
+        fill: this.options.lightBackground
     }).add();
     var bgDark = r.rect(0, this.chart.chartHeight - this.chart.marginBottom - 1, this.chart.chartWidth, 61, 0, 1).attr({
-        fill: '#eff0f0'
+        fill: this.options.darkBackground
     }).add();
     // store references in case we need to redraw again
     this._backgrounds.push(bgLight);
