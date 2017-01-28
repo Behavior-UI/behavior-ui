@@ -21,6 +21,7 @@ window.addEvent('domready', function(){
 	           window.location.search.indexOf('debug=true') >= 0,
 	  breakOnErrors: window.location.search.indexOf('breakOnErrors=true') >= 0 ||
 	           window.location.search.indexOf('debug=true') >= 0,
+	  reloadOnPopState: true
 	});
 	window.delegator = new Delegator({
 	  getBehavior: function(){ return behavior; }

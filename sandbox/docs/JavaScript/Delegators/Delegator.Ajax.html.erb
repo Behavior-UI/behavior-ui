@@ -103,6 +103,38 @@
 	<% end %>
 
 
+    <h3>Updating the URL history</h3>
+
+<p>You can use the Ajax trigger to fetch entire pages and only update a portion of the document. This is what the <code>fiter</code> option is for. You can fetch the entire document, but only selectively update the portion that changed. When you do this, you can set the option for <code>updateHistory</code> to <code>true</code>, which will update the browser location to the new page, allowing the user to hit refresh and see the same page as expected.</p>
+
+<p>See also: the <code>reloadOnPopState</code> option on the <code>Behavior</code> class, which allows you to have a functioning back button in this use case.</p>
+
+    <%= render layout: "codeblock" do %>
+  <%= link_to url_for(other_page: true),
+    class: 'btn btn-default',
+    data: {
+      trigger: "ajax",
+      ajax_options: {
+        useSpinner: true,
+        action:'update',
+        target:'!body #other_page_container',
+        filter: 'p.other_page',
+        updateHistory: true
+      }
+    } do %>Request this entire page with different content in the box below.<% end %><br/>
+  <div id="other_page_container">
+    <p class="other_page">
+      <% if params[:other_page] == "true" %>
+        This is the other page! Note that the url of the page changed. Hit the back button and the page will
+        reload on the previous page.
+      <% else %>
+        This is the original content
+      <% end %>
+    </p>
+  </div>
+    <% end %>
+
+
     <h3>Error handling</h3>
 
     <p>There are two methods for error handling ajax failures. You can specify a <code>errorRedirectURL</code> which will send the browser to a new page upon failure, or you can specify <code>failureTriggers</code> to invoke.</p>

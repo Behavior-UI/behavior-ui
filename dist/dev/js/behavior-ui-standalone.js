@@ -402,7 +402,11 @@ provides: [Behavior]
           history.pushState(null, null, url);
         });
         window.addEvent('popstate', function(){
-          if (this.options.reloadOnPopState) window.location.href = window.location.href;
+          if (this.options.reloadOnPopState && ! window.popping){
+            window.popping = true;
+            window.location.href = window.location.href;
+            window.popping = false;
+          }
         }.bind(this));
       }
     },
@@ -2311,6 +2315,7 @@ window.addEvent('domready', function(){
 	           window.location.search.indexOf('debug=true') >= 0,
 	  breakOnErrors: window.location.search.indexOf('breakOnErrors=true') >= 0 ||
 	           window.location.search.indexOf('debug=true') >= 0,
+	  reloadOnPopState: true
 	});
 	window.delegator = new Delegator({
 	  getBehavior: function(){ return behavior; }
@@ -13525,6 +13530,43 @@ Also quick usage:
   };
 
 })();
+
+/*
+---
+description: Puts a list of all active keyboards into the specified DOM element.
+provides: [Behavior.Keyboard.List]
+requires: [Behavior.Keyboard]
+script: Behavior.Keyboard.List.js
+name: Behavior.Keyboard.List
+...
+*/
+
+Behavior.addGlobalFilter('Keyboard.List', {
+
+  returns: Element,
+
+  requires: ['target'],
+
+  setup: function(el, api){
+    api.getElements('items'); //throws error if no items are found.
+
+    var filter = new Form.Filter(el,
+      Object.cleanValues(
+        api.getAs({
+          items: String,
+          text: String,
+          hideClass: String,
+          rateLimit: Number,
+          stripTags: Boolean
+        })
+      )
+    );
+    api.onCleanup(function(){
+      filter.detach();
+    });
+    return filter;
+  }
+});
 
 /*
 ---
