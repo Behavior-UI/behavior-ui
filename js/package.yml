@@ -36,7 +36,7 @@ sources:
  - Source/Bootstrap.Popup/Behavior.BS.Popup.FormRequest.js
  - Source/Bootstrap.Popup/Behavior.BS.Popup.js
  - Source/Bootstrap.Popup/Bootstrap.Popup.js
- - Source/Bootstrap.Popup/Delegator.BS.ShowPopup.js
+ - Source/Bootstrap.Popup/Delegator.BS.ShowHidePopup.js
  - Source/Bootstrap.Tabs/Behavior.BS.Tabs.js
  - Source/Bootstrap.Tooltip/Behavior.BS.Tooltip.js
  - Source/Bootstrap.Tooltip/Bootstrap.Tooltip.js

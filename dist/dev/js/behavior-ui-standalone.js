@@ -4800,22 +4800,33 @@ requires:
  - Behavior/Behavior
  - Behavior.BS.Popup
 
-provides: [Delegator.BS.ShowPopup]
+provides: [Delegator.BS.ShowPopup, Delegator.BS.HidePopup]
 
 ...
 */
 
-Delegator.register('click', 'BS.showPopup', {
+(function(){
 
-  handler: function(event, link, api){
-    var target = api.get('target') ? link.getElement(api.get('target')) : document.id(link.get('href').split("#")[1]);
-    event.preventDefault();
-    if (!target) api.fail('Could not find target element to activate: ' + (api.get('target') || link.get('href')));
-    api.getBehavior().apply(target);
-    target.getBehaviorResult('BS.Popup').show();
-  }
+  var triggers = {};
 
-});
+  ['show', 'hide'].each(function(action){
+
+    triggers['BS.'+ action + 'Popup'] = {
+      handler: function(event, link, api){
+        var target = api.get('target') ? link.getElement(api.get('target')) : document.id(link.get('href').split("#")[1]);
+        event.preventDefault();
+        if (!target) api.fail('Could not find target element to activate: ' + (api.get('target') || link.get('href')));
+        api.getBehavior().apply(target);
+        target.getBehaviorResult('BS.Popup')[action]();
+      }
+    };
+
+  });
+
+  Delegator.register('click', triggers);
+
+})();
+
 /*
 ---
 
@@ -13530,43 +13541,6 @@ Also quick usage:
   };
 
 })();
-
-/*
----
-description: Puts a list of all active keyboards into the specified DOM element.
-provides: [Behavior.Keyboard.List]
-requires: [Behavior.Keyboard]
-script: Behavior.Keyboard.List.js
-name: Behavior.Keyboard.List
-...
-*/
-
-Behavior.addGlobalFilter('Keyboard.List', {
-
-  returns: Element,
-
-  requires: ['target'],
-
-  setup: function(el, api){
-    api.getElements('items'); //throws error if no items are found.
-
-    var filter = new Form.Filter(el,
-      Object.cleanValues(
-        api.getAs({
-          items: String,
-          text: String,
-          hideClass: String,
-          rateLimit: Number,
-          stripTags: Boolean
-        })
-      )
-    );
-    api.onCleanup(function(){
-      filter.detach();
-    });
-    return filter;
-  }
-});
 
 /*
 ---
