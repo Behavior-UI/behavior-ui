@@ -35,6 +35,7 @@ Behavior.addGlobalFilter('Slider.Modify', {
     var slideFill = api.get('fill') ? api.getElement('fill') : null;
     var knob = api.getElement('knob');
     var targets = api.getAs(Array, 'targets');
+    var tapFillElement
     var moveClassTargets;
     if(api.get('moveClassTargets')) moveClassTargets = api.getElements('moveClassTargets');
 
@@ -64,6 +65,16 @@ Behavior.addGlobalFilter('Slider.Modify', {
         roundAfterSnap: api.getAs(Number, 'roundAfterSnap')
       }
     );
+    if(api.get('tapFillElement')){
+      var tapEvent =  function(){
+        slider.set(slider.options.range[1]);
+      }
+      api.getElement('tapFillElement').addEvent('mousedown', tapEvent);
+
+      api.onCleanup(function(){
+        api.removeEvent('mousedown', tapEvent);
+      });
+    }
     if(formTarget){
       var timer;
       slider.addEvent('move', function(){
