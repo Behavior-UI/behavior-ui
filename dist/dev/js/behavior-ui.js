@@ -28690,6 +28690,7 @@ Behavior.addGlobalFilter('Slider.Modify', {
     var slideFill = api.get('fill') ? api.getElement('fill') : null;
     var knob = api.getElement('knob');
     var targets = api.getAs(Array, 'targets');
+    var tapFillElement
     var moveClassTargets;
     if(api.get('moveClassTargets')) moveClassTargets = api.getElements('moveClassTargets');
 
@@ -28719,6 +28720,16 @@ Behavior.addGlobalFilter('Slider.Modify', {
         roundAfterSnap: api.getAs(Number, 'roundAfterSnap')
       }
     );
+    if(api.get('tapFillElement')){
+      var tapEvent =  function(){
+        slider.set(slider.options.range[1]);
+      }
+      api.getElement('tapFillElement').addEvent('mousedown', tapEvent);
+
+      api.onCleanup(function(){
+        api.removeEvent('mousedown', tapEvent);
+      });
+    }
     if(formTarget){
       var timer;
       slider.addEvent('move', function(){
@@ -29013,6 +29024,37 @@ Locale.define('en-US', 'FormValidator', {
   'no-spaces': 'No spaces, tabs, or line breaks are allowed in this field.'
 
 });
+/*
+---
+
+name: Form.Validator.NumbersOnly
+
+description: Validates the entry is only numbers (no punctuation, can lead with 0)
+
+requires:
+ - More/Form.Validator
+
+provides: [Form.Validator.NumbersOnly]
+
+...
+*/
+
+
+Form.Validator.add('numbers-only', {
+  errorMsg: Form.Validator.getMsg.pass('numbers-only'),
+  test: function(element){
+    return Form.Validator.getValidator('IsEmpty').test(element) || (/^(\d*)$/).test(element.get('value'));
+  }
+});
+
+
+Locale.define('en-US', 'FormValidator', {
+
+  'numbers-only': 'Please enter numbers only.'
+
+});
+
+
 /*
 ---
 
