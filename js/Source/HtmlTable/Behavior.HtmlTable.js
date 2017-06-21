@@ -93,7 +93,7 @@ HtmlTable.defineParsers({
   dataSortNumeric: {
     match: /data-sort-numeric/,
     convert: function(){
-      var el = this.getElement('[data-sort-numeric]');
+      var el = this.getElement('[data-sort-numeric]') || this;
       return el ? el.getData('sort-numeric').toFloat() : 0;
     },
     number: true
@@ -102,7 +102,7 @@ HtmlTable.defineParsers({
   dataSortString: {
     match: /data-sort-string/,
     convert: function(){
-      var el = this.getElement('[data-sort-string]');
+      var el = this.getElement('[data-sort-string]') || this;
       return el ? el.getData('sort-string') : "";
     },
     number: false
