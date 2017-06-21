@@ -18692,7 +18692,6 @@ provides: [Chart.Stock]
 
 ...
 */
-
 Chart.Stock = new Class({
 
   Extends: Chart,
@@ -18806,7 +18805,8 @@ Chart.Stock = new Class({
         },
         rangeSelector: {
           inputEnabled: false,
-          selected: this.options.selectedRange
+          selected: this.options.selectedRange,
+          buttonPosition: {y: 0}
         },
         xAxis: {
           events: {
