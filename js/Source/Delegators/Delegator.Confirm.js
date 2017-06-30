@@ -66,10 +66,11 @@ name: Delegator.Confirm
             );
             btnInfo.inject(form);
 
-            onConfirm = function(){
+            onConfirm = function(e){
               if (!doubleCheck()) return;
               // allow delete
               if (link.get('data-method')) form.set('method', link.get('data-method'));
+              if (link.get('data-stop')) e.target.disabled = true;
               form.fireEvent('submit').submit();
               btnInfo.destroy();
             };
