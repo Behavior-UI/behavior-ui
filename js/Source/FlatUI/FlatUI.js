@@ -33,7 +33,7 @@ window.addEvent('domready', function(){
 
 });
 
-window.addEvent('load', function(){
+FlatUI.selectReplace = function(){
   if (!window.behavior || !behavior.getFilter('FlatUI.Select')) return;
 
   var styleSelect = function(select){
@@ -49,4 +49,12 @@ window.addEvent('load', function(){
   };
   styleSelects(document.body);
   behavior.addEvent('ammendDom', styleSelects);
+}
+
+window.addEvent('load', function(){
+  FlatUI.selectReplace()
+});
+
+document.addEventListener("turbolinks:load", function() {
+  FlatUI.selectReplace()
 });
