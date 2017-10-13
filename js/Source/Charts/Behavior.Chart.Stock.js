@@ -66,6 +66,7 @@ provides: [Behavior.Chart.Stock]
           showLabels: Boolean,
           showMarkers: Boolean,
           absoluteLabels: Boolean,
+          allowDecimalsInTooltip: Boolean,
           pointUrl: String,
           flagUrl: String,
           data: Object,

@@ -143,6 +143,8 @@ Chart = new Class({
     gutterWidth: 60,
     // minimum size for a column; defaults to 2 unless stacking is on
     minPointLength: null,
+    // can force tooltips to always be integers
+    allowDecimalsInTooltip: true,
     // use defaults from the v2options unless specified
     // darkBackground: null,
     // lightBackground: null
@@ -670,7 +672,7 @@ Chart = new Class({
             if (typeOf(value) == "number"){
               // hey, let's make it fun to read
               if (value > 9999) value = value.humanize({ decimals: 1 }); // 100.1K
-              else value = value.format({decimals: value % 1 ? 2 : 0}); //1,219
+              else value = value.format({decimals: value % 1 && self.options.allowDecimalsInTooltip ? 2 : 0}); //1,219
             }
 
             var tooltipOptions = point.series.tooltipOptions;

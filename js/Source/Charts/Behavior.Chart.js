@@ -66,6 +66,7 @@ provides: [Behavior.Chart]
           showLabels: Boolean,
           showMarkers: Boolean,
           absoluteLabels: Boolean,
+          allowDecimalsInTooltip: Boolean,
           pointUrl: String,
           flagUrl: String,
           data: Object,

@@ -5658,6 +5658,8 @@ Chart = new Class({
     gutterWidth: 60,
     // minimum size for a column; defaults to 2 unless stacking is on
     minPointLength: null,
+    // can force tooltips to always be integers
+    allowDecimalsInTooltip: true,
     // use defaults from the v2options unless specified
     // darkBackground: null,
     // lightBackground: null
@@ -6185,7 +6187,7 @@ Chart = new Class({
             if (typeOf(value) == "number"){
               // hey, let's make it fun to read
               if (value > 9999) value = value.humanize({ decimals: 1 }); // 100.1K
-              else value = value.format({decimals: value % 1 ? 2 : 0}); //1,219
+              else value = value.format({decimals: value % 1 && self.options.allowDecimalsInTooltip ? 2 : 0}); //1,219
             }
 
             var tooltipOptions = point.series.tooltipOptions;
@@ -6847,6 +6849,7 @@ provides: [Behavior.Chart]
           showLabels: Boolean,
           showMarkers: Boolean,
           absoluteLabels: Boolean,
+          allowDecimalsInTooltip: Boolean,
           pointUrl: String,
           flagUrl: String,
           data: Object,
@@ -7378,6 +7381,7 @@ provides: [Behavior.Chart.Stock]
           showLabels: Boolean,
           showMarkers: Boolean,
           absoluteLabels: Boolean,
+          allowDecimalsInTooltip: Boolean,
           pointUrl: String,
           flagUrl: String,
           data: Object,
@@ -10349,10 +10353,11 @@ name: Delegator.Confirm
             );
             btnInfo.inject(form);
 
-            onConfirm = function(){
+            onConfirm = function(e){
               if (!doubleCheck()) return;
               // allow delete
               if (link.get('data-method')) form.set('method', link.get('data-method'));
+              if (link.get('data-stop')) e.target.disabled = true;
               form.fireEvent('submit').submit();
               btnInfo.destroy();
             };
@@ -11264,7 +11269,7 @@ window.addEvent('domready', function(){
 
 });
 
-window.addEvent('load', function(){
+FlatUI.selectReplace = function(){
   if (!window.behavior || !behavior.getFilter('FlatUI.Select')) return;
 
   var styleSelect = function(select){
@@ -11280,6 +11285,14 @@ window.addEvent('load', function(){
   };
   styleSelects(document.body);
   behavior.addEvent('ammendDom', styleSelects);
+}
+
+window.addEvent('load', function(){
+  FlatUI.selectReplace()
+});
+
+document.addEventListener("turbolinks:load", function() {
+  FlatUI.selectReplace()
 });
 
 /*
