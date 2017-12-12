@@ -17517,6 +17517,7 @@ Chart = new Class({
     var v2yAxis = options.yAxis;
     var size = this.getSizeOptions();
     var self = this;
+    if (options.columnGrouping) this.options.columnGrouping = options.columnGrouping;
     var chartOptions = Object.merge({
       chart: {
         renderTo: this.element,
@@ -17745,18 +17746,17 @@ Chart = new Class({
           formatter: function(){
             if (self.options.xAxis.type == 'datetime'){
               // parse the date
-              var d = new Date(this.value);
-              switch(self.grouping){
+              switch(self.options.columnGrouping){
                 case 'month':
                   return "<span class='axis-date'><span class='month'>" +
-                          d.format("%b") + "</span><span class='sub'>" + d.format("%Y") + "</span></span>";
+                          Highcharts.dateFormat("%b", this.value) + "</span><span class='sub'>" + Highcharts.dateFormat("%Y", this.value) + "</span></span>";
                 case 'week':
                   return "<span class='axis-date'><span class='week'>week of</span><span class='sub'>" +
-                          d.format("%b %e") + "</span></span>";
+                          Highcharts.dateFormat("%b %e", this.value) + "</span></span>";
                 default:
                   // format it; it gets styled by css
-                  return "<span class='axis-date'><span class='day'>" + d.format("%a")[0] +
-                         "</span><span class='sub'>" +  d.format("%b %e") + "</span></span>";
+                  return "<span class='axis-date'><span class='day'>" + Highcharts.dateFormat("%a", this.value)[0] +
+                         "</span><span class='sub'>" +  Highcharts.dateFormat("%b %e", this.value) + "</span></span>";
               }
             } else {
               return "<span class='axis-date'><span class='sub'>" +  this.value + "</span></span>";
@@ -17877,7 +17877,7 @@ Chart = new Class({
           // if we've got a date on our hands, format it
 
           var dateFormat;
-          switch(self.grouping){
+          switch(self.options.columnGrouping){
             case 'week':
               dateFormat = "Week of %b %e, %Y";
               break;
