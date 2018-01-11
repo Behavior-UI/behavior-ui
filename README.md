@@ -16,7 +16,7 @@ b. __To fix a bug:__
 
    1. Clone the repo.
    2. Fix the bug.
-   4. Run `grunt` to compile the distribution file(s).
+   4. Run `grunt prod` to compile the distribution file(s).
    5. Push to your Github fork.
    6. Create Pull Request, and send Pull Request.
 
